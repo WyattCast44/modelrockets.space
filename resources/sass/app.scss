@@ -4,3 +4,7 @@
 @import "components/inputs";
 
 @tailwind utilities;
+
+.container {
+    max-width: 900px;
+}

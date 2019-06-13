@@ -31,6 +31,7 @@
 -   Channels (Collection of threads)
 -   Threads
 -   Replies
+-   Rss feeds (per channel)
 
 ## Channels
 

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Article extends Resource
@@ -45,16 +47,32 @@ class Article extends Resource
         return [
             ID::make()->hideFromIndex(),
 
-            BelongsTo::make('User'),
+            BelongsTo::make('User')->sortable()
+                ->hideFromIndex(),
 
-            Text::make('Title')->sortable(),
+            Text::make('Title')->sortable()
+                ->rules('required', 'max:255'),
+
+            Text::make('Subtitle')->sortable()
+                ->rules('required', 'max:255'),
 
             Text::make('Slug')->sortable()
                 ->rules('unique:articles,slug', 'max:255')
+                ->hideFromIndex()
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
 
-            Markdown::make('Content')
+            Boolean::make('Published')->sortable()
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->readonly(),
+
+            DateTime::make('Published At')->sortable()
+                ->hideWhenCreating()
+                ->hideFromIndex()
+                ->readonly(),
+
+            Markdown::make('Body')
                 ->rules('required', 'string')
                 ->hideFromIndex()
                 ->alwaysShow(),
@@ -102,6 +120,10 @@ class Article extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Actions\PublishArticle)->canSee(function () {
+                return $this->resource->published !== false;
+            }),
+        ];
     }
 }

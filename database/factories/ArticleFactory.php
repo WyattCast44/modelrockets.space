@@ -10,7 +10,10 @@ $factory->define(Article::class, function (Faker $faker) {
     return [
         'slug' => $faker->slug(),
         'title' => $faker->sentence,
-        'content' => $faker->paragraph,
+        'subtitle' => $faker->sentence,
+        'body' => $faker->paragraph,
+        'published' => true,
+        'published_at' => now(),
         'user_id' => factory(User::class)->create()->id,
     ];
 });

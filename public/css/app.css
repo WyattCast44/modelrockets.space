@@ -601,6 +601,8 @@ video {
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 640px) {
@@ -7549,6 +7551,10 @@ video {
 
 .z-auto {
   z-index: auto;
+}
+
+.container {
+  max-width: 900px;
 }
 
 @media (min-width: 640px) {

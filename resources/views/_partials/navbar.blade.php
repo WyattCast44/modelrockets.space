@@ -10,7 +10,7 @@
             <a href="/" class="mx-2 p-1 hover:text-red-700">Home</a>
             <a href="#" class="mx-2 p-1 hover:text-red-700">Forum</a>
             <a href="#" class="mx-2 p-1 hover:text-red-700">Guides</a>
-            <a href="#" class="mx-2 p-1 hover:text-red-700">Articles</a>
+            <a href="{{ route('articles.index') }}" class="mx-2 p-1 hover:text-red-700">Articles</a>
         </ul>
 
     </div>
@@ -23,8 +23,7 @@
         @endguest
 
         @auth
-        <a href="#" onclick="document.getElementById('logout-form').submit();"
-            class="mx-2 p-1 hover:text-red-700">Logout</a>
+        <a href="#" onclick="document.getElementById('logout-form').submit();" class="mx-2 p-1 hover:text-red-700">Logout</a>
         @endauth
     </ul>
 
