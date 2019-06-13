@@ -4,11 +4,13 @@
 -   Uuid
 -   Sweet Alert 2
 -   Telescope
+-   Sluggable
 
 # Articles
 
 -   WYSIYG markdown
 -   Edit on github feature
+-   Taggable
 
 # Notes
 
@@ -23,3 +25,13 @@
 -   Videos
 -   Forum
 -   Gallery
+
+# Forum Stuff
+
+-   Channels (Collection of threads)
+-   Threads
+-   Replies
+
+## Channels
+
+-   Channels have threads
