@@ -20,4 +20,9 @@ class UsersController extends Controller
         
         return view('users.show', ['user' => $user]);
     }
+
+    public function update(User $user, Request $request)
+    {
+        //
+    }
 }

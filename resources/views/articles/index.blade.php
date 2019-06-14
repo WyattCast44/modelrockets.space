@@ -21,7 +21,7 @@
 
 <div class="container mx-auto my-12">
 
-    <ul>
+    <ul class="mb-10">
         @forelse ($articles as $article)
 
             <a href="{{ route('articles.show', $article) }}">
@@ -39,7 +39,11 @@
                         </p>
 
                         <p class="text-sm text-gray-600">
-                            {{  $article->published_at->diffForHumans() }}
+                            {{  $article->published_at->diffForHumans() }} 
+                            &middot; 
+                            by <a href="{{  route('users.show', $article->user) }}" class="hover:text-blue-400">
+                                {{ "@{$article->user->username}" }}
+                            </a>
                         </p>
 
                     </div>

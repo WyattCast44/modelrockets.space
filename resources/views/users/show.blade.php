@@ -12,11 +12,13 @@
         </div>
 
         <div>
-            <h1 class="font-semibold text-3xl leading-none uppercase">{{ '@' . $user->username }}</h1>
+            <h1 class="font-semibold text-3xl leading-none uppercase text-gray-700">{{ '@' . $user->username }}</h1>
             <p class="leading-none text-gray-600 italic my-3">{{ $user->profile->tagline }}</p>
             @if(auth()->check() && auth()->user()->id === $user->id)
                 <div>
-                    <button class="btn btn-sm rounded-full px-3 leading-none btn-outline-primary">Edit My Profile</button>
+                    <a href="#update-profile" class="btn btn-sm rounded-full px-3 leading-none btn-outline-primary">
+                        Edit My Profile
+                    </a>
                 </div>
                 @include('users._partials.edit-profile')
             @endif
