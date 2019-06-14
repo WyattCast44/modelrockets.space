@@ -42,4 +42,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function getGravatarAttribute()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=75';
+    }
+
+    public function scopePublic($query)
+    {
+        return $query->where('public', true);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 }
