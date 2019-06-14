@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('username', 50)->index()->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->boolean('public')->default(true);
+            $table->boolean('superAdmin')->default(false);
             $table->string('password');
             $table->rememberToken();
             $table->softDeletes();
