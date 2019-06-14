@@ -7,7 +7,7 @@
 <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
     <div class="container">
 
-        <h1 class="text-center text-4xl">All Public Users</h1>
+        <h1 class="text-center text-4xl mb-3">All Public Users</h1>
 
         <p class="text-center text-gray-600">
             Meet new friends, discover old pals, and stay connected to your fellow rocketers!
