@@ -9,6 +9,14 @@
     max-width: 850px;
 }
 
+a {
+    @apply text-blue-500;
+}
+
+a:hover {
+    @apply text-blue-800 underline;
+}
+
 .modal {
     &-overlay {
         visibility: hidden;
@@ -31,6 +39,10 @@
     &-modal {
         z-index: 1000 !important;
         max-width: 90%;
-        @apply border border-solid border-gray-300 bg-white rounded p-8 relative shadow-md;
+        @apply border border-solid border-gray-300 bg-white rounded py-10 px-16 relative shadow-md;
     }
+}
+
+input {
+    @apply mt-2;
 }

@@ -25,7 +25,9 @@
 
                 <div class="w-1/3 px-2">
                     <div class="h-12">
+                        <a href="{{ route('users.show', $user) }}">
                         {{ '@' . $user->username }}
+                        </a>
                     </div>
                 </div>   
 

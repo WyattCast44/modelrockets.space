@@ -1,6 +1,6 @@
 <div class="modal-overlay" id="{{ $name }}">
 
-    <a href="#" class="modal-cancel"></a>
+    <a href="#" class="modal-cancel cursor-default"></a>
 
     <div class="modal-modal">
 
