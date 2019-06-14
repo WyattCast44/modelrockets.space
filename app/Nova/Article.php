@@ -60,7 +60,7 @@ class Article extends Resource
                 ->rules('unique:articles,slug', 'max:255')
                 ->hideFromIndex()
                 ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->rules('required'),
 
             Boolean::make('Published')->sortable()
                 ->hideWhenCreating()
@@ -69,13 +69,11 @@ class Article extends Resource
 
             DateTime::make('Published At')->sortable()
                 ->hideWhenCreating()
-                ->hideFromIndex()
-                ->readonly(),
+                ->hideFromIndex(),
 
             Markdown::make('Body')
                 ->rules('required', 'string')
-                ->hideFromIndex()
-                ->alwaysShow(),
+                ->hideFromIndex(),
         ];
     }
 
@@ -122,7 +120,10 @@ class Article extends Resource
     {
         return [
             (new Actions\PublishArticle)->canSee(function () {
-                return $this->resource->published !== false;
+                return ($this->resource->published) ? false : true;
+            }),
+            (new Actions\UnpublishArticle)->canSee(function () {
+                return ($this->resource->published) ? true : false;
             }),
         ];
     }

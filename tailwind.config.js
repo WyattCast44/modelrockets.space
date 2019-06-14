@@ -3,7 +3,12 @@ module.exports = {
         container: {
             center: true
         },
-        extend: {}
+        extend: {
+            screens: {
+                print: { raw: "print" }
+                // => @media  print { ... }
+            }
+        }
     },
     variants: {},
     plugins: []

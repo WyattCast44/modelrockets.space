@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 
-@import "components/inputs";
+@import "components/markdown";
 
 @tailwind utilities;
 
 .container {
-    max-width: 900px;
+    max-width: 850px;
 }

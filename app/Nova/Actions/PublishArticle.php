@@ -27,7 +27,7 @@ class PublishArticle extends Action
             $article->publish();
         });
 
-        return Action::message('Articles Published');
+        return Action::message('Article(s) Published');
     }
 
     /**

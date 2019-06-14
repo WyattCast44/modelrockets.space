@@ -5,8 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Laravel\Nova\Actions\Actionable;
+use Spatie\Feed\FeedItem;
+use Spatie\Feed\Feedable;
+use Illuminate\Mail\Markdown;
 
-class Article extends Model
+class Article extends Model implements Feedable
 {
     use Sluggable, Actionable;
 
@@ -44,6 +47,16 @@ class Article extends Model
         return $this;
     }
 
+    public function getBodyAttribute($value)
+    {
+        if (request()->is('nova-api/*')) {
+            return $value;
+        }
+
+        return Markdown::parse($value);
+        return (new \ParsedownExtra)->text($value);
+    }
+
     public function path($article = null)
     {
         if ($article) {
@@ -58,6 +71,21 @@ class Article extends Model
         return $query->where('published', true);
     }
 
+    public static function getFeedItems()
+    {
+        return self::published()->get();
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->path($this))
+            ->title($this->title)
+            ->summary($this->subtitle)
+            ->updated($this->updated_at)
+            ->link($this->path($this))
+            ->author($this->user->username);
+    }
 
     public function sluggable()
     {

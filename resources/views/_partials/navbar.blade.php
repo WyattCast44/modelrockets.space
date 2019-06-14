@@ -1,9 +1,9 @@
-<nav class="bg-white shadow-md flex justify-between p-5 items-center">
+<nav class="bg-white shadow-md flex justify-between p-5 items-center print:hidden">
 
     <div class="flex items-center">
 
-        <h2 class="text-2xl mr-2">
-            <a href="/" class="hover:no-underline">Model Rockets 🚀</a>
+        <h2 class="text-2xl mr-4">
+            <a href="/" class="hover:no-underline">Model Rocket Space 🚀</a>
         </h2>
 
         <ul class="text-lg">
