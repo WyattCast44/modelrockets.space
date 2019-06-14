@@ -14,8 +14,6 @@ class UserPolicy
         if ($auth->superAdmin) {
             return true;
         }
-
-        return false;
     }
 
     public function create(User $auth)
@@ -33,15 +31,50 @@ class UserPolicy
             return true;
         }
 
-        return false;
-    }
-
-    public function update(?User $auth, User $user)
-    {
         if ($auth && $auth->id === $user->id) {
             return true;
         }
+
+        return false;
+    }
+
+    public function update(User $auth, User $user)
+    {
+        if ($auth->id === $user->id) {
+            return true;
+        }
         
+        return false;
+    }
+
+    public function delete(User $auth, User $user)
+    {
+        if ($auth->superAdmin) {
+            return true;
+        }
+
+        if ($auth->id === $user->id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function restore(User $auth, User $user)
+    {
+        if ($auth->superAdmin) {
+            return true;
+        }
+
+        return false;
+    }
+    
+    public function forceDelete(User $auth, User $user)
+    {
+        if ($auth->superAdmin) {
+            return true;
+        }
+
         return false;
     }
 }
