@@ -9,7 +9,8 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Article::published()->get();
+        $articles = Article::published()
+            ->paginate(5);
 
         return view('articles.index', ['articles' => $articles]);
     }

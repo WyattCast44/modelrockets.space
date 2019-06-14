@@ -19,13 +19,13 @@
 <div class="container p-5 bg-white rounded my-12 shadow-md border border-solid border-gray-300">
 
     <div class="px-2">
-        <div class="flex -mx-2">
+        <div class="flex -mx-2 flex-wrap">
 
             @forelse($users as $user)
 
                 <div class="w-1/3 px-2">
                     <div class="h-12">
-                        {{  $user->username }}
+                        {{ '@' . $user->username }}
                     </div>
                 </div>   
 

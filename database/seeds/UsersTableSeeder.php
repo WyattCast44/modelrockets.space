@@ -20,8 +20,7 @@ class UsersTableSeeder extends Seeder
             'superAdmin' => true,
         ]);
 
-        factory(UserProfile::class)->create([
-            'user_id' => $user->id,
+        $user->profile->update([
             'tagline' => 'Learner, Maker, Teacher'
         ]);
     }

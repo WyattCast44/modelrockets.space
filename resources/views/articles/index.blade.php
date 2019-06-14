@@ -54,6 +54,9 @@
 
         @endforelse
     </ul>
+
+    {{ $articles->links() }}
+
 </div>
 
 @endsection

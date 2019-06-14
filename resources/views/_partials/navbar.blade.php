@@ -3,7 +3,7 @@
     <div class="flex items-center">
 
         <h2 class="text-2xl mr-4">
-            <a href="/" class="hover:no-underline">Model Rocket Space 🚀</a>
+            <a href="/" class="hover:no-underline">Model Rockets Space 🚀</a>
         </h2>
 
         <ul class="text-lg">

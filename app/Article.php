@@ -84,7 +84,7 @@ class Article extends Model implements Feedable
             ->summary($this->subtitle)
             ->updated($this->updated_at)
             ->link($this->path($this))
-            ->author($this->user->username);
+            ->author('@' . $this->user->username);
     }
 
     public function sluggable()
