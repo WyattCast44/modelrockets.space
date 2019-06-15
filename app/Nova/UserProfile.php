@@ -4,27 +4,25 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\HasOne;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
 
-class User extends Resource
+class UserProfile extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\UserProfile';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'username';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -32,7 +30,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'username', 'email',
+        'tagline',
     ];
 
     /**
@@ -46,32 +44,13 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
-
-            Text::make('Username')
+            BelongsTo::make('User')
                 ->sortable()
-                ->rules('required', 'max:50'),
+                ->readOnly(),
 
-            Text::make('Email')
+            Text::make('Tagline')
                 ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Boolean::make('Public')
-                ->sortable(),
-
-            Boolean::make('Super Admin', 'superAdmin')
-                ->sortable()
-                ->readonly(),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
-
-            HasOne::make('User Profile', 'profile')
-                ->hideFromIndex(),
+                ->nullable(),
 
         ];
     }

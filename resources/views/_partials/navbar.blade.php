@@ -20,8 +20,8 @@
     <ul class="text-lg">
 
         @guest
-            <a href="{{ route('login') }}" class="mx-2 p-1 hover:text-red-700">Login</a>
-            <a href="{{ route('register') }}" class="mx-2 p-1 hover:text-red-700">Register</a>
+            <a href="{{ route('login') }}" class="mx-2 p-1">Login</a>
+            <a href="{{ route('register') }}" class="mx-2 p-1">Register</a>
         @endguest
 
         @auth

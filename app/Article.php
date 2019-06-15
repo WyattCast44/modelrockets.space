@@ -17,11 +17,6 @@ class Article extends Model implements Feedable
 
     protected $dates = ['created_at', 'updated_at', 'published_at'];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -94,5 +89,10 @@ class Article extends Model implements Feedable
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
