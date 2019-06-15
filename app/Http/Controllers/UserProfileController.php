@@ -8,6 +8,6 @@ class UserProfileController extends Controller
 {
     public function update(User $user, Request $request)
     {
-        $this->authorize('update', $user);
+        //
     }
 }

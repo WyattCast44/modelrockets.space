@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Support\Str;
 
 class Article extends Resource
 {
@@ -51,10 +52,16 @@ class Article extends Resource
                 ->hideFromIndex(),
 
             Text::make('Title')->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->resolveUsing(function ($title) {
+                    return Str::limit($title, 35);
+                })->sortable(),
 
             Text::make('Subtitle')->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->resolveUsing(function ($subtitle) {
+                    return Str::limit($subtitle, 35);
+                }),
 
             Text::make('Slug')->sortable()
                 ->rules('unique:articles,slug', 'max:255')
