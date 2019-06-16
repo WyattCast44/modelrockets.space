@@ -5,6 +5,16 @@
 
 @tailwind utilities;
 
+.navbar-bg {
+    background-color: #2214c7;
+    background-image: linear-gradient(
+        135deg,
+        #2214c7 0%,
+        #4735ae 43%,
+        #7b4cc1 100%
+    );
+}
+
 .container {
     max-width: 850px;
 }

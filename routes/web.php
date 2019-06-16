@@ -12,3 +12,5 @@ Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.sho
 Route::get('/users', 'UsersController@index')->name('users.index');
 Route::get('/users/@{user}', 'UsersController@show')->name('users.show');
 Route::patch('/users/@{user}', 'UsersController@update')->name('users.update');
+
+Route::get('/forum', 'ForumController')->name('forum.index');

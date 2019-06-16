@@ -13,5 +13,10 @@ class ArticlesTableSeeder extends Seeder
     public function run()
     {
         factory(Article::class, 11)->create();
+
+        factory(Article::class)->create([
+            'title' => 'Markdown Test',
+            'body' => file_get_contents(__DIR__ . '/Test.md')
+        ]);
     }
 }
