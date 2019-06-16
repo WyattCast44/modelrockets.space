@@ -1,10 +1,9 @@
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
-@import "components/utilities";
 @import "components/markdown";
+@import "components/modal";
 @import "components/navbar";
 @import "components/typography";
-@import "components/modal";
-
-@tailwind utilities;
+@import "components/utilities";
