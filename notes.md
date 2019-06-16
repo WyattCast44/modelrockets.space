@@ -28,6 +28,7 @@
 
 # Forum Stuff
 
+-   Boards
 -   Channels (Collection of threads)
 -   Threads
 -   Replies
