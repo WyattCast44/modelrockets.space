@@ -25,7 +25,7 @@
         @endguest
 
         @auth
-            <a href="#" onclick="document.getElementById('logout-form').submit();" class="mx-2 p-1 hover:text-red-700">Logout</a>
+            <a href="#" onclick="document.getElementById('logout-form').submit();" class="mx-2 p-1 text-white hover:text-white hover:underline">Logout</a>
         @endauth
     </ul>
 

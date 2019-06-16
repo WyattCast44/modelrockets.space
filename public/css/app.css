@@ -1614,6 +1614,11 @@ video {
   padding-left: 128px !important;
 }
 
+.markdown-body ul,
+.markdown-body ol {
+  list-style: initial;
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
