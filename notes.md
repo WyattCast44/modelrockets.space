@@ -29,10 +29,13 @@
 # Forum Stuff
 
 -   Boards
--   Channels (Collection of threads)
 -   Threads
 -   Replies
--   Rss feeds (per channel)
+-   Rss feeds (per board)
+
+-   A board consists of many threads
+-   A thread consists of many replies
+-   A thread can have many categories
 
 ## Channels
 
