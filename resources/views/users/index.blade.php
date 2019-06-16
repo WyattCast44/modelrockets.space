@@ -23,11 +23,17 @@
 
             @forelse($users as $user)
 
-                <div class="w-1/3 px-2">
-                    <div class="h-12">
-                        <a href="{{ route('users.show', $user) }}">
-                        {{ '@' . $user->username }}
-                        </a>
+                <div class="w-1/3 px-3 py-4 rounded hover:bg-gray-200">
+                    <div class="h-12 flex items-center">
+
+                        <img src="{{  $user->gravatar }}" alt="{{ $user->username }}" class="w-10 rounded-full mr-3">
+
+                        <div>
+                            <a href="{{ route('users.show', $user) }}" class="block">
+                                {{ '@' . $user->username }}
+                            </a>
+                            <p class="italic text-sm text-gray-600">Joined {{ $user->created_at->diffForHumans() }}</p>
+                        </div>
                     </div>
                 </div>   
 
