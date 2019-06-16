@@ -9,7 +9,7 @@
         <ul class="text-lg">
             <a href="/" class="mx-2 p-1 text-white hover:text-white hover:underline">Home</a>
             <a href="{{ route('forum.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Forum</a>
-            <a href="#" class="mx-2 p-1 text-white hover:text-white hover:underline">Guides</a>
+            {{-- <a href="#" class="mx-2 p-1 text-white hover:text-white hover:underline">Guides</a> --}}
             <a href="{{ route('articles.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Articles</a>
             <a href="{{ route('users.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Members</a>
         </ul>
