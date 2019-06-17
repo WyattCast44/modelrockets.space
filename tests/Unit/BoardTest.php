@@ -26,7 +26,9 @@ class BoardTest extends TestCase
 
         $board = factory(Board::class)->create();
 
-        $board->makePrivate();
+        $password = 'password';
+
+        $board->makePrivate($password);
 
         $this->assertFalse($board->public);
     }

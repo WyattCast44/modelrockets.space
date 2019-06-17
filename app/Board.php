@@ -14,9 +14,12 @@ class Board extends Model
     /**
      * Abilities/Actions
      */
-    public function makePrivate()
+    public function makePrivate($password)
     {
-        $this->update(['public' => false]);
+        $this->update([
+            'public' => false,
+            'password' => $password,
+        ]);
 
         return $this;
     }
