@@ -16,9 +16,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'username', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -38,6 +36,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Relationships
+     */
     public function articles()
     {
         return $this->hasMany(Article::class);
@@ -48,21 +49,31 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
-    public function getGravatarAttribute()
-    {
-        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=75';
-    }
-
+    
     public function threads()
     {
         return $this->hasMany(Thread::class);
     }
 
+    /**
+     * Accessors/Mutators
+     */
+    public function getGravatarAttribute()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=75';
+    }
+
+    /**
+     * Scopes
+     */
     public function scopePublic($query)
     {
         return $query->where('public', true);
     }
 
+    /**
+     * Misc
+     */
     public function getRouteKeyName()
     {
         return 'username';
