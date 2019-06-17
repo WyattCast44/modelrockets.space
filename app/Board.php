@@ -11,6 +11,9 @@ class Board extends Model
 
     protected $guarded = [];
 
+    /**
+     * Abilities/Actions
+     */
     public function makePrivate()
     {
         $this->update(['public' => false]);
@@ -25,6 +28,9 @@ class Board extends Model
         return $this;
     }
 
+    /**
+     * Relationships
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -35,6 +41,32 @@ class Board extends Model
         return $this->hasMany(Thread::class);
     }
 
+    /**
+     * Accessors/Mutators
+     */
+    public function getPasswordAttribute($value)
+    {
+        return $value ? decrypt($value, false) : '';
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = encrypt($value, false);
+    }
+
+    public function getMetaAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    public function setMetaAttribute($value)
+    {
+        $this->attributes['meta'] = json_encode($value);
+    }
+
+    /**
+     * Misc
+     */
     public function sluggable()
     {
         return [

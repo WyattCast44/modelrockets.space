@@ -21,7 +21,7 @@ class CreateBoardsTable extends Migration
             $table->boolean('public')->default(true);
             $table->string('password')->nullable();
             $table->bigInteger('user_id')->index()->nullable();
-            $table->text('meta')->nullable();
+            $table->json('meta')->nullable();
             $table->timestamps();
         });
     }
