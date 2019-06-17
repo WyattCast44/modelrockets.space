@@ -53,6 +53,11 @@ class User extends Authenticatable
         return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=75';
     }
 
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
+    }
+
     public function scopePublic($query)
     {
         return $query->where('public', true);

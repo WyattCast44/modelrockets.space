@@ -7,6 +7,8 @@ Route::feeds('rss');
 Route::get('/', 'DashboardController');
 
 Route::get('/forum', 'ForumController')->name('forum.index');
+Route::get('/forum/{board}', 'BoardsController@index')->name('board.index');
+Route::get('/forum/{board}/{thread}', 'BoardsController@index')->name('board.index');
 
 Route::get('/users', 'UsersController@index')->name('users.index');
 Route::get('/users/@{user}', 'UsersController@show')->name('users.show');

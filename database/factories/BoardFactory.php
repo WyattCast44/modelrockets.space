@@ -9,7 +9,7 @@ $factory->define(Board::class, function (Faker $faker) {
     return [
         'name' => $faker->words(3, true),
         'description' => $faker->sentence,
-        'public' => false,
+        'public' => true,
         'password' => null,
         'user_id' => null,
         'meta' => null

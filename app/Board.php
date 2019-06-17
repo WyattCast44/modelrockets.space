@@ -9,6 +9,8 @@ class Board extends Model
 {
     use Sluggable;
 
+    protected $guarded = [];
+
     public function makePrivate()
     {
         $this->update(['public' => false]);
@@ -26,6 +28,11 @@ class Board extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
     }
 
     public function sluggable()
