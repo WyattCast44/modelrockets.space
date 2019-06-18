@@ -18,6 +18,10 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
+        if (!$article->published) {
+            return abort(404);
+        }
+        
         $article->load('user');
 
         return view('articles.show', ['article' => $article]);

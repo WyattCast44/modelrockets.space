@@ -8,13 +8,10 @@ use App\Article;
 
 class ArticlesTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_a_user_can_view_all_articles()
     {
-        $this->withoutExceptionHandling();
-
         $articles = factory(Article::class, 5)->create(['published' => true]);
 
         $response = $this->get($articles->first()->path());
@@ -26,8 +23,6 @@ class ArticlesTest extends TestCase
 
     public function test_a_user_can_view_a_single_article()
     {
-        $this->withoutExceptionHandling();
-
         $article = factory(Article::class)->create(['published' => true]);
 
         $response = $this->get($article->path($article));
@@ -35,5 +30,14 @@ class ArticlesTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertSee($article->title);
+    }
+
+    public function test_a_user_cannot_view_an_unpublished_article()
+    {
+        $article = factory(Article::class)->create(['published' => false]);
+
+        $response = $this->get($article->path($article));
+
+        $response->assertStatus(404);
     }
 }

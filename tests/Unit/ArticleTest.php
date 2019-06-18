@@ -4,38 +4,18 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Article;
 
 class ArticleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_an_article_can_have_a_featured_image()
+    public function test_an_article_belongs_to_a_user()
     {
-        $this->assertTrue(true);
-    }
+        $article = factory(Article::class)->create();
 
-    public function test_a_article_needs_a_title()
-    {
-        $this->assertTrue(true);
-    }
+        $this->assertNotNull($article->user);
 
-    public function test_an_article_needs_a_subtitle()
-    {
-        $this->assertTrue(true);
-    }
-
-    public function test_an_article_needs_a_body()
-    {
-        $this->assertTrue(true);
-    }
-
-    public function test_an_article_can_be_published()
-    {
-        $this->assertTrue(true);
-    }
-
-    public function test_an_article_can_be_unpublished()
-    {
-        $this->assertTrue(true);
+        $this->assertDatabaseHas('users', ['email' => $article->user->email]);
     }
 }
