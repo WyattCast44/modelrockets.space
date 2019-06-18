@@ -20,6 +20,7 @@
     &-modal {
         z-index: 1000 !important;
         max-width: 90%;
-        @apply border border-solid border-gray-300 bg-white rounded py-10 px-16 relative shadow-md;
+        width: 600px;
+        @apply border border-solid border-gray-300 bg-white rounded py-10 px-12 relative shadow-md;
     }
 }

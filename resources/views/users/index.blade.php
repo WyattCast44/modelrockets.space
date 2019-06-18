@@ -16,7 +16,7 @@
     </div>
 </header>
 
-<div class="container p-5 bg-white rounded my-12 shadow-md border border-solid border-gray-300">
+<div class="container p-5 bg-white rounded mt-12 mb-8 shadow-md border border-solid border-gray-300">
 
     <div class="px-2">
         <div class="flex -mx-2 flex-wrap">
@@ -43,6 +43,10 @@
         </div>
     </div>
 
+</div>
+
+<div class="container mb-12">
+    {{ $users->links() }}
 </div>
 
 @endsection
