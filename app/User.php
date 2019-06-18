@@ -37,6 +37,23 @@ class User extends Authenticatable
     ];
 
     /**
+     * Behavior/Actions
+     */
+    public function makePrivate()
+    {
+        $this->update(['public' => false]);
+
+        return $this;
+    }
+
+    public function makePublic()
+    {
+        $this->update(['public' => true]);
+
+        return $this;
+    }
+
+    /**
      * Relationships
      */
     public function articles()
