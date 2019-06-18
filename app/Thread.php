@@ -17,4 +17,12 @@ class Thread extends Model
     {
         return $this->belongsTo(Board::class);
     }
+
+    public function path()
+    {
+        return route('threads.show', [
+            'board' => $this->board,
+            'thread' => $this,
+        ]);
+    }
 }

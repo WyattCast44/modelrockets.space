@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Http\Requests\UpdateUserRequest;
 
 class UsersController extends Controller
 {
@@ -35,9 +37,18 @@ class UsersController extends Controller
         }
 
         $this->validate($request, [
-            'email' => 'required|email',
-            'username' => 'required|string',
-            'tagline' => 'nullable|string'
+            'tagline' => 'nullable|string',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($user->id)
+            ],
+            'username' => [
+                'required',
+                'string',
+                'alpha_num',
+                Rule::unique('users', 'username')->ignore($user->id)
+            ]
         ]);
 
         $user->update([
@@ -51,6 +62,6 @@ class UsersController extends Controller
 
         alert()->success('Success', 'Your profile has been updated!');
 
-        return back();
+        return redirect()->route('users.show', $user);
     }
 }

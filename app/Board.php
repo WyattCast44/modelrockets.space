@@ -68,6 +68,14 @@ class Board extends Model
     }
 
     /**
+     * Scopes
+     */
+    public function scopePublic($query)
+    {
+        return $query->where('public', true);
+    }
+
+    /**
      * Misc
      */
 

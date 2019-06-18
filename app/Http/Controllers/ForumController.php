@@ -10,12 +10,13 @@ class ForumController extends Controller
 {
     public function __invoke()
     {
-        $boards = Board::all();
-        $threads = Thread::all();
+        $boards = Board::public()->get();
+
+        $latestThreads = Thread::latest()->take(5)->get();
 
         return view('forum.index', [
             'boards' => $boards,
-            'threads' => $threads
+            'latestThreads' => $latestThreads
         ]);
     }
 }
