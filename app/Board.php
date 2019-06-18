@@ -70,6 +70,12 @@ class Board extends Model
     /**
      * Misc
      */
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sluggable()
     {
         return [

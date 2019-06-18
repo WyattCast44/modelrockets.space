@@ -75,7 +75,6 @@ class Board extends Resource
                 ->hideFromIndex()
                 ->nullable(),
 
-            
         ];
     }
 

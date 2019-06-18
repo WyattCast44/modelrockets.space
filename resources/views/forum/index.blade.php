@@ -6,6 +6,15 @@
 
     <h1>The Forum</h1>
 
-    {{ $boards }}
+    <ul>
+        @forelse ($boards as $board)
+        
+            <li>
+                <a href="{{ route('boards.show', $board) }}">{{ $board->name }}</a>
+            </li>
+
+        @empty            
+        @endforelse        
+    </ul>
 
 @endsection
