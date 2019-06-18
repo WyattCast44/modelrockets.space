@@ -45,7 +45,7 @@
                             <p class="text-sm text-gray-600">
                                 Posted by 
                                 <a href="{{ route('users.show', $thread->user) }}">
-                                    {{ $thread->user->username }}
+                                    {{ '@' . $thread->user->username }}
                                 </a>
                                 {{ $thread->created_at->diffForHumans() }}
                             </p>
