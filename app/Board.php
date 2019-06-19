@@ -2,10 +2,12 @@
 
 namespace App;
 
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Board extends Model
+class Board extends Model implements Feedable
 {
     use Sluggable;
 
@@ -78,6 +80,31 @@ class Board extends Model
     /**
      * Misc
      */
+
+    public function path($board = null)
+    {
+        if ($board) {
+            return route('boards.show', $board, false);
+        }
+
+        return route('boards.index', [], false);
+    }
+
+    public static function getFeedItems()
+    {
+        return self::public()->get();
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->path($this))
+            ->title($this->name)
+            ->summary($this->description)
+            ->updated($this->updated_at)
+            ->link($this->path($this))
+            ->author('Model Rockets Space!');
+    }
 
     public function getRouteKeyName()
     {

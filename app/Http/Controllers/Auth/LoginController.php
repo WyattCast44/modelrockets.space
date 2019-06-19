@@ -23,9 +23,13 @@ class LoginController extends Controller
     /**
      * Where to redirect users after login.
      *
-     * @var string
      */
-    protected $redirectTo = '/';
+    protected function redirectTo()
+    {
+        toast('Welcome back ' . auth()->user()->username . '!', 'success');
+        
+        return '/';
+    }
 
     /**
      * Create a new controller instance.
