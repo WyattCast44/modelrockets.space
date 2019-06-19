@@ -42,9 +42,9 @@ class Thread extends Model
     /**
      * Misc
      */
-    public function repliesPath()
+    public function repliesPath($method = 'create')
     {
-        return route('replies.create', [
+        return route("replies.{$method}", [
             'board' => $this->board,
             'thread' => $this
         ]);

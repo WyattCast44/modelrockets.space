@@ -49,7 +49,6 @@ class Article extends Model implements Feedable
         }
 
         return Markdown::parse($value);
-        return (new \ParsedownExtra)->text($value);
     }
 
     public function path($article = null)

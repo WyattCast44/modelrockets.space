@@ -40,7 +40,9 @@
 
                 @forelse ($replies as $reply)
                     <div class="rounded border border-solid border-gray-300 bg-white p-8 mb-4">
-                        {{ $reply->body }}
+                        <div class="markdown-body">
+                            {!! $reply->body !!}
+                        </div>
                     </div>
                 @empty
                     
@@ -54,14 +56,19 @@
 
             <!-- Sidebar -->
             <div class="w-1/4 mb-4 h-12">
+                <a href="{{ $thread->repliesPath() }}" class="btn btn-primary block mb-3">Add Reply</a>
                 <div class="rounded border border-solid border-gray-300 bg-white p-8">
-                    <p>Sidebar Stuff</p>
+                    <ul>
+                        <li>
+                            Some thing
+                        </li>
+                    </ul>
                 </div>
             </div>
 
         </div>
 
-        <a href="{{ $thread->repliesPath() }}" class="btn btn-primary">Add Reply</a>
+        
 </div>
 
 @endsection
