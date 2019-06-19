@@ -12,6 +12,7 @@ $factory->define(Board::class, function (Faker $faker) {
         'public' => true,
         'password' => null,
         'user_id' => null,
+        'allow_new_public_threads' => true,
         'meta' => null
     ];
 });

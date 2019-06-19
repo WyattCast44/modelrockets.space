@@ -19,9 +19,11 @@
 <div class="container mx-auto mt-5 mb-12">
 
     <div class="markdown-body">
+        
         {!! $article->body !!}
+        
     </div>
-    
+
 </div>
 
 @endsection

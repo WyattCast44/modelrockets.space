@@ -4,6 +4,13 @@
 
 @section('forum-page')
 
-    {{ $board->name }}
+    <div class="container">
+        @forelse ($threads as $thread)
+            <h2>
+                <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
+            </h2>    
+        @empty        
+        @endforelse
+    </div>
 
 @endsection

@@ -28,6 +28,8 @@ class CreateArticlesTable extends Migration
             $table->boolean('published')->default(false);
             $table->timestamp('published_at')->nullable();
 
+            $table->bigInteger('thread_id')->nullable()->index();
+
             $table->timestamps();
         });
     }

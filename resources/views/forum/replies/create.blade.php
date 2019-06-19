@@ -29,7 +29,7 @@
             <p class="absolute top-0 right-0 p-2 text-xs uppercase text-blue-600">Original Post</p>
             
             <h2 class="mb-2 font-semibold text-lg text-blue-900">{{ $thread->title }} </h2>
-            {{ $thread->body }}
+            {!! $thread->body !!}
         </div>
 
     <form action="{{ $thread->repliesPath('store') }}" method="post">

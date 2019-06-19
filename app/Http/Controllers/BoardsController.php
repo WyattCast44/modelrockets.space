@@ -9,10 +9,11 @@ class BoardsController extends Controller
 {
     public function show(Board $board)
     {
-        $board->load('threads');
+        $threads = $board->threads()->latest()->get();
 
         return view('forum.boards.show', [
-            'board' => $board
+            'board' => $board,
+            'threads' => $threads,
         ]);
     }
 }

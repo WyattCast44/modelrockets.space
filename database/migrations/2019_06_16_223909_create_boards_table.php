@@ -21,6 +21,9 @@ class CreateBoardsTable extends Migration
             $table->boolean('public')->default(true);
             $table->string('password')->nullable();
             $table->bigInteger('user_id')->index()->nullable();
+            $table->boolean('allow_new_public_threads')->default(true);
+            $table->boolean('sticky')->default(false);
+            $table->timestamp('sticky_until')->default(null)->nullable();
             $table->json('meta')->nullable();
             $table->timestamps();
         });

@@ -22,6 +22,11 @@ class Article extends Model implements Feedable
         return $this->belongsTo(User::class);
     }
 
+    public function thread()
+    {
+        return $this->belongsTo(Thread::class);
+    }
+
     public function publish()
     {
         $this->update([
