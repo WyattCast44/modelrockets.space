@@ -21,7 +21,7 @@
 <div class="container mb-12">
 
     <div class="flex mb-5">
-        <a href="{{ $thread->path() }}">Back to thread</a>
+        <a href="{{ $thread->path() }}">&leftarrow; Back to thread</a>
     </div>
 
     <!-- Original Post -->
