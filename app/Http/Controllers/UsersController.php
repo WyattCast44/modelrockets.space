@@ -18,6 +18,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::public()
+            ->orderBy('username')
             ->paginate(15);
         
         return view('users.index', ['users' => $users]);

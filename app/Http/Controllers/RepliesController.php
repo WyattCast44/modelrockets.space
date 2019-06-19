@@ -41,6 +41,8 @@ class RepliesController extends Controller
             'body' => Purify::clean($request->body)
         ]);
 
+        toast('Reply Posted!', 'success');
+
         return redirect($thread->path());
     }
 }

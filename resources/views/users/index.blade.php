@@ -32,7 +32,6 @@
                             <a href="{{ route('users.show', $user) }}" class="block">
                                 {{ '@' . $user->username }}
                             </a>
-                            <p class="italic text-sm text-gray-600">{{ $user->profile->tagline }}</p>
                             <p class="italic text-sm text-gray-600">Joined {{ $user->created_at->diffForHumans() }}</p>
                         </div>
                     </div>

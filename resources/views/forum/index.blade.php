@@ -21,6 +21,7 @@
                 @empty            
                 @endforelse        
             </ul>
+            {{ $boards->links() }}
         </div>
 
         <div class="mb-12">
@@ -54,7 +55,7 @@
             
                     @empty            
                     @endforelse        
-                </ul>
+                </ul>                
             </div>
 
     </div>
