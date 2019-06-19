@@ -1,12 +1,8 @@
-@extends('layouts.app')
+@modal(['name' => 'register'])
 
-@section('page-title', 'Register')
+    <h2 class="text-2xl font-semibold mb-4">Register</h2>
 
-@section('content')
-
-<div class="flex flex-col justify-center items-center h-screen">
-
-    <form method="POST" action="{{ route('register') }}" class="border border-solid border-gray-300 bg-white p-12">
+    <form method="POST" action="{{ route('register') }}">
 
         @csrf
 
@@ -74,7 +70,5 @@
         </div>
 
     </form>
-    
-</div>
 
-@endsection
+@endmodal

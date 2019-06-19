@@ -1,7 +1,8 @@
 .modal {
     &-overlay {
         visibility: hidden;
-        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000000;
+        background: rgba(0, 0, 0, 0.65);
         @apply absolute top-0 bottom-0 right-0
             left-0 flex justify-center items-center;
     }

@@ -4,4 +4,9 @@
 
     @yield('content')
 
+    @guest
+        @include('_partials.login')
+        @include('_partials.register')
+    @endguest
+
 @endsection
