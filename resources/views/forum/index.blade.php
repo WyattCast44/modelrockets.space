@@ -4,7 +4,7 @@
 
 @section('forum-page')
 
-    <div class="container">
+    <div class="px-12" style="max-width:90%">
 
         <div class="mb-12">
             <h1 class="text-bold text-gray-600 mb-5 pb-1 border-b border-solid border-gray-400 text-3xl font-serif">

@@ -2,9 +2,17 @@
 
 @section('content')
 
-    <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
-        <div class="container">
-            <h1 class="font-semibold text-3xl mb-5">The Forum</h1>
+    <header class="border-b border-solid border-gray-300 bg-gray-200 py-6 sticky top-0 shadow-md mb-8" style="z-index:1000">
+
+        <div class="container flex justify-between items-center">
+            
+            <div>
+                <input type="text" class="form-control" placeholder="Search the forum...">
+            </div>
+
+            <a href="{{ route('threads.create') }}" class="btn btn-outline-primary rounded">Create Thread</a>
+        </div>
+    
     </header>
 
     @yield('forum-page')

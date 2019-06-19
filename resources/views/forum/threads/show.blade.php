@@ -26,7 +26,11 @@
                 <!-- Original Post -->
                 <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-blue-100 relative">
                     <p class="absolute top-0 right-0 p-2 text-xs uppercase text-blue-600">Original Post</p>
-                    {{ $thread->body }}
+                    
+                    <h2 class="mb-2 font-semibold text-lg text-blue-900">{{ $thread->title }} </h2>
+                    <div class="markdown-body">
+                        {!!  $thread->body !!}
+                    </div>
                 </div>
                 
                 @if($bestReply && !request()->has('page'))
