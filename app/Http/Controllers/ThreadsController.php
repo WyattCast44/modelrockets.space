@@ -5,9 +5,23 @@ namespace App\Http\Controllers;
 use App\Board;
 use App\Thread;
 use Illuminate\Http\Request;
+use Stevebauman\Purify\Facades\Purify;
+use Illuminate\Mail\Markdown;
 
 class ThreadsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store']);
+    }
+
+    public function create(Board $board)
+    {
+        return view('forum.threads.create', [
+            'board' => $board,
+        ]);
+    }
+
     public function show(Board $board, Thread $thread)
     {
         if (!$board->public) {
@@ -24,5 +38,28 @@ class ThreadsController extends Controller
             'replies' => $replies,
             'bestReply' => $thread->getBestReply()
         ]);
+    }
+
+    public function store(Board $board, Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+        ]);
+
+        $body = Markdown::parse(trim(Purify::clean($request->body)));
+
+        if (strlen($body) < 3) {
+            return back();
+        }
+
+        $thread = $board->threads()->create([
+            'user_id' => auth()->id(),
+            'title' => $request->title,
+            'body' => $body,
+            'open' => true,
+        ]);
+
+        return redirect()->route('threads.show', ['board' => $board, 'thread' => $thread]);
     }
 }

@@ -1,6 +1,6 @@
 @modal(['name' => 'login'])
 
-    <h2 class="text-2xl font-semibold mb-4">Login</h2>
+    <h2 class="text-2xl font-semibold mb-4 uppercase">Login</h2>
 
     <form method="POST" action="{{ route('login') }}" class="">
 

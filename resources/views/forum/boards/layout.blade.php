@@ -6,8 +6,13 @@
 
         <div class="container flex justify-between items-center">
             
-            <h2>The Forum</h2>
-            
+            <div>
+                <input type="text" class="form-control" placeholder="Search the forum...">
+            </div>
+
+            <a href="{{ route('threads.create', ['board' => $board]) }}" class="btn btn-outline-primary rounded">
+                Create Thread
+            </a>
         </div>
     
     </header>

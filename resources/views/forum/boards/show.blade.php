@@ -1,4 +1,4 @@
-@extends('forum.layout')
+@extends('forum.boards.layout')
 
 @section('page-title', 'Forum: ' . $board->name)
 

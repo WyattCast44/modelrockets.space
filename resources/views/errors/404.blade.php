@@ -11,7 +11,7 @@
     >
 
         <div>
-            <h1 class="text-white text-center text-5xl bg-purple-800 p-4" style="opacity:.85;">
+            <h1 class="text-white text-center text-5xl bg-gray-800 p-4" style="opacity:.85;">
                 404... You have entered unknown space!
             </h1>
         </div>
