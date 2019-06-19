@@ -8602,7 +8602,8 @@ a:hover {
 }
 
 .container {
-  max-width: 850px;
+  width: 850px;
+  max-width: 90%;
 }
 
 input {

@@ -2,12 +2,25 @@
 
 namespace App;
 
+use App\Reply;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
     protected $guarded = [];
     
+    /**
+     * Behavior/Actions
+     */
+    public function getBestReply()
+    {
+        if ($this->best_answer_thread_id) {
+            return Reply::find($this->best_answer_thread_id);
+        }
+        
+        return null;
+    }
+
     /**
      * Relationships
      */
@@ -29,6 +42,14 @@ class Thread extends Model
     /**
      * Misc
      */
+    public function repliesPath()
+    {
+        return route('replies.create', [
+            'board' => $this->board,
+            'thread' => $this
+        ]);
+    }
+
     public function path()
     {
         return route('threads.show', [

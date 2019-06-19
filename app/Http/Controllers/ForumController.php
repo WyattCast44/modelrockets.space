@@ -10,7 +10,8 @@ class ForumController extends Controller
 {
     public function __invoke()
     {
-        $boards = Board::public()->get();
+        $boards = Board::public()
+            ->paginate(8);
 
         $latestThreads = Thread::latest()->take(5)->get();
 

@@ -14,11 +14,15 @@ class ThreadsController extends Controller
             return abort(403);
         }
 
-        $thread->load(['user', 'replies']);
+        $thread->load(['user']);
+
+        $replies = $thread->replies()->paginate(10);
 
         return view('forum.threads.show', [
             'board' => $board,
-            'thread' => $thread
+            'thread' => $thread,
+            'replies' => $replies,
+            'bestReply' => $thread->getBestReply()
         ]);
     }
 }

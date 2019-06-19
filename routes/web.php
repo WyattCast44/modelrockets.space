@@ -9,6 +9,7 @@ Route::get('/', 'DashboardController');
 Route::get('/forum', 'ForumController')->name('forum.index');
 Route::get('/forum/{board}', 'BoardsController@show')->name('boards.show');
 Route::get('/forum/{board}/threads/{thread}', 'ThreadsController@show')->name('threads.show');
+Route::get('/forum/{board}/threads/{thread}/replies/new', 'RepliesController@create')->name('replies.create');
 
 Route::get('/users', 'UsersController@index')->name('users.index');
 Route::get('/users/@{user}', 'UsersController@show')->name('users.show');
