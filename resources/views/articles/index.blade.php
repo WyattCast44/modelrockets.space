@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
+    <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-8 sm:py-10 md:py-12">
         <div class="container">
             <h1 class="font-semibold text-3xl mb-2 text-center">Articles</h1>
 
@@ -14,7 +14,7 @@
         </div>
     </header>
 
-    <div class="container mx-auto my-12">
+    <div class="container mx-auto my-6 sm:my-10 md:my-12">
 
         <ul class="mb-10">
 
@@ -24,7 +24,7 @@
                     
                     <div>
                         <!-- Title -->
-                        <h2 class="font-semibold text-xl">
+                        <h2 class="font-semibold text-lg sm:text-xl">
                             <a href="{{ route('articles.show', $article) }}">{{ $article->title }}</a>
                         </h2>
 
