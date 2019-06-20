@@ -17,6 +17,12 @@ class ThreadsController extends Controller
 
     public function create(Board $board)
     {
+        if (!$board->allow_new_public_threads) {
+            alert()->warning('This board is closed to new threads.');
+
+            return back();
+        }
+        
         return view('forum.threads.create', [
             'board' => $board,
         ]);

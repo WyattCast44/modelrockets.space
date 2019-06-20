@@ -67,6 +67,9 @@ class Feature extends Resource
                 ->sortable(),
 
             Number::make('Upvotes')
+                ->readonly()
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
                 ->sortable()
         ];
     }
