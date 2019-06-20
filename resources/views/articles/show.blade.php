@@ -9,7 +9,7 @@
 <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-8 sm:py-10 md:py-12">
     <div class="container">
 
-        <a href="{{ route('articles.index') }}" class="mb-2 inline-block text-sm">&leftarrow; Back to Articles</a>
+        <a href="{{ route('articles.index') }}" class="mb-2 inline-block text-sm print:hidden">&leftarrow; Back to Articles</a>
 
         <h1 class="font-semibold text-2xl sm:text-3xl md:text-4xl mb-3">{{ $article->title }}</h1>
 
