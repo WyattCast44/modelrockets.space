@@ -25,6 +25,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('components.modal', 'modal');
+        Blade::component('components.full-modal', 'fullmodal');
 
         //
     }

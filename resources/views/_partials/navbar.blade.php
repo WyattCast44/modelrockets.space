@@ -6,7 +6,7 @@
             <a href="/" class="hover:no-underline text-white hover:text-white">Model Rockets 🚀🌌</a>
         </h2>
 
-        <ul class="text-lg">
+        <ul class="text-lg hidden md:block">
             <a href="/" class="mx-2 p-1 text-white hover:text-white hover:underline">Home</a>
             <a href="{{ route('forum.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Forum</a>
             {{-- <a href="#" class="mx-2 p-1 text-white hover:text-white hover:underline">Guides</a> --}}
@@ -17,8 +17,13 @@
 
     </div>
 
+    <div class="block md:hidden text-white">
+        <a href="#mobile-menu" class="text-white hover:text-white">
+            @svg('menu', 'inline fill-current cursor-pointer')
+        </a>
+    </div>
 
-    <ul class="text-lg">
+    <ul class="text-lg hidden md:block">
 
         @guest
             <a href="#login" class="mx-2 p-1 text-white hover:text-white hover:underline">Login</a>
@@ -30,6 +35,7 @@
                 Logout
             </a>
         @endauth
+
     </ul>
 
 </nav>

@@ -30,6 +30,7 @@
 
     </div>
 
+    @include('_partials.mobile-menu')
     @include('_partials.logout')
 
 </body>

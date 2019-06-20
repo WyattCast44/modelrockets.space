@@ -12,16 +12,47 @@
     }
 
     &-cancel {
-        z-index: 100;
+        z-index: 1000000;
         width: 100%;
         height: 100%;
         @apply absolute flex justify-center items-center;
     }
 
     &-modal {
-        z-index: 1000 !important;
+        z-index: 1000001 !important;
         max-width: 90%;
         width: 600px;
         @apply border border-solid border-gray-300 bg-white rounded py-10 px-12 relative shadow-md;
+    }
+
+    &-fullscreen {
+        visibility: hidden;
+        z-index: 1000000;
+        background-color: #2214c7;
+        background-image: linear-gradient(
+            135deg,
+            #2214c7 0%,
+            #4735ae 43%,
+            #7b4cc1 100%
+        );
+        @apply absolute top-0 bottom-0 right-0
+            left-0 flex justify-center items-center;
+    }
+
+    &-fullscreen:target {
+        visibility: visible;
+    }
+
+    &-fullscreen-cancel {
+        z-index: 1000000;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    &-fullscreen-modal {
+        z-index: 1000001 !important;
+        width: 100%;
+        @apply py-10 px-12 flex justify-center items-center;
     }
 }
