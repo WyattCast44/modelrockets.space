@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\UpdateUserRequest;
+use App\Rules\AllowedUsername;
 
 class UsersController extends Controller
 {
