@@ -13,8 +13,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // Create my default user
-        $user = factory(User::class)->create([
+        if (app()->environment('production')) {
+            $this->createDefaultUser();
+            return;
+        }
+    
+        $this->createDefaultUser();
+        
+        $this->createRandomUsers();
+    }
+
+    public function createDefaultUser()
+    {
+        factory(User::class)->create([
             'username' => 'wyattcast44',
             'email' => 'wyatt.castaneda@gmail.com',
             'password' => bcrypt('password'),
@@ -22,8 +33,10 @@ class UsersTableSeeder extends Seeder
         ])->profile->update([
             'tagline' => 'Learner, Maker, Teacher'
         ]);
+    }
 
-        // Create 12 random users
-        factory(User::class, 12)->create();
+    public function createRandomUsers($number = 10)
+    {
+        factory(User::class, $number)->create();
     }
 }

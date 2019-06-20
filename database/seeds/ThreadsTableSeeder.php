@@ -12,6 +12,10 @@ class ThreadsTableSeeder extends Seeder
      */
     public function run()
     {
+        if (app()->environment('production')) {
+            return;
+        }
+        
         factory(Thread::class, 3)->create();
     }
 }

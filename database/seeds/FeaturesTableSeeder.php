@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Feature;
 
 class FeaturesTableSeeder extends Seeder
 {
@@ -11,6 +12,10 @@ class FeaturesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        if (app()->environment('production')) {
+            return;
+        }
+
+        factory(Feature::class, 6)->create();
     }
 }

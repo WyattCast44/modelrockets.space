@@ -12,6 +12,10 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
+        if (app()->environment('production')) {
+            return;
+        }
+        
         factory(Article::class, 11)->create();
 
         factory(Article::class)->create([

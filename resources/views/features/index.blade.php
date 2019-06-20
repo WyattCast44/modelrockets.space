@@ -15,7 +15,7 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container mb-16">
     
     <!-- Open -->
     <h1 class="font-semibold my-3 text-xl text-gray-700 border-b border-solid border-gray-400 pb-1">

@@ -12,6 +12,10 @@ class RepliesTableSeeder extends Seeder
      */
     public function run()
     {
+        if (app()->environment('production')) {
+            return;
+        }
+        
         factory(Reply::class, 10)->create();
     }
 }

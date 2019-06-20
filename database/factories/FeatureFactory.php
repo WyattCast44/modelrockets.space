@@ -8,7 +8,8 @@ use App\User;
 
 $factory->define(Feature::class, function (Faker $faker) {
     return [
-        'body' => $faker->sentence,
+        'name' => $faker->sentence,
+        'body' => $faker->paragraph,
         'user_id' => factory(User::class)->create()->id,
         'status' => 'pending',
         'public' => true,
