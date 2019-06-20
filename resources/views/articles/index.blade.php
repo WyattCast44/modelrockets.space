@@ -6,9 +6,11 @@
 
     <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
         <div class="container">
-            <h1 class="font-semibold text-3xl mb-5">Articles</h1>
+            <h1 class="font-semibold text-3xl mb-2 text-center">Articles</h1>
 
-            <input type="text" name="filter" placeholder="Search..." class="px-3 py-2 border-solid border border-gray-300 rounded focus:outline-none focus:shadow-outline" />
+            <p class="text-gray-600 text-center">
+                Articles are long form posts about a specific topic. Have an idea for an article, let me know <a href="#">here</a>!
+            </p>
         </div>
     </header>
 
