@@ -6,7 +6,7 @@ export default class extends Controller {
     connect() {
         if (!document.queryCommandSupported("copy")) {
             this.buttonTarget.classList.add("hidden");
-            this.sourceTarget.setAttribute("readonly", false);
+            this.sourceTarget.removeAttribute("readonly");
         }
     }
 
