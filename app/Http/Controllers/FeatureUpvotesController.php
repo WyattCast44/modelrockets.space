@@ -15,9 +15,7 @@ class FeatureUpvotesController extends Controller
     public function __invoke(Feature $feature)
     {
         if (!$feature->hasUserVoted()) {
-            $feature->votes()->create([
-                'user_id' => auth()->user()->id,
-            ]);
+            $feature->upvote();
         }
         
         return back();

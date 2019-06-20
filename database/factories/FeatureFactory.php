@@ -12,7 +12,6 @@ $factory->define(Feature::class, function (Faker $faker) {
         'body' => $faker->paragraph,
         'user_id' => factory(User::class)->create()->id,
         'status' => 'pending',
-        'public' => true,
-        'upvotes' => rand(0, 10),
+        'public' => true
     ];
 });

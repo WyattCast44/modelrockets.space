@@ -20,7 +20,6 @@ class CreateFeaturesTable extends Migration
             $table->bigInteger('user_id')->index()->nullable()->unsigned();
             $table->string('status')->index();
             $table->boolean('public')->default(true);
-            $table->integer('upvotes')->unsigned()->default(0);
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });

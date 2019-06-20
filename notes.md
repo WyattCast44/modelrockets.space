@@ -45,3 +45,9 @@
 ## Channels
 
 -   Channels have threads
+
+# Marketing
+
+-   Monthly giveaway
+    -- monthly raffle to give away some type of rocketry gear
+    -- potentially get sponsors?

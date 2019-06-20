@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Select;
 use App\Feature as FeatureModel;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
 
 class Feature extends Resource
 {
@@ -21,6 +22,8 @@ class Feature extends Resource
      * @var string
      */
     public static $model = 'App\Feature';
+
+    public static $displayInNavigation = false;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -65,12 +68,6 @@ class Feature extends Resource
             
             Boolean::make('Public')
                 ->sortable(),
-
-            Number::make('Upvotes')
-                ->readonly()
-                ->hideWhenCreating()
-                ->hideWhenUpdating()
-                ->sortable()
         ];
     }
 

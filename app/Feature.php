@@ -16,6 +16,23 @@ class Feature extends Model
     ];
 
     /**
+     * Behavior/Actions/Abilities
+     */
+    
+    public function upvote(User $user = null)
+    {
+        if (!$user) {
+            $user = auth()->user();
+        }
+
+        $this->votes()->firstOrCreate([
+            'user_id' => $user->id,
+        ]);
+
+        return $this;
+    }
+
+    /**
      * Scopes
      */
     public function scopePublic($query)
