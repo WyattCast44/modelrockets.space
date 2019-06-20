@@ -1,3 +1,4 @@
 <?php
 
-Route::get('/users/usernames/check', 'API\Actions\ValidateUsername');
+Route::get('/users/emails/validate', 'API\Actions\ValidateEmail');
+Route::get('/users/usernames/validate', 'API\Actions\ValidateUsername');

@@ -2,7 +2,7 @@
 
     <h2 class="text-2xl font-semibold mb-4 uppercase">Register</h2>
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" data-controller="register">
 
         @csrf
 
@@ -11,9 +11,9 @@
 
             <label for="username">{{ __('Username') }}</label>
 
-            <div data-controller="register">
-                <input data-action="keyup->register#checkUniqueUsername" data-target="register.username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="false" spellcheck="false" autofocus>
-                <small data-target="register.errorMessage" class="hidden text-red-400"></small>
+            <div>
+                <input data-action="keyup->register#validateUsername" data-target="register.username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="false" spellcheck="false" autofocus>
+                <small data-target="register.usernameError" class="hidden text-red-400"></small>
             </div>
 
             @error('username')
@@ -29,7 +29,10 @@
 
             <label for="email">{{ __('E-Mail Address') }}</label>
 
-            <input id="email" type="email" class="form-control mt-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            <div>
+                <input data-action="keyup->register#validateEmail" data-target="register.email" id="email" type="email" class="form-control mt-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                <small data-target="register.emailError" class="hidden text-red-400"></small>
+            </div>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
