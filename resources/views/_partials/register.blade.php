@@ -11,7 +11,10 @@
 
             <label for="username">{{ __('Username') }}</label>
 
-            <input id="username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+            <div data-controller="register">
+                <input data-action="keyup->register#checkUniqueUsername" data-target="register.username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="false" spellcheck="false" autofocus>
+                <small data-target="register.errorMessage" class="hidden text-red-400"></small>
+            </div>
 
             @error('username')
                 <span class="invalid-feedback" role="alert">
