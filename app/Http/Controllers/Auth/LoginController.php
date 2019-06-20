@@ -26,7 +26,7 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-        toast('Welcome back ' . auth()->user()->username . '!', 'success');
+        toast('Welcome back ' . auth()->user()->username . '!', 'success')->position('top');
         
         return '/';
     }

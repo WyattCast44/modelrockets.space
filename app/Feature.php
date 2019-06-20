@@ -37,12 +37,32 @@ class Feature extends Model
             ->orWhere('status', 'rejected');
     }
 
-
     /**
      * Relationships
      */
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(FeatureVote::class);
+    }
+
+    /**
+     * Misc/Helpers
+     */
+    public function hasUserVoted(User $user = null)
+    {
+        if (!$user) {
+            if (auth()->check()) {
+                $user = auth()->user();
+            } else {
+                return false;
+            }
+        }
+
+        return ($this->votes->pluck('user_id')->contains($user->id));
     }
 }

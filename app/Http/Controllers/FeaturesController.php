@@ -9,9 +9,15 @@ class FeaturesController extends Controller
 {
     public function index()
     {
-        $openFeatures = Feature::public()->open()->with('user')->get();
+        $openFeatures = Feature::public()
+                            ->open()
+                            ->with(['votes'])
+                            ->get();
 
-        $closedFeatures = Feature::public()->closed()->with('user')->get();
+        $closedFeatures = Feature::public()
+                            ->closed()
+                            ->with('votes')
+                            ->get();
         
         return view('features.index', [
             'openFeatures' => $openFeatures,

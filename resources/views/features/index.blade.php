@@ -37,12 +37,24 @@
                             <span 
                                 class="px-3 border border-solid border-green-300 rounded-full text-green-600 bg-green-100 leading-none mx-1 text-center tracking-tight" 
                                 data-target="feature.count">
-                                {{ $feature->upvotes }}</span>
+                                {{ $feature->votes->count() }}</span>
                         </p>
-                        <form action="{{ route('features.upvote', $feature) }}" class="flex" method="post" data-target="feature.form" data-action="submit->feature#upvote">
-                            @csrf
-                            <button type="submit" class="btn btn-link inline-block text-sm p-0">Upvote</button>
-                        </form>
+
+                        @auth
+
+                            @if(!$feature->hasUserVoted())
+                                <form action="{{ route('features.upvote', $feature) }}" class="flex" method="post" data-target="feature.form" data-action="submit->feature#upvote">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link inline-block text-sm p-0">Upvote</button>
+                                </form>
+                            @endif    
+
+                        @endauth
+                        
+                        @guest
+                            <a href="#login" class="text-sm">Login to vote</a>
+                        @endguest
+                        
                     </div>
                 </div>
             </li>
