@@ -17,9 +17,9 @@ Route::get('/forum/{board}/threads/{thread}/replies/new', 'RepliesController@cre
 Route::post('/forum/{board}/threads/{thread}/replies', 'RepliesController@store')->name('replies.store')->middleware(ProtectAgainstSpam::class);
 
 
-Route::get('/users', 'UsersController@index')->name('users.index');
-Route::get('/users/@{user}', 'UsersController@show')->name('users.show');
-Route::patch('/users/@{user}', 'UsersController@update')->name('users.update');
+Route::get('/members', 'UsersController@index')->name('users.index');
+Route::get('/members/@{user}', 'UsersController@show')->name('users.show');
+Route::patch('/members/@{user}', 'UsersController@update')->name('users.update');
 
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');

@@ -12,6 +12,11 @@
 -   Edit on github feature
 -   Taggable
 
+# Attachments
+
+-   HasAttachments Trait
+-   attachable morph
+
 # Notes
 
 -   Must exclude nova from repo
