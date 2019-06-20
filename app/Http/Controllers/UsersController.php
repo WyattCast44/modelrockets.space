@@ -47,9 +47,12 @@ class UsersController extends Controller
             'username' => [
                 'required',
                 'string',
+                'max:255',
                 'alpha_num',
-                Rule::unique('users', 'username')->ignore($user->id)
-            ]
+                new AllowedUsername,
+                Rule::unique('users', 'username')->ignore($user->id),
+            ],
+            
         ]);
 
         $user->update([
