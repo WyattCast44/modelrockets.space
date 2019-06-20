@@ -22,6 +22,7 @@
         Open/Pending Features
         <span class="text-sm">(Key: 👨‍💻 = In-Progress, 🤔 = Pending)</span>
     </h1>
+    
     <ul class="mb-12 mt-3">
         @forelse ($openFeatures as $feature)
             <li class="flex p-3 hover:bg-gray-200 rounded">
@@ -63,13 +64,29 @@
     </ul>
 
     <!-- Closed -->
-    <h1 class="font-semibold my-3 text-xl text-gray-700 border-b border-solid border-gray-400 pb-1">Complete/Rejected Features</h1>
+    <h1 class="font-semibold my-3 text-xl text-gray-700 border-b border-solid border-gray-400 pb-1">
+            Complete/Rejected Features/Ideas
+            <span class="text-sm">(Key: ✅ = Complete, 💀 = Rejected)</span>
+        </h1>
     <ul>
         @forelse ($closedFeatures as $feature)
-            <li>
+            <li class="flex p-3 hover:bg-gray-200 rounded">
+                <div class="flex items-center text-2xl justify-center mr-3">
+                    {{ ($feature->status == 'complete') ? '✅' : '💀'  }}
+                </div>
                 <div>
-                    <h2 class="font-semibold text-lg">{{ $feature->name }}</h2>
-                    <p>{{ $feature->body }}</p>
+                    <h2 class="font-semibold text-md">{{ $feature->name }}</h2>
+                    <p class="text-sm">{{ $feature->body }}</p>
+                    <div class="flex mt-1 items-center" data-controller="feature">
+                        <p class="text-sm mr-1">
+                            Upvotes: 
+                            <span 
+                                class="px-3 border border-solid border-green-300 rounded-full text-green-600 bg-green-100 leading-none mx-1 text-center tracking-tight" 
+                                data-target="feature.count">
+                                {{ $feature->votes->count() }}</span>
+                        </p>
+                        
+                    </div>
                 </div>
             </li>
         @empty
