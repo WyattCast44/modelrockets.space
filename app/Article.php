@@ -17,6 +17,9 @@ class Article extends Model implements Feedable
 
     protected $dates = ['created_at', 'updated_at', 'published_at'];
 
+    /**
+     * Relationships
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -27,6 +30,9 @@ class Article extends Model implements Feedable
         return $this->belongsTo(Thread::class);
     }
 
+    /**
+     * Actions/Behaviors/Abilities
+     */
     public function publish()
     {
         $this->update([
@@ -47,6 +53,9 @@ class Article extends Model implements Feedable
         return $this;
     }
 
+    /**
+     * Accessors/Mutators
+     */
     public function getBodyAttribute($value)
     {
         if (request()->is('nova-api/*')) {
@@ -56,20 +65,17 @@ class Article extends Model implements Feedable
         return Markdown::parse($value);
     }
 
-    public function path($article = null)
-    {
-        if ($article) {
-            return route('articles.show', $article, false);
-        }
-
-        return route('articles.index', [], false);
-    }
-
+    /**
+     * Scopes
+     */
     public function scopePublished($query)
     {
         return $query->where('published', true);
     }
 
+    /**
+     * RSS Feed
+     */
     public static function getFeedItems()
     {
         return self::published()->get();
@@ -84,6 +90,18 @@ class Article extends Model implements Feedable
             ->updated($this->updated_at)
             ->link($this->path($this))
             ->author('@' . $this->user->username);
+    }
+
+    /**
+     * Misc/Helpers
+     */
+    public function path($article = null, $absolute = false)
+    {
+        if ($article) {
+            return route('articles.show', $article, $absolute);
+        }
+
+        return route('articles.index', [], $absolute);
     }
 
     public function sluggable()
