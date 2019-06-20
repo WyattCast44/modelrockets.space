@@ -11,11 +11,13 @@ class FeaturesController extends Controller
     {
         $openFeatures = Feature::public()
                             ->open()
+                            ->latest()
                             ->with(['votes'])
                             ->get();
 
         $closedFeatures = Feature::public()
                             ->closed()
+                            ->latest()
                             ->with('votes')
                             ->get();
         
