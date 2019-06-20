@@ -1,8 +1,13 @@
 import { Controller } from "stimulus";
-import { timingSafeEqual } from "crypto";
 
 export default class extends Controller {
     static targets = ["source", "button"];
+
+    connect() {
+        if (document.queryCommandSupported("copy")) {
+            this.buttonTarget.classList.add("hidden");
+        }
+    }
 
     handle() {
         this.sourceTarget.select();

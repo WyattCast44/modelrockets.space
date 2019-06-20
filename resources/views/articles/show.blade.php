@@ -20,7 +20,7 @@
 
 <div class="container mx-auto mt-5 mb-12">
 
-    <div class="flex items-center mb-8">
+    <div class="flex items-center mb-8 print:hidden">
         <div data-controller="print">
             <a href="#" class="btn btn-outline-primary mr-2 btn-sm" data-action="print#handle">🖨️ Print</a>
         </div>
