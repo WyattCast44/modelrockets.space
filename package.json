@@ -21,9 +21,11 @@
         "sass-loader": "^7.1.0",
         "tailwindcss": "^1.0.4",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "babel-plugin-transform-class-properties": "^6.24.1"
     },
     "dependencies": {
+        "stimulus": "^1.1.1",
         "sweetalert2": "^8.12.1"
     }
 }

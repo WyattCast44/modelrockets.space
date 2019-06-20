@@ -16,7 +16,11 @@
     </div>
 </header>
 
-<div class="container p-5 bg-white rounded mt-12 mb-8 shadow-md border border-solid border-gray-300">
+<div class="container flex justify-end">
+    <input type="text" placeholder="Search members..." class="form-control inline-block w-1/3">
+</div>
+
+<div class="container p-5 bg-white rounded mt-4 mb-8 shadow-md border border-solid border-gray-300">
 
     <div class="px-2">
         <div class="flex -mx-2 flex-wrap">

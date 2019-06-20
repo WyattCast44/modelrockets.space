@@ -23,3 +23,6 @@ Route::patch('/users/@{user}', 'UsersController@update')->name('users.update');
 
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
+
+Route::get('/roadmap', 'FeaturesController@index')->name('features.index');
+Route::post('/roadmap/{feature}/upvote', 'FeatureUpvotesController')->name('features.upvote');

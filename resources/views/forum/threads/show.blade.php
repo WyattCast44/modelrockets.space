@@ -24,7 +24,7 @@
             <div class="w-2/3 mb-4 mr-4">
 
                 <!-- Original Post -->
-                <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-blue-100 relative">
+                <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-white shadow-md relative">
                     <p class="absolute top-0 right-0 p-2 text-xs uppercase text-blue-600">Original Post</p>
                     
                     <h2 class="mb-2 font-semibold text-lg text-blue-900">{{ $thread->title }} </h2>
