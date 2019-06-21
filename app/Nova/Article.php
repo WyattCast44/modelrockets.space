@@ -53,13 +53,13 @@ class Article extends Resource
 
             Text::make('Title')->sortable()
                 ->rules('required', 'max:255')
-                ->resolveUsing(function ($title) {
+                ->displayUsing(function ($title) {
                     return Str::limit($title, 35);
                 })->sortable(),
 
             Text::make('Subtitle')->sortable()
                 ->rules('required', 'max:255')
-                ->resolveUsing(function ($subtitle) {
+                ->displayUsing(function ($subtitle) {
                     return Str::limit($subtitle, 35);
                 }),
 

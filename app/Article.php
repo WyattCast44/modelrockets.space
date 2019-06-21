@@ -95,6 +95,11 @@ class Article extends Model implements Feedable
     /**
      * Misc/Helpers
      */
+    public function hasBeenUpdated()
+    {
+        return ($this->created_at == $this->updated_at);
+    }
+
     public function path($article = null, $absolute = false)
     {
         if ($article) {

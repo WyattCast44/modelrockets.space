@@ -13,7 +13,7 @@
 
         <h1 class="font-semibold text-2xl sm:text-3xl md:text-4xl mb-3">{{ $article->title }}</h1>
 
-        <p>{{ $article->subtitle }}</p>
+        <p class="m-0">{{ $article->subtitle }}</p>
 
     </div>
 </header>
@@ -26,6 +26,15 @@
         </div>
         <a href="#share" class="btn btn-outline-primary btn-sm">📤 Share</a>
     </div>
+
+    <p class="text-sm text-gray-500 my-1 md:mb-8 text-center md:text-left">
+            {{ ($article->hasBeenUpdated()) ? 'Posted ' : 'Updated ' }}
+            {{ $article->updated_at->diffForHumans() }} 
+            by
+            <a href="{{ route('users.show', $article->user) }}">
+                {{ $article->user->username }}
+            </a>
+        </p>
 
     <div class="markdown-body">
         
