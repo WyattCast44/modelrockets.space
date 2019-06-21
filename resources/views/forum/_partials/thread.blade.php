@@ -1,4 +1,4 @@
-<li class="block mb-3 border border-solid border-gray-300 bg-white py-5 px-6 rounded-lg shadow-sm hover:shadow-lg">
+<li class="block mb-3 border border-solid border-gray-300 bg-white py-5 px-6 rounded-lg shadow-md hover:border-2 hover:border-solid hover:border-blue-300 hover:shadow-lg">
     
     <div class="flex flex-wrap">
 

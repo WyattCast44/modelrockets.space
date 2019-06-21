@@ -13,27 +13,28 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 h-100">
+<body class="bg-gray-100">
 
-    @include('sweetalert::alert')
-
+    
     <div id="app">
 
         @include('_partials.navbar')
-
+        
         <main>
-
+            
             @yield('main')
-
+            
         </main>
-
+        
     </div>
-
-    @include('_partials.mobile-menu')
-
+    
+    
     @auth
         @include('_partials.logout')
     @endauth
+    
+    @include('sweetalert::alert')
+    @include('_partials.mobile-menu')
 
 </body>
 </html>

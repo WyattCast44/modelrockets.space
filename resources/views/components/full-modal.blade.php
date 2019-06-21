@@ -1,4 +1,4 @@
-<div class="modal-fullscreen" id="{{ $name }}">
+<div class="modal-fullscreen nidden" id="{{ $name }}">
 
     <a href="#" class="modal-fullscreen-cancel cursor-pointer text-white hover:text-white">
         @svg('x', 'inline-block fill-current')

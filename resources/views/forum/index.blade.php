@@ -20,7 +20,7 @@
             </div>
 
             <!-- Threads Index -->
-            <div class="flex-1 px-3 mx-3 h-screen">
+            <div class="flex-1 px-3 mx-3">
                 
                 <div>
 
