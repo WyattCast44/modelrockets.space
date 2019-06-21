@@ -61,6 +61,16 @@ class UsersController extends Controller
             'username' => $request->username,
         ]);
 
+        if ($request->has('public')) {
+            $user->update([
+                'public' => true,
+            ]);
+        } else {
+            $user->update([
+                'public' => false,
+            ]);
+        }
+
         $user->profile->update([
             'tagline' => $request->tagline,
         ]);

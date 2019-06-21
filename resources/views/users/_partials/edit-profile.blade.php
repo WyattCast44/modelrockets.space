@@ -40,6 +40,13 @@
 
         </div>
 
+        <div class="pretty p-switch p-fill mt-3">
+            <input type="checkbox" name="public" {{ (auth()->user()->public) ? 'checked' : '' }} />
+            <div class="state p-success">
+                <label>Public</label>
+            </div>
+        </div>
+
         <div class="form-group mb-0 flex items-center justify-end">
             
             <a href="#" class="btn btn-link mr-3">Cancel</a>
