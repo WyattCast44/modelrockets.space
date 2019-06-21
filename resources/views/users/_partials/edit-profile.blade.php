@@ -40,11 +40,9 @@
 
         </div>
 
-        <div class="pretty p-switch p-fill mt-3">
-            <input type="checkbox" name="public" {{ (auth()->user()->public) ? 'checked' : '' }} />
-            <div class="state p-success">
-                <label>Public</label>
-            </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" name="public" id="public" {{ (auth()->user()->public) ? 'checked' : '' }}>
+            <label class="form-check-label" for="public">Public Profile</label>
         </div>
 
         <div class="form-group mb-0 flex items-center justify-end">

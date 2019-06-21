@@ -75,7 +75,7 @@ class UsersController extends Controller
             'tagline' => $request->tagline,
         ]);
 
-        alert()->success('Success', 'Your profile has been updated!');
+        toast('Your profile has been updated!', 'success', 'top');
 
         return redirect()->route('users.show', $user);
     }

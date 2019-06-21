@@ -15,7 +15,7 @@
             <h1 class="font-semibold text-3xl leading-none uppercase text-gray-700">{{ '@' . $user->username }}</h1>
             <p class="leading-none text-gray-600 italic my-3">{{ $user->profile->tagline }}</p>
             
-            <div>
+            <div class="mt-3">
                 
                 <a href="#share" class="btn btn-sm rounded btn-outline-primary">
                     📤 Share
