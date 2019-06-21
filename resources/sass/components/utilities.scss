@@ -7,3 +7,11 @@ input,
 textarea {
     @apply mt-2;
 }
+
+.blue-gradient {
+    background-image: radial-gradient(
+        circle 273px at 9.7% 50.7%,
+        rgba(86, 204, 242, 1) 0%,
+        rgba(47, 128, 237, 1) 90%
+    );
+}

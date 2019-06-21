@@ -11,13 +11,17 @@ class ForumController extends Controller
     public function __invoke()
     {
         $boards = Board::public()
-            ->paginate(8);
+                    ->latest()
+                    ->take(6)
+                    ->get();
 
-        $latestThreads = Thread::latest()->take(5)->get();
+        $threads = Thread::latest()
+                            ->with('user')
+                            ->simplePaginate(20);
 
         return view('forum.index', [
             'boards' => $boards,
-            'latestThreads' => $latestThreads
+            'threads' => $threads
         ]);
     }
 }

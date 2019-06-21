@@ -4,60 +4,62 @@
 
 @section('forum-page')
 
-    <div class="px-12" style="max-width:90%">
+    <div class="mb-16 mx-auto" style="width:1500px; max-width:90%;">
 
-        <div class="mb-12">
-            <h1 class="text-bold text-gray-600 mb-5 pb-1 border-b border-solid border-gray-400 text-3xl font-serif">
-                All Boards
-            </h1>
+        <div class="flex">
 
-            <ul>
-                @forelse ($boards as $board)
-                
-                    <li class="p-3 bg-white border border-solid border-gray-300 mb-3">
-                        <a href="{{ route('boards.show', $board) }}">{{ $board->name }}</a>
-                    </li>
-        
-                @empty            
-                @endforelse        
-            </ul>
-            {{ $boards->links() }}
-        </div>
-
-        <div class="mb-12">
-                <h1 class="text-bold text-gray-600 mb-5 pb-1 border-b border-solid border-gray-400 text-3xl font-serif">
-                    Newest Threads
-                </h1>
-    
-                <ul>
-                    @forelse ($latestThreads as $thread)
-                    
-                        <li class="p-3 bg-white border border-solid border-gray-300 mb-3">
-
-                            <h2 class="font-semibold mb-3">
-                                <a href="{{ route('boards.show', $thread->board) }}">
-                                    {{ $thread->board->name }}
-                                </a>
-                                <span class="text-blue-400">/</span>
-                                <a href="{{  $thread->path() }}">
-                                    {{ $thread->title }}
-                                </a>
-                            </h2>
-                            <p class="text-sm text-gray-600">
-                                Posted by 
-                                <a href="{{ route('users.show', $thread->user) }}">
-                                    {{ '@' . $thread->user->username }}
-                                </a>
-                                {{ $thread->created_at->diffForHumans() }}
-                            </p>
-                            
-                        </li>
-            
-                    @empty            
-                    @endforelse        
-                </ul>                
+            <!-- Filters Sidebar -->
+            <div class="w-1/6 px-3 hidden lg:block">
+                <div>
+                    <h2 class="font-semibold text-2xl mb-3 uppercase">Filters</h2>
+                    <ul class="list-disc">
+                        <li>All</li>
+                        <li>New</li>
+                    </ul>
+                </div>
             </div>
 
+            <!-- Threads Index -->
+            <div class="flex-1 px-3 mx-3 h-screen">
+                
+                <div>
+
+                    <h2 class="font-semibold text-2xl mb-3 uppercase">Recent Threads</h2>
+
+                    <ul>
+
+                        @foreach ($threads as $thread)
+                            @include('forum._partials.thread')  
+                        @endforeach
+    
+                    </ul>
+    
+                    <div class="my-10">
+                        {{ $threads->links() }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Boards Sidebar -->
+            <div class="w-1/5 px-3 hidden md:block lg:block">
+                <div>
+                    <h2 class="font-semibold text-2xl mb-3 text-center uppercase">Boards</h2>
+                    <ul class="text-center">
+                        @foreach ($boards as $board)
+                            <li>
+                                <a href="{{ route('boards.show', $board) }}"
+                                class="btn btn-sm btn-outline-primary rounded-full uppercase hover:shadow-lg mb-2 shadow-sm block">
+                                    {{ $board->name }}
+                                </a>
+                            </li>                            
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 @endsection

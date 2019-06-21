@@ -10,7 +10,8 @@
         <p class="text-gray-700">
             I want this community to have a say in how this platform grows, for this reason I 
             have made the product roadmap public. You can see what I am working on, and vote for 
-            what feature(s) I should work on next!
+            what feature(s) I should work on next! BTW this whole site is open source, check it 
+            out <a href="https://github.com/WyattCast44/modelrockets.space" target="_blank">here</a>!
         </p>    
     </div>
 </header>
