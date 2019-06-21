@@ -32,7 +32,7 @@
             {{ $article->updated_at->diffForHumans() }} 
             by
             <a href="{{ route('users.show', $article->user) }}">
-                {{ $article->user->username }}
+                {{ '@' . $article->user->username }}
             </a>
         </p>
 

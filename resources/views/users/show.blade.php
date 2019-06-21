@@ -14,17 +14,28 @@
         <div>
             <h1 class="font-semibold text-3xl leading-none uppercase text-gray-700">{{ '@' . $user->username }}</h1>
             <p class="leading-none text-gray-600 italic my-3">{{ $user->profile->tagline }}</p>
-            @if(auth()->check() && auth()->user()->id === $user->id)
-                <div>
-                    <a href="#update-profile" class="btn btn-sm rounded-full px-3 leading-none btn-outline-primary">
-                        Edit My Profile
+            
+            <div>
+                
+                <a href="#share" class="btn btn-sm rounded btn-outline-primary">
+                    📤 Share
+                </a>
+
+                @if(auth()->check() && auth()->user()->id === $user->id)
+                    <a href="#update-profile" class="btn btn-sm rounded btn-outline-primary">
+                        ✏️ Edit My Profile
                     </a>
-                </div>
-                @include('users._partials.edit-profile')
-            @endif
+                    @include('users._partials.edit-profile')
+                @endif
+
+            </div>
+
         </div>
 
     </div>
 </header>
+
+
+@include('users._partials.share')
 
 @endsection

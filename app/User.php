@@ -95,6 +95,15 @@ class User extends Authenticatable
     /**
      * Misc
      */
+    public function path($user = null, $absolute)
+    {
+        if (!$user) {
+            return route('users.index', [], $absolute);
+        }
+
+        return route('users.show', $user, $absolute);
+    }
+
     public function getRouteKeyName()
     {
         return 'username';
