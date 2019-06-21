@@ -9,6 +9,7 @@
 
         <div class="flex mt-3 text-center justify-center items-center">
             @auth
+                <a href="{{ route('users.show', auth()->user()) }}" class="block p-3 text-xl text-white hover:text-white hover:underline">My Profile</a>        
                 <a href="#" onclick="document.getElementById('logout-form').submit();" class="block p-3 text-xl text-white hover:text-white hover:underline">
                     Logout
                 </a>

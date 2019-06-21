@@ -5,15 +5,16 @@
 @section('content')
 
 <header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
-    <div class="container flex">
+    <div class="container flex justify-center md:justify-start">
 
         <div class="mr-5">
             <img src="{{  $user->gravatar }}" alt="{{  $user->username }}" class="rounded-full">
         </div>
 
         <div>
-            <h1 class="font-semibold text-3xl leading-none uppercase text-gray-700">{{ '@' . $user->username }}</h1>
-            <p class="leading-none text-gray-600 italic my-3">{{ $user->profile->tagline }}</p>
+            <h1 class="font-semibold text-xl sm:text-2xl md:text-3xl leading-none uppercase text-gray-700">{{ '@' . $user->username }}</h1>
+            
+            <p class="text-sm sm:text-base leading-none text-gray-600 italic my-3">{{ $user->profile->tagline }}</p>
             
             <div class="mt-3">
                 
