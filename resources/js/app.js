@@ -13,6 +13,13 @@ require("./bootstrap");
 // });
 
 /**
+ * Turbolinks
+ */
+let Turbolinks = require("turbolinks");
+
+Turbolinks.start();
+
+/**
  * StimulusJS
  */
 import { Application } from "stimulus";

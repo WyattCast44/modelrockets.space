@@ -19,7 +19,7 @@
                     </a>
                 @endif
 
-                <a href="#share" class="btn btn-outline-primary rounded btn-sm">
+                <a href="#share" class="btn btn-outline-primary rounded btn-sm" data-turbolinks="false">
                     📤 Share Board
                 </a>
 

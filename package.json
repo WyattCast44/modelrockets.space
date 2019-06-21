@@ -27,6 +27,7 @@
     "dependencies": {
         "pretty-checkbox": "^3.0.3",
         "stimulus": "^1.1.1",
-        "sweetalert2": "^8.12.1"
+        "sweetalert2": "^8.12.1",
+        "turbolinks": "^5.2.0"
     }
 }

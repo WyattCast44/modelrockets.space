@@ -10,7 +10,7 @@
 
     <div data-controller="copy" class="flex items-center">
         <input data-target="copy.source" type="text" class="form-control m-0 form-control-lg bg-blue-100 italic text-sm rounded-r-none" value="{{ $article->path($article, true) }}" readonly>
-        <button data-action="click->copy#handle" data-target="copy.button" class="btn btn-primary px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white rounded-l-none rounded-r">Copy</button>
+        <button data-action="click->copy#handle" data-target="copy.button" class="btn btn-primary px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white rounded-l-none rounded-r" data-turbolinks="false">Copy</button>
     </div>
 
 @endmodal

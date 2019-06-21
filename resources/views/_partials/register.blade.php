@@ -69,7 +69,7 @@
         <!-- Submit -->
         <div class="form-group mb-0 flex items-center justify-end">
             
-            <a href="#login" class="btn btn-link mr-2">Login</a>
+            <a href="#login" class="btn btn-link mr-2" data-turbolinks="false">Login</a>
             
             <button type="submit" class="btn btn-primary">
                 {{ __('Register') }}

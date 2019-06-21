@@ -18,12 +18,12 @@
             
             <div class="mt-3">
                 
-                <a href="#share" class="btn btn-sm rounded btn-outline-primary">
+                <a href="#share" class="btn btn-sm rounded btn-outline-primary" data-turbolinks="false">
                     📤 Share
                 </a>
 
                 @if(auth()->check() && auth()->user()->id === $user->id)
-                    <a href="#update-profile" class="btn btn-sm rounded btn-outline-primary">
+                    <a href="#update-profile" class="btn btn-sm rounded btn-outline-primary" data-turbolinks="false">
                         ✏️ Edit My Profile
                     </a>
                     @include('users._partials.edit-profile')

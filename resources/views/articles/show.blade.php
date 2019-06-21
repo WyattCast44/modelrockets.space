@@ -22,9 +22,9 @@
 
     <div class="flex items-center mb-4 sm:mb-6 md:mb-8 justify-center md:justify-start print:hidden">
         <div data-controller="print">
-            <a href="#" class="btn btn-outline-primary mr-2 btn-sm" data-action="print#handle">🖨️ Print</a>
+            <a href="#" class="btn btn-outline-primary mr-2 btn-sm" data-action="print#handle" data-turbolinks="false">🖨️ Print</a>
         </div>
-        <a href="#share" class="btn btn-outline-primary btn-sm">📤 Share</a>
+        <a href="#share" class="btn btn-outline-primary btn-sm" data-turbolinks="false">📤 Share</a>
     </div>
 
     <p class="text-sm text-gray-500 my-1 md:mb-8 text-center md:text-left">

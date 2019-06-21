@@ -11,7 +11,6 @@
         <ul class="text-lg hidden md:block">
             <a href="/" class="mx-2 p-1 text-white hover:text-white hover:underline">Home</a>
             <a href="{{ route('forum.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Forum</a>
-            {{-- <a href="#" class="mx-2 p-1 text-white hover:text-white hover:underline">Guides</a> --}}
             <a href="{{ route('articles.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Articles</a>
             <a href="{{ route('users.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Members</a>
             <a href="{{ route('features.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Roadmap</a>
@@ -28,15 +27,15 @@
     <ul class="text-lg hidden md:block">
 
         @guest
-            <a href="#login" class="mx-2 p-1 text-white hover:text-white hover:underline">Login</a>
-            <a href="#register" class="mx-2 p-1 text-white hover:text-white hover:underline">Register</a>
+            <a href="#login" class="mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>
+            <a href="#register" class="mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>
         @endguest
 
         @auth
             <a href="{{ route('users.show', auth()->user()) }}" class="mx-2 p-1 text-white hover:text-white hover:underline">
                 My Profile
             </a>
-            <a href="#" onclick="document.getElementById('logout-form').submit();" class="mx-2 p-1 text-white hover:text-white hover:underline">
+            <a href="#" onclick="document.getElementById('logout-form').submit();" class="mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">
                 Logout
             </a>
         @endauth

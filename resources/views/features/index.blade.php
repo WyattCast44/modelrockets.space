@@ -11,7 +11,7 @@
             I want this community to have a say in how this platform grows, for this reason I 
             have made the product roadmap public. You can see what I am working on, and vote for 
             what feature(s) I should work on next! BTW this whole site is open source, check it 
-            out <a href="https://github.com/WyattCast44/modelrockets.space" target="_blank">here</a>!
+            out <a href="https://github.com/WyattCast44/modelrockets.space" target="_blank" data-turbolinks="false">here</a>!
         </p>    
     </div>
 </header>
@@ -54,7 +54,7 @@
                         @endauth
                         
                         @guest
-                            <a href="#login" class="text-sm">Login to vote</a>
+                            <a href="#login" class="text-sm" data-turbolinks="false">Login to vote</a>
                         @endguest
                         
                     </div>
