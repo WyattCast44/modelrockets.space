@@ -8,6 +8,7 @@
 
     <div class="container">
         <p class="text-sm text-gray-700">
+            <a href="{{ route('forum.index') }}">Forum</a> /
             <a href="{{ route('boards.show', $board) }}">{{ $board->name }}</a> /
         </p>
     
@@ -24,11 +25,11 @@
 
     <!-- Board Desc -->
     <div class="rounded border-2 border-solid p-8 mb-6 border-blue-300 bg-blue-100">
-        <h2 class="font-semibold text-lg text-blue-900">Your Posting In: {{ $board->name }}</h2>
+        <h2 class="font-semibold text-lg text-blue-900">Your Posting In: <span class="font-normal underline">{{ $board->name }}</span></h2>
 
         <p class="my-2">{{ $board->description }}</p>
 
-        <p>Please note, this is a {{ ($board->public) ? 'public' : 'private' }} board.</p>
+        <p>Please note, this is a <strong>{{ ($board->public) ? 'public' : 'private' }}</strong> board.</p>
     </div>
 
     <!-- Create Form -->

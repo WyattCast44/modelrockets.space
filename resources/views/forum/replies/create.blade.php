@@ -8,9 +8,10 @@
 
     <div class="container">
         <p class="text-sm text-gray-700">
+            <a href="{{ route('forum.index') }}">Forum</a> /
             <a href="{{ route('boards.show', $board) }}">{{ $board->name }}</a> /
         </p>
-    
+        
         <h1 class="text-xl mb-0">
             {{ $thread->title }}
         </h1>
