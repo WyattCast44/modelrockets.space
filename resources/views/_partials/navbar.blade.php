@@ -19,7 +19,7 @@
     </div>
 
     <div class="block md:hidden text-white">
-        <a href="#mobile-menu" class="text-white hover:text-white">
+        <a href="#mobile-menu" class="text-white hover:text-white" data-turbolinks="false">
             @svg('menu', 'inline fill-current cursor-pointer')
         </a>
     </div>
