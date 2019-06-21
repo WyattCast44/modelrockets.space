@@ -7,19 +7,30 @@
         <div class="container flex justify-between items-center">
             
             <div>
-                <input type="text" class="form-control" placeholder="Search the forum...">
+                <a href="{{ route('forum.index') }}" class="text-sm">Forum</a> /
+                <h2 class="text-xl mb-0">{{ $board->name }}</h2>
             </div>
 
-            @if($board->allow_new_public_threads)
-                <a href="{{ route('threads.create', ['board' => $board]) }}" class="btn btn-outline-primary rounded">
-                    Create Thread
+            <div>
+                
+                @if($board->allow_new_public_threads)
+                    <a href="{{ route('threads.create', ['board' => $board]) }}" class="btn btn-outline-primary rounded mr-2 btn-sm">
+                        📝 Create Thread
+                    </a>
+                @endif
+
+                <a href="#share" class="btn btn-outline-primary rounded btn-sm">
+                    📤 Share Board
                 </a>
-            @endif
+
+            </div>
             
         </div>
     
     </header>
 
     @yield('forum-page')
+
+    @include('forum.boards._partials.share')
     
 @endsection

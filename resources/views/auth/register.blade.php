@@ -65,7 +65,7 @@
         </div>
         
         <!-- Submit -->
-        <div class="form-group mb-0">
+        <div class="form-group mb-0 flex">
             
             <button type="submit" class="btn btn-primary">
                 {{ __('Register') }}

@@ -81,13 +81,13 @@ class Board extends Model implements Feedable
      * Misc
      */
 
-    public function path($board = null)
+    public function path($board = null, $absolute = false)
     {
         if ($board) {
-            return route('boards.show', $board, false);
+            return route('boards.show', $board, $absolute);
         }
 
-        return route('boards.index', [], false);
+        return route('boards.index', [], $absolute);
     }
 
     public static function getFeedItems()

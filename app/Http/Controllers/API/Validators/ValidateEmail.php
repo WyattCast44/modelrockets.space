@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\Actions;
+namespace App\Http\Controllers\API\Validators;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

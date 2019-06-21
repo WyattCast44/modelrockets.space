@@ -4,12 +4,9 @@ import axios from "axios";
 export default class extends Controller {
     static targets = ["username", "usernameError", "email", "emailError"];
 
-    static baseUrl = "/api/users";
-
     validateUsername() {
         let url =
-            "/api/users/usernames/validate?username=" +
-            this.usernameTarget.value;
+            "/api/validators/username?username=" + this.usernameTarget.value;
         let usernameError = this.usernameErrorTarget;
 
         axios
@@ -29,14 +26,14 @@ export default class extends Controller {
     }
 
     validateEmail() {
-        let url = "/api/users/emails/validate?email=" + this.emailTarget.value;
+        let url = "/api/validators/email?email=" + this.emailTarget.value;
         let emailError = this.emailErrorTarget;
 
         axios
             .get(url)
             .then(function(response) {
                 // Unique username
-                emailError.innerText = "Username is available";
+                emailError.innerText = "Email is available";
                 emailError.classList.add("hidden");
             })
             .catch(function(error) {
