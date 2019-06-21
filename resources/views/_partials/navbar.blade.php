@@ -33,6 +33,9 @@
         @endguest
 
         @auth
+            <a href="{{ route('users.show', auth()->user()) }}" class="mx-2 p-1 text-white hover:text-white hover:underline">
+                My Profile
+            </a>
             <a href="#" onclick="document.getElementById('logout-form').submit();" class="mx-2 p-1 text-white hover:text-white hover:underline">
                 Logout
             </a>

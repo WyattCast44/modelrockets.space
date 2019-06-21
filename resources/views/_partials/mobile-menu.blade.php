@@ -6,6 +6,22 @@
         <a href="{{ route('articles.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Articles</a>
         <a href="{{ route('users.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Members</a>
         <a href="{{ route('features.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Roadmap</a>        
+
+        <div class="flex mt-3 text-center justify-center items-center">
+            @auth
+                <a href="#" onclick="document.getElementById('logout-form').submit();" class="block p-3 text-xl text-white hover:text-white hover:underline">
+                    Logout
+                </a>
+            @endauth
+
+            @guest
+
+                <a href="#login" class="block p-3 text-xl text-white hover:text-white hover:underline">Login</a>        
+                <a href="#register" class="block p-3 text-xl text-white hover:text-white hover:underline">Register</a>        
+
+            @endguest
+        </div>
+
     </div>
 
 @endfullmodal
