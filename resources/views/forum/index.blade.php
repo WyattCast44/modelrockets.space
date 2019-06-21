@@ -9,22 +9,22 @@
         <div class="flex">
 
             <!-- Filters Sidebar -->
-            <div class="w-1/6 px-3 hidden lg:block">
+            {{-- <div class="w-1/6 px-3 hidden lg:block">
                 <div>
-                    <h2 class="font-semibold text-2xl mb-3 uppercase">Filters</h2>
+                    <h2 class="font-semibold text-2xl mb-3 uppercase text-gray-600">Filters</h2>
                     <ul class="list-disc">
                         <li>All</li>
                         <li>New</li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Threads Index -->
             <div class="flex-1 px-3 mx-3">
                 
                 <div>
 
-                    <h2 class="font-semibold text-2xl mb-3 uppercase">Recent Threads</h2>
+                    <h2 class="font-semibold text-2xl mb-3 uppercase text-gray-600">Recent Threads</h2>
 
                     <ul>
 
@@ -45,7 +45,7 @@
             <!-- Boards Sidebar -->
             <div class="w-1/5 px-3 hidden md:block lg:block">
                 <div>
-                    <h2 class="font-semibold text-2xl mb-3 text-center uppercase">Boards</h2>
+                    <h2 class="font-semibold text-2xl mb-3 text-center uppercase text-gray-600">Boards</h2>
                     <ul class="text-center">
                         @foreach ($boards as $board)
                             <li>
