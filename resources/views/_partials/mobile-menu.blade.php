@@ -22,7 +22,7 @@
 
             @endguest
         </div>
-
+    
     </div>
 
 @endfullmodal
