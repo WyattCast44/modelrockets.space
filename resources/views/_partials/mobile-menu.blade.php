@@ -10,9 +10,10 @@
         <div class="flex mt-3 text-center justify-center items-center">
             @auth
                 <a href="{{ route('users.show', auth()->user()) }}" class="block p-3 text-xl text-white hover:text-white hover:underline">My Profile</a>        
-                <a href="#" onclick="document.getElementById('logout-form').submit();" class="block p-3 text-xl text-white hover:text-white hover:underline" data-turbolinks="false">
-                    Logout
-                </a>
+                <form action="{{ route('logout') }}" method="post" class="inline-block">
+                    @csrf
+                    <button type="submit" class="mx-2 p-1 text-white hover:text-white hover:underline text-lg">Logout</button>
+                </form>
             @endauth
 
             @guest

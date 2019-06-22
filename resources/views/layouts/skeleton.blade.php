@@ -22,11 +22,6 @@
         
     </div>
     
-    
-    @auth
-        @include('_partials.logout')
-    @endauth
-    
     @include('sweetalert::alert')
     @include('_partials.mobile-menu')
 
