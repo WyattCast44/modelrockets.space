@@ -20,7 +20,7 @@
     <input type="text" placeholder="Search members..." class="form-control inline-block w-1/2 md:w-1/3">
 </div>
 
-<div class="container p-5 bg-white rounded mt-4 mb-8 shadow-md border border-solid border-gray-300">
+<div class="container p-5 bg-gray-100 rounded mt-4 mb-8 shadow-md border border-solid border-gray-300">
 
     <div class="px-2">
         <div class="flex -mx-2 flex-wrap">

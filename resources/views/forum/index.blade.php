@@ -4,11 +4,13 @@
 
 @section('forum-page')
 
-    <div class="mb-0 sm:mb-8 md:mb-16 mx-auto" style="width:1500px; max-width:98%;">
+    {{-- <div class="mb-0 sm:mb-8 md:mb-14 mx-auto" style="width:1500px; max-width:98%;"> --}}
+
+    <div class="container">
 
         <div class="flex">
 
-            <!-- Filters Sidebar -->
+            {{-- <!-- Filters Sidebar -->
             <div class="w-1/6 px-3 hidden lg:block">
                 <div>
                     <h2 class="font-semibold text-2xl mb-3 uppercase text-gray-600 text-center">Filters</h2>
@@ -25,14 +27,12 @@
                         </li>     
                     </ul>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Threads Index -->
-            <div class="flex-1 px-3 mx-3">
+            <div class="">
                 
                 <div>
-
-                    {{-- <h2 class="font-semibold text-xl md:text-2xl mb-3 uppercase text-gray-600">Recent Threads</h2> --}}
 
                     <ul>
 
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Boards Sidebar -->
-            <div class="w-1/5 px-3 hidden md:block lg:block">
+            {{-- <div class="w-1/5 px-3 hidden md:block lg:block">
                 <div>
                     <h2 class="font-semibold text-2xl mb-3 text-center uppercase text-gray-600">Boards</h2>
                     <ul class="text-center">
@@ -65,7 +65,7 @@
                         @endforeach
                     </ul>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>
