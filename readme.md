@@ -1,8 +1,16 @@
 # ModelRockets.Space
 
+## Core Content Models
+
+-   Articles
+-   Boards
+-   Threads
+-   Replies
+
 ## Front End
 
-All front end asset compilation is handled via Laravel Mix.
+-   All templating is handled via Laravel Blade.
+-   All front end asset compilation is handled via Laravel Mix.
 
 ### CSS
 
@@ -12,7 +20,7 @@ I have chosen to use [TailwindCSS](https://stimulusjs.org/) as the main CSS libr
 
 My goal in this project is to use JS solely for progressive enchancement. This means that the app should function completely even with javascipt disabled.
 
-I have chosen to use [StimulusJs](https://stimulusjs.org/) for handling any JS needs. I have also installed (Turbolinks)[https://github.com/turbolinks/turbolinks], again as an enhancement, if this gets turned off the app should still work.
+I have chosen to use [StimulusJs](https://stimulusjs.org/) for handling any JS needs. I have also installed [Turbolinks]([https://github.com/turbolinks/turbolinks), again as an enhancement, if this gets turned off the app should still work.
 
 #### Generating Stimulus Controllers
 
