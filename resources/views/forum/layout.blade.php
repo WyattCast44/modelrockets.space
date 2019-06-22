@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <header class="border-b border-solid border-gray-300 bg-gray-200 py-4 md:py-6 sticky top-0 shadow-md mb-8" style="z-index:1000;">
+    <header class="border-b border-solid border-gray-300 bg-gray-200 py-4 md:py-6 sticky top-0 shadow-md mb-4 sm:mb-6 md:mb-8" style="z-index:1000;">
 
         <div class="mx-auto flex justify-between items-center md:hidden" style="width:600px;max-width:90%">
             

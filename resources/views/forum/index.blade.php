@@ -4,7 +4,7 @@
 
 @section('forum-page')
 
-    <div class="mb-16 mx-auto" style="width:1500px; max-width:90%;">
+    <div class="mb-0 sm:mb-8 md:mb-16 mx-auto" style="width:1500px; max-width:98%;">
 
         <div class="flex">
 
@@ -24,7 +24,7 @@
                 
                 <div>
 
-                    <h2 class="font-semibold text-2xl mb-3 uppercase text-gray-600">Recent Threads</h2>
+                    <h2 class="font-semibold text-xl md:text-2xl mb-3 uppercase text-gray-600">Recent Threads</h2>
 
                     <ul>
 
@@ -34,7 +34,7 @@
     
                     </ul>
     
-                    <div class="my-10">
+                    <div class="my-10 flex justify-center md:justify-start">
                         {{ $threads->links() }}
                     </div>
 
