@@ -17,7 +17,7 @@
 </header>
 
 <div class="container flex justify-end">
-    <input type="text" placeholder="Search members..." class="form-control inline-block w-1/3">
+    <input type="text" placeholder="Search members..." class="form-control inline-block w-1/2 md:w-1/3">
 </div>
 
 <div class="container p-5 bg-white rounded mt-4 mb-8 shadow-md border border-solid border-gray-300">

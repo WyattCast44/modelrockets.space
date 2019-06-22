@@ -12,7 +12,7 @@ export default class extends Controller {
     }
 
     handle(event) {
-        this.navigate("http://modelrockets.test/members");
+        this.navigate("/members");
     }
 
     get navOptions() {
