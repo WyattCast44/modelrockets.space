@@ -3,16 +3,12 @@
 @section('content')
 
     <header class="border-b border-solid border-gray-300 bg-gray-200 py-4 md:py-6 sticky top-0 shadow-md mb-8" style="z-index:1000;">
-        
-        {{-- <div class="mx-auto" style="width:600px;max-width:90%">
-            <input type="text" placeholder="Search the forums..." class="form-control">    
-        </div>     --}}
 
         <div class="mx-auto flex justify-between items-center md:hidden" style="width:600px;max-width:90%">
             
             <div>
 
-                <label for="" class="uppercase mb-1 text-xs text-gray-500">Filters</label>
+                <label for="" class="block uppercase mb-1 text-xs text-gray-500 text-center">Filters</label>
                 <div class="relative">
                     <select class="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                         <option>All</option>
@@ -28,7 +24,7 @@
             </div>
 
             <div>
-                <label for="" class="uppercase mb-1 text-xs text-gray-500">Boards</label>
+                <label for="" class="block uppercase mb-1 text-xs text-gray-500 text-center">Boards</label>
                 <select name="filter" id="filter" class="form-control">
                     <option value="all">Mid Power Rockets</option>
                     <option value="all">High Power Rockets</option>
