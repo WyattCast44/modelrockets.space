@@ -10,18 +10,21 @@ class ForumController extends Controller
 {
     protected $allowedQueryParams = [
         'all' => 'all',
-        'mine' => 'mine',
-        'popular' => 'popular',
+        'mine' => "mine",
+        'popular' => "popular",
         'latest' => 'latest',
     ];
 
     public function __invoke(Request $request)
     {
-        if ($request->has('q') && collect($this->allowedQueryParams)->contains($request->query('q'))) {
-            $threads = $this->getCustomThreads();
-        } else {
-            $threads = $this->getStandardThreads();
-        }
+        // if ($request->has('q') && collect($this->allowedQueryParams)->has($request->query('q'))) {
+        //     $threads = $this->getCustomThreads();
+        //     dd($threads);
+        // } else {
+        //     $threads = $this->getStandardThreads();
+        // }
+        
+        $threads = $this->getStandardThreads();
 
         $boards = Board::public()
                     ->latest()
@@ -32,14 +35,6 @@ class ForumController extends Controller
             'boards' => $boards,
             'threads' => $threads
         ]);
-    }
-
-    protected function getCustomThreads()
-    {
-        return Thread::latest()
-                ->where('user_id', auth()->id())
-                ->with('user')
-                ->simplePaginate(20);
     }
 
     protected function getStandardThreads()
