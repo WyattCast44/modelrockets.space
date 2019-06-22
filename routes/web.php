@@ -26,3 +26,5 @@ Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.sho
 
 Route::get('/roadmap', 'FeaturesController@index')->name('features.index');
 Route::post('/roadmap/{feature}/upvote', 'FeatureUpvotesController')->name('features.upvote');
+
+Route::get('/search', 'SearchController');
