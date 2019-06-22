@@ -2,7 +2,7 @@
 
 @section('content')
 
-<header class="flex flex-col bg-gray-200 pt-12 pb-10">
+<header class="flex flex-col bg-gray-200 pt-8 md:pt-12 pb-6 md:pb-10">
     <div class="container">
         <h1 class="font-semibold text-3xl mb-2">The Forums</h1>
         <p class="text-gray-700 text-lg">
@@ -11,7 +11,7 @@
     </div>
 </header>
 
-<header class="border-b border-solid border-gray-300 bg-gray-200 py-4 md:py-6 sticky top-0 shadow-lg mb-4 sm:mb-6 md:mb-12" style="z-index:1000;">
+<nav class="border-b border-solid border-gray-300 bg-gray-200 py-4 md:py-6 sticky top-0 shadow-lg mb-4 sm:mb-6 md:mb-12" style="z-index:1000;">
 
     <div class="container mx-auto flex justify-between items-center md:shidden" style="max-width:90%">
         
@@ -35,7 +35,7 @@
         </div>
 
         <!-- Search -->
-        <div class="flex-1 mx-3">
+        <div class="flex-1 mx-3 hidden md:block">
 
                 <label for="" class="leading-none block uppercase mb-1 text-xs text-gray-500 text-center">Search</label>
                 <input type="text" class="my-0 w-full appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" placeholder="Search the forums...">
@@ -43,7 +43,7 @@
         </div>
 
         <!-- Boards -->
-        <div>
+        <div class="ml-2 md:ml-0">
             <label for="" class="leading-none block uppercase mb-1 text-xs text-gray-500 text-center">Boards</label>
             <div class="relative">
                     <select class="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
@@ -61,7 +61,7 @@
 
     </div> 
 
-</header>
+</nav>
 
     @yield('forum-page')
     
