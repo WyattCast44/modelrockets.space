@@ -1,22 +1,13 @@
 import { Controller } from "stimulus";
+import { throws } from "assert";
 
 export default class extends Controller {
     static targets = ["select"];
 
-    connect() {
-        console.log(
-            "Connected to Select Nav!",
-            this.selectTarget,
-            this.navOptions
-        );
-    }
-
     handle(event) {
-        this.navigate("/members");
-    }
+        let queryParam = this.selectTarget.value;
 
-    get navOptions() {
-        return this.selectTarget.options;
+        this.navigate("?q=" + queryParam);
     }
 
     navigate(url) {

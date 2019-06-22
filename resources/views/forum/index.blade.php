@@ -35,7 +35,7 @@
                     </ul>
     
                     <div class="my-10 flex justify-center md:justify-start">
-                        {{ $threads->links() }}
+                        {{ $threads->appends(request()->except('page'))->links() }}
                     </div>
 
                 </div>
