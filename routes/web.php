@@ -28,3 +28,6 @@ Route::get('/roadmap', 'FeaturesController@index')->name('features.index');
 Route::post('/roadmap/{feature}/upvote', 'FeatureUpvotesController')->name('features.upvote');
 
 Route::get('/search', 'SearchController');
+
+Route::view('/pages/terms', 'pages.terms');
+Route::view('/pages/privacy', 'pages.privacy');
