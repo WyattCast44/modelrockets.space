@@ -4,12 +4,13 @@ namespace App;
 
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Board extends Model implements Feedable
 {
-    use Sluggable;
+    use Sluggable, Searchable;
 
     protected $guarded = [];
 

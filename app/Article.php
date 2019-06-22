@@ -4,6 +4,7 @@ namespace App;
 
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
 use Laravel\Nova\Actions\Actionable;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model implements Feedable
 {
-    use Sluggable, Actionable;
+    use Sluggable, Actionable, Searchable;
 
     protected $guarded = [];
 
