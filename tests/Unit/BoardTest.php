@@ -26,17 +26,13 @@ class BoardTest extends TestCase
 
         $board = factory(Board::class)->create();
 
-        $password = 'password';
-
-        $board->makePrivate($password);
+        $board->makePrivate('password');
 
         $this->assertFalse($board->public);
     }
 
     public function test_a_board_can_have_many_threads()
     {
-        $this->withoutExceptionHandling();
-        
         $board = factory(Board::class)->create();
 
         $threads = factory(Thread::class, 3)->create([

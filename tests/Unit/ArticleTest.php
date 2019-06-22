@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
+use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Article;
 
 class ArticleTest extends TestCase
 {

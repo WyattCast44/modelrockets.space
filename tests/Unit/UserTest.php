@@ -2,10 +2,9 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
-use Doctrine\DBAL\Driver\PDOException;
 
 class UserTest extends TestCase
 {
