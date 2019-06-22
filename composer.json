@@ -25,6 +25,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
         "beyondcode/laravel-dump-server": "^1.0",
+        "brainmaestro/composer-git-hooks": "^2.7",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
@@ -35,11 +36,6 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
     },
     "autoload": {
         "psr-4": {
@@ -77,5 +73,21 @@
             "type": "composer",
             "url": "https://nova.laravel.com"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        },
+        "hooks": {
+            "pre-commit": [
+                "echo committing as $(git config user.name)"
+            ],
+            "pre-push": [
+                "phpunit",
+                "echo running prod yarn flow",
+                "yarn prod",
+                "echo finished running prod yarn flow"
+            ]
+        }
+    }
 }
