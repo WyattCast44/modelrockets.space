@@ -19,7 +19,6 @@ class ForumController extends Controller
     {
         if ($request->has('q') && collect($this->allowedQueryParams)->contains($request->query('q'))) {
             $threads = $this->getCustomThreads();
-            dd('custom query time', $threads);
         } else {
             $threads = $this->getStandardThreads();
         }
@@ -40,8 +39,7 @@ class ForumController extends Controller
         return Thread::latest()
                 ->where('user_id', auth()->id())
                 ->with('user')
-                ->get();
-        //->simplePaginate(20);
+                ->simplePaginate(20);
     }
 
     protected function getStandardThreads()
