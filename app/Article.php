@@ -9,6 +9,7 @@ use Illuminate\Mail\Markdown;
 use Laravel\Nova\Actions\Actionable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Str;
 
 class Article extends Model implements Feedable
 {
@@ -87,7 +88,7 @@ class Article extends Model implements Feedable
         return FeedItem::create()
             ->id($this->path($this))
             ->title($this->title)
-            ->summary($this->subtitle)
+            ->summary('Subtitle: ' . $this->subtitle . ' Excerpt: ' . Str::limit($this->body, 512))
             ->updated($this->updated_at)
             ->link($this->path($this))
             ->author('@' . $this->user->username);
