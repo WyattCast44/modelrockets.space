@@ -1,7 +1,5 @@
 <?php
 
-use Spatie\Honeypot\ProtectAgainstSpam;
-
 Auth::routes();
 
 Route::feeds('rss');
@@ -14,7 +12,7 @@ Route::get('/forum/b/{board}/threads/create', 'ThreadsController@create')->name(
 Route::post('/forum/b/{board}/threads', 'ThreadsController@store')->name('threads.store');
 Route::get('/forum/b/{board}/threads/{thread}', 'ThreadsController@show')->name('threads.show');
 Route::get('/forum/b/{board}/threads/{thread}/replies/new', 'RepliesController@create')->name('replies.create');
-Route::post('/forum/b/{board}/threads/{thread}/replies', 'RepliesController@store')->name('replies.store')->middleware(ProtectAgainstSpam::class);
+Route::post('/forum/b/{board}/threads/{thread}/replies', 'RepliesController@store')->name('replies.store');
 
 
 Route::get('/members', 'UsersController@index')->name('users.index');

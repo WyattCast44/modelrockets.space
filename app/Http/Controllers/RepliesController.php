@@ -7,12 +7,15 @@ use App\Reply;
 use App\Board;
 use App\Thread;
 use Illuminate\Http\Request;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 class RepliesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->only(['create', 'store']);
+        
+        $this->middleware(ProtectAgainstSpam::class)->only(['store']);
     }
 
     public function create(Board $board, Thread $thread)

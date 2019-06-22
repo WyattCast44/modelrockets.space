@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Board;
 use App\Thread;
 use Illuminate\Http\Request;
-use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Mail\Markdown;
+use Stevebauman\Purify\Facades\Purify;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 class ThreadsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->only(['create', 'store']);
+        
+        $this->middleware(ProtectAgainstSpam::class)->only(['store']);
     }
 
     public function create(Board $board)
@@ -31,7 +34,9 @@ class ThreadsController extends Controller
     public function show(Board $board, Thread $thread)
     {
         if (!$board->public) {
-            return abort(403);
+            alert()->warning('This board is private.');
+
+            return back();
         }
 
         $thread->load(['user']);
@@ -55,7 +60,9 @@ class ThreadsController extends Controller
 
         $body = Markdown::parse(trim(Purify::clean($request->body)));
 
-        if (strlen($body) < 3) {
+        if (strlen($body) == 0) {
+            alert()->warning('Your post must have content.');
+
             return back();
         }
 
