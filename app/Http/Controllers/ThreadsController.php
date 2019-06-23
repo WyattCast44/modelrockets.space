@@ -89,7 +89,7 @@ class ThreadsController extends Controller
                 'attachable_id' => $thread->id,
                 'attachable_type' => Thread::class,
                 'filename' => '',
-                'path' => $attachment->store('uploads'),
+                'path' => $attachment->store('public/uploads'),
                 'available' => true,
             ]);
         };

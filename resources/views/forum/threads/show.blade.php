@@ -34,9 +34,11 @@
                     </div>
 
                     @if($thread->attachments)
-                        <div class="my-5">
-                            @foreach ($thread->attachments as $attachment)
-                                {{ $attachment->path }}
+                        <div class="mt-5">
+                            @foreach ($thread->attachments as $attachment)  
+                                <a href="{{ $attachment->url }}" class="cursor-pointer hover:no-underline">
+                                    <img src="{{ $attachment->url }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded">    
+                                </a>  
                             @endforeach
                         </div>
                     @endif
