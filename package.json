@@ -22,12 +22,10 @@
         "sass-loader": "^7.1.0",
         "tailwindcss": "^1.0.4",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
-    },
-    "dependencies": {
-        "pretty-checkbox": "^3.0.3",
+        "vue-template-compiler": "^2.6.10",
         "stimulus": "^1.1.1",
         "sweetalert2": "^8.12.1",
         "turbolinks": "^5.2.0"
-    }
+    },
+    "dependencies": {}
 }

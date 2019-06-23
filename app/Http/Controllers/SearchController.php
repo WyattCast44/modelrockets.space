@@ -17,6 +17,8 @@ class SearchController extends Controller
 
     public function __invoke(Request $request)
     {
+        return view('search.index');
+
         $term = $request->query('q');
 
         $results = Thread::search($term)->get();
