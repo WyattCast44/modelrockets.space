@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
 
 class UsersTest extends TestCase
 {
@@ -90,5 +92,18 @@ class UsersTest extends TestCase
         $response->assertSee($user->username);
 
         $response->assertSee('Share');
+    }
+
+    public function test_a_new_user_is_sent_a_welcome_email()
+    {
+        Mail::fake();
+
+        $this->withoutExceptionHandling();
+
+        $user = factory(User::class)->create();
+
+        Mail::assertQueued(WelcomeEmail::class, function ($mail) use ($user) {
+            return ($mail->user->id === $user->id);
+        });
     }
 }

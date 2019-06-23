@@ -4,7 +4,7 @@ Auth::routes();
 
 Route::feeds('rss');
 
-Route::get('/', 'DashboardController');
+Route::get('/', 'DashboardController')->name('home');
 Route::view('/pages/terms', 'pages.terms');
 Route::view('/pages/privacy', 'pages.privacy');
 

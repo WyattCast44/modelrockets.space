@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\ActionFields;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Events\ArticlePublished;
 
 class PublishArticle extends Action
 {
@@ -25,6 +26,8 @@ class PublishArticle extends Action
     {
         $models->each(function ($article) {
             $article->publish();
+            
+            event(new ArticlePublished($article));
         });
 
         return Action::message('Article(s) Published');

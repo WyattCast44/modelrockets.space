@@ -2,14 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
+use App\User;
+use App\Article;
+use App\Observers\UserObserver;
+use App\Observers\ArticleObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Article;
-use App\Observers\ArticleObserver;
-use App\Observers\UserObserver;
-use App\User;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -37,5 +36,15 @@ class EventServiceProvider extends ServiceProvider
         Article::observe(ArticleObserver::class);
 
         //
+    }
+
+    /**
+     * Determine if events and listeners should be automatically discovered.
+     *
+     * @return bool
+     */
+    public function shouldDiscoverEvents()
+    {
+        return true;
     }
 }

@@ -26,11 +26,11 @@
         <env name="TELESCOPE_ENABLED" value="false"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
         <server name="APP_ENV" value="testing"/>
+        <server name="SCOUT_DRIVER" value="null"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="array"/>
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
-        <server name="SCOUT_DRIVER" value="null"/>
     </php>
 </phpunit>
