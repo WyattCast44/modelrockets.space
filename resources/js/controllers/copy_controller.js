@@ -7,6 +7,7 @@ export default class extends Controller {
         if (!document.queryCommandSupported("copy")) {
             this.buttonTarget.classList.add("hidden");
             this.sourceTarget.removeAttribute("readonly");
+            this.sourceTarget.setAttribute("readonly", false);
         }
     }
 
@@ -26,5 +27,9 @@ export default class extends Controller {
         setInterval(() => {
             this.setButtonText("Copy");
         }, 3500);
+    }
+
+    focus() {
+        this.sourceTarget.setSelectionRange(0, this.sourceTarget.length);
     }
 }
