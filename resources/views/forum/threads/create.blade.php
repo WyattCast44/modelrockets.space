@@ -17,7 +17,7 @@
 
 </header>
 
-<div class="container mb-12">
+<div class="container mb-16">
 
     <div class="flex mb-5">
         <a href="{{ $board->path($board) }}">&leftarrow; Back to board</a>
@@ -33,20 +33,44 @@
     </div>
 
     <!-- Create Form -->
-    <form action="{{ route('threads.store', ['board' => $board]) }}" method="post">
+    <form action="{{ route('threads.store', ['board' => $board]) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @honeypot
 
         <div class="form-group">
             <label for="title" class="text-lg text-gray-600">Title</label>
-            <input name="title" id="title" class="form-control" placeholder="Your title..." required/>
+            <input name="title" id="title" class="form-control" placeholder="Your title..." required autofocus/>
         </div>
 
         <div class="form-group">
             <label for="body" class="text-lg text-gray-600">Body</label>
             <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts, ideas, etc..." required></textarea>
         </div>
+
+
+        <div class="form-group mb-5" data-controller="inputfile">
+
+                <label for="body" class="text-lg text-gray-600">Attachments</label>
+
+                <div class="custom-file" >
+
+                    <input type="file" 
+                        data-target="inputfile.source"
+                        data-action="change->inputfile#handle"    
+                        class="custom-file-input" name="attachments[]" id="attachments" multiple>
+
+                    <label class="custom-file-label" for="attachments[]">Choose file</label>
+
+                </div>
+
+                <div class="flex" data-target="inputfile.listContainer">
+                    <li data-target="inputfile.listTemplate" class="mx-2 p-2 bg-gray-200 text-xs hidden border border-solid border-gray-300 rounded"></li>
+                    <ul data-target="inputfile.list" class="list-none flex my-6">
+                    </ul>
+                </div>
+
+            </div>
 
         <div class="form-group flex justify-end">
             <a href="{{ $board->path($board) }}" class="btn btn-link">Cancel</a>

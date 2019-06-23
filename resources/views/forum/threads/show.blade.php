@@ -32,6 +32,14 @@
                     <div class="markdown-body">
                         {!!  $thread->body !!}
                     </div>
+
+                    @if($thread->attachments)
+                        <div class="my-5">
+                            @foreach ($thread->attachments as $attachment)
+                                {{ $attachment->path }}
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
                 
                 @if($bestReply && !request()->has('page'))

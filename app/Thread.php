@@ -27,6 +27,11 @@ class Thread extends Model
     /**
      * Relationships
      */
+    public function attachments()
+    {
+        return $this->morphMany(Attachment::class, 'attachable');
+    }
+    
     public function board()
     {
         return $this->belongsTo(Board::class);
