@@ -12,7 +12,7 @@
         <input type="text"
             data-target="copy.source" 
             data-action="focus->copy#focus"  
-            class="form-control m-0 form-control-lg bg-blue-100 italic text-sm rounded-r-none" value="{{ $user->path($user, true) }}" contenteditable="true" readonly>
+            class="form-control m-0 form-control-lg bg-blue-100 italic text-sm rounded-r-none" value="{{ $user->path($user, true) }}" contenteditable="true">
             
         <button data-action="click->copy#handle" data-target="copy.button" class="btn btn-primary px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white rounded-l-none rounded-r hidden md:inline">Copy</button>
     </div>
