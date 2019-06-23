@@ -10,6 +10,7 @@ use Laravel\Nova\Actions\Actionable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Str;
+use App\Events\ArticlePublished;
 
 class Article extends Model implements Feedable
 {
@@ -42,6 +43,8 @@ class Article extends Model implements Feedable
             'published_at' => now(),
         ]);
 
+        event(new ArticlePublished($this));
+
         return $this;
     }
 
@@ -53,6 +56,25 @@ class Article extends Model implements Feedable
         ]);
 
         return $this;
+    }
+
+    public function createThread(): void
+    {
+        $board = Board::where('name', 'Article Discussions')->first();
+
+        if ($board) {
+            $thread = Thread::create([
+                'user_id' => $this->user->id,
+                'board_id' => $board->id,
+                'title' => $this->title,
+                'body' => "This thread was opened by the Articles Bot (🤖) for discussion about the following article: <a href='{$this->path($this)}'>{$this->title}</a>",
+                'open' => true,
+            ]);
+            
+            $this->update([
+                'thread_id' => $thread->id,
+            ]);
+        }
     }
 
     /**

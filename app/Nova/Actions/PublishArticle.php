@@ -26,8 +26,6 @@ class PublishArticle extends Action
     {
         $models->each(function ($article) {
             $article->publish();
-            
-            event(new ArticlePublished($article));
         });
 
         return Action::message('Article(s) Published');
