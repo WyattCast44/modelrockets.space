@@ -15,7 +15,7 @@
     
             <option value="?q=all">All</option>
             <option value="?q=popular">Popular</option>
-            <option value="?q=latest">Newest</option>
+            <option value="?q=latest">Latest</option>
             <option value="?q=mine">My Threads</option>
     
         </select>
