@@ -13,7 +13,9 @@ export default class extends Controller {
 
     handle() {
         this.sourceTarget.select();
+
         document.execCommand("copy");
+
         this.setButtonText("Copied!");
 
         this.resetButtonText();
@@ -30,6 +32,7 @@ export default class extends Controller {
     }
 
     focus() {
-        this.sourceTarget.setSelectionRange(0, this.sourceTarget.length);
+        this.sourceTarget.select();
+        document.execCommand("copy");
     }
 }
