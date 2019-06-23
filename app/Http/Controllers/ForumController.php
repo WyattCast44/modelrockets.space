@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Board;
 use App\Thread;
 use App\Nova\Thread as AppThread;
+use Illuminate\Support\Facades\DB;
 
 class ForumController extends Controller
 {
@@ -43,7 +44,7 @@ class ForumController extends Controller
     protected function getStandardThreads()
     {
         return Thread::latest()
-                ->with('user')
+                ->with(['user', 'board'])
                 ->simplePaginate(20);
     }
 
@@ -53,27 +54,37 @@ class ForumController extends Controller
 
         switch ($filter) {
             case 'all':
-                $threads = Thread::latest()->simplePaginate(20);
+                $threads = Thread::latest()
+                            ->with(['user', 'board'])
+                            ->simplePaginate(20);
                 break;
 
             case 'mine':
                 if (auth()->check()) {
-                    $threads = auth()->user()->threads()->latest()->simplePaginate(20);
+                    $threads = auth()->user()->threads()->with(['user', 'board'])->latest()->simplePaginate(20);
                 } else {
                     $threads = Thread::where('user_id', null)->simplePaginate(20);
                 }
                 break;
 
             case 'popular':
-                $threads = Thread::popular()->simplePaginate(20);
+                
+                $threads = Thread::with(['user', 'board'])
+                            ->withCount('replies')
+                            ->orderBy('replies_count', 'desc')
+                            ->simplePaginate(20);
                 break;
 
             case 'latest':
-                $threads = Thread::latest()->simplePaginate(20);
+                $threads = Thread::latest()
+                            ->with(['user', 'board'])
+                            ->simplePaginate(20);
                 break;
                 
             default:
-            $threads = Thread::latest()->simplePaginate(20);
+                $threads = Thread::latest()
+                            ->with(['user', 'board'])
+                            ->simplePaginate(20);
                 break;
         }
 
