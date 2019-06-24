@@ -8,6 +8,7 @@ use App\Reply;
 use App\Thread;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Attachment;
 
 class ThreadTest extends TestCase
 {
@@ -48,5 +49,19 @@ class ThreadTest extends TestCase
         $replies->each(function ($reply) use ($thread) {
             $this->assertTrue(($reply->thread->id == $thread->id));
         });
+    }
+
+    public function test_a_thread_can_have_attachments()
+    {
+        $thread = factory(Thread::class)->create();
+
+        $attachments = factory(Attachment::class, 3)->create([
+            'attachable_id' => $thread->id,
+            'attachable_type' => Thread::class,
+        ]);
+
+        $this->assertEquals($attachments->count(), $thread->attachments->count());
+        
+        $this->assertTrue($thread->attachments->contains($attachments->first()));
     }
 }

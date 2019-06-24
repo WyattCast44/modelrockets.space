@@ -16,9 +16,9 @@ $factory->define(Attachment::class, function (Faker $faker) {
             return factory(Thread::class)->create()->id;
         },
         'attachable_type' => Thread::class,
-        'filename' => $faker->image(null, 200, 200, 'cats', false),
+        'filename' => '',
         'vendor_id' => '',
-        'path' => $faker->imageUrl(200, 200, 'cats'),
+        'path' => '',
         'available' => true,
     ];
 });
