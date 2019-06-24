@@ -79,18 +79,8 @@ class Board extends Model implements Feedable
     }
 
     /**
-     * Misc
+     * RSS Feed
      */
-
-    public function path($board = null, $absolute = false)
-    {
-        if ($board) {
-            return route('boards.show', $board, $absolute);
-        }
-
-        return route('boards.index', [], $absolute);
-    }
-
     public static function getFeedItems()
     {
         return self::public()->get();
@@ -105,6 +95,19 @@ class Board extends Model implements Feedable
             ->updated($this->updated_at)
             ->link($this->path($this))
             ->author('Model Rockets Space!');
+    }
+
+    /**
+     * Misc
+     */
+
+    public function path($board = null, $absolute = false)
+    {
+        if ($board) {
+            return route('boards.show', $board, $absolute);
+        }
+
+        return route('boards.index', [], $absolute);
     }
 
     public function getRouteKeyName()
