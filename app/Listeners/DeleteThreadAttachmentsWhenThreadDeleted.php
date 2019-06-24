@@ -21,7 +21,9 @@ class DeleteThreadAttachmentsWhenThreadDeleted implements ShouldQueue
         $publicIds = Attachment::where('attachable_id', $event->thread->id)
                     ->get()
                     ->pluck('vendor_id');
-        
-        Cloudder::destroyImages($publicIds->toArray());
+
+        if ($publicIds->count() <> 0) {
+            Cloudder::destroyImages($publicIds->toArray());
+        }
     }
 }

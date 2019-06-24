@@ -75,7 +75,7 @@ class ThreadsController extends Controller
                     'attachable_type' => Thread::class,
                     'filename' => '',
                     'vendor_id' => Cloudder::getPublicId(),
-                    'path' => Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]),
+                    'path' => Cloudder::secureShow(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]),
                     'available' => true,
                 ]);
             };
