@@ -58,7 +58,7 @@
                     {!!  $thread->body !!}
                 </div>
 
-                @if($thread->attachments)
+                @if($thread->attachments->count() <> 0)
                     <div class="mt-5">
                         @foreach ($thread->attachments as $attachment)  
                             <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
@@ -84,7 +84,7 @@
                         {!! $reply->body !!}
                     </div>
 
-                    @if($reply->attachments)
+                    @if($reply->attachments->count() <> 0)
                         <div class="mt-5">
                             @foreach ($reply->attachments as $attachment)  
                                 <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
