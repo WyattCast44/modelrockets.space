@@ -4,14 +4,14 @@ namespace App;
 
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
+use App\Traits\HasAttachments;
+use App\Events\ArticlePublished;
 use Laravel\Nova\Actions\Actionable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Support\Str;
-use App\Events\ArticlePublished;
-use App\Traits\HasAttachments;
 
 class Article extends Model implements Feedable
 {

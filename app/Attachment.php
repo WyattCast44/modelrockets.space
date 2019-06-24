@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Arr;
 
 class Attachment extends Model
 {
     protected $guarded = [];
+
+    protected $baseUrl = 'https://res.cloudinary.com/modelrocketspace/image/upload';
     
     /**
      * Relationships
@@ -21,26 +21,18 @@ class Attachment extends Model
     /**
      * Accessors/Mutators
      */
-    public function getUrlSmallAttribute()
+    public function getFilenameAttribute()
     {
-        $filename = Arr::last(explode('/', $this->path));
-        return "https://res.cloudinary.com/modelrocketspace/image/upload/c_fit,c_thumb,h_150,w_150/{$filename}";
+        return $this->vendor_id;
     }
 
-    public function getUrlMedAttribute()
+    public function getUrlRawAttribute()
     {
-        $filename = Arr::last(explode('/', $this->path));
-        return "https://res.cloudinary.com/modelrocketspace/image/upload/c_fit,c_thumb,h_500,w_500/{$filename}";
+        return "{$this->baseUrl}/{$this->filename}";
     }
 
-    public function getUrlFullSizeAttribute()
+    public function getUrlThumbnailAttribute()
     {
-        $filename = Arr::last(explode('/', $this->path));
-        return "https://res.cloudinary.com/modelrocketspace/image/upload/{$filename}";
-    }
-
-    public function getUrlAttribute()
-    {
-        return $this->path;
+        return "{$this->baseUrl}/c_fit,c_thumb,h_50,w_50/{$this->filename}";
     }
 }
