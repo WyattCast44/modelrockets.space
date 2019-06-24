@@ -15,12 +15,12 @@
                 
                 @if($board->allow_new_public_threads)
                     <a href="{{ route('threads.create', ['board' => $board]) }}" class="btn btn-outline-primary rounded mr-2 btn-sm">
-                        📝 Create Thread
+                        📝<span class="hidden md:inline"> Create Thread</span>
                     </a>
                 @endif
 
                 <a href="#share" class="btn btn-outline-primary rounded btn-sm" data-turbolinks="false">
-                    📤 Share Board
+                    📤<span class="hidden md:inline"> Share Board</span>
                 </a>
 
             </div>
