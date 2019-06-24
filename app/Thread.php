@@ -4,6 +4,8 @@ namespace App;
 
 use App\Reply;
 use Laravel\Scout\Searchable;
+use Illuminate\Mail\Markdown;
+use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
@@ -45,6 +47,14 @@ class Thread extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    /**
+     * Mutators/Accessors
+     */
+    public function setBodyAttribute($body)
+    {
+        $this->attributes['body'] =  Markdown::parse(trim(Purify::clean($body)));
     }
 
     /**
