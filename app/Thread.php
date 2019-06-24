@@ -68,11 +68,11 @@ class Thread extends Model
         ]);
     }
 
-    public function path()
+    public function path($absolute = false)
     {
         return route('threads.show', [
             'board' => $this->board,
             'thread' => $this,
-        ]);
+        ], $absolute);
     }
 }

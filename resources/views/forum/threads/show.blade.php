@@ -96,4 +96,6 @@
         
 </div>
 
+@include('forum.threads._partials.share')
+
 @endsection
