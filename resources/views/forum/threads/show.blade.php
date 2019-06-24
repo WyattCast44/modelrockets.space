@@ -73,6 +73,18 @@
             <div class="w-1/4 mb-4 h-12">
                 <a href="{{ $thread->repliesPath() }}" class="btn btn-primary block mb-3">Add Reply</a>
                 <a href="#" class="btn btn-outline-secondary block mb-3">Report</a>
+                
+                @if(auth()->check() && $thread->user->id == auth()->id())
+
+                    <form action="{{ route('threads.delete', ['board' => $board, 'thread' => $thread]) }}" method="POST" class="block">
+                        @csrf
+                        @honeypot
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-secondary block">Delete Thread</button>
+                    </form>
+
+                @endif
+
             </div>
 
         </div>

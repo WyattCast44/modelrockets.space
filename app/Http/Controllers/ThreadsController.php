@@ -10,6 +10,7 @@ use Stevebauman\Purify\Facades\Purify;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use Illuminate\Support\Facades\Validator;
 use App\Attachment;
+use App\Events\ThreadDeleted;
 
 class ThreadsController extends Controller
 {
@@ -95,5 +96,14 @@ class ThreadsController extends Controller
         };
 
         return redirect()->route('threads.show', ['board' => $board, 'thread' => $thread]);
+    }
+
+    public function delete(Board $board, Thread $thread)
+    {
+        event(new ThreadDeleted($thread));
+
+        $thread->delete();
+
+        return redirect()->route('forum.index');
     }
 }
