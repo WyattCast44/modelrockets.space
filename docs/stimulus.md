@@ -41,3 +41,5 @@
     </div>
 </div>
 ```
+
+![Example](https://github.com/wyattcast44/modelrockets.space/docs/images/multifile.png "Example screenshot of multifile component")
