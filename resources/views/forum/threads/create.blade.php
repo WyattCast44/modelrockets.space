@@ -40,14 +40,23 @@
 
         <div class="form-group">
             <label for="title" class="text-lg text-gray-600">Title</label>
-            <input name="title" id="title" class="form-control" placeholder="Your title..." required autofocus/>
+            <input name="title" id="title" class="form-control" placeholder="Your title..." value="{{ old('title') }}" required autofocus/>
+
+            @error('title')
+                <small class="text-red-400 font-semibol">{{ $message }}</small>
+            @enderror
+
         </div>
 
         <div class="form-group">
             <label for="body" class="text-lg text-gray-600">Body</label>
-            <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts, ideas, etc..." required></textarea>
-        </div>
+            <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts, ideas, etc..." required>{{ old('body') }}</textarea>
 
+            @error('body')
+                <small class="text-red-400 font-semibol">{{ $message }}</small>
+            @enderror
+
+        </div>
 
         <div class="form-group" data-controller="multifile">
             <label for="attachments[]" class="text-lg text-gray-600">Attachments</label>
@@ -67,6 +76,10 @@
                     >Choose file(s)</label
                 >
             </div>
+
+            @error('attachments.*')
+                <small class="text-red-400 font-semibol">{{ $message }}</small>
+            @enderror
         
             <div class="-mx-2" data-target="multifile.listContainer">
                 <li
@@ -75,6 +88,7 @@
                 ></li>
                 <ul data-target="multifile.list" class="list-none flex my-4 flex-wrap"></ul>
             </div>
+
         </div>        
 
         <div class="form-group flex justify-end">

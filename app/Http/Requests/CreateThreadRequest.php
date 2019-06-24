@@ -38,7 +38,7 @@ class CreateThreadRequest extends FormRequest
     public function messages()
     {
         return [
-            'attachments.*.mimes' => 'Only jpeg,png and bmp images are allowed',
+            'attachments.*.mimes' => 'Only jpg, jpeg, png and bmp images are allowed.',
             'attachments.*.max' => 'Sorry! Maximum allowed size for an image is 20MB',
         ];
     }
