@@ -20,6 +20,11 @@ class Attachment extends Model
     /**
      * Accessors/Mutators
      */
+    public function urlSmall()
+    {
+        return $this->path;
+    }
+
     public function getUrlAttribute()
     {
         return $this->path;

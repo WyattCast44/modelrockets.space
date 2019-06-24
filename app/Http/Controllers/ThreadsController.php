@@ -65,7 +65,7 @@ class ThreadsController extends Controller
             foreach ($request->attachments as $attachment) {
                 $path = $attachment->getRealPath();
 
-                list($width, $height) = getimagesize($path);
+                // list($width, $height) = getimagesize($path);
                 
                 Cloudder::upload($path, null);
 
@@ -75,7 +75,7 @@ class ThreadsController extends Controller
                     'attachable_type' => Thread::class,
                     'filename' => '',
                     'vendor_id' => Cloudder::getPublicId(),
-                    'path' => Cloudder::secureShow(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]),
+                    'path' => Cloudder::secureShow(Cloudder::getPublicId()),
                     'available' => true,
                 ]);
             };
