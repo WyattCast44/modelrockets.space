@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Mail\Markdown;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasAttachments;
 
 class Reply extends Model
 {
+    use HasAttachments;
+    
     protected $guarded = [];
     
     /**

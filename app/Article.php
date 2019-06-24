@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Str;
 use App\Events\ArticlePublished;
+use App\Traits\HasAttachments;
 
 class Article extends Model implements Feedable
 {
-    use Sluggable, Actionable, Searchable;
+    use HasAttachments, Sluggable, Actionable, Searchable;
 
     protected $guarded = [];
 

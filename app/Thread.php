@@ -7,10 +7,11 @@ use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
 use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasAttachments;
 
 class Thread extends Model
 {
-    use Searchable;
+    use HasAttachments, Searchable;
     
     protected $guarded = [];
     
@@ -29,10 +30,6 @@ class Thread extends Model
     /**
      * Relationships
      */
-    public function attachments()
-    {
-        return $this->morphMany(Attachment::class, 'attachable');
-    }
     
     public function board()
     {
