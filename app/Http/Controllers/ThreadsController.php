@@ -42,7 +42,7 @@ class ThreadsController extends Controller
 
         $thread->load(['attachments', 'board', 'replies', 'user']);
 
-        $replies = $thread->replies()->paginate(10);
+        $replies = $thread->replies()->with('attachments')->paginate(10);
 
         return view('forum.threads.show', [
             'board' => $board,
@@ -64,8 +64,6 @@ class ThreadsController extends Controller
         if ($request->hasFile('attachments')) {
             foreach ($request->attachments as $attachment) {
                 $path = $attachment->getRealPath();
-
-                // list($width, $height) = getimagesize($path);
                 
                 Cloudder::upload($path, null);
 

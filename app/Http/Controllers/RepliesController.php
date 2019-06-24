@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Purify;
+use Cloudder;
 use App\Reply;
 use App\Board;
 use App\Thread;
 use Illuminate\Http\Request;
 use Spatie\Honeypot\ProtectAgainstSpam;
+use App\Attachment;
 
 class RepliesController extends Controller
 {
@@ -34,15 +36,29 @@ class RepliesController extends Controller
 
         $body = trim(Purify::clean($request->body));
 
-        if (strlen($body) < 3) {
-            return back();
-        }
-
-        Reply::create([
+        $reply = Reply::create([
             'user_id' => auth()->user()->id,
             'thread_id' => $thread->id,
             'body' => Purify::clean($request->body)
         ]);
+
+        if ($request->hasFile('attachments')) {
+            foreach ($request->attachments as $attachment) {
+                $path = $attachment->getRealPath();
+                
+                Cloudder::upload($path, null);
+
+                Attachment::create([
+                    'user_id' => auth()->id(),
+                    'attachable_id' => $reply->id,
+                    'attachable_type' => Reply::class,
+                    'filename' => '',
+                    'vendor_id' => Cloudder::getPublicId(),
+                    'path' => Cloudder::secureShow(Cloudder::getPublicId()),
+                    'available' => true,
+                ]);
+            };
+        }
 
         toast('Reply Posted!', 'success');
 

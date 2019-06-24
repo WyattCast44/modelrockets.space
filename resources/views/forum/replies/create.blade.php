@@ -33,7 +33,7 @@
         {!! $thread->body !!}
     </div>
 
-    <form action="{{ $thread->repliesPath('store') }}" method="post">
+    <form action="{{ $thread->repliesPath('store') }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @honeypot
@@ -42,6 +42,39 @@
             <label for="body">Your Reply</label>
             <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts..."></textarea>
         </div>
+
+        <div class="form-group" data-controller="multifile">
+            <label for="attachments[]" class="text-lg text-gray-600">Attachments</label>
+        
+            <div class="custom-file">
+                <input
+                    type="file"
+                    data-target="multifile.source"
+                    data-action="change->multifile#handle"
+                    class="custom-file-input"
+                    name="attachments[]"
+                    id="attachments"
+                    multiple
+                />
+        
+                <label class="custom-file-label" for="attachments[]" data-target="multifile.text"
+                    >Choose file(s)</label
+                >
+            </div>
+
+            @error('attachments.*')
+                <small class="text-red-400 font-semibol">{{ $message }}</small>
+            @enderror
+        
+            <div class="-mx-2" data-target="multifile.listContainer">
+                <li
+                    data-target="multifile.listTemplate"
+                    class="mx-2 mb-2 p-2 bg-gray-200 text-xs hidden border border-solid border-gray-300 rounded"
+                ></li>
+                <ul data-target="multifile.list" class="list-none flex my-4 flex-wrap"></ul>
+            </div>
+
+        </div>    
 
         <div class="form-group flex justify-end">
             <a href="{{ $thread->path() }}" class="btn btn-link">Cancel</a>

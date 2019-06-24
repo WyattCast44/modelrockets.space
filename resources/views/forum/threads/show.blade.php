@@ -47,7 +47,7 @@
 
 <div class="container mb-12">
 
-        <div class="flex flex-wrap -mb-4">
+        <div class="">
 
             <!-- Original Post -->
             <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-white shadow-md relative">
@@ -83,6 +83,16 @@
                     <div class="markdown-body">
                         {!! $reply->body !!}
                     </div>
+
+                    @if($reply->attachments)
+                        <div class="mt-5">
+                            @foreach ($reply->attachments as $attachment)  
+                                <a href="{{ $attachment->url_full_size }}" class="cursor-pointer hover:no-underline">
+                                    <img src="{{ $attachment->url_small }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded">    
+                                </a>  
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             @empty
                 
