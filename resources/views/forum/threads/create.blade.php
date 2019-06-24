@@ -49,28 +49,33 @@
         </div>
 
 
-        <div class="form-group mb-5" data-controller="inputfile">
-
-                <label for="body" class="text-lg text-gray-600">Attachments</label>
-
-                <div class="custom-file" >
-
-                    <input type="file" 
-                        data-target="inputfile.source"
-                        data-action="change->inputfile#handle"    
-                        class="custom-file-input" name="attachments[]" id="attachments" multiple>
-
-                    <label class="custom-file-label" for="attachments[]">Choose file</label>
-
-                </div>
-
-                <div class="flex" data-target="inputfile.listContainer">
-                    <li data-target="inputfile.listTemplate" class="mx-2 p-2 bg-gray-200 text-xs hidden border border-solid border-gray-300 rounded"></li>
-                    <ul data-target="inputfile.list" class="list-none flex my-6">
-                    </ul>
-                </div>
-
+        <div class="form-group" data-controller="multifile">
+            <label for="attachments[]" class="text-lg text-gray-600">Attachments</label>
+        
+            <div class="custom-file">
+                <input
+                    type="file"
+                    data-target="multifile.source"
+                    data-action="change->multifile#handle"
+                    class="custom-file-input"
+                    name="attachments[]"
+                    id="attachments"
+                    multiple
+                />
+        
+                <label class="custom-file-label" for="attachments[]" data-target="multifile.text"
+                    >Choose file(s)</label
+                >
             </div>
+        
+            <div class="-mx-2" data-target="multifile.listContainer">
+                <li
+                    data-target="multifile.listTemplate"
+                    class="mx-2 mb-2 p-2 bg-gray-200 text-xs hidden border border-solid border-gray-300 rounded"
+                ></li>
+                <ul data-target="multifile.list" class="list-none flex my-4 flex-wrap"></ul>
+            </div>
+        </div>        
 
         <div class="form-group flex justify-end">
             <a href="{{ $board->path($board) }}" class="btn btn-link">Cancel</a>

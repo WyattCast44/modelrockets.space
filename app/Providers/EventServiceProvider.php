@@ -3,9 +3,7 @@
 namespace App\Providers;
 
 use App\User;
-use App\Thread;
 use App\Observers\UserObserver;
-use App\Observers\ThreadObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -33,7 +31,6 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         User::observe(UserObserver::class);
-        Thread::observe(ThreadObserver::class);
     }
 
     /**
