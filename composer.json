@@ -12,6 +12,7 @@
         "algolia/algoliasearch-client-php": "^2.2",
         "cviebrock/eloquent-sluggable": "^4.8",
         "fideloper/proxy": "^4.0",
+        "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.8.*",
         "laravel/nova": "~2.0",
         "laravel/scout": "^7.1",

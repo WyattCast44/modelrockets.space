@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cloudder;
 use App\Board;
 use App\Thread;
 use App\Attachment;
@@ -62,12 +63,19 @@ class ThreadsController extends Controller
 
         if ($request->hasFile('attachments')) {
             foreach ($request->attachments as $attachment) {
+                $path = $attachment->getRealPath();
+
+                list($width, $height) = getimagesize($path);
+                
+                Cloudder::upload($path, null);
+
                 Attachment::create([
                     'user_id' => auth()->id(),
                     'attachable_id' => $thread->id,
                     'attachable_type' => Thread::class,
                     'filename' => '',
-                    'path' => $attachment->store('public/uploads'),
+                    'vendor_id' => Cloudder::getPublicId(),
+                    'path' => Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]),
                     'available' => true,
                 ]);
             };
