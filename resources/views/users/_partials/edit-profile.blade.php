@@ -40,6 +40,17 @@
 
         </div>
 
+        <div class="form-group">
+            
+            <label for="signature" class="text-gray-600">Signature</label>
+            <textarea class="form-control" autocomplete="false" name="signature">{{ auth()->user()->profile->signature }}</textarea>
+
+            @error('signature')
+                <strong class="text-red-300">{{ $message }}</strong>
+            @enderror
+
+        </div>
+
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" name="public" id="public" {{ (auth()->user()->public) ? 'checked' : '' }}>
             <label class="form-check-label" for="public">Public Profile</label>

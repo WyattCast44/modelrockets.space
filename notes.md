@@ -2,7 +2,6 @@
 
 -   Add featured image feature to articles
 -   Show featured image on articles index
--   Make navbar responsive
 -   Build out site search
 -   Add the ability to mark as spam for thread, reply (Reportable)
 

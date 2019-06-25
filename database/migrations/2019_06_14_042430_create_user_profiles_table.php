@@ -17,6 +17,7 @@ class CreateUserProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unique();
             $table->string('tagline')->nullable();
+            $table->text('signature')->nullable();
             $table->text('meta')->nullable();
             $table->timestamps();
         });

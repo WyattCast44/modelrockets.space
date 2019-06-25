@@ -53,6 +53,7 @@ class UsersController extends Controller
                 new AllowedUsername,
                 Rule::unique('users', 'username')->ignore($user->id),
             ],
+            'signature' => 'nullable|string|max:512'
             
         ]);
 
@@ -73,6 +74,7 @@ class UsersController extends Controller
 
         $user->profile->update([
             'tagline' => $request->tagline,
+            'signature' => $request->signature
         ]);
 
         toast('Your profile has been updated!', 'success', 'top');
