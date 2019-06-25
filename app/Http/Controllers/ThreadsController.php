@@ -6,15 +6,15 @@ use Cloudder;
 use App\Board;
 use App\Thread;
 use App\Attachment;
-use App\Events\ThreadDeleted;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Requests\CreateThreadRequest;
+use App\Nova\Thread as AppThread;
 
 class ThreadsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['create', 'store']);
+        $this->middleware('auth')->only(['create', 'store', 'deleter']);
         
         $this->middleware(ProtectAgainstSpam::class)->only(['store']);
     }
@@ -84,12 +84,14 @@ class ThreadsController extends Controller
         return redirect()->route('threads.show', ['board' => $board, 'thread' => $thread]);
     }
 
-    public function delete(Board $board, Thread $thread)
+    public function destroy(Board $board, Thread $thread)
     {
-        event(new ThreadDeleted($thread));
+        if (auth()->id() <> $thread->user->id) {
+            return abort(403);
+        }
 
         $thread->delete();
 
-        return redirect()->route('forum.index');
+        return redirect($board->path($board));
     }
 }
