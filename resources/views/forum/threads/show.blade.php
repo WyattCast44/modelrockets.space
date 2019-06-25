@@ -28,17 +28,6 @@
                 📤<span class="hidden md:inline"> Share Thread</span>
             </a>
 
-            @if(auth()->check() && $thread->user->id == auth()->id())
-
-                <form action="{{ route('threads.delete', ['board' => $board, 'thread' => $thread]) }}" method="POST" class="inline">
-                    @csrf
-                    @honeypot
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-outline-primary rounded btn-sm mr-2 md:mr-0 mt-2 md:mt-0">🗑️<span class="hidden md:inline"> Delete Thread</span></button>
-                </form>
-
-            @endif
-
         </div>
         
     </div>
@@ -48,6 +37,19 @@
 <div class="container mb-12">
 
         <div class="">
+
+            <div>
+            
+                @if(auth()->check() && $thread->user->id == auth()->id())
+                
+                    @include('forum.threads._partials.manage')    
+
+                    <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️ Manage Thread</a>        
+
+                @endif
+
+            </div>
+            
 
             <!-- Original Post -->
             <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-white shadow-md relative">
@@ -68,23 +70,8 @@
                     </div>
                 @endif
 
-                @if(auth()->check() && $thread->user->id == auth()->id())
-            
-                    <div class="flex mt-5">
-
-                        @if($thread->open)
-                            @include('forum.threads._partials.lock')
-                        @else
-                            @include('forum.threads._partials.unlock')    
-                        @endif
-                        
-                        {{-- <a href="#" class="btn btn-sm btn-outline-primary">⚙️ Manage Thread</a> --}}
-                    </div>
-
-                @endif
-
             </div>
-            
+
             @if($bestReply && !request()->has('page'))
                 <div class="rounded border-2 border-solid bg-green-100 p-8 mb-4 border-green-300 relative">
                     <p class="absolute top-0 right-0 p-2 text-xs uppercase text-green-600 flex items-center">
