@@ -18,6 +18,24 @@ class Thread extends Model
     /**
      * Behavior/Actions
      */
+    public function lock()
+    {
+        $this->update([
+            'open' => false,
+        ]);
+
+        return $this;
+    }
+
+    public function unlock()
+    {
+        $this->update([
+            'open' => true,
+        ]);
+
+        return $this;
+    }
+
     public function getBestReply()
     {
         if ($this->best_answer_thread_id) {

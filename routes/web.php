@@ -27,3 +27,5 @@ Route::get('/forum/b/{board}/threads/{thread}', 'ThreadsController@show')->name(
 Route::delete('/forum/b/{board}/threads/{thread}', 'ThreadsController@destroy')->name('threads.delete');
 Route::post('/forum/b/{board}/threads/{thread}/replies', 'RepliesController@store')->name('replies.store');
 Route::get('/forum/b/{board}/threads/{thread}/replies/new/{parent?}', 'RepliesController@create')->name('replies.create');
+Route::post('/forum/b/{board}/threads/{thread}/lock', 'LockedThreadController@store')->name('threads.lock');
+Route::delete('/forum/b/{board}/threads/{thread}/unlock', 'LockedThreadController@destroy')->name('threads.unlock');

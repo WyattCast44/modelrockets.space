@@ -67,6 +67,22 @@
                         @endforeach
                     </div>
                 @endif
+
+                @if(auth()->check() && $thread->user->id == auth()->id())
+            
+                    <div class="flex mt-5">
+
+                        @if($thread->open)
+                            @include('forum.threads._partials.lock')
+                        @else
+                            @include('forum.threads._partials.unlock')    
+                        @endif
+                        
+                        <a href="#" class="btn btn-sm btn-outline-primary">⚙️ Manage Thread</a>
+                    </div>
+
+                @endif
+
             </div>
             
             @if($bestReply && !request()->has('page'))
