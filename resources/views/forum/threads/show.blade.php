@@ -78,7 +78,7 @@
                             @include('forum.threads._partials.unlock')    
                         @endif
                         
-                        <a href="#" class="btn btn-sm btn-outline-primary">⚙️ Manage Thread</a>
+                        {{-- <a href="#" class="btn btn-sm btn-outline-primary">⚙️ Manage Thread</a> --}}
                     </div>
 
                 @endif
@@ -112,7 +112,10 @@
 
                     <div class="flex items-center mt-5">
                         <a href="#" class="btn btn-sm btn-outline-primary mr-2">👍 Favorite</a>
-                        <a href="{{ $thread->repliesPath('create', $reply->id) }}" class="btn btn-sm btn-outline-primary">🗣️ Reply</a>
+
+                        @if($thread->open)
+                            <a href="{{ $thread->repliesPath('create', $reply->id) }}" class="btn btn-sm btn-outline-primary">🗣️ Reply</a>
+                        @endif
                     </div>
                 </div>
             @empty
