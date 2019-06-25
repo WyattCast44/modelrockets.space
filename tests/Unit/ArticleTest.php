@@ -2,10 +2,12 @@
 
 namespace Tests\Unit;
 
+use App\Board;
 use App\Article;
 use Tests\TestCase;
+use App\Events\ArticlePublished;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Board;
 
 class ArticleTest extends TestCase
 {
@@ -22,15 +24,19 @@ class ArticleTest extends TestCase
 
     public function test_when_an_article_is_published_a_thread_is_created()
     {
+        // Given we have an article
         $article = factory(Article::class)->create();
 
-        // Some bad coupling, but oh well :(
+        // Given we have a board called 'Article Discussions'
         $board = factory(Board::class)->create(['name' => 'Article Discussions']);
 
+        // Given we publish the article
         $article->publish();
 
+        // We expect to have one thread in our board
         $this->assertEquals(1, $board->threads->count());
-        
+
+        // We expect the title of the only thread to be the title of the article
         $this->assertTrue($board->threads->first()->title == $article->title);
     }
 }
