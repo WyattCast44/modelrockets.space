@@ -79,7 +79,7 @@
             @endif
 
             @forelse ($replies as $reply)
-                <div class="rounded border border-solid border-gray-300 bg-white p-8 mb-4">
+                <div class="rounded border border-solid border-gray-300 bg-white p-8 mb-4 hover:bg-gray-100 hover:shadow-md">
                     <div class="markdown-body">
                         {!! $reply->body !!}
                     </div>
