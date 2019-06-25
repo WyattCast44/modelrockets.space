@@ -44,7 +44,7 @@
                 
                     @include('forum.threads._partials.manage')    
 
-                    <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️ Manage Thread</a>        
+                    <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️<span class="hidden md:inline"> Manage Thread</span></a>        
 
                 @endif
 
