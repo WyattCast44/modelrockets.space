@@ -18,7 +18,7 @@
 
         <div class="flex flex-wrap justify-end items-center">
             
-            @if($board->allow_new_public_threads)
+            @if($thread->open)
                 <a href="{{ $thread->repliesPath() }}" class="btn btn-outline-primary rounded mr-2 btn-sm">
                     🗣️<span class="hidden md:inline"> Reply</span>
                 </a>
