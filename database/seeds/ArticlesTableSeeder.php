@@ -18,9 +18,11 @@ class ArticlesTableSeeder extends Seeder
         
         factory(Article::class, 11)->create();
 
-        factory(Article::class)->create([
+        $article = factory(Article::class)->create([
             'title' => 'Markdown Test',
             'body' => file_get_contents(__DIR__ . '/Data/Test.md')
         ]);
+
+        $article->publish();
     }
 }

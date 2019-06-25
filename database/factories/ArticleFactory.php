@@ -12,8 +12,8 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'subtitle' => $faker->sentence,
         'body' => $faker->paragraph,
-        'published' => true,
-        'published_at' => now(),
+        'published' => false,
+        'published_at' => null,
         'user_id' => factory(User::class)->create()->id,
     ];
 });

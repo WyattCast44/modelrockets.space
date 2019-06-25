@@ -24,7 +24,8 @@
         <div data-controller="print">
             <a href="#" class="btn btn-outline-primary mr-2 btn-sm" data-action="print#handle" data-turbolinks="false">🖨️ Print</a>
         </div>
-        <a href="#share" class="btn btn-outline-primary btn-sm" data-turbolinks="false">📤 Share</a>
+        <a href="#share" class="btn btn-outline-primary btn-sm mr-2" data-turbolinks="false">📤 Share</a>
+        <a href="{{ $article->thread->path($article->thread) }}" class="btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
     </div>
 
     <p class="text-sm text-gray-500 my-1 md:mb-8 text-center md:text-left">
