@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
+use App\Events\ArticlePublished;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Events\ArticlePublished;
 
-class CreateArticleDiscussionThread
+class CreateThreadWhenArticlePublished
 {
     /**
      * Handle the event.

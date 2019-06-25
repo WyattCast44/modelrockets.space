@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
+use App\Attachment;
+use App\Events\ReplyDeleted;
 use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Events\ReplyDeleted;
-use App\Attachment;
 
 class DeleteReplyAttachmentsWhenReplyDeleted
 {
