@@ -8,7 +8,6 @@ use App\Thread;
 use App\Attachment;
 use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Http\Requests\CreateThreadRequest;
-use App\Nova\Thread as AppThread;
 
 class ThreadsController extends Controller
 {
