@@ -9,6 +9,8 @@ use App\Observers\ThreadObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\Reply;
+use App\Observers\ReplyObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -33,6 +35,7 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         User::observe(UserObserver::class);
+        Reply::observe(ReplyObserver::class);
         Thread::observe(ThreadObserver::class);
     }
 

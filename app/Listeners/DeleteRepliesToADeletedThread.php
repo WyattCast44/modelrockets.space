@@ -24,7 +24,6 @@ class DeleteRepliesToADeletedThread
 
         if ($replies->count() <> 0) {
             $replies->each(function ($reply) {
-                event(new ReplyDeleted($reply));
                 $reply->delete();
             });
         }
