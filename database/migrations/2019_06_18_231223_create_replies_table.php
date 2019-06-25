@@ -19,6 +19,7 @@ class CreateRepliesTable extends Migration
             $table->bigInteger('thread_id')->index()->unsigned();
             $table->text('body');
             $table->bigInteger('favorites')->index()->unsigned()->nullable()->default(0);
+            $table->bigInteger('parent_id')->nullable()->index();
             $table->timestamps();
         });
     }

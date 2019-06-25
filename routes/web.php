@@ -26,4 +26,4 @@ Route::get('/forum/b/{board}/threads/create', 'ThreadsController@create')->name(
 Route::get('/forum/b/{board}/threads/{thread}', 'ThreadsController@show')->name('threads.show');
 Route::delete('/forum/b/{board}/threads/{thread}', 'ThreadsController@destroy')->name('threads.delete');
 Route::post('/forum/b/{board}/threads/{thread}/replies', 'RepliesController@store')->name('replies.store');
-Route::get('/forum/b/{board}/threads/{thread}/replies/new', 'RepliesController@create')->name('replies.create');
+Route::get('/forum/b/{board}/threads/{thread}/replies/new/{parent?}', 'RepliesController@create')->name('replies.create');

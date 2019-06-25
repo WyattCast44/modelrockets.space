@@ -93,6 +93,11 @@
                             @endforeach
                         </div>
                     @endif
+
+                    <div class="flex items-center mt-5">
+                        <a href="#" class="btn btn-sm btn-outline-primary mr-2">👍 Favorite</a>
+                        <a href="{{ $thread->repliesPath('create', $reply->id) }}" class="btn btn-sm btn-outline-primary">🗣️ Reply</a>
+                    </div>
                 </div>
             @empty
                 

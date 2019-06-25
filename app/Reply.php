@@ -27,6 +27,11 @@ class Reply extends Model
     /**
      * Relationships
      */
+    public function replies()
+    {
+        return $this->hasMany(Reply::class, 'parent_id');
+    }
+
     public function thread()
     {
         return $this->belongsTo(Thread::class);

@@ -13,5 +13,6 @@ $factory->define(Reply::class, function (Faker $faker) {
         'thread_id' => factory(Thread::class)->create()->id,
         'body' => $faker->paragraph,
         'favorites' => rand(0, 100),
+        'parent_id' => null
     ];
 });

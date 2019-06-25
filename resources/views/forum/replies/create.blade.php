@@ -33,10 +33,23 @@
         {!! $thread->body !!}
     </div>
 
+    <!-- Parent? -->
+    @if($parent && $parent <> null)
+        <div class="rounded border-2 border-solid p-8 mb-4 border-green-300 bg-green-100 relative">
+            <p class="absolute top-0 right-0 p-2 text-xs uppercase text-green-600">Your Replying To</p>
+            {!! $parent->body !!}
+        </div>
+    @endif
+
+
     <form action="{{ $thread->repliesPath('store') }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @honeypot
+
+        @if($parent && $parent <> null)
+            <input type="hidden" name="parent_id" value="{{ $parent->id }}" required autocomplete="false">
+        @endif
 
         <div class="form-group">
             <label for="body">Your Reply</label>
