@@ -36,20 +36,7 @@
 
 <div class="container mb-12">
 
-        <div class="">
-
-            <div>
-            
-                @if(auth()->check() && $thread->user->id == auth()->id())
-                
-                    @include('forum.threads._partials.manage')    
-
-                    <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️<span class="hidden md:inline"> Manage Thread</span></a>        
-
-                @endif
-
-            </div>
-            
+        <div>
 
             <!-- Original Post -->
             <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-white shadow-md relative">
@@ -68,6 +55,12 @@
                                 <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-xl inline mx-1 border border-solid border-gray-700 shadow-md w-12 hover:border-blue-700 h-12 rounded mb-2">    
                             </a>  
                         @endforeach
+                    </div>
+                @endif
+
+                @if(auth()->check() && $thread->user->id == auth()->id())
+                    <div class="mt-4 mb-0 flex justify-end items-center">
+                        <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️<span class="hidden md:inline"> Manage Thread</span></a>        
                     </div>
                 @endif
 
@@ -117,6 +110,10 @@
         </div>
         
 </div>
+
+@if(auth()->check() && $thread->user->id == auth()->id())
+    @include('forum.threads._partials.manage')
+@endif
 
 @include('forum.threads._partials.share')
 
