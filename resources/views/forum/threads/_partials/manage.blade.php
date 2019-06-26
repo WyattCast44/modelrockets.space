@@ -12,7 +12,7 @@
         @csrf
         @honeypot
         @method('DELETE')
-        <button type="submit" class="btn btn-outline-primary rounded btn-sm mr-2 md:mr-0 mt-2 md:mt-0">🗑️<span class="hidden md:inline"> Delete Thread</span></button>
+        <button type="submit" class="btn btn-outline-primary rounded btn-sm mr-2 md:mr-0 mt-2 md:mt-0">🗑️ Delete Thread</button>
     </form>
 
 @endmodal
