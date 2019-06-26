@@ -2,13 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Board;
 use App\Thread;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
 
-class BoardsTest extends TestCase
+class ThreadsTest extends TestCase
 {
     use RefreshDatabase;
 
