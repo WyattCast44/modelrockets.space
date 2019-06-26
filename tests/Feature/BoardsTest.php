@@ -2,10 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use App\Board;
+use App\Thread;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Thread;
 
 class BoardsTest extends TestCase
 {
@@ -53,7 +54,38 @@ class BoardsTest extends TestCase
 
     public function test_a_user_should_not_be_able_to_visit_private_boards()
     {
-        //
+        // Given we have an board
+        $board = factory(Board::class)->create();
+
+        // And we make it private
+        $board->makePrivate('password');
+
+        // When we visit the board
+        $response = $this->get($board->path('show'));
+
+        // We should get a 403
+        $response->assertStatus(403);
+    }
+
+    public function test_an_authenicated_user_should_not_be_able_to_view_create_reply_form_when_board_is_closed()
+    {
+        // Given we are logged in
+        $this->actingAs(factory(User::class)->create());
+
+        // Given we have a board
+        $board = factory(Board::class)->create();
+
+        // And it is closed
+        $board->close();
+
+        // And we visit the board
+        $this->get($board->path('show'));
+
+        // When we visit the create thread path
+        $response = $this->get($board->path('create-thread'));
+
+        // We should be redirected back
+        $response->assertRedirect($board->path('show'));
     }
 
     public function test_an_rss_feed_is_generated_for_all_public_boards()

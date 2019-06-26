@@ -40,6 +40,15 @@ class Board extends Model implements Feedable
         return $this;
     }
 
+    public function close()
+    {
+        $this->update([
+            'allow_new_public_threads' => false,
+        ]);
+
+        return $this;
+    }
+
     /**
      * Relationships
      */
@@ -115,6 +124,10 @@ class Board extends Model implements Feedable
 
             case 'show':
                 return route('boards.show', $this, $absolute);
+                break;
+
+            case 'create-thread':
+                return route('threads.create', $this, $absolute);
                 break;
 
             case 'rss':
