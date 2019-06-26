@@ -8,6 +8,7 @@ use Illuminate\Mail\Markdown;
 use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasAttachments;
+use Illuminate\Support\Str;
 
 class Thread extends Model
 {
@@ -67,6 +68,11 @@ class Thread extends Model
     /**
      * Mutators/Accessors
      */
+    public function getExcerptAttribute()
+    {
+        return Str::limit($this->body, 256);
+    }
+
     public function setBodyAttribute($body)
     {
         $this->attributes['body'] =  Markdown::parse(trim(Purify::clean($body)));

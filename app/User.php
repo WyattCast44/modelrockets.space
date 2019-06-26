@@ -112,14 +112,31 @@ class User extends Authenticatable
     /**
      * Misc
      */
-    public function path($user = null, $absolute = false)
+    public function path($method = 'index', $absolute = true)
     {
-        if (!$user) {
-            return route('users.index', [], $absolute);
-        }
+        switch ($method) {
+            case 'index':
+                return route('users.index', [], $absolute);
+                break;
 
-        return route('users.show', $user, $absolute);
+            case 'show':
+                return route('users.show', $this, $absolute);
+                break;
+            
+            default:
+                # code...
+                break;
+        }
     }
+
+    // public function path($user = null, $absolute = false)
+    // {
+    //     if (!$user) {
+    //         return route('users.index', [], $absolute);
+    //     }
+
+    //     return route('users.show', $user, $absolute);
+    // }
 
     public function getRouteKeyName()
     {

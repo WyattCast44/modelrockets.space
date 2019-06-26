@@ -28,8 +28,16 @@ class UsersController extends Controller
     public function show(User $user, Request $request)
     {
         $this->authorize('view', $user);
+
+        $user->load(['activity', 'profile']);
         
-        return view('users.show', ['user' => $user]);
+        $activityGroups = $user->activity->groupBy(function ($activity) {
+            return $activity->updated_at->format('d | M');
+        });
+
+        //  dd($activityGroups);
+
+        return view('users.show', ['user' => $user, 'activityGroups' => $activityGroups]);
     }
 
     public function update(User $user, Request $request)

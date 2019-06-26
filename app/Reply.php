@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +25,11 @@ class Reply extends Model
         return Markdown::parse($value);
     }
 
+    public function getExcerptAttribute()
+    {
+        return Str::limit($this->body, 256);
+    }
+
     /**
      * Relationships
      */
@@ -40,5 +46,21 @@ class Reply extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Misc/Helpers
+     */
+    public function path($method = 'show', $absolute = true)
+    {
+        switch ($method) {
+            case 'show':
+                return $this->thread->path('show');
+                break;
+            
+            default:
+                return $this->thread->path('show');
+                break;
+        }
     }
 }

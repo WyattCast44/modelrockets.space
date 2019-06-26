@@ -92,6 +92,11 @@ class Article extends Model implements Feedable
         return Markdown::parse($value);
     }
 
+    public function getExcerptAttribute()
+    {
+        return Str::limit($this->body, 512);
+    }
+
     /**
      * Scopes
      */

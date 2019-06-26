@@ -85,7 +85,7 @@ class UsersTest extends TestCase
     {
         $user = factory(User::class)->create(['public' => true]);
 
-        $response = $this->get($user->path($user));
+        $response = $this->get($user->path('show'));
 
         $response->assertStatus(200);
 
