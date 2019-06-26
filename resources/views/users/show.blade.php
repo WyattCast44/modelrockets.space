@@ -36,6 +36,18 @@
     </div>
 </header>
 
+<section>
+
+    <ul>
+        @foreach($user->activity as $activity)
+            <li>
+                {{ $activity->method }}
+                <p>{{ $activity->subject }}</p>
+            </li>
+        @endforeach
+    </ul>
+
+</section>
 
 @include('users._partials.share')
 

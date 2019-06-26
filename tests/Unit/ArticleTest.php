@@ -6,6 +6,7 @@ use App\Board;
 use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class ArticleTest extends TestCase
 {
@@ -25,8 +26,9 @@ class ArticleTest extends TestCase
         // Given we have an article
         $article = factory(Article::class)->create();
 
-        // Given we have a board called 'Article Discussions'
+        // Given we have a board called 'Article Discussions' and the ArticlesBot Exists
         $board = factory(Board::class)->create(['name' => 'Article Discussions']);
+        factory(User::class)->create(['username' => 'ArticlesBot']);
 
         // Given we publish the article
         $article->publish();
@@ -122,6 +124,7 @@ class ArticleTest extends TestCase
 
         // Given we have a board called 'Article Discussions'
         $board = factory(Board::class)->create(['name' => 'Article Discussions']);
+        factory(User::class)->create(['username' => 'ArticlesBot']);
 
         // Given we publish the article
         $article->publish();

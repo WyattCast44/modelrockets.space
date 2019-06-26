@@ -67,7 +67,7 @@ class Article extends Model implements Feedable
 
         if ($board) {
             $thread = Thread::create([
-                'user_id' => $this->user->id,
+                'user_id' => User::where('username', 'ArticlesBot')->first()->id,
                 'board_id' => $board->id,
                 'title' => $this->title,
                 'body' => "This thread was opened by the Articles Bot (🤖) for discussion about the following article: <a href='{$this->path($this)}'>{$this->title}</a>",
