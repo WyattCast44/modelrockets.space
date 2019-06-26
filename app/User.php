@@ -54,10 +54,12 @@ class User extends Authenticatable
         return $this;
     }
 
-    public function recordActivity($type)
+    public function recordActivity($type, $subject)
     {
         $this->activity()->create([
             'method' => $type,
+            'subject_id' => $subject->id,
+            'subject_type' => get_class($subject),
         ]);
 
         return $this;

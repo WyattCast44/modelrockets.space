@@ -44,7 +44,7 @@ class Article extends Model implements Feedable
             'published_at' => now(),
         ]);
 
-        $this->user->recordActivity('updated');
+        $this->user->recordActivity('published', $this);
 
         event(new ArticlePublished($this));
 

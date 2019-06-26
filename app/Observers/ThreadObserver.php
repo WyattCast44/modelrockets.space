@@ -15,7 +15,7 @@ class ThreadObserver
      */
     public function created(Thread $thread)
     {
-        $thread->user->recordActivity('created');
+        $thread->user->recordActivity('created', $thread);
     }
 
     /**

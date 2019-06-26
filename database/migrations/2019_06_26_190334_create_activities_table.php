@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->index();
             $table->string('method')->index();
-            $table->string('type')->index()->nullable();
+            $table->nullableMorphs('subject');
             $table->timestamps();
         });
     }
