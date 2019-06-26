@@ -16,7 +16,7 @@ class UsersTest extends TestCase
     {
         $publicUsers = factory(User::class, 5)->create(['public' => true]);
 
-        $response = $this->get('/members');
+        $response = $this->get(route('users.index'));
 
         $response->assertStatus(200);
 
@@ -48,7 +48,7 @@ class UsersTest extends TestCase
     {
         $publicUser = factory(User::class)->create(['public' => true]);
 
-        $response = $this->get($publicUser->path($publicUser));
+        $response = $this->get($publicUser->path('show'));
 
         $response->assertStatus(200);
 
@@ -59,7 +59,7 @@ class UsersTest extends TestCase
     {
         $privateUser = factory(User::class)->create(['public' => false]);
 
-        $response = $this->get($privateUser->path($privateUser));
+        $response = $this->get($privateUser->path('show'));
 
         $response->assertStatus(403);
 
@@ -74,7 +74,7 @@ class UsersTest extends TestCase
 
         $privateUser = factory(User::class)->create(['public' => false]);
 
-        $response = $this->get($privateUser->path($privateUser));
+        $response = $this->get($privateUser->path('show'));
 
         $response->assertStatus(403);
 
