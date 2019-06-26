@@ -64,4 +64,22 @@ class ThreadTest extends TestCase
         
         $this->assertTrue($thread->attachments->contains($attachments->first()));
     }
+
+    public function test_a_thread_can_be_locked()
+    {
+        // Given we have a thread
+        $thread = factory(Thread::class)->create();
+
+        // So long as the thread is not locked, new replies can be added
+        $reply = factory(Reply::class)->create(['thread_id' => $thread->id]);
+
+        // We should have one thread
+        $this->assertEquals(1, $thread->replies->count());
+
+        // When we lock the thread
+        $thread->lock();
+
+        // The thread should not be "open"
+        $this->assertFalse($thread->open);
+    }
 }

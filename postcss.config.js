@@ -10,6 +10,9 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
         "./resource/js/**/*.vue"
     ],
 
+    // Specifiy what css files to check against
+    css: ["./public/css/**/*.css"],
+
     // Include any special characters you're using in this regular expression
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 });
