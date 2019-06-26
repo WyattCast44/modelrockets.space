@@ -8,7 +8,6 @@ use App\User;
 
 $factory->define(Article::class, function (Faker $faker) {
     return [
-        'slug' => $faker->slug(),
         'title' => $faker->sentence,
         'subtitle' => $faker->sentence,
         'body' => $faker->paragraph,
