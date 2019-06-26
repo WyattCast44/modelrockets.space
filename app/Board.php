@@ -117,6 +117,10 @@ class Board extends Model implements Feedable
                 return route('boards.show', $this, $absolute);
                 break;
 
+            case 'rss':
+                return url('/rss/forum/boards', [], false);
+                break;
+
             default:
                 return route('boards.show', $this, $absolute);
                 break;

@@ -2,100 +2,94 @@
 
 namespace Tests\Feature;
 
-use App\Article;
+use App\Board;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Thread;
 
-class ArticlesTest extends TestCase
+class BoardsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_a_user_can_view_all_articles()
+    public function test_a_user_can_view_a_single_board()
     {
-        // Given we have articles
-        $articles = factory(Article::class, 5)->create();
+        // Given we have an board
+        $board = factory(Board::class)->create();
 
-        // And we publish them
-        $articles->each(function ($article) {
-            $article->publish();
-        });
-
-        // We we visit the index page
-        $response = $this->get($articles->first()->path('index'));
+        // And we the visit the board
+        $response = $this->get($board->path('show'));
 
         // We get a valid response
         $response->assertStatus(200);
 
-        // And we see the title of the articles
-        $response->assertSee($articles->first()->title);
+        // We see the boards name
+        $response->assertSee($board->name);
     }
 
-    public function test_a_user_can_view_a_single_article()
+    public function test_when_a_user_visits_a_single_board_we_should_see_all_the_boards_threads()
     {
-        // Given we have an article
-        $article = factory(Article::class)->create();
-        
-        // And we publish it
-        $article->publish();
+        // Given we have an board
+        $board = factory(Board::class)->create();
 
-        // And we the visit the article
-        $response = $this->get($article->path('show'));
+        // And given we have some threads on that board
+        $threads = factory(Thread::class, 8)->create([
+            'board_id' => $board->id
+        ]);
+
+        // And we the visit the board
+        $response = $this->get($board->path('show'));
 
         // We get a valid response
         $response->assertStatus(200);
 
-        // We see the article title
-        $response->assertSee($article->title);
-    }
-
-    public function test_a_user_cannot_view_an_unpublished_article()
-    {
-        $article = factory(Article::class)->create(['published' => false]);
-
-        $response = $this->get($article->path('show'));
-
-        $response->assertStatus(404);
-    }
-
-    public function test_an_rss_feed_is_generated_for_published_articles()
-    {
-        // Given we have articles
-        $articles = factory(Article::class, 5)->create();
-
-        // And we publish them
-        $articles->each(function ($article) {
-            $article->publish();
+        // We see the boards name
+        $response->assertSee($board->name);
+        
+        // And we should see the thread's titles
+        $threads->each(function ($thread) use ($response) {
+            $response->assertSee($thread->title);
         });
+    }
 
-        // When we visit the rss for for articles
-        $response = $this->get('/rss/articles');
+    public function test_a_user_should_not_be_able_to_visit_private_boards()
+    {
+        //
+    }
+
+    public function test_an_rss_feed_is_generated_for_all_public_boards()
+    {
+        // Given we have boards
+        $boards = factory(Board::class, 5)->create();
+
+        // When we visit the rss for for boards
+        $response = $this->get('/rss/forum/boards');
 
         // We should get a valid response
         $response->assertStatus(200);
 
-        // We should see the article title
-        $response->assertSee($articles->first()->title);
+        // We should see the boards title
+        $response->assertSee($boards->first()->title);
     }
 
-    public function test_rss_feed_does_not_contain_unpublished_articles()
+    public function test_rss_feed_does_not_contain_private_boards()
     {
-        // Given we have two articles
-        $publishedArticle = factory(Article::class)->create();
-        $unpublishedArticle = factory(Article::class)->create();
+        // Given we have two boards
+        $publicBoard = factory(Board::class)->create();
+        $privateBoard = factory(Board::class)->create();
 
-        // And we publish one of them
-        $publishedArticle->publish();
+        // And we make one private
+        $privateBoard->makePrivate('password');
         
         // When we visit the rss for for articles
-        $response = $this->get('/rss/articles');
+        $response = $this->get('/rss/forum/boards');
 
         // We should get a valid response
         $response->assertStatus(200);
 
-        // And we should see the published articles title
-        $response->assertSee($publishedArticle->title);
+        // And we should see the public boards title
+        $response->assertSee($publicBoard->name);
 
-        // But we should not see the unpublished articles title
-        $response->assertDontSee($unpublishedArticle->title);
+        // But we should not see the private boards title
+        $response->assertDontSee($privateBoard->name);
     }
 }
