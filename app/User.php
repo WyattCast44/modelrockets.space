@@ -57,6 +57,11 @@ class User extends Authenticatable
     /**
      * Relationships
      */
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
+    }
+
     public function articles()
     {
         return $this->hasMany(Article::class);
