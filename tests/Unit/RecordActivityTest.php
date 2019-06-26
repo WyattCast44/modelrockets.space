@@ -50,7 +50,7 @@ class RecordActivityTest extends TestCase
         // The articles author should have activity
         $this->assertEquals(1, $article->user->activity->count());
 
-        // And the activity method should be "update"
-        $this->assertEquals('updated', $article->user->activity->first()->method);
+        // And the activity method should be "published"
+        $this->assertEquals('published', $article->user->activity->first()->method);
     }
 }
