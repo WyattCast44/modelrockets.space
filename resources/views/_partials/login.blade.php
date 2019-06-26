@@ -2,9 +2,10 @@
 
     <h2 class="text-2xl font-semibold mb-4 uppercase">Login</h2>
 
-    <form method="POST" action="{{ route('login') }}" class="">
+    <form method="POST" action="{{ route('login') }}">
 
         @csrf
+        @honeypot
 
         <!-- Email -->
         <div class="form-group">
