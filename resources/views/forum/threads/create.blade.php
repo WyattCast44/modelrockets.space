@@ -33,70 +33,7 @@
     </div>
 
     <!-- Create Form -->
-    <form action="{{ route('threads.store', ['board' => $board]) }}" method="post" enctype="multipart/form-data">
-
-        @csrf
-        @honeypot
-
-        <div class="form-group">
-            <label for="title" class="text-lg text-gray-600">Title</label>
-            <input name="title" id="title" class="form-control" placeholder="Your title..." value="{{ old('title') }}" required autofocus/>
-
-            @error('title')
-                <small class="text-red-400 font-semibol">{{ $message }}</small>
-            @enderror
-
-        </div>
-
-        <div class="form-group">
-            <label for="body" class="text-lg text-gray-600">Body</label>
-            <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts, ideas, etc..." required>{{ old('body') }}</textarea>
-
-            @error('body')
-                <small class="text-red-400 font-semibol">{{ $message }}</small>
-            @enderror
-
-        </div>
-
-        <div class="form-group" data-controller="multifile">
-            <label for="attachments[]" class="text-lg text-gray-600">Attachments</label>
-        
-            <div class="custom-file">
-                <input
-                    type="file"
-                    data-target="multifile.source"
-                    data-action="change->multifile#handle"
-                    class="custom-file-input"
-                    name="attachments[]"
-                    id="attachments"
-                    multiple
-                />
-        
-                <label class="custom-file-label" for="attachments[]" data-target="multifile.text"
-                    >Choose file(s)</label
-                >
-            </div>
-
-            @error('attachments.*')
-                <small class="text-red-400 font-semibol">{{ $message }}</small>
-            @enderror
-        
-            <div class="-mx-2" data-target="multifile.listContainer">
-                <li
-                    data-target="multifile.listTemplate"
-                    class="mx-2 mb-2 p-2 bg-gray-200 text-xs hidden border border-solid border-gray-300 rounded"
-                ></li>
-                <ul data-target="multifile.list" class="list-none flex my-4 flex-wrap"></ul>
-            </div>
-
-        </div>        
-
-        <div class="form-group flex justify-end">
-            <a href="{{ $board->path($board) }}" class="btn btn-link">Cancel</a>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-
-    </form>
+    @include('forum.threads._partials.create')
         
 </div>
 

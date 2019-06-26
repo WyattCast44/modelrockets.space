@@ -130,6 +130,10 @@ class Board extends Model implements Feedable
                 return route('threads.create', $this, $absolute);
                 break;
 
+            case 'store-thread':
+                return route('threads.store', $this, $absolute);
+                break;
+
             case 'rss':
                 return url('/rss/forum/boards', [], false);
                 break;
