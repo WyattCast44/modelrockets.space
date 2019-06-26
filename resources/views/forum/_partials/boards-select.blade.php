@@ -14,7 +14,7 @@
             <option disabled selected>Select Board</option>
             
             @foreach ($boards as $board)
-                <option value="{{ $board->path($board) }}">{{ $board->name }}</option>                
+                <option value="{{ $board->path($board) }}">{{ $board->name }} ({{ $board->threads_count }})</option>                
             @endforeach
 
         </select>

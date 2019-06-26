@@ -32,6 +32,7 @@ class ForumController extends Controller
 
         $boards = Board::public()
                     ->latest()
+                    ->withCount('threads')
                     ->take(6)
                     ->get();
 
