@@ -104,18 +104,8 @@ class Board extends Model implements Feedable
     }
 
     /**
-     * Misc
+     * Misc/Helpers
      */
-
-    // public function path($board = null, $absolute = false)
-    // {
-    //     if ($board) {
-    //         return route('boards.show', $board, $absolute);
-    //     }
-
-    //     return route('boards.index', [], $absolute);
-    // }
-
     public function path($method = 'show', $absolute = true)
     {
         switch ($method) {
