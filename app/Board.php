@@ -27,8 +27,14 @@ class Board extends Model implements Feedable
         return $this;
     }
 
-    public function makePublic()
+    public function makePublic($password)
     {
+        if ($password <> $this->password) {
+            throw new \Exception("The given password did not match the stored password, please try again.", 1);
+            
+            return;
+        }
+
         $this->update(['public' => true]);
 
         return $this;
@@ -101,13 +107,31 @@ class Board extends Model implements Feedable
      * Misc
      */
 
-    public function path($board = null, $absolute = false)
-    {
-        if ($board) {
-            return route('boards.show', $board, $absolute);
-        }
+    // public function path($board = null, $absolute = false)
+    // {
+    //     if ($board) {
+    //         return route('boards.show', $board, $absolute);
+    //     }
 
-        return route('boards.index', [], $absolute);
+    //     return route('boards.index', [], $absolute);
+    // }
+
+    public function path($method = 'show', $absolute = true)
+    {
+        switch ($method) {
+            case 'index':
+                return route('forum.index', [], $absolute);
+                break;
+
+            case 'show':
+                return route('boards.show', $this, $absolute);
+                break;
+
+            default:
+                return route('boards.show', $this, $absolute);
+                break;
+        }
+        //
     }
 
     public function getRouteKeyName()
