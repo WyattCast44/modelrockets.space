@@ -16,10 +16,7 @@ class ReplyObserver
     */
     public function created(Reply $reply)
     {
-        Activity::create([
-            'user_id' => $reply->user->id,
-            'method' => 'create'
-        ]);
+        $reply->user->recordActivity('created');
     }
     /**
      * Handle the thread "deleted" event.

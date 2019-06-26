@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\Thread;
 use App\Events\ThreadDeleted;
-use App\Activity;
 
 class ThreadObserver
 {
@@ -16,10 +15,7 @@ class ThreadObserver
      */
     public function created(Thread $thread)
     {
-        Activity::create([
-            'user_id' => $thread->user->id,
-            'method' => 'create'
-        ]);
+        $thread->user->recordActivity('created');
     }
 
     /**

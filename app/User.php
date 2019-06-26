@@ -54,6 +54,15 @@ class User extends Authenticatable
         return $this;
     }
 
+    public function recordActivity($type)
+    {
+        $this->activity()->create([
+            'method' => $type,
+        ]);
+
+        return $this;
+    }
+
     /**
      * Relationships
      */
