@@ -25,7 +25,7 @@
                     <div>
                         <!-- Title -->
                         <h2 class="font-semibold text-lg sm:text-xl">
-                            <a href="{{ route('articles.show', $article) }}">{{ $article->title }}</a>
+                            <a href="{{ $article->path('show') }}">{{ $article->title }}</a>
                         </h2>
 
                         <!-- Subtitle -->

@@ -13,41 +13,53 @@
 
         <h1 class="font-semibold text-2xl sm:text-3xl md:text-4xl mb-3">{{ $article->title }}</h1>
 
-        <p class="m-0">{{ $article->subtitle }}</p>
+        <h2 class="m-0">{{ $article->subtitle }}</p>
 
     </div>
 </header>
 
-<div class="container mx-auto mt-5 mb-12">
+<main class="container mx-auto mt-5 mb-12">
 
+    <!-- Actions -->
     <div class="flex items-center mb-4 sm:mb-6 md:mb-8 justify-center md:justify-start print:hidden">
+
+        <!-- Print -->
         <div data-controller="print">
             <a href="#" class="btn btn-outline-primary mr-2 btn-sm" data-action="print#handle" data-turbolinks="false">🖨️ Print</a>
         </div>
+        
+        <!-- Share -->
         <a href="#share" class="btn btn-outline-primary btn-sm mr-2" data-turbolinks="false">📤 Share</a>
 
+        <!-- Discuss -->
         @if($article->thread_id <> null) 
-            <a href="{{ $article->thread->path() }}" class="btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
+            <a href="{{ $article->path('discuss') }}" class="btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
         @endif
 
     </div>
 
+    <!-- Article Meta -->
     <p class="text-sm text-gray-500 my-1 md:mb-8 text-center md:text-left">
-            {{ ($article->hasBeenUpdated()) ? 'Posted ' : 'Updated ' }}
-            {{ $article->updated_at->diffForHumans() }} 
-            by
-            <a href="{{ route('users.show', $article->user) }}">
-                {{ '@' . $article->user->username }}
-            </a>
-        </p>
 
-    <div class="markdown-body">
+        {{ ($article->hasBeenUpdated()) ? 'Posted ' : 'Updated ' }}
+
+        {{ $article->updated_at->diffForHumans() }} 
+
+        by
+        
+        <a href="{{ route('users.show', $article->user) }}">
+            {{ '@' . $article->user->username }}
+        </a>
+    </p>
+
+    <!-- Article Body -->
+    <article class="markdown-body">
         
         {!! $article->body !!}
         
-    </div>
+    </article>
 
-</div>
+</main>
 
 @include('articles._partials.share')
 

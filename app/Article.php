@@ -125,13 +125,26 @@ class Article extends Model implements Feedable
         return ($this->created_at == $this->updated_at);
     }
 
-    public function path($article = null, $absolute = false)
+    public function path($method = 'index', $absolute = true)
     {
-        if ($article) {
-            return route('articles.show', $article, $absolute);
-        }
+        switch ($method) {
+            case 'index':
+                return route('articles.index', [], $absolute);
+                break;
 
-        return route('articles.index', [], $absolute);
+            case 'show':
+                return route('articles.show', $this, $absolute);
+                break;
+            
+            case 'discuss':
+                return route('threads.show', ['board' => $this->thread->board, 'thread' => $this->thread], $absolute);
+                break;
+            
+
+            default:
+                return route('articles.index', [], $absolute);
+                break;
+        }
     }
 
     public function sluggable()

@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Article;
 
 class ArticlesTest extends TestCase
 {
@@ -21,7 +21,7 @@ class ArticlesTest extends TestCase
         });
 
         // We we visit the index page
-        $response = $this->get($articles->first()->path());
+        $response = $this->get($articles->first()->path('index'));
 
         // We get a valid response
         $response->assertStatus(200);
@@ -39,7 +39,7 @@ class ArticlesTest extends TestCase
         $article->publish();
 
         // And we the visit the article
-        $response = $this->get($article->path($article));
+        $response = $this->get($article->path('show'));
 
         // We get a valid response
         $response->assertStatus(200);
@@ -52,8 +52,50 @@ class ArticlesTest extends TestCase
     {
         $article = factory(Article::class)->create(['published' => false]);
 
-        $response = $this->get($article->path($article));
+        $response = $this->get($article->path('show'));
 
         $response->assertStatus(404);
+    }
+
+    public function test_an_rss_feed_is_generated_for_published_articles()
+    {
+        // Given we have articles
+        $articles = factory(Article::class, 5)->create();
+
+        // And we publish them
+        $articles->each(function ($article) {
+            $article->publish();
+        });
+
+        // When we visit the rss for for articles
+        $response = $this->get('/rss/articles');
+
+        // We should get a valid response
+        $response->assertStatus(200);
+
+        // We should see the article title
+        $response->assertSee($articles->first()->title);
+    }
+
+    public function test_rss_feed_does_not_contain_unpublished_articles()
+    {
+        // Given we have two articles
+        $publishedArticle = factory(Article::class)->create();
+        $unpublishedArticle = factory(Article::class)->create();
+
+        // And we publish one of them
+        $publishedArticle->publish();
+        
+        // When we visit the rss for for articles
+        $response = $this->get('/rss/articles');
+
+        // We should get a valid response
+        $response->assertStatus(200);
+
+        // And we should see the published articles title
+        $response->assertSee($publishedArticle->title);
+
+        // But we should not see the unpublished articles title
+        $response->assertDontSee($unpublishedArticle->title);
     }
 }
