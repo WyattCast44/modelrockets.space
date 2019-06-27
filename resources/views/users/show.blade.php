@@ -8,7 +8,7 @@
     <div class="container flex justify-center md:justify-start">
 
         <div class="mr-5">
-            <img src="{{  $user->gravatar }}" alt="{{  $user->username }}" class="rounded-full">
+            <img src="{{  $user->gravatar }}" alt="{{  $user->username }}" class="rounded-full w-24">
         </div>
 
         <div>
@@ -51,7 +51,7 @@
         
                         @foreach($activites as $activity)
 
-                            <li class="p-4 pl-16 mb-4">
+                            <li class="p-4 pl-6 md:pl-16 mb-4">
                                 <!-- Banner --> 
                                 <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
                                     <a href="{{ $user->path('show') }}">{{ $user->username }}</a> {{ $activity->method }} <a href="{{ $activity->subject->path('show') }}">{{ $activity->subject->title }}</a>
@@ -72,82 +72,9 @@
             
         </ul>
 
-
-    {{-- <ul>
-        <li class="mb-5">
-                
-            <a href="#" class="rounded border border-solid border-gray-300 bg-gray-100 px-3 py-2 text-gray-700">26 | June</a>
-
-            <!-- Activites on date -->
-            <ul class="my-6 border-l border-solid border-gray-300 ml-5">
-
-                <li class="p-4 pl-16 mb-4">
-                    <!-- Banner --> 
-                    <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
-                        <a href="#">{{ $user->username }}</a> created <a href="#">This is a thread</a>
-                    </h3>
-
-                    <p class="px-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae quisquam, 
-                        odio ea nam fugit voluptatem, ipsum in cumque odit quaerat, vitae temporibus 
-                        sint illo esse? Recusandae deserunt nemo eaque.
-                    </p>
-                </li>
-
-                <li class="p-4 pl-16">
-                    <!-- Banner --> 
-                    <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
-                        <a href="#">{{ $user->username }}</a> created <a href="#">This is a thread</a>
-                    </h3>
-
-                    <p class="px-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae quisquam, 
-                        odio ea nam fugit voluptatem, ipsum in cumque odit quaerat, vitae temporibus 
-                        sint illo esse? Recusandae deserunt nemo eaque.
-                    </p>
-                </li>    
-
-            </ul>
-            
-        </li>
-
-        <li class="mb-5">
-                
-                <a href="#" class="rounded border border-solid border-gray-300 bg-gray-100 px-3 py-2 text-gray-700">25 | June</a>
-    
-                <!-- Activites on date -->
-            <ul class="my-6 border-l border-solid border-gray-300 ml-5">
-
-                    <li class="p-4 pl-16 mb-4">
-                        <!-- Banner --> 
-                        <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
-                            <a href="#">{{ $user->username }}</a> created <a href="#">This is a thread</a>
-                        </h3>
-    
-                        <p class="px-3">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae quisquam, 
-                            odio ea nam fugit voluptatem, ipsum in cumque odit quaerat, vitae temporibus 
-                            sint illo esse? Recusandae deserunt nemo eaque.
-                        </p>
-                    </li>
-    
-                    <li class="p-4 pl-16">
-                        <!-- Banner --> 
-                        <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
-                            <a href="#">{{ $user->username }}</a> created <a href="#">This is a thread</a>
-                        </h3>
-    
-                        <p class="px-3">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae quisquam, 
-                            odio ea nam fugit voluptatem, ipsum in cumque odit quaerat, vitae temporibus 
-                            sint illo esse? Recusandae deserunt nemo eaque.
-                        </p>
-                    </li>    
-    
-                </ul>
-                
-            </li>
-    </ul> --}}
+        <p class="text-gray-900 text-center uppercase py-6 font-bold">
+            🚖 End of the road pal 🌇
+        </p>
 
 </section>
 
