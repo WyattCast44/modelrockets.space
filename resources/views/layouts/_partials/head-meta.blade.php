@@ -4,7 +4,7 @@
 <meta property="og:locale" content="en_US"> 
 <meta property="og:description" content="Model Rockets Space, for the love of rocketry.">
 <meta property="og:url" content="https://modelrockets.space">
-{{-- <meta property="og:image" content="https://modelrockets.space/images/avatar-boxed.jpg"> --}}
+<meta property="og:image" content="{{ asset('img/tile.png') }}">
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -23,3 +23,4 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#4735AE">
 <meta name="mobile-web-app-capable" content="yes">
+@yield('meta')

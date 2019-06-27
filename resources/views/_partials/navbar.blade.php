@@ -1,6 +1,7 @@
-<nav class="bg-white shadow-lg flex justify-between p-5 items-center print:hidden navbar-bg">
 
-    <div class="flex items-center">
+<div class="bg-white shadow-lg flex justify-between p-5 items-center print:hidden navbar-bg">
+
+    <nav class="flex items-center">
 
         <h2 class="text-xl mr-4">
             <a href="/" class="hover:no-underline text-white hover:text-white">
@@ -8,15 +9,15 @@
             </a>
         </h2>
 
-        <ul class="text-lg hidden md:block">
+        <nav class="text-lg hidden md:block">
             <a href="/" class="mx-2 p-1 text-white hover:text-white hover:underline">Home</a>
             <a href="{{ route('forum.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Forum</a>
             <a href="{{ route('articles.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Articles</a>
             <a href="{{ route('users.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Members</a>
             <a href="{{ route('features.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Roadmap</a>
-        </ul>
+        </nav>
 
-    </div>
+    </nav>
 
     <div class="block md:hidden text-white">
         <a href="#mobile-menu" class="text-white hover:text-white" data-turbolinks="false">
@@ -24,7 +25,7 @@
         </a>
     </div>
 
-    <ul class="text-lg hidden md:block flex">
+    <nav class="text-lg hidden md:block flex">
 
         @guest
             <a href="#login" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>
@@ -41,6 +42,6 @@
             </form>
         @endauth
 
-    </ul>
+    </nav>
 
-</nav>
+</div>

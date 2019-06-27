@@ -8,22 +8,18 @@
     @include('layouts._partials.head-assets')
 </head>
 
-<body class="bg-white -100">
-    
-    <div id="app">
+<body class="bg-white-100 antialiased">
 
+    <header>
         @include('_partials.navbar')
-        
-        <main>
-            
-            @yield('main')
-            
-        </main>
-        
-    </div>
+    </header>
     
-    @include('sweetalert::alert')
+    <main>
+        @yield('main')
+    </main>
+
     @include('_partials.mobile-menu')
+    @include('sweetalert::alert')
 
 </body>
 </html>
