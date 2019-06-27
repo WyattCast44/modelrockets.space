@@ -17,11 +17,11 @@ class RecordActivityTest extends TestCase
         // Given we create a thread
         $thread = factory(Thread::class)->create();
 
-        // The threads owner should now have some activity
-        $this->assertEquals(1, $thread->user->activity->count());
+        // The threads owner should now have some activity (1 is created when user registers)
+        $this->assertEquals(2, $thread->user->activity->count());
 
         // And the activity method should be "create"
-        $this->assertEquals('created', $thread->user->activity->first()->method);
+        $this->assertEquals('created', $thread->user->activity->last()->method);
     }
 
     public function test_when_a_user_replies_to_a_thread()
@@ -32,11 +32,11 @@ class RecordActivityTest extends TestCase
         // And we reply to it
         $reply = factory(Reply::class)->create(['thread_id' => $thread->id]);
 
-        // The replies owner should now have some activity
-        $this->assertEquals(1, $reply->user->activity->count());
+        // The replies owner should now have some activity (1 is created when user registers)
+        $this->assertEquals(2, $reply->user->activity->count());
 
         // And the activity method should be "create"
-        $this->assertEquals('created', $reply->user->activity->first()->method);
+        $this->assertEquals('created', $reply->user->activity->last()->method);
     }
 
     public function test_when_a_articles_is_published()
@@ -47,10 +47,10 @@ class RecordActivityTest extends TestCase
         // And we publish it
         $article->publish();
 
-        // The articles author should have activity
-        $this->assertEquals(1, $article->user->activity->count());
+        // The articles author should have activity (1 is created when user registers)
+        $this->assertEquals(2, $article->user->activity->count());
 
         // And the activity method should be "published"
-        $this->assertEquals('published', $article->user->activity->first()->method);
+        $this->assertEquals('published', $article->user->activity->last()->method);
     }
 }
