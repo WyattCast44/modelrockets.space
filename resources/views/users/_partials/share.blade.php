@@ -8,13 +8,13 @@
         the url to this member profile and share wherever you wish! 🚀
     </p>
 
-    <div data-controller="copy" class="flex items-center">
+    <div data-controller="click-to-copy" class="flex items-center">
         <input type="text"
-            data-target="copy.source" 
-            data-action="focus->copy#focus"  
+            data-target="click-to-copy.source" 
+            data-action="focus->click-to-copy#focus"  
             class="form-control m-0 form-control-lg bg-blue-100 italic text-sm rounded-r-none" value="{{ $user->path('show') }}" contenteditable="true">
             
-        <button data-action="click->copy#handle" data-target="copy.button" class="btn btn-primary px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white rounded-l-none rounded-r hidden md:inline">Copy</button>
+        <button data-action="click->click-to-copy#handle" data-target="click-to-copy.button" class="btn btn-primary px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white rounded-l-none rounded-r hidden md:inline">Copy</button>
     </div>
 
 @endmodal
