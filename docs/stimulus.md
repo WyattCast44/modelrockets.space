@@ -1,5 +1,62 @@
 # Stimulus Components Docs
 
+## Validates Input
+
+This component progressively enhances input to provide front end validation. The validation is powered by Laravel's default validation component, the cool part about that, is the error messages come back just like they would from a full request.
+
+**_Blade File_**
+
+```html
+<div
+    data-controller="input-validator"
+    data-input-validator-url="{{ route('api.validators.username') }}"
+>
+    <input
+        type="text"
+        data-target="input-validator.source"
+        data-action="keyup->input-validator#handle"
+        class="form-control mt-2 @error('username') is-invalid @enderror"
+        name="username"
+        value="{{ old('username') }}"
+        required
+        autocomplete="false"
+        spellcheck="false"
+        autofocus
+    />
+    <small
+        data-target="input-validator.error"
+        class="hidden text-red-400"
+    ></small>
+</div>
+```
+
+**_Routes_**
+
+```php
+Route::get('/validators/email', 'API\Validators\ValidateEmail')->name('api.validators.email');
+Route::get('/validators/username', 'API\Validators\ValidateUsername')->name('api.validators.username');
+```
+
+**_Controllers_**
+
+```php
+
+namespace App\Http\Controllers\API\Validators;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class ValidateEmail extends Controller
+{
+    public function __invoke(Request $request)
+    {
+        $this->validate($request, [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        ]);
+    }
+}
+```
+
 ## Click to Copy
 
 ```html
