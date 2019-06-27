@@ -21,14 +21,14 @@
     <!-- Open -->
     <h1 class="font-semibold my-3 text-xl text-gray-700 border-b border-solid border-gray-400 pb-1">
         Open/Pending Features
-        <span class="text-sm">(Key: 👨‍💻 = In-Progress, 🤔 = Pending)</span>
+        <span class="text-sm">(Key: 👨‍💻 = In-Progress, 💡 = Idea/Not Started)</span>
     </h1>
     
     <ul class="mb-12 mt-3">
         @forelse ($openFeatures as $feature)
             <li class="flex p-3 hover:bg-gray-200 rounded">
                 <div class="flex items-center text-2xl justify-center mr-3">
-                    {{ ($feature->status == 'in-progress') ? '👨‍💻' : '🤔'  }}
+                    {{ ($feature->status == 'in-progress') ? '👨‍💻' : '💡'  }}
                 </div>
                 <div>
                     <h2 class="font-semibold text-md">{{ $feature->name }}</h2>
