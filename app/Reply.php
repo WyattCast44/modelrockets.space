@@ -39,6 +39,11 @@ class Reply extends Model
     /**
      * Relationships
      */
+    public function activity()
+    {
+        return $this->morphMany(Activity::class, 'subject');
+    }
+    
     public function replies()
     {
         return $this->hasMany(Reply::class, 'parent_id');

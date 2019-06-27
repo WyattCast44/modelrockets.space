@@ -61,21 +61,7 @@ class ThreadsController extends Controller
         ]);
 
         if ($request->hasFile('attachments')) {
-            foreach ($request->attachments as $attachment) {
-                $path = $attachment->getRealPath();
-                
-                Cloudder::upload($path, null);
-
-                Attachment::create([
-                    'user_id' => auth()->id(),
-                    'attachable_id' => $thread->id,
-                    'attachable_type' => Thread::class,
-                    'filename' => '',
-                    'vendor_id' => Cloudder::getPublicId(),
-                    'path' => Cloudder::secureShow(Cloudder::getPublicId()),
-                    'available' => true,
-                ]);
-            };
+            $this->uploadAttachments($request, $thread);
         }
 
         $thread->load(['attachments', 'user']);
@@ -91,6 +77,23 @@ class ThreadsController extends Controller
 
         $thread->delete();
 
-        return redirect($board->path($board));
+        return redirect($board->path('show'));
+    }
+
+    protected function uploadAttachments(CreateThreadRequest $request, Thread $thread)
+    {
+        foreach ($request->attachments as $attachment) {
+            Cloudder::upload($attachment->getRealPath(), null);
+
+            Attachment::create([
+                'user_id' => auth()->id(),
+                'attachable_id' => $thread->id,
+                'attachable_type' => Thread::class,
+                'filename' => '',
+                'vendor_id' => Cloudder::getPublicId(),
+                'path' => Cloudder::secureShow(Cloudder::getPublicId()),
+                'available' => true,
+            ]);
+        };
     }
 }

@@ -49,7 +49,11 @@ class Thread extends Model
     /**
      * Relationships
      */
-    
+    public function activity()
+    {
+        return $this->morphMany(Activity::class, 'subject');
+    }
+
     public function board()
     {
         return $this->belongsTo(Board::class);

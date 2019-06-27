@@ -53,7 +53,7 @@
 
         <div class="form-group">
             <label for="body">Your Reply</label>
-            <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts..."></textarea>
+            <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts..." autofocus></textarea>
         </div>
 
         <div class="form-group" data-controller="multifile">

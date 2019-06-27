@@ -17,6 +17,15 @@ class Board extends Model implements Feedable
     /**
      * Abilities/Actions
      */
+    public function close()
+    {
+        $this->update([
+            'allow_new_public_threads' => false,
+        ]);
+
+        return $this;
+    }
+    
     public function makePrivate($password)
     {
         $this->update([
@@ -40,26 +49,17 @@ class Board extends Model implements Feedable
         return $this;
     }
 
-    public function close()
-    {
-        $this->update([
-            'allow_new_public_threads' => false,
-        ]);
-
-        return $this;
-    }
-
     /**
      * Relationships
      */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function threads()
     {
         return $this->hasMany(Thread::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -142,7 +142,6 @@ class Board extends Model implements Feedable
                 return route('boards.show', $this, $absolute);
                 break;
         }
-        //
     }
 
     public function getRouteKeyName()

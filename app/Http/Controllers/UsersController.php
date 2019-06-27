@@ -4,16 +4,14 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use App\Http\Requests\UpdateUserRequest;
 use App\Rules\AllowedUsername;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')
-            ->only('update');
+        $this->middleware('auth')->only('update');
     }
 
     public function index()
@@ -35,8 +33,6 @@ class UsersController extends Controller
             return $activity->updated_at->format('d | M');
         });
 
-        //  dd($activityGroups);
-
         return view('users.show', ['user' => $user, 'activityGroups' => $activityGroups]);
     }
 
@@ -46,39 +42,11 @@ class UsersController extends Controller
             return abort(403);
         }
 
-        $this->validate($request, [
-            'tagline' => 'nullable|string',
-            'email' => [
-                'required',
-                'email',
-                Rule::unique('users', 'email')->ignore($user->id)
-            ],
-            'username' => [
-                'required',
-                'string',
-                'max:255',
-                'alpha_num',
-                new AllowedUsername,
-                Rule::unique('users', 'username')->ignore($user->id),
-            ],
-            'signature' => 'nullable|string|max:512'
-            
-        ]);
-
         $user->update([
             'email' => $request->email,
             'username' => $request->username,
+            'public' => ($request->has('public')) ? true : false,
         ]);
-
-        if ($request->has('public')) {
-            $user->update([
-                'public' => true,
-            ]);
-        } else {
-            $user->update([
-                'public' => false,
-            ]);
-        }
 
         $user->profile->update([
             'tagline' => $request->tagline,
