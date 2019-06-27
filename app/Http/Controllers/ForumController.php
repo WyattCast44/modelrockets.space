@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Board;
 use App\Thread;
-use App\Nova\Thread as AppThread;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
@@ -57,34 +55,42 @@ class ForumController extends Controller
             case 'all':
                 $threads = Thread::latest()
                             ->with(['user', 'board'])
+                            ->withCount('replies')
                             ->simplePaginate(20);
                 break;
 
             case 'mine':
                 if (auth()->check()) {
-                    $threads = auth()->user()->threads()->with(['user', 'board'])->latest()->simplePaginate(20);
+                    $threads = auth()->user()->threads()
+                        ->latest()
+                        ->with(['user', 'board'])
+                        ->withCount('replies')
+                        ->simplePaginate(20);
                 } else {
-                    $threads = Thread::where('user_id', null)->simplePaginate(20);
+                    $threads = Thread::latest()
+                                ->take(0)
+                                ->simplePaginate(1);
                 }
                 break;
 
             case 'popular':
-                
                 $threads = Thread::with(['user', 'board'])
                             ->withCount('replies')
-                            ->orderBy('replies_count', 'desc')
+                            ->orderByDesc('replies_count')
                             ->simplePaginate(20);
                 break;
 
             case 'latest':
                 $threads = Thread::latest()
                             ->with(['user', 'board'])
+                            ->withCount('replies')
                             ->simplePaginate(20);
                 break;
                 
             default:
                 $threads = Thread::latest()
                             ->with(['user', 'board'])
+                            ->withCount('replies')
                             ->simplePaginate(20);
                 break;
         }

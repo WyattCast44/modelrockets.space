@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
+use Stevebauman\Purify\Facades\Purify;
 
 class Reply extends Model
 {
@@ -28,6 +29,11 @@ class Reply extends Model
     public function getExcerptAttribute()
     {
         return Str::limit($this->body, 256);
+    }
+
+    public function setBodyAttribute($value)
+    {
+        $this->attributes['body'] = Markdown::parse(trim(Purify::clean($value)));
     }
 
     /**

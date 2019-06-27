@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Purify;
-use Cloudder;
 use App\Reply;
 use App\Board;
 use App\Thread;
-use Illuminate\Http\Request;
-use Spatie\Honeypot\ProtectAgainstSpam;
 use App\Attachment;
+use JD\Cloudder\Facades\Cloudder;
+use Spatie\Honeypot\ProtectAgainstSpam;
+use App\Http\Requests\NewReplyRequest;
 
 class RepliesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->only(['create', 'store']);
-        
         $this->middleware(ProtectAgainstSpam::class)->only(['store']);
     }
 
@@ -42,42 +40,38 @@ class RepliesController extends Controller
         ]);
     }
 
-    public function store(Board $board, Thread $thread, Request $request)
+    public function store(Board $board, Thread $thread, NewReplyRequest $request)
     {
-        $this->validate($request, [
-            'body' => 'required|string|min:3',
-            'parent_id' => 'nullable|exists:replies,id',
-        ]);
-
-        $body = trim(Purify::clean($request->body));
-
         $reply = Reply::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => auth()->id(),
             'thread_id' => $thread->id,
-            'body' => Purify::clean($request->body),
+            'body' => $request->body,
             'parent_id' => ($request->parent_id) ? $request->parent_id : null
         ]);
 
         if ($request->hasFile('attachments')) {
-            foreach ($request->attachments as $attachment) {
-                $path = $attachment->getRealPath();
-                
-                Cloudder::upload($path, null);
-
-                Attachment::create([
-                    'user_id' => auth()->id(),
-                    'attachable_id' => $reply->id,
-                    'attachable_type' => Reply::class,
-                    'filename' => '',
-                    'vendor_id' => Cloudder::getPublicId(),
-                    'path' => Cloudder::secureShow(Cloudder::getPublicId()),
-                    'available' => true,
-                ]);
-            };
+            $this->uploadAttachments($request, $reply);
         }
 
         toast('Reply Posted!', 'success');
 
         return redirect($thread->path());
+    }
+
+    protected function uploadAttachments(NewReplyRequest $request, Reply $reply)
+    {
+        foreach ($request->attachments as $attachment) {
+            Cloudder::upload($attachment->getRealPath(), null);
+
+            Attachment::create([
+                'user_id' => auth()->id(),
+                'attachable_id' => $reply->id,
+                'attachable_type' => Reply::class,
+                'filename' => '',
+                'vendor_id' => Cloudder::getPublicId(),
+                'path' => Cloudder::secureShow(Cloudder::getPublicId()),
+                'available' => true,
+            ]);
+        };
     }
 }

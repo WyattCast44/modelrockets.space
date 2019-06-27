@@ -25,6 +25,7 @@
     </h1>
     
     <ul class="mb-12 mt-3">
+
         @forelse ($openFeatures as $feature)
             <li class="flex p-3 hover:bg-gray-200 rounded">
                 <div class="flex items-center text-2xl justify-center mr-3">
@@ -39,12 +40,12 @@
                             <span 
                                 class="px-3 border border-solid border-green-300 rounded-full text-green-600 bg-green-100 leading-none mx-1 text-center tracking-tight" 
                                 data-target="feature.count">
-                                {{ $feature->votes->count() }}</span>
+                                {{ $feature->votes_count }}</span>
                         </p>
 
                         @auth
 
-                            @if(!$feature->hasUserVoted())
+                            @if(!auth()->user()->votes->contains($feature))
                                 <form action="{{ route('features.upvote', $feature) }}" class="flex" method="post" data-target="feature.form" data-action="submit->feature#upvote">
                                     @csrf
                                     <button type="submit" class="btn btn-link inline-block text-sm p-0">Upvote</button>
@@ -84,7 +85,7 @@
                             <span 
                                 class="px-3 border border-solid border-green-300 rounded-full text-green-600 bg-green-100 leading-none mx-1 text-center tracking-tight" 
                                 data-target="feature.count">
-                                {{ $feature->votes->count() }}</span>
+                                {{ $feature->votes_count }}</span>
                         </p>
                         
                     </div>

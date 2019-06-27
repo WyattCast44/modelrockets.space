@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Feature;
 
 class FeaturesController extends Controller
@@ -12,18 +11,22 @@ class FeaturesController extends Controller
         $openFeatures = Feature::public()
                             ->open()
                             ->latest()
-                            ->with(['votes'])
-                            ->get();
+                            ->with(['user.votes'])
+                            ->withCount('votes')
+                            ->get()
+                            ->sortByDesc('votes_count');
 
         $closedFeatures = Feature::public()
                             ->closed()
                             ->latest()
-                            ->with('votes')
-                            ->get();
+                            ->with(['user.votes'])
+                            ->withCount('votes')
+                            ->get()
+                            ->sortByDesc('votes_count');
         
         return view('features.index', [
             'openFeatures' => $openFeatures,
-            'closedFeatures' => $closedFeatures,
+            'closedFeatures' => $closedFeatures
         ]);
     }
 }

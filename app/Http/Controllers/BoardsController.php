@@ -12,13 +12,11 @@ class BoardsController extends Controller
             return abort(403);
         }
 
-        $threads = $board->threads()
-                        ->latest()
-                        ->get();
+        $board->load(['threads.user', 'threads.board']);
 
         return view('forum.boards.show', [
             'board' => $board,
-            'threads' => $threads,
+            'threads' => $board->threads,
         ]);
     }
 }

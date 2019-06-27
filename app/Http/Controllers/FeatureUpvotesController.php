@@ -14,7 +14,7 @@ class FeatureUpvotesController extends Controller
 
     public function __invoke(Feature $feature)
     {
-        if (!$feature->hasUserVoted()) {
+        if (!auth()->user()->votes->contains($feature)) {
             $feature->upvote();
         }
         
