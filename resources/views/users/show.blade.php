@@ -52,14 +52,29 @@
                         @foreach($activites as $activity)
 
                             <li class="p-4 pl-6 md:pl-16 mb-4">
-                                <!-- Banner --> 
+
                                 <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
-                                    <a href="{{ $user->path('show') }}">{{ $user->username }}</a> {{ $activity->method }} <a href="{{ $activity->subject->path('show') }}">{{ $activity->subject->title }}</a>
+                                    
+                                    <a href="{{ $user->path('show') }}">
+                                        {{ $user->username }}
+                                    </a> 
+                                    
+                                    {{ $activity->method }} 
+                                    
+                                    @if($activity->subject <> null)
+                                        <a href="{{ $activity->subject->path('show') }}">
+                                            {{ $activity->subject->title }}
+                                        </a>
+                                    @endif
+
                                 </h3>
             
-                                <p class="px-3 text-gray-600">
-                                    {{ strip_tags($activity->subject->excerpt) }}
-                                </p>
+                                @if($activity->subject <> null)
+                                    <p class="px-3 text-gray-600">
+                                        {{ strip_tags($activity->subject->excerpt) }}
+                                    </p>
+                                @endif
+
                             </li>
 
                         @endforeach

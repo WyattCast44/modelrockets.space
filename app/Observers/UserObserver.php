@@ -13,7 +13,7 @@ class UserObserver
     {
         $user->profile()->create();
 
-        $user->recordActivity('joined', $user);
+        $user->recordActivity('joined the community!');
 
         Mail::to($user)
             ->queue(new WelcomeEmail($user));
