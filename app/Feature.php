@@ -35,9 +35,11 @@ class Feature extends Model
     /**
      * Scopes
      */
-    public function scopePublic($query)
+    public function scopeClosed($query)
     {
-        return $query->where('public', true);
+        return $query
+            ->where('status', 'complete')
+            ->orWhere('status', 'rejected');
     }
 
     public function scopeOpen($query)
@@ -47,11 +49,9 @@ class Feature extends Model
             ->orWhere('status', 'in-progress');
     }
 
-    public function scopeClosed($query)
+    public function scopePublic($query)
     {
-        return $query
-            ->where('status', 'complete')
-            ->orWhere('status', 'rejected');
+        return $query->where('public', true);
     }
 
     /**

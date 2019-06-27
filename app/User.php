@@ -87,14 +87,14 @@ class User extends Authenticatable
         return $this->hasMany(Reply::class);
     }
     
-    public function threads()
-    {
-        return $this->hasMany(Thread::class);
-    }
-
     public function votes()
     {
         return $this->hasMany(FeatureVote::class);
+    }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
     }
 
     /**

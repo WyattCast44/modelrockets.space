@@ -22,9 +22,9 @@ class RepliesController extends Controller
     {
         if (!$thread->open) {
             alert('Thread Locked!', "This thread's author has locked this thread, and no new replies can be posted at this time.", 'warning');
-            
             return back();
         }
+
         $parent = null;
 
         if ($parentId <> null) {

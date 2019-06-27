@@ -36,7 +36,7 @@ class RecordActivityTest extends TestCase
         $this->assertEquals(2, $reply->user->activity->count());
 
         // And the activity method should be "create"
-        $this->assertEquals('created', $reply->user->activity->last()->method);
+        $this->assertEquals('created', $reply->user->activity()->latest()->get()->last()->method);
     }
 
     public function test_when_a_articles_is_published()

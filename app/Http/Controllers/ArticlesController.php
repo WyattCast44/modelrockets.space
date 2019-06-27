@@ -9,8 +9,9 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::published()
-            ->latest()
-            ->paginate(8);
+                    ->latest()
+                    ->with(['user'])
+                    ->paginate(8);
 
         return view('articles.index', ['articles' => $articles]);
     }
@@ -21,7 +22,7 @@ class ArticlesController extends Controller
             return abort(404);
         }
         
-        $article->load('user');
+        $article->load(['user']);
 
         return view('articles.show', ['article' => $article]);
     }
