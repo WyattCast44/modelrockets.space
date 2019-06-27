@@ -19,7 +19,7 @@ class CreateFeaturesTable extends Migration
             $table->text('body')->nullable();
             $table->bigInteger('user_id')->index()->nullable()->unsigned();
             $table->string('status')->index();
-            $table->boolean('public')->default(true);
+            $table->boolean('public')->default(true)->index();
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });

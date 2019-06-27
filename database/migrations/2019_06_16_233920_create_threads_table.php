@@ -19,8 +19,10 @@ class CreateThreadsTable extends Migration
             $table->text('body');
             $table->bigInteger('user_id')->index()->unsigned();
             $table->bigInteger('board_id')->index()->unsigned();
-            $table->boolean('open')->default(true);
+            $table->boolean('open')->default(true)->index();
             $table->bigInteger('best_answer_thread_id')->index()->unsigned()->nullable();
+            $table->bigInteger('favorites')->index()->unsigned()->nullable()->default(0);
+            $table->bigInteger('views')->default(0)->index()->unsigned();
             $table->timestamps();
         });
     }

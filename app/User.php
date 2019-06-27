@@ -4,13 +4,12 @@ namespace App;
 
 use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, Searchable;
+    use Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -128,15 +127,6 @@ class User extends Authenticatable
                 break;
         }
     }
-
-    // public function path($user = null, $absolute = false)
-    // {
-    //     if (!$user) {
-    //         return route('users.index', [], $absolute);
-    //     }
-
-    //     return route('users.show', $user, $absolute);
-    // }
 
     public function getRouteKeyName()
     {
