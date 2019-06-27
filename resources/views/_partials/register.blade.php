@@ -9,11 +9,11 @@
         <!-- Username -->
         <div class="form-group">
 
-            <label for="username">{{ __('Username') }}</label>
+            <label for="username">Username</label>
 
-            <div>
-                <input data-action="keyup->register#validateUsername" data-target="register.username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="false" spellcheck="false" autofocus>
-                <small data-target="register.usernameError" class="hidden text-red-400"></small>
+            <div data-controller="input-validator" data-input-validator-url="{{ route('api.validators.username') }}">
+                <input  type="text" data-target="input-validator.source" data-action="keyup->input-validator#handle"  class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  required autocomplete="false" spellcheck="false" autofocus>
+                <small data-target="input-validator.error" class="hidden text-red-400"></small>
             </div>
 
             @error('username')
@@ -27,11 +27,11 @@
         <!-- Email -->
         <div class="form-group">
 
-            <label for="email">{{ __('E-Mail Address') }}</label>
+            <label for="email">E-Mail Address</label>
 
-            <div>
-                <input data-action="keyup->register#validateEmail" data-target="register.email" id="email" type="email" class="form-control mt-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                <small data-target="register.emailError" class="hidden text-red-400"></small>
+            <div data-controller="input-validator" data-input-validator-url="{{ route('api.validators.email') }}">
+                <input  type="email" data-target="input-validator.source" data-action="keyup->input-validator#handle"  class="form-control mt-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  required autocomplete="false" spellcheck="false">
+                <small data-target="input-validator.error" class="hidden text-red-400"></small>
             </div>
 
             @error('email')
