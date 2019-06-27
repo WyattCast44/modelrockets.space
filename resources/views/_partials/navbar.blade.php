@@ -27,6 +27,8 @@
 
     <nav class="text-lg hidden md:block flex">
 
+        <a href="#search" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Search</a>
+
         @guest
             <a href="#login" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>
             <a href="#register" class="mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>

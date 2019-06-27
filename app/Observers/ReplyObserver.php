@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\Reply;
 use App\Events\ReplyDeleted;
-use App\Activity;
 
 class ReplyObserver
 {

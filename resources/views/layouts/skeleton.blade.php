@@ -18,6 +18,7 @@
         @yield('main')
     </main>
 
+    @include('_partials.search')
     @include('_partials.mobile-menu')
     @include('sweetalert::alert')
 
