@@ -7,7 +7,7 @@
             <input type="text" name="q" id="q" placeholder="Search away..." class="form-control-lg bg-indigo-200 text-gray-700 w-3/4">
         </div>
 
-        <div class="flex flex-col my-8" style="height: 700px;overflow-y:scroll">
+        <div class="flex flex-col my-8" style="height:300px;overflow-y:scroll">
 
             <ul>
                 <li class="h-32">Text</li>
