@@ -2,11 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use App\Feature;
 use Tests\TestCase;
-use App\User;
 
-class FreatureTest extends TestCase
+class FeatureTest extends TestCase
 {
     public function test_a_feature_belongs_to_a_user()
     {
