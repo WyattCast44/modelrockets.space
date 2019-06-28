@@ -44,7 +44,7 @@
     
                 <li class="mb-5">
                         
-                    <a href="#" class="rounded border border-solid border-gray-300 bg-gray-100 px-3 py-2 text-gray-700">{{ $date }}e</a>
+                    <span class="rounded border border-solid border-gray-300 bg-gray-100 px-3 py-2 text-gray-700">{{ $date }}</span>
         
                     <!-- Activites on date -->
                     <ul class="my-6 border-l border-solid border-gray-300 ml-5">
