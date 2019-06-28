@@ -6,7 +6,9 @@
 
 <div class="flex flex-col justify-center items-center h-screen">
 
-    <form method="POST" action="{{ route('register') }}" class="border border-solid border-gray-300 bg-white p-12">
+    <form method="POST" action="{{ route('register') }}" class="border border-solid border-gray-300 bg-white p-12"
+        data-controller="form"
+        data-action="change->form#validateField submit->form#handle">
 
         @csrf
 
@@ -17,11 +19,11 @@
 
             <input id="username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-            @error('username')
-                <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback" role="alert">
+                @error('username')
                     <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+                @enderror
+            </span>
 
         </div>
 
@@ -45,7 +47,7 @@
 
             <label for="password">{{ __('Password') }}</label>
 
-            <input id="password" type="password" class="form-control mt-2 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            <input data-form-ignore="true" type="password" class="form-control mt-2 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -60,15 +62,15 @@
 
             <label for="password-confirm">{{ __('Confirm Password') }}</label>
 
-            <input id="password-confirm" type="password" class="mt-2 form-control" name="password_confirmation" required autocomplete="new-password">
+            <input data-form-ignore="true" type="password" class="mt-2 form-control" name="password_confirmation" required autocomplete="new-password">
 
         </div>
         
         <!-- Submit -->
         <div class="form-group mb-0 flex">
             
-            <button type="submit" class="btn btn-primary">
-                {{ __('Register') }}
+            <button type="submit" class="btn btn-primary" data-target="form.submit">
+                Register
             </button>
 
         </div>

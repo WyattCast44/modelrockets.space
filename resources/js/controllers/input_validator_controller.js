@@ -9,7 +9,10 @@ export default class extends Controller {
         let errorMessage = this.errorTarget;
 
         Axios.get(`${this.url}?${this.fieldName}=${this.sourceTarget.value}`)
-            .then(response => errorMessage.classList.add("hidden"))
+            .then(response => {
+                errorMessage.innerText = "";
+                errorMessage.classList.add("hidden");
+            })
             .catch(error => {
                 errorMessage.innerText = JSON.parse(
                     error.request.response
