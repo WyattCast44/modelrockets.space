@@ -8,7 +8,7 @@
     @include('layouts._partials.head-assets')
 </head>
 
-<body class="bg-white-100 antialiased">
+<body class="bg-white-100 antialiased overflow-hidden">
 
     <header>
         @include('_partials.navbar')
