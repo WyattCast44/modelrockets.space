@@ -1,5 +1,4 @@
 import { Controller } from "stimulus";
-import { throws } from "assert";
 
 export default class extends Controller {
     static targets = [
