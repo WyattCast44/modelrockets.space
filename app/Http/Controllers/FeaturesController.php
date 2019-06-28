@@ -23,10 +23,15 @@ class FeaturesController extends Controller
                             ->withCount('votes')
                             ->get()
                             ->sortByDesc('votes_count');
-        
+
+        $userVotes = (auth()->check()) ? auth()->user()->votes->pluck('feature_id') : null;
+
+        //dd($userVotes);
+
         return view('features.index', [
             'openFeatures' => $openFeatures,
-            'closedFeatures' => $closedFeatures
+            'closedFeatures' => $closedFeatures,
+            'userVotes' => $userVotes
         ]);
     }
 }

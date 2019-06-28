@@ -27,14 +27,24 @@
     <ul class="mb-12 mt-3">
 
         @forelse ($openFeatures as $feature)
+
             <li class="flex p-3 hover:bg-gray-200 rounded">
+
+                <!-- Icons -->
                 <div class="flex items-center text-2xl justify-center mr-3">
                     {{ ($feature->status == 'in-progress') ? '👨‍💻' : '💡'  }}
                 </div>
+
+                <!-- Details -->
                 <div>
+
                     <h2 class="font-semibold text-md">{{ $feature->name }}</h2>
                     <p class="text-sm">{{ $feature->body }}</p>
+
+                    <!-- Voting -->
                     <div class="flex mt-1 items-center" data-controller="feature">
+
+                        <!-- Vote Count -->
                         <p class="text-sm mr-1">
                             Upvotes: 
                             <span 
@@ -43,14 +53,15 @@
                                 {{ $feature->votes_count }}</span>
                         </p>
 
+                        <!-- Vote Button -->
                         @auth
 
-                            @if(!auth()->user()->votes->contains($feature))
+                            @if(!$userVotes->contains($feature->id))
                                 <form action="{{ route('features.upvote', $feature) }}" class="flex" method="post" data-target="feature.form" data-action="submit->feature#upvote">
                                     @csrf
                                     <button type="submit" class="btn btn-link inline-block text-sm p-0">Upvote</button>
                                 </form>
-                            @endif    
+                            @endif
 
                         @endauth
                         
@@ -59,8 +70,10 @@
                         @endguest
                         
                     </div>
+
                 </div>
             </li>
+
         @empty
         @endforelse
     </ul>
