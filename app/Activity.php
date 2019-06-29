@@ -16,6 +16,11 @@ class Activity extends Model
         return $this->morphTo('subject');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /**
      * Accessors/Mutators
      */
