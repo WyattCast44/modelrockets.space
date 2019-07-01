@@ -8,8 +8,10 @@
 
         @foreach ($activityGroups as $date => $activites)
 
+            <!-- Date Groups -->
             <li class="mb-5">
-                    
+                
+                <!-- Date Group Label -->
                 <span class="rounded border border-solid border-gray-300 bg-gray-100 px-3 py-2 text-gray-700">{{ $date }}</span>
     
                 <!-- Activites on date -->

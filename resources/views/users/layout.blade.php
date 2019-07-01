@@ -48,6 +48,7 @@
         </ul>
 
     </nav>
+    
 </header>
 
 @yield('user-content')
