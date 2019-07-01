@@ -2,10 +2,10 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use App\Traits\HasAttachments;
 use App\Interfaces\ActivityFeedable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Flight extends Model implements ActivityFeedable
 {
@@ -28,6 +28,11 @@ class Flight extends Model implements ActivityFeedable
     /**
      * Accessors/Mutators
      */
+    public function getExcerptAttribute()
+    {
+        return Str::limit($this->description, 255);
+    }
+
     public function getActivityTitleAttribute()
     {
         return 'Check it out!';
@@ -35,7 +40,7 @@ class Flight extends Model implements ActivityFeedable
 
     public function getActivityExcerptAttribute()
     {
-        return Str::limit($this->description, 255);
+        return $this->excerpt;
     }
 
     /**
@@ -50,6 +55,10 @@ class Flight extends Model implements ActivityFeedable
 
             case 'index':
                 return route('flights.index', $this->user, $absolute);
+                break;
+            
+            case 'create':
+                return route('flights.create', $this->user, $absolute);
                 break;
             
             default:

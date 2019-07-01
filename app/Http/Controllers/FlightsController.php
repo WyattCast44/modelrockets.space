@@ -7,6 +7,20 @@ use App\Flight;
 
 class FlightsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store']);
+    }
+    
+    public function create(User $user)
+    {
+        if (auth()->id() <> $user->id) {
+            return abort(403);
+        }
+
+        return view('users.flights.create', ['user' => $user]);
+    }
+
     public function index(User $user)
     {
         $this->authorize('view', $user);
