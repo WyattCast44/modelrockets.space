@@ -9,7 +9,7 @@
             </a>
 
             <p class="my-3 text-sm text-gray-600">
-                {{ Str::limit($thread->body, 225) }}
+                {{ strip_tags($thread->excerpt) }}
             </p>
 
             <p class="text-xs text-gray-600">
