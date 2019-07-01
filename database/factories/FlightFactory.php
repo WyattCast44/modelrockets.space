@@ -13,6 +13,7 @@ $factory->define(Flight::class, function (Faker $faker) {
         'rocket' => $faker->words(3, true),
         'motors' => '9 x A10-3Ts',
         'altitude' => '230 ft',
+        'description' => $faker->paragraph,
         'date' => now(),
         'meta' => null,
     ];

@@ -19,6 +19,7 @@ class CreateFlightsTable extends Migration
             $table->string('rocket');
             $table->string('motors')->nullable();
             $table->string('altitude')->nullable();
+            $table->text('description')->nullable();
             $table->timestamp('date');
             $table->json('meta')->nullable();
             $table->timestamps();

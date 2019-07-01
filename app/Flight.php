@@ -5,6 +5,7 @@ namespace App;
 use App\Traits\HasAttachments;
 use App\Interfaces\ActivityFeedable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Flight extends Model implements ActivityFeedable
 {
@@ -34,7 +35,7 @@ class Flight extends Model implements ActivityFeedable
 
     public function getActivityExcerptAttribute()
     {
-        return "{$this->user->username} flew {$this->rocket} on {$this->date->toFormattedDateString()}";
+        return Str::limit($this->description, 255);
     }
 
     /**
