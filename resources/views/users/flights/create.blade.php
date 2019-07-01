@@ -32,8 +32,12 @@
 
             <div class="form-group">
                 <label for="description">Description of Launch</label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea id="description" name="description" class="form-control"></textarea>
             </div>
+
+            {{-- <div class="my-8">
+                <trix-editor input="description"></trix-editor>
+            </div> --}}
 
             {{-- <div class="form-group" data-controller="multifile">
                 <label for="attachments[]" class="text-lg text-gray-600">Attachments</label>

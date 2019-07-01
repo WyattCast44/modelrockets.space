@@ -20,12 +20,14 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "tailwindcss": "^1.0.4",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10",
         "stimulus": "^1.1.1",
         "sweetalert2": "^8.12.1",
-        "turbolinks": "^5.2.0"
+        "tailwindcss": "^1.0.4",
+        "turbolinks": "^5.2.0",
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": {}
+    "dependencies": {
+        "trix": "^1.1.1"
+    }
 }
