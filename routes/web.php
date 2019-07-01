@@ -19,6 +19,7 @@ Route::get('/members/@{user}/flights/{flight}', 'FlightsController@show')->name(
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
+Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
 
 Route::get('/roadmap', 'FeaturesController@index')->name('features.index');
 Route::post('/roadmap/{feature}/upvote', 'FeatureUpvotesController')->name('features.upvote');
