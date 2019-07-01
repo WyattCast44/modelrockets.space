@@ -45,9 +45,6 @@
             <li class="nav-item">
                 <a class="nav-link {{ applyActive('flights.index') }}" href="{{ route('flights.index', $user) }}">Flight Log</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ applyActive('') }}" href="#">Builds</a>
-            </li>
         </ul>
 
     </nav>
