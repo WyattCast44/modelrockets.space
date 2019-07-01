@@ -158,7 +158,10 @@ class Article extends Model implements Feedable, ActivityFeedable
             case 'discuss':
                 return route('threads.show', ['board' => $this->thread->board, 'thread' => $this->thread], $absolute);
                 break;
-            
+
+            case 'favorite':
+                return route('articles.favorite', ['article' => $this], $absolute);
+                break;
 
             default:
                 return route('articles.index', [], $absolute);

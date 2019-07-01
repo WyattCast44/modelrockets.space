@@ -12,6 +12,8 @@ trait Favoritable
             $user = auth()->user();
         }
 
+        $user->recordActivity('favorited');
+
         $user->addFavorite($this);
 
         return true;

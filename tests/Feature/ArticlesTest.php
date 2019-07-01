@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class ArticlesTest extends TestCase
 {
@@ -97,5 +98,51 @@ class ArticlesTest extends TestCase
 
         // But we should not see the unpublished articles title
         $response->assertDontSee($unpublishedArticle->title);
+    }
+
+    public function test_an_article_can_be_favorited_by_authenticated_users()
+    {
+        // Given we have an article
+        $article = factory(Article::class)->create();
+        
+        // And we publish it
+        $article->publish();
+
+        // And we sign in
+        $user = create(User::class);
+        $this->actingAs($user);
+
+        // And we the visit the article
+        $response = $this->get($article->path('show'));
+
+        // We should see a favorite button
+        $response->assertSee('👍 Favorite');
+
+        // When we visit the favorite link, we should have a new favorite
+        $response = $this->post($article->path('favorite'), []);
+
+        $this->assertEquals(1, $user->favorites->count());
+        
+        $this->assertEquals($article->title, $user->favorites->first()->item->title);
+    }
+
+    public function test_an_article_cannot_be_favorited_by_guests()
+    {
+        // Given we have an article
+        $article = factory(Article::class)->create();
+        
+        // And we publish it
+        $article->publish();
+
+        // And we the visit the article
+        $response = $this->get($article->path('show'));
+
+        // We should see a favorite button
+        $response->assertSee('👍 Favorite');
+
+        // When we visit the favorite link, we should have a new favorite
+        $response = $this->post($article->path('favorite'));
+
+        $response->assertRedirect('/login');
     }
 }

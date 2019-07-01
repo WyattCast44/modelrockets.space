@@ -58,7 +58,7 @@
     </article>
 
     <div class="flex my-8">
-        <a href="#" class="btn btn-sm btn-outline-primary">👍 Favorite</a>
+        @include('articles._partials.favorite')
     </div>
 
 </main>
