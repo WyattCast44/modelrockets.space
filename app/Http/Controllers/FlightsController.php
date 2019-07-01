@@ -10,10 +10,12 @@ class FlightsController extends Controller
     public function index(User $user)
     {
         $this->authorize('view', $user);
-        
-        $flights = $user->flights()->simplePaginate(8);
 
-        return view('users.flights.index', ['flights' => $flights, 'user' => $user]);
+        $flightGroups = $user->flights->groupBy(function ($flight) {
+            return $flight->date->format('d | M');
+        });
+
+        return view('users.flights.index', ['user' => $user, 'flightGroups' => $flightGroups]);
     }
 
     public function show(User $user, Flight $flight)
