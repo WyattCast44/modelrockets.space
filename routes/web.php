@@ -12,6 +12,7 @@ Route::get('/members', 'UsersController@index')->name('users.index');
 Route::get('/members/@{user}', 'UsersController@show')->name('users.show');
 Route::patch('/members/@{user}', 'UsersController@update')->name('users.update');
 Route::get('/members/@{user}/flights', 'FlightsController@index')->name('flights.index');
+Route::post('/members/@{user}/flights', 'FlightsController@store')->name('flights.store');
 Route::get('/members/@{user}/flights/create', 'FlightsController@create')->name('flights.create');
 Route::get('/members/@{user}/flights/{flight}', 'FlightsController@show')->name('flights.show');
 

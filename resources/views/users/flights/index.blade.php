@@ -29,7 +29,9 @@
     
                                 <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
                                     
-                                    {{ $flight->rocket }}
+                                    <a href="{{ $flight->path('show') }}">
+                                        {{ $flight->rocket }}
+                                    </a>
                                     
                                 </h3>
             
