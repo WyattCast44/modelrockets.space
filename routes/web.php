@@ -28,3 +28,6 @@ Route::post('/forum/b/{board}/threads/{thread}/replies', 'RepliesController@stor
 Route::get('/forum/b/{board}/threads/{thread}/replies/new/{parent?}', 'RepliesController@create')->name('replies.create');
 Route::post('/forum/b/{board}/threads/{thread}/lock', 'LockedThreadController@store')->name('threads.lock');
 Route::delete('/forum/b/{board}/threads/{thread}/unlock', 'LockedThreadController@destroy')->name('threads.unlock');
+
+Route::post('/forum/b/{board}/threads/{thread}/replies/{reply}/favorite', 'ReplyFavoritesController@store')->name('reply.favorites.store');
+Route::delete('/forum/b/{board}/threads/{thread}/replies/{reply}/unfavorite', 'ReplyFavoritesController@destroy')->name('reply.favorites.destroy');

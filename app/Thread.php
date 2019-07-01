@@ -3,16 +3,17 @@
 namespace App;
 
 use App\Reply;
+use Illuminate\Support\Str;
+use App\Traits\Favoritable;
 use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
+use App\Traits\HasAttachments;
 use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\HasAttachments;
-use Illuminate\Support\Str;
 
 class Thread extends Model
 {
-    use HasAttachments, Searchable;
+    use Favoritable, HasAttachments, Searchable;
     
     protected $guarded = [];
     

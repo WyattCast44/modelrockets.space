@@ -13,6 +13,16 @@ class Reply extends Model
     use HasAttachments;
     
     protected $guarded = [];
+
+    /**
+     * Activity/Behavior/Abilites
+     */
+    public function favorite(User $user = null)
+    {
+        if ($user === null) {
+            $user = auth()->user();
+        }
+    }
     
     /**
      * Accessors/Mutators

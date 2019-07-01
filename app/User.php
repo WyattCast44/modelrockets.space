@@ -4,10 +4,7 @@ namespace App;
 
 use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Mail\Mailable;
-use Illuminate\Support\Facades\Mail;
 
 class User extends Authenticatable
 {
@@ -41,6 +38,28 @@ class User extends Authenticatable
     /**
      * Behavior/Actions
      */
+    public function addFavorite($item)
+    {
+        $this->favorites()->create([
+            'favoritable_id' => $item->id,
+            'favoritable_type' => get_class($item),
+        ]);
+
+        return $this;
+    }
+
+    public function removeFavorite($item)
+    {
+        $this->favorites()->detach();
+        $favorite = Favorite::where('user_id', $this->id)
+            ->where('favoritable_id', $item->id)
+            ->delete;
+
+        $favorite->delete();
+
+        return $this;
+    }
+
     public function makePrivate()
     {
         $this->update(['public' => false]);
@@ -77,6 +96,11 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
     }
 
     public function profile()
