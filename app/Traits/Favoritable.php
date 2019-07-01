@@ -12,7 +12,7 @@ trait Favoritable
             $user = auth()->user();
         }
 
-        $user->recordActivity('favorited');
+        $user->recordActivity('favorited', $this);
 
         $user->addFavorite($this);
 
