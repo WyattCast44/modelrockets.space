@@ -4,7 +4,8 @@
 
 @section('content')
 
-<header class="mb-10 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
+<header class="mb-10 flex flex-col bg-gray-200 border-b border-solid border-gray-300 pt-12">
+    
     <div class="container flex justify-center md:justify-start">
 
         <div class="mr-5">
@@ -34,6 +35,22 @@
         </div>
 
     </div>
+
+    <nav class="container mt-12">
+
+        <ul class="nav nav-tabs border-none">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Activity</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Flight Log</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Builds</a>
+            </li>
+        </ul>
+
+    </nav>
 </header>
 
 <section class="container mb-16">

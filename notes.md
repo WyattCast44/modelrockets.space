@@ -50,3 +50,11 @@
 -   Monthly giveaway
     -- monthly raffle to give away some type of rocketry gear
     -- potentially get sponsors?
+
+# Glossary
+
+# User Stuff
+
+-   Flight Log
+-   Builds
+-   Gallery?
