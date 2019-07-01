@@ -103,6 +103,11 @@ class User extends Authenticatable
         return $this->hasMany(Favorite::class);
     }
 
+    public function flights()
+    {
+        return $this->hasMany(Flight::class)->orderByDesc('date');
+    }
+
     public function profile()
     {
         return $this->hasOne(UserProfile::class);

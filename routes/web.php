@@ -11,6 +11,7 @@ Route::view('/pages/privacy', 'pages.privacy');
 Route::get('/members', 'UsersController@index')->name('users.index');
 Route::get('/members/@{user}', 'UsersController@show')->name('users.show');
 Route::patch('/members/@{user}', 'UsersController@update')->name('users.update');
+Route::get('/members/@{user}/flights', 'FlightsController@index')->name('flights.index');
 
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
