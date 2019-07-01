@@ -83,6 +83,11 @@ class Thread extends Model
         $this->attributes['body'] =  Markdown::parse(trim(Purify::clean($body)));
     }
 
+    public function getActivityTitleAttribute()
+    {
+        return $this->title;
+    }
+
     /**
      * Misc
      */

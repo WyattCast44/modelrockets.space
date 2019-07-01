@@ -29,7 +29,7 @@
                                 
                                 @if($activity->subject <> null)
                                     <a href="{{ $activity->subject->path('show') }}">
-                                        {{ $activity->subject->title }}
+                                        {{ $activity->subject->activity_title }}
                                     </a>
                                 @endif
 

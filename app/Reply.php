@@ -46,6 +46,11 @@ class Reply extends Model
         $this->attributes['body'] = Markdown::parse(trim(Purify::clean($value)));
     }
 
+    public function getActivityTitleAttribute()
+    {
+        return $this->thread->activity_title;
+    }
+
     /**
      * Relationships
      */

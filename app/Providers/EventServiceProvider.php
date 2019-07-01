@@ -11,6 +11,8 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use App\Reply;
 use App\Observers\ReplyObserver;
+use App\Flight;
+use App\Observers\FlightObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -37,6 +39,7 @@ class EventServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Reply::observe(ReplyObserver::class);
         Thread::observe(ThreadObserver::class);
+        Flight::observe(FlightObserver::class);
     }
 
     /**

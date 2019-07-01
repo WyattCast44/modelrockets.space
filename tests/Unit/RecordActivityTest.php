@@ -7,6 +7,7 @@ use App\Thread;
 use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Flight;
 
 class RecordActivityTest extends TestCase
 {
@@ -52,5 +53,17 @@ class RecordActivityTest extends TestCase
 
         // And the activity method should be "published"
         $this->assertEquals('published', $article->user->activity->last()->method);
+    }
+
+    public function test_when_a_flight_is_added()
+    {
+        // Given we create a flight
+        $article = factory(Flight::class)->create();
+
+        // The articles author should have activity (1 is created when user registers)
+        $this->assertEquals(2, $article->user->activity->count());
+
+        // And the activity method should be "recorded a new flight!"
+        $this->assertEquals('recorded a new flight!', $article->user->activity->last()->method);
     }
 }

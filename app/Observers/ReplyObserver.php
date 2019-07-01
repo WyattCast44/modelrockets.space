@@ -15,7 +15,7 @@ class ReplyObserver
     */
     public function created(Reply $reply)
     {
-        $reply->user->recordActivity('replied to', $reply->thread);
+        $reply->user->recordActivity('replied to', $reply);
     }
     /**
      * Handle the thread "deleted" event.
