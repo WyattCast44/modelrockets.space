@@ -5,6 +5,7 @@ namespace App;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use Illuminate\Support\Str;
+use App\Traits\Favoritable;
 use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
@@ -16,7 +17,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model implements Feedable, ActivityFeedable
 {
-    use HasAttachments, Sluggable, Actionable, Searchable;
+    use Favoritable, HasAttachments, Sluggable, Actionable, Searchable;
 
     protected $guarded = [];
 

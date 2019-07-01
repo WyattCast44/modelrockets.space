@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use App\Thread;
 use App\Favorite;
+use App\Article;
 
 class FavoriteTest extends TestCase
 {
@@ -52,6 +53,17 @@ class FavoriteTest extends TestCase
 
     public function test_a_user_can_favorite_articles()
     {
-        //
+        // Given we have an article, that is published
+        $article = create(Article::class)->publish();
+
+        // And we have an authenticated user
+        $this->actingAs($article->user);
+
+        // We can favorite the article
+        $article->favorite();
+
+        // And our favorites can one item, that is the article
+        $this->assertEquals(1, $article->user->favorites->count());
+        $this->assertEquals($article->title, $article->user->favorites->first()->item->title);
     }
 }
