@@ -98,6 +98,16 @@ class Article extends Model implements Feedable, ActivityFeedable
         return Str::limit($this->body, 512);
     }
 
+    public function getActivityTitleAttribute()
+    {
+        return $this->title;
+    }
+
+    public function getActivityExcerptAttribute()
+    {
+        return $this->excerpt;
+    }
+
     /**
      * Scopes
      */

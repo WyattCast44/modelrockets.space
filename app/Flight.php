@@ -11,6 +11,10 @@ class Flight extends Model implements ActivityFeedable
     use HasAttachments;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'date' => 'datetime',
+    ];
     
     /**
      * Relationships
@@ -30,7 +34,7 @@ class Flight extends Model implements ActivityFeedable
 
     public function getActivityExcerptAttribute()
     {
-        return "{$this->user->username} flew {$this->rocket} on {$this->date}";
+        return "{$this->user->username} flew {$this->rocket} on {$this->date->toFormattedDateString()}";
     }
 
     /**

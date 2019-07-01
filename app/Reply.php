@@ -39,7 +39,7 @@ class Reply extends Model implements ActivityFeedable
 
     public function getExcerptAttribute()
     {
-        return Str::limit($this->body, 256);
+        return Str::limit($this->body, 255);
     }
 
     public function setBodyAttribute($value)
@@ -54,7 +54,7 @@ class Reply extends Model implements ActivityFeedable
 
     public function getActivityExcerptAttribute()
     {
-        return $this->thread->activity_excerpt;
+        return $this->excerpt;
     }
 
     /**

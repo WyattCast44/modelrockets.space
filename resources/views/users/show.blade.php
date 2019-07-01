@@ -37,7 +37,7 @@
         
                             @if($activity->subject <> null)
                                 <p class="px-3 text-gray-600">
-                                    {{ strip_tags($activity->subject->excerpt) }}
+                                    {{ strip_tags($activity->subject->activity_excerpt) }}
                                 </p>
                             @endif
 
