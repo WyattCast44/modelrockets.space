@@ -9,11 +9,12 @@ use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
 use App\Events\ArticlePublished;
+use App\Interfaces\ActivityFeedable;
 use Laravel\Nova\Actions\Actionable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Article extends Model implements Feedable
+class Article extends Model implements Feedable, ActivityFeedable
 {
     use HasAttachments, Sluggable, Actionable, Searchable;
 

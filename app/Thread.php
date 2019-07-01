@@ -8,10 +8,11 @@ use App\Traits\Favoritable;
 use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
+use App\Interfaces\ActivityFeedable;
 use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class Thread extends Model implements ActivityFeedable
 {
     use Favoritable, HasAttachments, Searchable;
     
@@ -75,7 +76,7 @@ class Thread extends Model
      */
     public function getExcerptAttribute()
     {
-        return Str::limit($this->body, 256);
+        return Str::limit($this->body, 255);
     }
 
     public function setBodyAttribute($body)
@@ -86,6 +87,11 @@ class Thread extends Model
     public function getActivityTitleAttribute()
     {
         return $this->title;
+    }
+
+    public function getActivityExcerptAttribute()
+    {
+        return $this->excerpt;
     }
 
     /**
@@ -100,11 +106,16 @@ class Thread extends Model
         ]);
     }
 
-    public function path($absolute = false)
+    public function path($method = 'show', $absolute = true)
     {
-        return route('threads.show', [
-            'board' => $this->board,
-            'thread' => $this,
-        ], $absolute);
+        switch ($method) {
+            case 'show':
+                return route('threads.show', ['board' => $this->board, 'thread' => $this], $absolute);
+                break;
+
+            default:
+                return route('threads.show', ['board' => $this->board, 'thread' => $this], $absolute);
+                break;
+        }
     }
 }

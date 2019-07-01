@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Support\Str;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
-use Illuminate\Database\Eloquent\Model;
+use App\Interfaces\ActivityFeedable;
 use Stevebauman\Purify\Facades\Purify;
+use Illuminate\Database\Eloquent\Model;
 
-class Reply extends Model
+class Reply extends Model implements ActivityFeedable
 {
     use HasAttachments;
     
@@ -49,6 +50,11 @@ class Reply extends Model
     public function getActivityTitleAttribute()
     {
         return $this->thread->activity_title;
+    }
+
+    public function getActivityExcerptAttribute()
+    {
+        return $this->thread->activity_excerpt;
     }
 
     /**

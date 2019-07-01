@@ -3,9 +3,10 @@
 namespace App;
 
 use App\Traits\HasAttachments;
+use App\Interfaces\ActivityFeedable;
 use Illuminate\Database\Eloquent\Model;
 
-class Flight extends Model
+class Flight extends Model implements ActivityFeedable
 {
     use HasAttachments;
 
@@ -25,6 +26,11 @@ class Flight extends Model
     public function getActivityTitleAttribute()
     {
         return 'Check it out!';
+    }
+
+    public function getActivityExcerptAttribute()
+    {
+        return "{$this->user->username} flew {$this->rocket} on {$this->date}";
     }
 
     /**
