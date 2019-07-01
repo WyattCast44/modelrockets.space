@@ -14,7 +14,7 @@ class ArticleTest extends TestCase
 
     public function test_an_article_belongs_to_a_user()
     {
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         $this->assertNotNull($article->user);
 
@@ -24,11 +24,11 @@ class ArticleTest extends TestCase
     public function test_when_an_article_is_published_a_thread_is_created()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // Given we have a board called 'Article Discussions' and the ArticlesBot Exists
-        $board = factory(Board::class)->create(['name' => 'Article Discussions']);
-        factory(User::class)->create(['username' => 'ArticlesBot']);
+        $board = create(Board::class, ['name' => 'Article Discussions']);
+        create(User::class, ['username' => 'ArticlesBot']);
 
         // Given we publish the article
         $article->publish();
@@ -43,7 +43,7 @@ class ArticleTest extends TestCase
     public function test_a_article_can_be_published()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // It should be unpublished by default
         $this->assertFalse($article->published);
@@ -59,7 +59,7 @@ class ArticleTest extends TestCase
     public function test_a_article_can_be_unpublished()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // And we publish it
         $article->publish();
@@ -75,7 +75,7 @@ class ArticleTest extends TestCase
     public function test_an_article_knows_if_it_has_been_updated()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // And we publish it
         $article->publish();
@@ -90,7 +90,7 @@ class ArticleTest extends TestCase
     public function test_an_articles_knows_the_path_to_view_itself()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // And we publish it
         $article->publish();
@@ -105,7 +105,7 @@ class ArticleTest extends TestCase
     public function test_an_articles_knows_the_path_to_view_all_articles()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // And we publish it
         $article->publish();
@@ -120,11 +120,11 @@ class ArticleTest extends TestCase
     public function test_an_article_knows_the_path_to_its_discussion_thread()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // Given we have a board called 'Article Discussions'
-        $board = factory(Board::class)->create(['name' => 'Article Discussions']);
-        factory(User::class)->create(['username' => 'ArticlesBot']);
+        $board = create(Board::class, ['name' => 'Article Discussions']);
+        create(User::class, ['username' => 'ArticlesBot']);
 
         // Given we publish the article
         $article->publish();

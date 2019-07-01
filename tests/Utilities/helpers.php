@@ -1,6 +1,6 @@
 <?php
 
-function create($class, $att = [])
+function create($class, $att = [], $number = null)
 {
-    return factory($class)->create($att);
+    return factory($class, $number)->create($att);
 }

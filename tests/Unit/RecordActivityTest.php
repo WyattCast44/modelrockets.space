@@ -17,7 +17,7 @@ class RecordActivityTest extends TestCase
     public function test_when_a_thread_is_created()
     {
         // Given we create a thread
-        $thread = factory(Thread::class)->create();
+        $thread = create(Thread::class);
 
         // The threads owner should now have some activity (1 is created when user registers)
         $this->assertEquals(2, $thread->user->activity->count());
@@ -29,22 +29,22 @@ class RecordActivityTest extends TestCase
     public function test_when_a_user_replies_to_a_thread()
     {
         // Given we create a thread
-        $thread = factory(Thread::class)->create();
+        $thread = create(Thread::class);
 
         // And we reply to it
-        $reply = factory(Reply::class)->create(['thread_id' => $thread->id]);
+        $reply = create(Reply::class, ['thread_id' => $thread->id]);
 
         // The replies owner should now have some activity (1 is created when user registers)
         $this->assertEquals(2, $reply->user->activity->count());
 
         // And the activity method should be "create"
-        $this->assertEquals('replied to', $reply->user->activity()->latest()->get()->last()->method);
+        $this->assertEquals('replied to', $reply->user->activity->last()->method);
     }
 
     public function test_when_a_articles_is_published()
     {
         // Given we create a article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
 
         // And we publish it
         $article->publish();
@@ -59,7 +59,7 @@ class RecordActivityTest extends TestCase
     public function test_when_a_flight_is_added()
     {
         // Given we create a flight
-        $article = factory(Flight::class)->create();
+        $article = create(Flight::class);
 
         // The articles author should have activity (1 is created when user registers)
         $this->assertEquals(2, $article->user->activity->count());

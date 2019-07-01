@@ -14,7 +14,7 @@ class UsersTest extends TestCase
 
     public function test_a_guest_can_view_all_public_users()
     {
-        $publicUsers = factory(User::class, 5)->create(['public' => true]);
+        $publicUsers = create(User::class, ['public' => true], 5);
 
         $response = $this->get(route('users.index'));
 
@@ -27,9 +27,9 @@ class UsersTest extends TestCase
 
     public function test_a_guest_cannot_view_private_users()
     {
-        $publicUsers = factory(User::class, 2)->create(['public' => true]);
+        $publicUsers = create(User::class, ['public' => true], 2);
 
-        $privateUsers = factory(User::class, 2)->create(['public' => false]);
+        $privateUsers = create(User::class, ['public' => false], 2);
 
         $response = $this->get('/members');
 
@@ -46,7 +46,7 @@ class UsersTest extends TestCase
 
     public function test_a_guest_can_view_a_public_users_page()
     {
-        $publicUser = factory(User::class)->create(['public' => true]);
+        $publicUser = create(User::class, ['public' => true]);
 
         $response = $this->get($publicUser->path('show'));
 
@@ -57,7 +57,7 @@ class UsersTest extends TestCase
 
     public function test_a_guest_cannot_view_a_private_users_page()
     {
-        $privateUser = factory(User::class)->create(['public' => false]);
+        $privateUser = create(User::class, ['public' => false]);
 
         $response = $this->get($privateUser->path('show'));
 
@@ -68,11 +68,11 @@ class UsersTest extends TestCase
 
     public function test_a_authenticated_user_cannot_view_a_private_users_page()
     {
-        $user = factory(User::class)->create(['public' => true]);
+        $user = create(User::class, ['public' => true]);
         
         $this->actingAs($user);
 
-        $privateUser = factory(User::class)->create(['public' => false]);
+        $privateUser = create(User::class, ['public' => false]);
 
         $response = $this->get($privateUser->path('show'));
 
@@ -83,7 +83,7 @@ class UsersTest extends TestCase
 
     public function test_a_users_page_has_a_share_button()
     {
-        $user = factory(User::class)->create(['public' => true]);
+        $user = create(User::class, ['public' => true]);
 
         $response = $this->get($user->path('show'));
 
@@ -98,9 +98,7 @@ class UsersTest extends TestCase
     {
         Mail::fake();
 
-        $this->withoutExceptionHandling();
-
-        $user = factory(User::class)->create();
+        $user = create(User::class);
 
         Mail::assertQueued(WelcomeEmail::class, function ($mail) use ($user) {
             return ($mail->user->id === $user->id);

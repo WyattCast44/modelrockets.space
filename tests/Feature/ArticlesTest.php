@@ -14,7 +14,7 @@ class ArticlesTest extends TestCase
     public function test_a_user_can_view_all_articles()
     {
         // Given we have articles
-        $articles = factory(Article::class, 5)->create();
+        $articles = create(Article::class, [], 5);
 
         // And we publish them
         $articles->each(function ($article) {
@@ -34,7 +34,7 @@ class ArticlesTest extends TestCase
     public function test_a_user_can_view_a_single_article()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
         
         // And we publish it
         $article->publish();
@@ -51,7 +51,7 @@ class ArticlesTest extends TestCase
 
     public function test_a_user_cannot_view_an_unpublished_article()
     {
-        $article = factory(Article::class)->create(['published' => false]);
+        $article = create(Article::class, ['published' => false]);
 
         $response = $this->get($article->path('show'));
 
@@ -61,7 +61,7 @@ class ArticlesTest extends TestCase
     public function test_an_rss_feed_is_generated_for_published_articles()
     {
         // Given we have articles
-        $articles = factory(Article::class, 5)->create();
+        $articles = create(Article::class, [], 5);
 
         // And we publish them
         $articles->each(function ($article) {
@@ -81,8 +81,8 @@ class ArticlesTest extends TestCase
     public function test_rss_feed_does_not_contain_unpublished_articles()
     {
         // Given we have two articles
-        $publishedArticle = factory(Article::class)->create();
-        $unpublishedArticle = factory(Article::class)->create();
+        $publishedArticle = create(Article::class);
+        $unpublishedArticle = create(Article::class);
 
         // And we publish one of them
         $publishedArticle->publish();
@@ -103,7 +103,7 @@ class ArticlesTest extends TestCase
     public function test_an_article_can_be_favorited_by_authenticated_users()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
         
         // And we publish it
         $article->publish();
@@ -129,7 +129,7 @@ class ArticlesTest extends TestCase
     public function test_an_article_cannot_be_favorited_by_guests()
     {
         // Given we have an article
-        $article = factory(Article::class)->create();
+        $article = create(Article::class);
         
         // And we publish it
         $article->publish();

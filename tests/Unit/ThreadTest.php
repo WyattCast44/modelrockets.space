@@ -16,11 +16,11 @@ class ThreadTest extends TestCase
 
     public function test_a_thread_belongs_to_a_user()
     {
-        $user = factory(User::class)->create();
+        $user = create(User::class);
 
         $this->assertEquals(0, $user->threads->count());
 
-        $thread = factory(Thread::class)->create([
+        $thread = create(Thread::class, [
             'user_id' => $user->id,
         ]);
 
@@ -31,9 +31,9 @@ class ThreadTest extends TestCase
 
     public function test_a_thread_belongs_to_a_board()
     {
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
-        $thread = factory(Thread::class)->create(['board_id' => $board->id]);
+        $thread = create(Thread::class, ['board_id' => $board->id]);
 
         $this->assertNotNull($thread->board);
 
@@ -42,9 +42,9 @@ class ThreadTest extends TestCase
 
     public function test_a_thread_can_have_many_replies()
     {
-        $thread = factory(Thread::class)->create();
+        $thread = create(Thread::class);
 
-        $replies = factory(Reply::class, 3)->create(['thread_id' => $thread->id]);
+        $replies = create(Reply::class, ['thread_id' => $thread->id], 3);
 
         $replies->each(function ($reply) use ($thread) {
             $this->assertTrue(($reply->thread->id == $thread->id));
@@ -53,12 +53,12 @@ class ThreadTest extends TestCase
 
     public function test_a_thread_can_have_attachments()
     {
-        $thread = factory(Thread::class)->create();
+        $thread = create(Thread::class);
 
-        $attachments = factory(Attachment::class, 3)->create([
+        $attachments = create(Attachment::class, [
             'attachable_id' => $thread->id,
             'attachable_type' => Thread::class,
-        ]);
+        ], 3);
 
         $this->assertEquals($attachments->count(), $thread->attachments->count());
         
@@ -68,10 +68,10 @@ class ThreadTest extends TestCase
     public function test_a_thread_can_be_locked()
     {
         // Given we have a thread
-        $thread = factory(Thread::class)->create();
+        $thread = create(Thread::class);
 
         // So long as the thread is not locked, new replies can be added
-        $reply = factory(Reply::class)->create(['thread_id' => $thread->id]);
+        $reply = create(Reply::class, ['thread_id' => $thread->id]);
 
         // We should have one thread
         $this->assertEquals(1, $thread->replies->count());

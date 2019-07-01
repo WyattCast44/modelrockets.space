@@ -13,7 +13,7 @@ class BoardTest extends TestCase
 
     public function test_a_board_is_by_default_public()
     {
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
         $this->assertTrue($board->public);
     }
@@ -21,7 +21,7 @@ class BoardTest extends TestCase
     public function test_a_public_board_can_be_private()
     {
         // Given we have a board
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
         // And we make it private and provide a password
         $board->makePrivate('password');
@@ -36,7 +36,7 @@ class BoardTest extends TestCase
     public function test_a_private_board_can_be_public()
     {
         // Given we have a board
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
         // And we make it private and provide a password
         $board->makePrivate('password');
@@ -57,7 +57,7 @@ class BoardTest extends TestCase
         $this->expectException(\Exception::class);
 
         // Given we have a board
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
         // And we make it private and provide a password
         $board->makePrivate('password');
@@ -74,11 +74,11 @@ class BoardTest extends TestCase
 
     public function test_a_board_can_have_many_threads()
     {
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
-        $threads = factory(Thread::class, 3)->create([
+        $threads = create(Thread::class, [
             'board_id' => $board->id,
-        ]);
+        ], 3);
 
         $this->assertTrue($board->threads->count() === $threads->count());
 
@@ -90,7 +90,7 @@ class BoardTest extends TestCase
     public function test_a_board_knows_the_path_to_view_itself()
     {
         // Given we have a board
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
         // We expect the path method to match the routes file
         $this->assertEquals(route('boards.show', $board), $board->path('show'));
@@ -99,7 +99,7 @@ class BoardTest extends TestCase
     public function test_a_board_knows_the_path_to_the_index()
     {
         // Given we have a board
-        $board = factory(Board::class)->create();
+        $board = create(Board::class);
 
         // We expect the path method to match the routes file
         $this->assertEquals(route('forum.index'), $board->path('index'));
