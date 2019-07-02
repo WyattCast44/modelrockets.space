@@ -9,6 +9,7 @@ class AttachmentObserver
 {
     public function deleting(Attachment $attachment)
     {
+        // Clean up any attachments on cloudinary...
         Cloudder::delete($attachment->vendor_id);
     }
 }
