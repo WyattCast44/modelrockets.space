@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Flight;
 use Illuminate\Http\Request;
+use App\Motor;
 
 class FlightsController extends Controller
 {
@@ -19,7 +20,9 @@ class FlightsController extends Controller
             return abort(403);
         }
 
-        return view('users.flights.create', ['user' => $user]);
+        $motors = Motor::with(['vendor', 'type'])->get();
+
+        return view('users.flights.create', ['user' => $user, 'motors' => $motors]);
     }
 
     public function index(User $user)
@@ -51,7 +54,8 @@ class FlightsController extends Controller
         $this->validate($request, [
             'date' => 'required|date',
             'rocket' => 'required|string|max:255',
-            'motors' => 'nullable|string|max:255',
+            'motor_id' => 'nullable|exists:motors,id',
+            'motor_quantity' => 'nullable|numeric|max:100',
             'altitude' => 'nullable|string|max:255',
             'description' => 'required|string',
             'attachments.*' => 'nullable|mimes:jpg,jpeg,png,bmp|max:20000',
@@ -60,7 +64,8 @@ class FlightsController extends Controller
         $flight = $user->flights()->create([
             'date' => $request->date,
             'rocket' => $request->rocket,
-            'motors' => $request->motors,
+            'motor_id' => $request->motor_id,
+            'motor_quantity' => $request->motor_quantity,
             'altitude' => $request->altitude,
             'description' => $request->description,
         ]);

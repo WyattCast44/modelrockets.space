@@ -21,9 +21,18 @@
             </div>
 
             <div class="form-group">
-                <label for="motors">Motors</label>
-                <input type="text" name="motors" placeholder="Ex. 3 x A10-3T" class="form-control">
+                <label for="motors">Motor</label>
+                <select name="motor_id" class="form-control">
+                    @foreach($motors as $motor)
+                        <option value="{{ $motor->id }}">{{ $motor->name }} ({{ $motor->vendor->name }})</option>
+                    @endforeach
+                </select>                
             </div>
+
+            <div class="form-group">
+                    <label for="motors">Motor Quantity</label>
+                    <input type="number" name="motor_quantity" class="form-control">
+                </div>
 
             <div class="form-group">
                 <label for="altitude">Altitude</label>
