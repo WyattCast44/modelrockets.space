@@ -19,7 +19,7 @@ class CreateAttachmentsTable extends Migration
             $table->morphs('attachable');
             $table->string('filename')->nullable();
             $table->string('vendor_id')->nullable()->index();
-            $table->text('path');
+            $table->text('path')->nullable();
             $table->boolean('available')->default(false);
             $table->timestamps();
         });

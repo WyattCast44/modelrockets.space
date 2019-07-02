@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
 
 class Motor extends Model
 {
+    use HasAttachments;
+
     protected $guarded = [];
 
     /**
