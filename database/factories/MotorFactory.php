@@ -22,7 +22,7 @@ $factory->define(Motor::class, function (Faker $faker) {
         'max_thrust' => '3',
         'burn_time' => '2.3',
         'delay_time' => '1.2',
-        'classification_id' => function () {
+        'class_id' => function () {
             return factory(MotorClassification::class)->create()->id;
         },
         'type_id' => function () {

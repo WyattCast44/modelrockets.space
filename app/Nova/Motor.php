@@ -101,6 +101,9 @@ class Motor extends Resource
                     'In seconds, no units, ex: 25.4'
                 ),
             
+            BelongsTo::make('Class', 'class', 'App\Nova\MotorClassification')->sortable()
+                ->rules('nullable'),
+
             BelongsTo::make('Type', 'type', 'App\Nova\MotorType')->sortable()
                 ->rules('nullable'),
             
