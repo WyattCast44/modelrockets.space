@@ -41,3 +41,6 @@ Route::post('/forum/b/{board}/threads/{thread}/lock', 'LockedThreadController@st
 Route::delete('/forum/b/{board}/threads/{thread}/unlock', 'LockedThreadController@destroy')->name('threads.unlock');
 Route::post('/forum/b/{board}/threads/{thread}/replies/{reply}/favorite', 'ReplyFavoritesController@store')->name('reply.favorites.store');
 Route::delete('/forum/b/{board}/threads/{thread}/replies/{reply}/unfavorite', 'ReplyFavoritesController@destroy')->name('reply.favorites.destroy');
+
+// Data...
+Route::get('/data/vendors', 'Data\VendorsController@index')->name('data.vendors.index');
