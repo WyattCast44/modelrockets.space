@@ -11,6 +11,11 @@ class Motor extends Model
     /**
      * Relationships
      */
+    public function class()
+    {
+        return $this->belongsTo(MotorClassification::class);
+    }
+    
     public function type()
     {
         return $this->belongsTo(MotorType::class);

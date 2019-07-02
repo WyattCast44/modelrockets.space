@@ -26,11 +26,16 @@ class CreateMotorsTable extends Migration
             $table->string('max_thrust')->nullable(); // N
             $table->string('burn_time')->nullable(); // s
             $table->string('delay_time')->nullable(); // s
+            $table->unsignedBigInteger('class_id')->index()->nullable();
             $table->unsignedBigInteger('type_id')->index()->nullable();
             $table->unsignedBigInteger('vendor_id')->index()->nullable();
             $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->json('meta')->nullable();
             $table->timestamps();
+
+            $table->foreign('class_id')->references('id')->on('motor_classifications')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
 
             $table->foreign('type_id')->references('id')->on('motor_types')
                 ->onUpdate('cascade')

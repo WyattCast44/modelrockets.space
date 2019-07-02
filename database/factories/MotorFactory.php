@@ -7,6 +7,7 @@ use App\Motor;
 use App\Vendor;
 use Faker\Generator as Faker;
 use App\MotorType;
+use App\MotorClassification;
 
 $factory->define(Motor::class, function (Faker $faker) {
     return [
@@ -21,6 +22,9 @@ $factory->define(Motor::class, function (Faker $faker) {
         'max_thrust' => '3',
         'burn_time' => '2.3',
         'delay_time' => '1.2',
+        'classification_id' => function () {
+            return factory(MotorClassification::class)->create()->id;
+        },
         'type_id' => function () {
             return factory(MotorType::class)->create()->id;
         },
