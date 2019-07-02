@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\MotorType;
+use Illuminate\Database\Seeder;
 
 class MotorTypesTableSeeder extends Seeder
 {
@@ -12,7 +12,7 @@ class MotorTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        $types = collect(require_once './Data/MotorTypes.php');
+        $types = collect(require_once __DIR__ . '/Data/MotorTypes.php');
 
         $types->each(function ($type) {
             factory(MotorType::class)->create([

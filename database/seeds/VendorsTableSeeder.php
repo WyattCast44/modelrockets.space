@@ -12,7 +12,7 @@ class VendorsTableSeeder extends Seeder
      */
     public function run()
     {
-        $vendors = collect(require_once './Data/Vendors.php');
+        $vendors = collect(require_once __DIR__ . '/Data/Vendors.php');
 
         $vendors->each(function ($vendor) {
             factory(Vendor::class)->create([
