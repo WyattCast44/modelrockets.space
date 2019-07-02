@@ -15,14 +15,23 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('rocket');
-            $table->string('motors')->nullable();
+            $table->unsignedBigInteger('motor_id')->nullable();
+            $table->unsignedBigInteger('motor_quantity')->nullable();
             $table->string('altitude')->nullable();
             $table->text('description')->nullable();
             $table->timestamp('date');
             $table->json('meta')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            
+            $table->foreign('motor_id')->references('id')->on('motors')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
         });
     }
 

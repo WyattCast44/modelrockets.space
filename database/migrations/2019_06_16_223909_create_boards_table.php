@@ -20,12 +20,16 @@ class CreateBoardsTable extends Migration
             $table->text('description')->nullable();
             $table->boolean('public')->default(true)->index();
             $table->string('password')->nullable();
-            $table->bigInteger('user_id')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->boolean('allow_new_public_threads')->default(true)->index();
             $table->boolean('sticky')->default(false)->index();
             $table->timestamp('sticky_until')->default(null)->nullable();
             $table->json('meta')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
         });
     }
 

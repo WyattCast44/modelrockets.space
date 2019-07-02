@@ -18,7 +18,7 @@
 
             <div class="mb-5">
                 <h3 class="uppercase font-semibold mb-3 text-gray-600">Motors</h3>
-                <p>{{ $flight->motors }}</p>
+                <p>{{ $flight->motor->name }} x {{ $flight->motor_quantity }}</p>
             </div>
 
             <div class="mb-5">

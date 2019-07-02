@@ -41,8 +41,8 @@ class Thread extends Model implements ActivityFeedable
 
     public function getBestReply()
     {
-        if ($this->best_answer_thread_id) {
-            return Reply::find($this->best_answer_thread_id);
+        if ($this->best_answer_reply_id) {
+            return Reply::find($this->best_answer_reply_id);
         }
         
         return null;

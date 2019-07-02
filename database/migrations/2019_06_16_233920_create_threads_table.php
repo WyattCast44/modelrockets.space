@@ -17,13 +17,21 @@ class CreateThreadsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->index();
             $table->text('body');
-            $table->bigInteger('user_id')->index()->unsigned();
-            $table->bigInteger('board_id')->index()->unsigned();
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('board_id')->index();
             $table->boolean('open')->default(true)->index();
-            $table->bigInteger('best_answer_thread_id')->index()->unsigned()->nullable();
-            $table->bigInteger('favorites')->index()->unsigned()->nullable()->default(0);
-            $table->bigInteger('views')->default(0)->index()->unsigned();
+            $table->unsignedBigInteger('best_answer_reply_id')->index()->nullable();
+            $table->unsignedBigInteger('favorites')->index()->nullable()->default(0);
+            $table->unsignedBigInteger('views')->default(0)->index();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreign('board_id')->references('id')->on('boards')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

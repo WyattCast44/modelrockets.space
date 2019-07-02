@@ -15,12 +15,24 @@ class CreateRepliesTable extends Migration
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->index()->unsigned();
-            $table->bigInteger('thread_id')->index()->unsigned();
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('thread_id')->index();
             $table->text('body');
-            $table->bigInteger('favorites')->index()->unsigned()->nullable()->default(0);
-            $table->bigInteger('parent_id')->nullable()->index();
+            $table->unsignedBigInteger('favorites')->index()->unsigned()->nullable()->default(0);
+            $table->unsignedBigInteger('parent_id')->nullable()->index();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            
+            $table->foreign('thread_id')->references('id')->on('threads')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            
+            $table->foreign('parent_id')->references('id')->on('replies')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
         });
     }
 

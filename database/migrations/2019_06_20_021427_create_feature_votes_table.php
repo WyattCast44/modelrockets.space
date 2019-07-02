@@ -15,9 +15,17 @@ class CreateFeatureVotesTable extends Migration
     {
         Schema::create('feature_votes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('feature_id')->index();
-            $table->bigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('feature_id')->index();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreign('feature_id')->references('id')->on('features')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

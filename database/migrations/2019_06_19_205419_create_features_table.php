@@ -17,11 +17,15 @@ class CreateFeaturesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->index();
             $table->text('body')->nullable();
-            $table->bigInteger('user_id')->index()->nullable()->unsigned();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->string('status')->index();
             $table->boolean('public')->default(true)->index();
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

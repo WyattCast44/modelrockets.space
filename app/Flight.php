@@ -20,6 +20,11 @@ class Flight extends Model implements ActivityFeedable
     /**
      * Relationships
      */
+    public function motor()
+    {
+        return $this->belongsTo(Motor::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
