@@ -12,7 +12,7 @@
     </div>
 </header>
 
-<div class="container mb-16">
+<div class="mb-16">
     @yield('data-content')
 </div>
 
