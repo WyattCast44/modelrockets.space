@@ -56,14 +56,20 @@ class Attachment extends Resource
 
             File::make('Attachment')
                 ->store(new StoreAttachment)
-                ->onlyOnForms(),
+                ->hideWhenUpdating()
+                ->hideFromDetail()
+                ->hideFromIndex(),
             
             Text::make('Vendor ID')->sortable()
                 ->rules('nullable')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
                 ->readonly(),
             
             Text::make('Path')->hideFromIndex()
                 ->rules('nullable')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
                 ->readonly(),
         ];
     }

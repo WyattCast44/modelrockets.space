@@ -13,6 +13,8 @@ use App\Reply;
 use App\Observers\ReplyObserver;
 use App\Flight;
 use App\Observers\FlightObserver;
+use App\Attachment;
+use App\Observers\AttachmentObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -40,6 +42,7 @@ class EventServiceProvider extends ServiceProvider
         Reply::observe(ReplyObserver::class);
         Thread::observe(ThreadObserver::class);
         Flight::observe(FlightObserver::class);
+        Attachment::observe(AttachmentObserver::class);
     }
 
     /**

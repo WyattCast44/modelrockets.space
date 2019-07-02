@@ -2,8 +2,6 @@
 
 namespace App\Listeners;
 
-use Cloudder;
-use App\Attachment;
 use App\Events\ThreadDeleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -18,12 +16,8 @@ class DeleteThreadAttachmentsWhenThreadDeleted implements ShouldQueue
      */
     public function handle(ThreadDeleted $event)
     {
-        $publicIds = Attachment::where('attachable_id', $event->thread->id)
-                    ->get()
-                    ->pluck('vendor_id');
-
-        if ($publicIds->count() <> 0) {
-            Cloudder::destroyImages($publicIds->toArray());
-        }
+        $event->thread->attachments->each(function ($attachment) {
+            $attachment->delete();
+        });
     }
 }
