@@ -12,18 +12,18 @@
 
         <main>
             <div class="mb-5">
-                <h3 class="uppercase font-semibold mb-3 text-gray-600">Description</h3>
-                <div>{!! $flight->description !!}</div>
-            </div>
-
-            <div class="mb-5">
                 <h3 class="uppercase font-semibold mb-3 text-gray-600">Motors</h3>
                 <p>{{ $flight->motor->name }} x {{ $flight->motor_quantity }}</p>
             </div>
-
+            
             <div class="mb-5">
                 <h3 class="uppercase font-semibold mb-3 text-gray-600">Altitude</h3>
                 <p>{{ $flight->altitude }}</p>
+            </div>
+            
+            <div class="mb-5">
+                <h3 class="uppercase font-semibold mb-3 text-gray-600">Description</h3>
+                <div>{!! $flight->description !!}</div>
             </div>
 
             <div class="mb-5">
