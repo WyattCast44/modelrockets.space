@@ -28,6 +28,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "trix": "^1.1.1"
+        "trix": "^1.1.1",
+        "vue-bootstrap4-table": "^1.1.9"
     }
 }

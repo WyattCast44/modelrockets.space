@@ -29,6 +29,8 @@
             </tbody>
         </table>
     </div>
+
+    {{ $vendors->links() }}
     
 </div>
 
