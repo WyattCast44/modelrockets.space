@@ -1,16 +1,21 @@
 <?php
 
 use App\MotorType;
-use Illuminate\Database\Seeder;
+use App\Database\BaseSeeder;
 
-class MotorTypesTableSeeder extends Seeder
+class MotorTypesTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function dev()
+    {
+        $this->seedTypesData();
+    }
+
+    public function prod()
+    {
+        $this->seedTypesData();
+    }
+
+    public function seedTypesData()
     {
         $types = collect(require_once __DIR__ . '/Data/MotorTypes.php');
 

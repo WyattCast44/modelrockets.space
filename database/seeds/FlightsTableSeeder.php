@@ -1,17 +1,18 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\User;
+use App\Database\BaseSeeder;
 
-class FlightsTableSeeder extends Seeder
+class FlightsTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function prod()
     {
-        $users = App\User::all()->each(function ($user) {
+        return;
+    }
+
+    public function dev()
+    {
+        $users = User::all()->each(function ($user) {
             factory(App\Flight::class, 1)->create(['user_id' => $user->id]);
         });
     }

@@ -1,16 +1,21 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\MotorClassification;
+use App\Database\BaseSeeder;
 
-class MotorClassificationsTableSeeder extends Seeder
+class MotorClassificationsTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function prod()
+    {
+        $this->seedClassData();
+    }
+
+    public function dev()
+    {
+        $this->seedClassData();
+    }
+
+    public function seedClassData()
     {
         $classes = collect(require_once __DIR__ . '/Data/MotorClasses.php');
 
