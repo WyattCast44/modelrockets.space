@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\User;
 use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -109,19 +108,18 @@ class ArticlesTest extends TestCase
         $article->publish();
 
         // And we sign in
-        $user = create(User::class);
-        $this->actingAs($user);
+        $user = $this->signIn();
 
         // And we the visit the article
         $response = $this->get($article->path('show'));
 
-        // We should see a favorite button
-        $response->assertSee('👍 Favorite');
+        // We should get a valid response
+        $response->assertStatus(200);
 
         // When we visit the favorite link, we should have a new favorite
         $response = $this->post($article->path('favorite'), []);
 
-        $this->assertEquals(1, $user->favorites->count());
+        $this->assertEquals(1, $user->refresh()->favorites->count());
         
         $this->assertEquals($article->title, $user->favorites->first()->item->title);
     }
@@ -137,8 +135,8 @@ class ArticlesTest extends TestCase
         // And we the visit the article
         $response = $this->get($article->path('show'));
 
-        // We should see a favorite button
-        $response->assertSee('👍 Favorite');
+        // We should get a valid response
+        $response->assertStatus(200);
 
         // When we visit the favorite link, we should have a new favorite
         $response = $this->post($article->path('favorite'));
