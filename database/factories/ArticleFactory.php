@@ -13,6 +13,8 @@ $factory->define(Article::class, function (Faker $faker) {
         'body' => $faker->paragraph,
         'published' => false,
         'published_at' => null,
-        'user_id' => factory(User::class)->create()->id,
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        }
     ];
 });

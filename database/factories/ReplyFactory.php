@@ -9,8 +9,12 @@ use App\Thread;
 
 $factory->define(Reply::class, function (Faker $faker) {
     return [
-        'user_id' => factory(User::class)->create()->id,
-        'thread_id' => factory(Thread::class)->create()->id,
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
+        'thread_id' => function () {
+            return factory(Thread::class)->create()->id;
+        },
         'body' => $faker->paragraph,
         'favorites' => rand(0, 100),
         'parent_id' => null

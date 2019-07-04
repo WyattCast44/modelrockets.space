@@ -8,7 +8,9 @@ use App\User;
 
 $factory->define(UserProfile::class, function (Faker $faker) {
     return [
-        'user_id' => factory(User::class)->create()->id,
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
         'tagline' => $faker->words(rand(3, 8), true),
         'signature' => $faker->title,
         'meta' => null,

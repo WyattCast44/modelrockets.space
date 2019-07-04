@@ -10,7 +10,9 @@ $factory->define(Feature::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence,
         'body' => $faker->paragraph,
-        'user_id' => factory(User::class)->create()->id,
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
         'status' => 'pending',
         'public' => true
     ];

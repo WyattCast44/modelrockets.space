@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\Article;
 use App\Database\BaseSeeder;
 
@@ -11,7 +12,8 @@ class ArticlesTableSeeder extends BaseSeeder
             'title' => 'Hello World 🚀',
             'subtitle' => 'Welcome to ModelRockets.Space',
             'slug' => 'hello-world',
-            'body' => file_get_contents(__DIR__ . '/Data/HelloWorld.md')
+            'body' => file_get_contents(__DIR__ . '/Data/HelloWorld.md'),
+            'user_id' => User::where('username', 'SpaceMarauderX')->first()->id
         ])->publish();
     }
 

@@ -7,7 +7,7 @@ class FlightsTableSeeder extends BaseSeeder
 {
     public function dev()
     {
-        $users = User::all()->each(function ($user) {
+        User::all()->each(function ($user) {
             factory(App\Flight::class, 1)->create(['user_id' => $user->id]);
         });
     }
