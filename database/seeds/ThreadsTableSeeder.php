@@ -1,21 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Thread;
+use App\Database\BaseSeeder;
 
-class ThreadsTableSeeder extends Seeder
+class ThreadsTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function dev()
     {
-        if (app()->environment('production')) {
-            return;
-        }
-        
         factory(Thread::class, 3)->create();
     }
 }

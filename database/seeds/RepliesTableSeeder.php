@@ -1,21 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Reply;
+use App\Database\BaseSeeder;
 
-class RepliesTableSeeder extends Seeder
+class RepliesTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function dev()
     {
-        if (app()->environment('production')) {
-            return;
-        }
-        
-        factory(Reply::class, 10)->create();
+        factory(Reply::class, 5)->create();
     }
 }

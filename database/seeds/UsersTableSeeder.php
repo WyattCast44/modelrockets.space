@@ -20,7 +20,7 @@ class UsersTableSeeder extends BaseSeeder
     public function createDefaultUser()
     {
         factory(User::class)->create([
-            'username' => 'wyattcast44',
+            'username' => 'SpaceMarauderX',
             'email' => 'wyatt.castaneda@gmail.com',
             'password' => bcrypt('password'),
             'superAdmin' => true,

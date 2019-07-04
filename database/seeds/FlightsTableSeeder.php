@@ -5,11 +5,6 @@ use App\Database\BaseSeeder;
 
 class FlightsTableSeeder extends BaseSeeder
 {
-    public function prod()
-    {
-        return;
-    }
-
     public function dev()
     {
         $users = User::all()->each(function ($user) {
