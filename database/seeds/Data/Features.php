@@ -18,10 +18,6 @@ return [
         'description' => 'Build out the idea of "friends", private members friends can view their profile, but remain private to other users.',
     ],
     [
-        'name' => '"Friends"',
-        'description' => 'Build out the idea of "friends", private members friends can view their profile, but remain private to other users.',
-    ],
-    [
         'name' => '"Dark Mode 🌃"',
         'description' => 'What do you think about a dark mode?',
     ],
