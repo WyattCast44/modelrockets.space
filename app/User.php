@@ -50,10 +50,9 @@ class User extends Authenticatable
 
     public function removeFavorite($item)
     {
-        $this->favorites()->detach();
         $favorite = Favorite::where('user_id', $this->id)
             ->where('favoritable_id', $item->id)
-            ->delete;
+            ->first();
 
         $favorite->delete();
 

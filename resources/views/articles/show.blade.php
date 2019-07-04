@@ -31,8 +31,10 @@
 
         <!-- Discuss -->
         @if($article->thread_id <> null) 
-            <a href="{{ $article->path('discuss') }}" class="btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
+            <a href="{{ $article->path('discuss') }}" class="btn btn-outline-primary btn-sm mr-2" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
         @endif
+
+        @include('articles._partials.favorite')
 
     </div>
 
@@ -56,10 +58,6 @@
         {!! $article->body !!}
         
     </article>
-
-    <div class="flex my-8">
-        @include('articles._partials.favorite')
-    </div>
 
 </main>
 

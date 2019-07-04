@@ -29,4 +29,13 @@ trait Favoritable
 
         return true;
     }
+
+    public function hasUserFavorited($user = null)
+    {
+        if ($user === null) {
+            $user = auth()->user();
+        }
+
+        return $user->favorites->pluck('favoritable_id')->contains($this->id);
+    }
 }

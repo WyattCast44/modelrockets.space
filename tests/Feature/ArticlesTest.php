@@ -2,16 +2,16 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
 
 class ArticlesTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_a_user_can_view_all_articles()
+    public function test_a_visitor_can_view_all_articles()
     {
         // Given we have articles
         $articles = create(Article::class, [], 5);
@@ -31,7 +31,7 @@ class ArticlesTest extends TestCase
         $response->assertSee($articles->first()->title);
     }
 
-    public function test_a_user_can_view_a_single_article()
+    public function test_a_visitor_can_view_a_single_article()
     {
         // Given we have an article
         $article = create(Article::class);
@@ -49,7 +49,7 @@ class ArticlesTest extends TestCase
         $response->assertSee($article->title);
     }
 
-    public function test_a_user_cannot_view_an_unpublished_article()
+    public function test_a_visitor_cannot_view_an_unpublished_article()
     {
         $article = create(Article::class, ['published' => false]);
 
