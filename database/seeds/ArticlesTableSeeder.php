@@ -1,28 +1,24 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Article;
+use App\Database\BaseSeeder;
 
-class ArticlesTableSeeder extends Seeder
+class ArticlesTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function prod()
     {
-        if (app()->environment('production')) {
-            return;
-        }
-        
-        factory(Article::class, 11)->create();
+        return;
+    }
 
-        $article = factory(Article::class)->create([
+    public function dev()
+    {
+        // Five fake unpublished
+        factory(Article::class, 5)->create();
+
+        // Markdown Test Article
+        factory(Article::class)->create([
             'title' => 'Markdown Test',
-            'body' => file_get_contents(__DIR__ . '/Data/Test.md')
-        ]);
-
-        $article->publish();
+            'body' => file_get_contents(__DIR__ . '/Data/MarkdownTest.md')
+        ])->publish();
     }
 }

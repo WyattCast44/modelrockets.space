@@ -12,7 +12,7 @@ class FlightsTableSeeder extends Seeder
     public function run()
     {
         $users = App\User::all()->each(function ($user) {
-            factory(App\Flight::class, 4)->create(['user_id' => $user->id]);
+            factory(App\Flight::class, 1)->create(['user_id' => $user->id]);
         });
     }
 }

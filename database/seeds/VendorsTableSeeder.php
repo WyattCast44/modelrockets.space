@@ -1,19 +1,14 @@
 <?php
 
 use App\Vendor;
-use Illuminate\Database\Seeder;
+use App\Database\BaseSeeder;
 
-class VendorsTableSeeder extends Seeder
+class VendorsTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function prod()
     {
         $vendors = collect(require_once __DIR__ . '/Data/Vendors.php');
-
+    
         $vendors->each(function ($vendor) {
             factory(Vendor::class)->create([
                 'name' => $vendor['name'],
@@ -21,5 +16,10 @@ class VendorsTableSeeder extends Seeder
                 'website' => $vendor['website'],
             ]);
         });
+    }
+
+    public function dev()
+    {
+        factory(Vendor::class, 5)->create();
     }
 }
