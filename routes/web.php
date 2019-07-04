@@ -45,3 +45,4 @@ Route::delete('/forum/b/{board}/threads/{thread}/replies/{reply}/unfavorite', 'R
 // Data...
 Route::get('/data/vendors', 'Data\VendorsController@index')->name('data.vendors.index');
 Route::get('/data/motors', 'Data\MotorsController@index')->name('data.motors.index');
+Route::get('/data/motors/{motor}', 'Data\MotorsController@show')->name('data.motors.show');

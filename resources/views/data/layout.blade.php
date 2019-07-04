@@ -12,13 +12,13 @@
         </p>
     </div>
 
-    <nav class="container">
+    <nav class="container mt-5">
         <ul class="nav nav-tabs border-none">
             <li class="nav-item">
-                <a class="nav-link {{ applyActive('data.motors.index') }}" href="{{ route('data.motors.index') }}">Motors</a>
+                <a class="nav-link {{ applyActive('data.motors.*') }}" href="{{ route('data.motors.index') }}">Motors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ applyActive('data.vendors.index') }}" href="{{ route('data.vendors.index') }}">Vendors</a>
+                <a class="nav-link {{ applyActive('data.vendors.*') }}" href="{{ route('data.vendors.index') }}">Vendors</a>
             </li>
         </ul>
     </nav>

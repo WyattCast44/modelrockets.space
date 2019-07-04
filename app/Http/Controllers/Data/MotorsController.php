@@ -13,4 +13,11 @@ class MotorsController extends Controller
 
         return view('data.motors.index', ['motors' => $motors]);
     }
+
+    public function show(Motor $motor)
+    {
+        $motor->load('attachments');
+
+        return view('data.motors.show', ['motor' => $motor]);
+    }
 }

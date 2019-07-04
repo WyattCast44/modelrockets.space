@@ -28,4 +28,24 @@ class Motor extends Model
     {
         return $this->belongsTo(Vendor::class);
     }
+
+    /**
+     * Misc/Helpers
+     */
+    public function path($method = 'show', $absolute = true)
+    {
+        switch ($method) {
+            case 'show':
+                return route('data.motors.show', $this, $absolute);
+                break;
+            
+            case 'index':
+                return route('data.motors.index', $this, $absolute);
+                break;
+            
+            default:
+                return route('data.motors.show', $this, $absolute);
+                break;
+        }
+    }
 }
