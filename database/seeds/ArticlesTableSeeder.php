@@ -7,7 +7,12 @@ class ArticlesTableSeeder extends BaseSeeder
 {
     public function prod()
     {
-        return;
+        factory(Article::class)->create([
+            'title' => 'Hello World 🚀',
+            'subtitle' => 'Welcome to ModelRockets.Space',
+            'slug' => 'hello-world',
+            'body' => file_get_contents(__DIR__ . '/Data/HelloWorld.md')
+        ])->publish();
     }
 
     public function dev()

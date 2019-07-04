@@ -1,24 +1,21 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Board;
+use App\Database\BaseSeeder;
 
-class BoardsTableSeeder extends Seeder
+class BoardsTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function prod()
     {
-        if (app()->environment('production')) {
-            $this->createArticlesBoard();
-            return;
-        }
-
-        $this->createRandomBoards();
         $this->createArticlesBoard();
+        $this->createOtherBoards();
+    }
+
+    public function dev()
+    {
+        $this->createArticlesBoard();
+
+        factory(Board::class, 2)->create();
     }
 
     public function createArticlesBoard()
@@ -28,6 +25,23 @@ class BoardsTableSeeder extends Seeder
             'description' => 'Article Bot 🤖 will automatically create threads whenever a new article is published.',
             'public' => true,
             'allow_new_public_threads' => false,
+        ]);
+    }
+
+    public function createOtherBoards()
+    {
+        factory(Board::class)->create([
+            'name' => 'SpaceX',
+            'description' => 'A SpaceX related discussion board',
+            'public' => true,
+            'allow_new_public_threads' => true,
+        ]);
+
+        factory(Board::class)->create([
+            'name' => 'The Catina',
+            'description' => 'A general discussion board',
+            'public' => true,
+            'allow_new_public_threads' => true,
         ]);
 
         factory(Board::class)->create([
@@ -50,10 +64,5 @@ class BoardsTableSeeder extends Seeder
             'public' => true,
             'allow_new_public_threads' => true,
         ]);
-    }
-
-    public function createRandomBoards($number = 5)
-    {
-        factory(Board::class, $number)->create();
     }
 }
