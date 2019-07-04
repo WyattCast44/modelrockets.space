@@ -1,21 +1,17 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Feature;
+use App\Database\BaseSeeder;
 
-class FeaturesTableSeeder extends Seeder
+class FeaturesTableSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function prod()
     {
-        if (app()->environment('production')) {
-            return;
-        }
+        //
+    }
 
+    public function dev()
+    {
         factory(Feature::class, 6)->create();
     }
 }

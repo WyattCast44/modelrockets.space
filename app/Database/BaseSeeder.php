@@ -23,11 +23,11 @@ class BaseSeeder extends Seeder
 
     public function prod()
     {
-        //
+        return;
     }
 
     public function dev()
     {
-        //
+        return;
     }
 }
