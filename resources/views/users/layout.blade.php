@@ -40,10 +40,10 @@
 
         <ul class="nav nav-tabs border-none">
             <li class="nav-item">
-                <a class="nav-link {{ applyActive('users.show') }}" href="{{ $user->path('show') }}">Activity</a>
+                <a class="nav-link {{ applyActive('users.*') }}" href="{{ $user->path('show') }}">Activity</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ applyActive('flights.index') }}" href="{{ route('flights.index', $user) }}">Flight Log</a>
+                <a class="nav-link {{ applyActive('flights.*') }}" href="{{ route('flights.index', $user) }}">Flight Log</a>
             </li>
         </ul>
 
