@@ -3,9 +3,9 @@
 
     <nav class="flex items-center">
 
-        <h2 class="text-xl mr-4">
+        <h2 class="text-base sm:text-lg md:text-xl mr-4">
             <a href="/" class="hover:no-underline text-white hover:text-white">
-                Model Rockets 🚀🌌
+                Model Rockets Space 🚀🌌
             </a>
         </h2>
 
