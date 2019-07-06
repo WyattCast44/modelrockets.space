@@ -4,7 +4,7 @@
 
 <div class="h-screen">
 
-        <section class="bg-gray-800 flex justify-center items-top">
+        <section class="bg-gray-800 flex flex-col md:flex-row justify-center items-top">
 
                 <div class="flex-1 flex justify-center items-center vid-container p-4">
                     <iframe src="https://www.youtube.com/embed/BGuJnXVa3rg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
