@@ -9,7 +9,7 @@
         <h2 class="text-center text-3xl font-semibold">Love Model Rockets? We do to.</h1>
         <h3 class="text-center text-2xl my-4 text-gray-700">Join The Community Now! <a href="#register" data-turbolinks="false">Register</a></h2>
         <div class="flex justify-center">
-            <img src="{{ asset('rocket.png') }}" alt="" class="relative w-64" style="top:50px;">   
+            <img src="{{ asset('rocket.png') }}" alt="" class="relative h-64" style="top:50px;">   
         </div>
     </div>
 </header>
