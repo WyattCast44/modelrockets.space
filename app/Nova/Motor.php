@@ -96,6 +96,12 @@ class Motor extends Resource
                     'In newtons, no units, ex: 25.4'
                 ),
             
+            Text::make('Burn Time')->sortable()
+                ->rules('nullable')
+                ->help(
+                    'In seconds, no units, ex: 25.4'
+                ),
+
             Text::make('Delay Time')->sortable()
                 ->rules('nullable')
                 ->help(
