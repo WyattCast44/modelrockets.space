@@ -1,7 +1,6 @@
 # To Do
 
 -   Design Homescreen
--   Make Test for homescreen
 
 -   Remove autofocus on forum index
 -   Build forum searching

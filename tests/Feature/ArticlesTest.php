@@ -16,15 +16,13 @@ class ArticlesTest extends TestCase
         $articles = create(Article::class, [], 5);
 
         // And we publish them
-        $articles->each(function ($article) {
-            $article->publish();
-        });
+        $articles->each->publish();
 
         // We we visit the index page
         $response = $this->get($articles->first()->path('index'));
 
         // We get a valid response
-        $response->assertStatus(200);
+        $response->assertOk();
 
         // And we see the title of the articles
         $response->assertSee($articles->first()->title);
@@ -38,23 +36,27 @@ class ArticlesTest extends TestCase
         // And we publish it
         $article->publish();
 
-        // And we the visit the article
+        // When we visit the article
         $response = $this->get($article->path('show'));
 
         // We get a valid response
         $response->assertStatus(200);
 
-        // We see the article title
+        // We see the article title and subtitle
         $response->assertSee($article->title);
+        $response->assertSee($article->subtitle);
     }
 
     public function test_a_visitor_cannot_view_an_unpublished_article()
     {
+        // Given we have an unpublished article
         $article = create(Article::class, ['published' => false]);
 
+        // And we try to view it
         $response = $this->get($article->path('show'));
 
-        $response->assertStatus(404);
+        // We should get a 404
+        $response->assertNotFound();
     }
 
     public function test_an_rss_feed_is_generated_for_published_articles()
@@ -63,15 +65,13 @@ class ArticlesTest extends TestCase
         $articles = create(Article::class, [], 5);
 
         // And we publish them
-        $articles->each(function ($article) {
-            $article->publish();
-        });
+        $articles->each->publish();
 
         // When we visit the rss for for articles
         $response = $this->get('/rss/articles');
 
         // We should get a valid response
-        $response->assertStatus(200);
+        $response->assertOk();
 
         // We should see the article title
         $response->assertSee($articles->first()->title);

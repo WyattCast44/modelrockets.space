@@ -39,7 +39,7 @@ return [
              */
             'url' => '/forum/boards',
 
-            'title' => 'All articles on modelrockets.space',
+            'title' => 'All disccussion boards on modelrockets.space',
 
             /*
              * Custom view for the items.
