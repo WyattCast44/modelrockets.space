@@ -16,7 +16,7 @@ class BoardsController extends Controller
 
         return view('forum.boards.show', [
             'board' => $board,
-            'threads' => $board->threads,
+            'threads' => $board->threads()->withCount('replies')->get(),
         ]);
     }
 }

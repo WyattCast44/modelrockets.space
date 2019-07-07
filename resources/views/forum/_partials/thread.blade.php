@@ -13,7 +13,7 @@
             </p>
 
             <p class="text-xs text-gray-600">
-                Posted {{ $thread->created_at->diffForHumans() }} by <a href="{{ route('users.show', $thread->user) }}">{{ '@' . $thread->user->username }}</a>
+                Posted {{ $thread->created_at->diffForHumans() }} by <a href="{{ route('users.show', $thread->user) }}">{{ '@' . $thread->user->username }}</a> &middot; {{ ($thread->replies_count == 1) ? $thread->replies_count . ' reply' : $thread->replies_count . ' replies'  }}
             </p>
         </div>
 

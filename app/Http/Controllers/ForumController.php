@@ -43,6 +43,7 @@ class ForumController extends Controller
     {
         return Thread::latest()
                 ->with(['user', 'board'])
+                ->withCount('replies')
                 ->simplePaginate(20);
     }
 

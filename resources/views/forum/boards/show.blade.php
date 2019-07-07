@@ -6,9 +6,7 @@
 
     <div class="container">
         @forelse ($threads as $thread)
-            <h2>
-                <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
-            </h2>    
+            @include('forum._partials.thread')
         @empty        
         @endforelse
     </div>
