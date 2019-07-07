@@ -2,11 +2,15 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Video;
 use Faker\Generator as Faker;
 
-$factory->define(Video::class, function (Faker $faker) {
+$factory->define(App\Video::class, function (Faker $faker) {
     return [
-        //
+        'name' => $faker->name,
+        'slug' => $faker->slug,
+        'description' => $faker->text,
+        'url' => $faker->url,
+        'published' => $faker->boolean,
+        'published_at' => $faker->dateTimeBetween(),
     ];
 });

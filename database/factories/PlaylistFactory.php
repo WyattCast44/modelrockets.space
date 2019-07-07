@@ -2,11 +2,13 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Playlist;
 use Faker\Generator as Faker;
 
-$factory->define(Playlist::class, function (Faker $faker) {
+$factory->define(App\Playlist::class, function (Faker $faker) {
     return [
-        //
+        'name' => $faker->name,
+        'slug' => $faker->slug,
+        'published' => $faker->boolean,
+        'published_at' => $faker->dateTimeBetween(),
     ];
 });

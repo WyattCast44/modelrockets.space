@@ -24,7 +24,7 @@ class CreatePlaylistVideosTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('video_id')->references('id')->on('video')
+            $table->foreign('video_id')->references('id')->on('videos')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
