@@ -2,14 +2,14 @@
 
 namespace App\Nova;
 
+use App\Nova\Motor;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use App\Nova\Motor;
-use Laravel\Nova\Fields\Text;
 
 class Attachment extends Resource
 {

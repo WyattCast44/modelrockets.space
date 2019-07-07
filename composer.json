@@ -76,6 +76,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan nova:publish"
         ]
     },
     "repositories": [
@@ -87,17 +90,6 @@
     "extra": {
         "laravel": {
             "dont-discover": []
-        },
-        "hooks": {
-            "pre-commit": [
-                "echo committing as $(git config user.name)"
-            ],
-            "pre-push": [
-                "phpunit",
-                "echo running prod yarn flow",
-                "yarn prod",
-                "echo finished running prod yarn flow"
-            ]
         }
     }
 }

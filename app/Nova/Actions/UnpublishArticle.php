@@ -23,9 +23,7 @@ class UnpublishArticle extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        $models->each(function ($article) {
-            $article->unpublish();
-        });
+        $models->each->unpublish();
 
         return Action::message('Article(s) Unpublished');
     }

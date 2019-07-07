@@ -24,9 +24,7 @@ class PublishArticle extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        $models->each(function ($article) {
-            $article->publish();
-        });
+        $models->each->publish();
 
         return Action::message('Article(s) Published');
     }
