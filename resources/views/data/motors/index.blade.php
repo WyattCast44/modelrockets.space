@@ -23,7 +23,6 @@
                     <th scope="col">Average Thrust (N)</th>
                     <th scope="col">Max Thrust (N)</th>
                     <th scope="col">Burn Time (s)</th>
-                    <th scope="col">Delay Time (s)</th>
                     <th scope="col">Vendor</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -41,8 +40,7 @@
                         <td class="text-center align-middle">{{ $motor->average_thrust }}</td>
                         <td class="text-center align-middle">{{ $motor->max_thrust }}</td>
                         <td class="text-center align-middle">{{ $motor->burn_time }}</td>
-                        <td class="text-center align-middle">{{ $motor->delay_time }}</td>
-                        <td class="text-left align-middle">
+                        <td class="text-left align-middle text-sm">
                             <a href="{{ $motor->vendor->website }}" target="_blank">
                                 {{ $motor->vendor->name }}
                             </a>
