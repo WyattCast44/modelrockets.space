@@ -20,4 +20,11 @@ class MotorsController extends Controller
 
         return view('data.motors.show', ['motor' => $motor]);
     }
+
+    public function edit(Motor $motor)
+    {
+        $motor->load('attachments');
+
+        return view('data.motors.show', ['motor' => $motor]);
+    }
 }

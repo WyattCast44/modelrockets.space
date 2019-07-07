@@ -40,7 +40,11 @@ class Motor extends Model
                 break;
             
             case 'index':
-                return route('data.motors.index', $this, $absolute);
+                return route('data.motors.index', [], $absolute);
+                break;
+
+            case 'edit':
+                return route('data.motors.edit', $this, $absolute);
                 break;
             
             default:

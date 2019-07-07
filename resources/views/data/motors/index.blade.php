@@ -46,7 +46,10 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ $motor->path('show') }}">@svg('eye', 'inline w-12')</a>
+                            <div class="flex item-center">
+                                <a href="{{ $motor->path('show') }}" title="More Info">@svg('eye', 'inline w-10')</a>
+                                <a href="{{ $motor->path('edit') }}" title="Edit Data">@svg('edit', 'inline w-10')</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach                
