@@ -1,5 +1,7 @@
 @extends('data.layout')
 
+@section('page-title', 'Motors: ' . $motor->name)
+
 @section('data-content')
 
 <div class="container">

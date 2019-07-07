@@ -1,5 +1,7 @@
 @extends('data.layout')
 
+@section('page-title', 'Motors')
+
 @section('data-content')
 
 <div class="mx-auto" style="max-width:90%">
