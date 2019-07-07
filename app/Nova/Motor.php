@@ -107,6 +107,12 @@ class Motor extends Resource
                 ->help(
                     'In seconds, no units, ex: 25.4'
                 ),
+
+            Text::make('Url')->sortable()
+                ->rules('nullable')
+                ->help(
+                    'Url to product page'
+                ),
             
             BelongsTo::make('Class', 'class', 'App\Nova\MotorClassification')->sortable()
                 ->rules('nullable'),

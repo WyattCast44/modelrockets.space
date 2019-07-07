@@ -73,6 +73,15 @@
                         </a>
                     </td>
                 </tr>
+
+                <tr>
+                    <td scope="col">Product Url</td>
+                    <td>
+                        <a href="{{ $motor->url }}" target="_blank">
+                            {{ $motor->url }}
+                        </a>
+                    </td>
+                </tr>
                 
             </tbody>
         </table>

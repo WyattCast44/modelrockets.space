@@ -46,7 +46,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ $motor->path('show') }}">More</a>
+                            <a href="{{ $motor->path('show') }}">@svg('eye', 'inline w-12')</a>
                         </td>
                     </tr>
                 @endforeach                
