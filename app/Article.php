@@ -137,6 +137,23 @@ class Article extends Model implements Feedable, ActivityFeedable
     }
 
     /**
+     * Scout
+     */
+    public function shouldBeSearchable()
+    {
+        return $this->published;
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'subtitle' => $this->subtitle,
+            'body' => strip_tags($this->body->toHtml()),
+        ];
+    }
+
+    /**
      * Misc/Helpers
      */
     public function hasBeenUpdated()

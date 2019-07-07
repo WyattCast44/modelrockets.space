@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Http\Request;
+use App\Article;
 
 Auth::routes();
 
@@ -20,6 +22,7 @@ Route::get('/members/@{user}/flights/{flight}', 'FlightsController@show')->name(
 
 // Articles...
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
+Route::get('/articles/search', 'ArticlesSearchController')->name('articles.search');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
@@ -46,8 +49,3 @@ Route::delete('/forum/b/{board}/threads/{thread}/replies/{reply}/unfavorite', 'R
 Route::get('/data/vendors', 'Data\VendorsController@index')->name('data.vendors.index');
 Route::get('/data/motors', 'Data\MotorsController@index')->name('data.motors.index');
 Route::get('/data/motors/{motor}', 'Data\MotorsController@show')->name('data.motors.show');
-
-// Learn
-Route::get('/learn', function () {
-    return view('learn.show');
-});

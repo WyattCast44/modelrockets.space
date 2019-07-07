@@ -20,12 +20,9 @@ class CreateArticlesTable extends Migration
             $table->string('title')->index();
             $table->string('subtitle')->index()->nullable();
             $table->text('body');
-
             $table->boolean('published')->default(false)->index();
             $table->timestamp('published_at')->nullable()->index();
-
             $table->bigInteger('thread_id')->nullable()->index();
-
             $table->timestamps();
         });
     }

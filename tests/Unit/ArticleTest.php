@@ -2,11 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use App\Board;
 use App\Article;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
 
 class ArticleTest extends TestCase
 {
