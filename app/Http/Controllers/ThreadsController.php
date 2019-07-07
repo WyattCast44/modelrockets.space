@@ -39,6 +39,10 @@ class ThreadsController extends Controller
             return back();
         }
 
+        if ($thread->board->id <> $board) {
+            return abort(404);
+        }
+
         $thread->load(['attachments', 'board', 'replies', 'user']);
 
         $replies = $thread->replies()->with('attachments')->paginate(10);
