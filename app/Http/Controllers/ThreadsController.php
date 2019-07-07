@@ -39,7 +39,7 @@ class ThreadsController extends Controller
             return back();
         }
 
-        if ($thread->board->id <> $board) {
+        if ($thread->board->id <> $board->id) {
             return abort(404);
         }
 
