@@ -42,6 +42,7 @@
             <div class="form-group">
                 <label for="description">Description of Launch</label>
                 <textarea id="description" name="description" class="form-control"></textarea>
+                <small class="text-gray-600">This textarea supports markdown</small>
             </div>
 
             {{-- <div class="my-8">

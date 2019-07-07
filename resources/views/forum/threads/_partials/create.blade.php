@@ -34,6 +34,7 @@
         <div class="form-group">
             <label for="body" class="text-lg text-gray-600">Body</label>
             <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts, ideas, etc..." required>{{ old('body') }}</textarea>
+            <small class="text-gray-600">This textarea supports markdown</small>
     
             @error('body')
                 <small class="text-red-400 font-semibol">{{ $message }}</small>

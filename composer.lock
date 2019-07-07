@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49de36b7faec1fbc28a3ccd5cd2d2e45",
+    "content-hash": "d35471baaa2e0779a3fa38cae645db10",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1113,16 +1113,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.26",
+            "version": "v5.8.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1d8ec9afdedc79314c18715056b8143d7e1fac31"
+                "reference": "f1dccffb96f614895393e27e4667105a05407af5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1d8ec9afdedc79314c18715056b8143d7e1fac31",
-                "reference": "1d8ec9afdedc79314c18715056b8143d7e1fac31",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f1dccffb96f614895393e27e4667105a05407af5",
+                "reference": "f1dccffb96f614895393e27e4667105a05407af5",
                 "shasum": ""
             },
             "require": {
@@ -1256,21 +1256,21 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-06-25T16:20:51+00:00"
+            "time": "2019-07-02T13:43:47+00:00"
         },
         {
             "name": "laravel/nova",
-            "version": "v2.0.7",
+            "version": "v2.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:laravel/nova.git",
-                "reference": "17cb7df77a2d25d5caa78ddefb12192742738ff0"
+                "reference": "bdf511caee87870af32fedbed2dfa94c0a6483d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-17cb7df77a2d25d5caa78ddefb12192742738ff0-zip-fb1e0f.zip",
-                "reference": "17cb7df77a2d25d5caa78ddefb12192742738ff0",
-                "shasum": "22112bb27f3fbfd1fce277dd4812606e9579793a"
+                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-bdf511caee87870af32fedbed2dfa94c0a6483d3-zip-c14654.zip",
+                "reference": "bdf511caee87870af32fedbed2dfa94c0a6483d3",
+                "shasum": "87d9fe60f4f9504ed615f25690a3cb20e303d9f6"
             },
             "require": {
                 "cakephp/chronos": "^1.0",
@@ -1326,7 +1326,7 @@
                 "admin",
                 "laravel"
             ],
-            "time": "2019-06-25T20:54:20+00:00"
+            "time": "2019-07-03T14:40:10+00:00"
         },
         {
             "name": "laravel/scout",
@@ -2564,16 +2564,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "6.2.0",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "d706e64c2500fda276d421551c140693156c0195"
+                "reference": "e136adb7d87da68ec66c10474a65e8213e82b7fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/d706e64c2500fda276d421551c140693156c0195",
-                "reference": "d706e64c2500fda276d421551c140693156c0195",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/e136adb7d87da68ec66c10474a65e8213e82b7fc",
+                "reference": "e136adb7d87da68ec66c10474a65e8213e82b7fc",
                 "shasum": ""
             },
             "require": {
@@ -2634,7 +2634,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2019-04-25T11:01:00+00:00"
+            "time": "2019-07-01T21:38:43+00:00"
         },
         {
             "name": "spatie/laravel-feed",
@@ -4583,16 +4583,16 @@
         },
         {
             "name": "brainmaestro/composer-git-hooks",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BrainMaestro/composer-git-hooks.git",
-                "reference": "974e17fcae40dc389d1529e1342f5468d0b7b028"
+                "reference": "daf8ab1ad2d80255a8bd77dc266b481f0ac24334"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BrainMaestro/composer-git-hooks/zipball/974e17fcae40dc389d1529e1342f5468d0b7b028",
-                "reference": "974e17fcae40dc389d1529e1342f5468d0b7b028",
+                "url": "https://api.github.com/repos/BrainMaestro/composer-git-hooks/zipball/daf8ab1ad2d80255a8bd77dc266b481f0ac24334",
+                "reference": "daf8ab1ad2d80255a8bd77dc266b481f0ac24334",
                 "shasum": ""
             },
             "require": {
@@ -4612,11 +4612,10 @@
                     "pre-commit": "composer check-style",
                     "pre-push": [
                         "composer test",
-                        "appver=$(grep -o -E '\\d.\\d.\\d' cghooks)",
-                        "tag=$(git describe --tags --abbrev=0)",
-                        "if [ \"$tag\" != \"v$appver\" ]; then",
-                        "echo \"The most recent tag $tag does not match the application version $appver\\n\"",
-                        "tag=${tag#v}",
+                        "appver=$(grep -o -P '\\d.\\d.\\d' cghooks)",
+                        "tag=$(git tag --sort=-v:refname | head -n 1 | tr -d v)",
+                        "if [ \"$tag\" != \"$appver\" ]; then",
+                        "echo \"The most recent tag v$tag does not match the application version $appver\n\"",
                         "sed -i -E \"s/$appver/$tag/\" cghooks",
                         "exit 1",
                         "fi"
@@ -4647,7 +4646,7 @@
                 "composer",
                 "git"
             ],
-            "time": "2019-06-09T11:00:13+00:00"
+            "time": "2019-07-01T07:40:44+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -4707,16 +4706,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "1a1a1044ad00e285bd2825fac4c3a0443d90ad33"
+                "reference": "6fb502c23885701a991b0bba974b1a8eb6673577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/1a1a1044ad00e285bd2825fac4c3a0443d90ad33",
-                "reference": "1a1a1044ad00e285bd2825fac4c3a0443d90ad33",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/6fb502c23885701a991b0bba974b1a8eb6673577",
+                "reference": "6fb502c23885701a991b0bba974b1a8eb6673577",
                 "shasum": ""
             },
             "require": {
@@ -4764,7 +4763,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2019-06-23T09:00:00+00:00"
+            "time": "2019-07-04T09:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -5849,119 +5848,6 @@
                 "xunit"
             ],
             "time": "2019-06-19T12:01:51+00:00"
-        },
-        {
-            "name": "qoraiche/laravel-mail-editor",
-            "version": "v1.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Qoraiche/laravel-mail-editor.git",
-                "reference": "de3b8bb7f2c735a72846bc8b0c0ab709cc831b3f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Qoraiche/laravel-mail-editor/zipball/de3b8bb7f2c735a72846bc8b0c0ab709cc831b3f",
-                "reference": "de3b8bb7f2c735a72846bc8b0c0ab709cc831b3f",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5",
-                "reecem/mocker": "1.1.*"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.1",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~7.0",
-                "sempro/phpunit-pretty-print": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "qoraiche\\mailEclipse\\mailEclipseServiceProvider"
-                    ],
-                    "aliases": {
-                        "mailEclipse": "qoraiche\\mailEclipse\\Facades\\mailEclipse"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "qoraiche\\mailEclipse\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "yassine qoraiche",
-                    "email": "qoraicheofficiel@hotmail.com",
-                    "homepage": "https://github.com/qoraiche"
-                }
-            ],
-            "description": "Laravel Mailable Editor",
-            "homepage": "https://github.com/Qoraiche/laravel-mail-editor",
-            "keywords": [
-                "laravel",
-                "laravel-mail",
-                "laravel-mailable",
-                "mailEclipse",
-                "mailable",
-                "mailable-editor",
-                "markdown"
-            ],
-            "time": "2019-06-29T22:51:11+00:00"
-        },
-        {
-            "name": "reecem/mocker",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ReeceM/mocker.git",
-                "reference": "34bdd68e5f2ecf175171872b0e5fbd4df27f2b29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ReeceM/mocker/zipball/34bdd68e5f2ecf175171872b0e5fbd4df27f2b29",
-                "reference": "34bdd68e5f2ecf175171872b0e5fbd4df27f2b29",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "^5.6",
-                "illuminate/support": "^5.6"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.5",
-                "phpunit/phpunit": "^7.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ReeceM\\Mocker\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ReeceM",
-                    "email": "reecestevenmay@gmail.com",
-                    "homepage": "https://githib.com/reecem"
-                }
-            ],
-            "description": "Mock class constructor args based on the reflection class",
-            "homepage": "https://github.com/reecem/mocker",
-            "keywords": [
-                "helper",
-                "laravel",
-                "mockery",
-                "testing"
-            ],
-            "time": "2019-05-08T21:50:43+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

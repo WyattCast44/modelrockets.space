@@ -54,6 +54,7 @@
         <div class="form-group">
             <label for="body">Your Reply</label>
             <textarea name="body" id="body" rows="10" class="form-control" placeholder="Your thoughts..." autofocus></textarea>
+            <small class="text-gray-600">This textarea supports markdown</small>
         </div>
 
         <div class="form-group" data-controller="multifile">
