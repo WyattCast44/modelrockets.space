@@ -124,4 +124,19 @@ class BoardsTest extends TestCase
         // But we should not see the private boards title
         $response->assertDontSee($privateBoard->name);
     }
+
+    public function test_an_open_board_should_have_a_link_to_create_a_thread()
+    {
+        // Given we have a board
+        $board = create(Board::class);
+
+        // When we visit it
+        $resp = $this->get($board->path('show'));
+
+        // We should be successful
+        $resp->assertOk();
+
+        // We should see a create thread button
+        $resp->assertSee('Create Thread');
+    }
 }
