@@ -36,4 +36,11 @@ class PagesTest extends TestCase
 
         $response->assertOk();
     }
+
+    public function test_roadmap_page_is_accessible()
+    {
+        $response = $this->get('/roadmap');
+
+        $response->assertOk();
+    }
 }
