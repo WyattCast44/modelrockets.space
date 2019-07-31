@@ -136,6 +136,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Was the member created within the last 5 days
+     * @return bool
+     */
+    public function getNewMemberAttribute()
+    {
+        return ($this->created_at > now()->subDays(5)) ? true : false;
+    }
+
+    
+    /**
      * Scopes
      */
     public function scopePublic($query)

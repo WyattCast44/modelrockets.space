@@ -41,4 +41,24 @@ class UserTest extends TestCase
 
         $this->assertEquals(route('users.show', $user), $user->path('show'));
     }
+
+    public function test_a_user_is_a_new_member_if_they_registered_within_the_last_five_days()
+    {
+        // Given we have a new user
+        $newUser = create(User::class);
+
+        // They should be a "new member"
+        $this->assertTrue($newUser->new_member);
+    }
+
+    public function test_a_user_that_registered_more_than_five_days_ago_is_not_a_new_member()
+    {
+        // Given we have a user that registered 6 days ago
+        $oldUser = create(User::class);
+        
+        $oldUser->update(['created_at' => now()->subDays(6)]);
+
+        // They should not be a "new member"
+        $this->assertFalse($oldUser->refresh()->new_member);
+    }
 }
