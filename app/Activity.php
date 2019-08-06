@@ -31,6 +31,6 @@ class Activity extends Model
 
     public function getMonthAttribute()
     {
-        return $this->updated_at->englishMonth;
+        return (string) $this->updated_at->englishMonth;
     }
 }

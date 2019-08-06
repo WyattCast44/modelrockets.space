@@ -8,17 +8,7 @@
 # Articles
 
 -   WYSIYG markdown
--   Edit on github feature
 -   Taggable
-
-# Attachments
-
--   HasAttachments Trait
--   attachable morph
-
-# Notes
-
--   Must exclude nova from repo
 
 # Site Features
 
@@ -47,8 +37,7 @@
 
 # Marketing
 
--   Monthly giveaway
-    -- monthly raffle to give away some type of rocketry gear
+-   Monthly giveaway -- monthly raffle to give away some type of rocketry gear
     -- potentially get sponsors?
 
 # Glossary
