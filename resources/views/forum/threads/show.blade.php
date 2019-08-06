@@ -39,30 +39,53 @@
         <div>
 
             <!-- Original Post -->
-            <div class="rounded border-2 border-solid p-8 mb-4 border-blue-300 bg-white shadow-md relative">
-                <p class="absolute top-0 right-0 p-2 text-xs uppercase text-blue-600">Original Post</p>
+            <div class="rounded border-2 border-solid mb-4 border-blue-300 bg-white shadow-md relative">
                 
-                <h2 class="mb-2 font-semibold text-lg text-blue-900">{{ $thread->title }} </h2>
-                <div class="markdown-body">
-                    {!!  $thread->body !!}
+                <div class="p-8">
+                    <p class="absolute top-0 right-0 p-2 text-xs uppercase text-blue-600">Original Post</p>
+                
+                    <h2 class="mb-2 font-semibold text-lg text-blue-900">{{ $thread->title }} </h2>
+                    <div class="markdown-body">
+                        {!!  $thread->body !!}
+                    </div>
+
+                    @if($thread->attachments->count() <> 0)
+                        <!-- Attachments -->
+                        <div class="mt-5">
+                            @foreach ($thread->attachments as $attachment)  
+                                <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
+                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-xl inline mx-1 border border-solid border-gray-700 shadow-md w-12 hover:border-blue-700 h-12 rounded mb-2">    
+                                </a>  
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
 
-                @if($thread->attachments->count() <> 0)
-                    <!-- Attachments -->
-                    <div class="mt-5">
-                        @foreach ($thread->attachments as $attachment)  
-                            <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-xl inline mx-1 border border-solid border-gray-700 shadow-md w-12 hover:border-blue-700 h-12 rounded mb-2">    
-                            </a>  
-                        @endforeach
-                    </div>
-                @endif
+                <!-- Actions -->
+                <div class="bg-gray-200 p-2 border-top border-solid border-gray-300 flex justify-end items-center">
 
-                @if(auth()->check() && $thread->user->id == auth()->id())
-                    <div class="mt-4 mb-0 flex justify-end items-center">
-                        <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️<span class="hidden md:inline"> Manage Thread</span></a>        
-                    </div>
-                @endif
+                    @if(auth()->check() && $thread->user->id == auth()->id())
+                        
+                        <!-- Manage Thread -->
+                        <div class="mb-0 flex justify-end items-center">
+                            <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️<span class="hidden md:inline"> Manage Thread</span></a>        
+                        </div>
+                        
+                    @else
+
+                        <!-- Favorite Thread -->
+                        <div class="mb-0 flex justify-end items-center mr-2">
+                            <a href="#favorite" class="btn btn-sm btn-outline-primary" data-turbolinks="false">🔥<span class="hidden md:inline"> Favorite Thread</span></a>        
+                        </div>
+
+                        <!-- Report Thread -->
+                        <div class="mb-0 flex justify-end items-center">
+                            <a href="#report" class="btn btn-sm btn-outline-primary" data-turbolinks="false">👀<span class="hidden md:inline"> Report Thread</span></a>        
+                        </div>
+
+                    @endif
+                    
+                </div>
 
             </div>
 

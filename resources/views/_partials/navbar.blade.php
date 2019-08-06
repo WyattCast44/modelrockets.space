@@ -1,4 +1,3 @@
-
 <div class="bg-white shadow-lg flex justify-between p-5 items-center print:hidden navbar-bg">
 
     <nav class="flex items-center">
