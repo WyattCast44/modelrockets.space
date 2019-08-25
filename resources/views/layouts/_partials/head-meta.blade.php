@@ -2,7 +2,7 @@
 <meta name="description" content="Model Rockets Space, for the love of rocketry.">
 <meta property="og:site_name" content="modelrockets.space">
 <meta property="og:locale" content="en_US"> 
-<meta property="og:description" content="Model Rockets Space, for the love of rocketry.">
+<meta property="og:description" content="Space is the place, and it's for everyone 👩‍🚀👩🏿‍🚀👨‍🚀👩🏾‍🚀👨🏽‍🚀🐶👽🐵🐭">
 <meta property="og:url" content="https://modelrockets.space">
 <meta property="og:image" content="{{ asset('img/tile.png') }}">
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
