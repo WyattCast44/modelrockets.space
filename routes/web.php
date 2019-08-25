@@ -1,7 +1,5 @@
 <?php
 
-use App\User;
-
 Auth::routes();
 
 Route::feeds('rss');
@@ -19,6 +17,7 @@ Route::get('/members/@{user}/flights', 'FlightsController@index')->name('flights
 Route::post('/members/@{user}/flights', 'FlightsController@store')->name('flights.store');
 Route::get('/members/@{user}/flights/create', 'FlightsController@create')->name('flights.create');
 Route::get('/members/@{user}/flights/{flight}', 'FlightsController@show')->name('flights.show');
+Route::delete('/members/@{user}/flights/{flight}', 'FlightsController@delete')->name('flights.delete');
 
 // Articles...
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');

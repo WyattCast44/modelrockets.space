@@ -12,7 +12,7 @@ class FlightsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['create', 'store']);
+        $this->middleware('auth')->only(['create', 'store', 'delete']);
     }
     
     public function create(User $user)
@@ -72,5 +72,18 @@ class FlightsController extends Controller
         ]);
 
         return redirect()->route('flights.show', ['user' => $user, 'flight' => $flight]);
+    }
+
+    public function delete(User $user, Flight $flight)
+    {
+        if (auth()->id() <> $user->id) {
+            return abort(403);
+        }
+
+        $flight->delete();
+
+        toast('Flight record deleted!', 'success', 'top');
+
+        return redirect()->route('flights.index', ['user' => auth()->user()]);
     }
 }

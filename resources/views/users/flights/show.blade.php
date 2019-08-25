@@ -4,7 +4,20 @@
 
     <div class="container">
         
-        <h2 class="text-2xl font-semibold border-b border-solid mb-4 pb-2">{{ $flight->rocket }}</h2>
+        <h2 class="text-2xl font-semibold border-b border-solid mb-4 pb-2"><span class="text-gray-600">Flight: </span>{{ $flight->rocket }}</h2>
+
+        @if(auth()->check() && auth()->user()->id == $flight->user->id) 
+            <div class="py-2 mb-4 flex">
+                
+                <form action="{{ route('flights.delete', ['user' => auth()->user(), 'flight' => $flight]) }}" method="POST" class="">
+                    @csrf
+                    @honeypot
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-outline-primary rounded btn-sm">🗑️ Delete Flight</button>
+                </form>
+    
+            </div>
+        @endif
 
         <section class="my-6">
             <p class="text-gray-600 text-sm">Date Flown: {{ $flight->date->diffForHumans() }} | Posted: {{ $flight->created_at->diffForHumans() }}</p>
