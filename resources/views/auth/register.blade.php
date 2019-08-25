@@ -6,76 +6,88 @@
 
 <div class="flex flex-col justify-center items-center h-screen">
 
-    <form method="POST" action="{{ route('register') }}" class="border border-solid border-gray-300 bg-white p-12"
-        data-controller="form"
-        data-action="change->form#validateField submit->form#handle">
+    <div class="border border-solid border-gray-300 py-12 px-24 rounded">
 
-        @csrf
+        <h2 class="text-2xl font-semibold mb-4 uppercase">Register</h2>
 
-        <!-- Username -->
-        <div class="form-group">
-
-            <label for="username">{{ __('Username') }}</label>
-
-            <input id="username" type="text" class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-            <span class="invalid-feedback" role="alert">
+        <form method="POST" action="{{ route('register') }}" data-controller="register">
+    
+            @csrf
+    
+            <!-- Username -->
+            <div class="form-group">
+    
+                <label for="username">Username</label>
+    
+                <div data-controller="input-validator" data-input-validator-url="{{ route('api.validators.username') }}">
+                    <input  type="text" data-target="input-validator.source" data-action="keyup->input-validator#handle"  class="form-control mt-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  required autocomplete="false" spellcheck="false" autofocus>
+                    <small data-target="input-validator.error" class="hidden text-red-400"></small>
+                </div>
+    
                 @error('username')
-                    <strong>{{ $message }}</strong>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
-            </span>
-
-        </div>
-
-        <!-- Email -->
-        <div class="form-group">
-
-            <label for="email">{{ __('E-Mail Address') }}</label>
-
-            <input id="email" type="email" class="form-control mt-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
-        </div>
-
-        <!-- Password -->
-        <div class="form-group">
-
-            <label for="password">{{ __('Password') }}</label>
-
-            <input data-form-ignore="true" type="password" class="form-control mt-2 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
-        </div>
-
-        <!-- Password Confirm -->
-        <div class="form-group">
-
-            <label for="password-confirm">{{ __('Confirm Password') }}</label>
-
-            <input data-form-ignore="true" type="password" class="mt-2 form-control" name="password_confirmation" required autocomplete="new-password">
-
-        </div>
-        
-        <!-- Submit -->
-        <div class="form-group mb-0 flex">
+    
+            </div>
+    
+            <!-- Email -->
+            <div class="form-group">
+    
+                <label for="email">E-Mail Address</label>
+    
+                <div data-controller="input-validator" data-input-validator-url="{{ route('api.validators.email') }}">
+                    <input  type="email" data-target="input-validator.source" data-action="keyup->input-validator#handle"  class="form-control mt-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  required autocomplete="false" spellcheck="false">
+                    <small data-target="input-validator.error" class="hidden text-red-400"></small>
+                </div>
+    
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+    
+            </div>
+    
+            <!-- Password -->
+            <div class="form-group">
+    
+                <label for="password">{{ __('Password') }}</label>
+    
+                <input id="password" type="password" class="form-control mt-2 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+    
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+    
+            </div>
+    
+            <!-- Password Confirm -->
+            <div class="form-group">
+    
+                <label for="password-confirm">{{ __('Confirm Password') }}</label>
+    
+                <input id="password-confirm" type="password" class="mt-2 form-control" name="password_confirmation" required autocomplete="new-password">
+    
+            </div>
             
-            <button type="submit" class="btn btn-primary" data-target="form.submit">
-                Register
-            </button>
+            <!-- Submit -->
+            <div class="form-group mb-0 flex items-center justify-end">
+                
+                <a href="#login" class="btn btn-link mr-2" data-turbolinks="false">Login</a>
+                
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Register') }}
+                </button>
+    
+            </div>
+    
+        </form>
 
-        </div>
-
-    </form>
+    </div>
     
 </div>
 

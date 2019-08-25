@@ -6,69 +6,74 @@
 
 <div class="flex flex-col justify-center items-center h-screen">
 
-    <form method="POST" action="{{ route('login') }}" class="border border-solid border-gray-300 bg-white p-12">
+    <div class="border border-solid border-gray-300 py-12 px-24 rounded">
 
-        @csrf
+        <h2 class="text-2xl font-semibold mb-4 uppercase">Login</h2>
 
-        <!-- Email -->
-        <div class="form-group">
+        <form method="POST" action="{{ route('login') }}">
 
-            <label for="email" class="mb-5">{{ __('E-Mail Address') }}</label>
+            @csrf
+            @honeypot
 
-            <input id="email" type="email" class="form-control mt-2" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <!-- Email -->
+            <div class="form-group">
 
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+                <label for="email" class="mb-5 text-gray-600">{{ __('E-Mail Address') }}</label>
 
-        </div>
+                <input id="email" type="email" class="form-control mt-2" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-        <!-- Password -->
-        <div class="form-group">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
-            <label for="password">{{ __('Password') }}</label>
-            
-            <input id="password" type="password" class="form-control mt-2 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            
-        </div>
-
-        <!-- Remember Checkbox -->
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
-                </label>
             </div>
-        </div>
 
-        <!-- Submit Btn -->
-        <div class="mt-5 form-group mb-0">
+            <!-- Password -->
+            <div class="form-group">
 
-            <button type="submit" class="btn btn-primary mr-4">
-                {{ __('Login') }}
-            </button>
+                <label for="password" class="text-gray-600">{{ __('Password') }}</label>
+                
+                <input id="password" type="password" class="form-control mt-2 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-            @if (Route::has('password.request'))
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                
+            </div>
 
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    Forgot Password?
-                </a>
+            <!-- Remember Checkbox -->
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-            @endif
+                    <label class="form-check-label text-gray-600" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
+            </div>
 
-        </div>
+            <!-- Submit Btn -->
+            <div class="mt-5 form-group mb-0 flex justify-end items-center">
 
-    </form>
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        Forgot Password?
+                    </a>
+                @endif
+
+                <button type="submit" class="btn btn-primary mr-4">
+                    {{ __('Login') }}
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
 
