@@ -1,5 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Model Rockets Space, for the love of rocketry.">
+<meta name="description" content="Space is the place, and it's for everyone 👩‍🚀👩🏿‍🚀👨‍🚀👩🏾‍🚀👨🏽‍🚀🐶👽🐵🐭">
 <meta property="og:site_name" content="modelrockets.space">
 <meta property="og:locale" content="en_US"> 
 <meta property="og:description" content="Space is the place, and it's for everyone 👩‍🚀👩🏿‍🚀👨‍🚀👩🏾‍🚀👨🏽‍🚀🐶👽🐵🐭">

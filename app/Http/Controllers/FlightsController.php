@@ -6,6 +6,7 @@ use App\User;
 use App\Flight;
 use Illuminate\Http\Request;
 use App\Motor;
+use Illuminate\Support\Carbon;
 
 class FlightsController extends Controller
 {
@@ -30,7 +31,7 @@ class FlightsController extends Controller
         $this->authorize('view', $user);
 
         $flightGroups = $user->flights->groupBy(function ($flight) {
-            return $flight->date->format('d | M | Y ');
+            return $flight->date->format('d M y');
         });
 
         return view('users.flights.index', ['user' => $user, 'flightGroups' => $flightGroups]);
@@ -62,7 +63,7 @@ class FlightsController extends Controller
         ]);
 
         $flight = $user->flights()->create([
-            'date' => $request->date,
+            'date' => Carbon::parse($request->date)->toDateString(),
             'rocket' => $request->rocket,
             'motor_id' => $request->motor_id,
             'motor_quantity' => $request->motor_quantity,

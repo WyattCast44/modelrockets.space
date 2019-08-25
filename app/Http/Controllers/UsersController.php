@@ -30,7 +30,7 @@ class UsersController extends Controller
         $user->load(['activity', 'profile']);
         
         $activityGroups = $user->activity->groupBy(function ($activity) {
-            return $activity->updated_at->format('d | M');
+            return $activity->updated_at->format('d M y');
         });
 
         return view('users.show', ['user' => $user, 'activityGroups' => $activityGroups]);

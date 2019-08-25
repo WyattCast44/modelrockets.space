@@ -12,12 +12,26 @@
             
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" name="date" placeholder="When did you launch." class="form-control" required>
+                <input type="date" name="date" placeholder="When did you launch." class="form-control" required autofocus>
+
+                @error('date')
+                    <span class="text-red-300" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
             </div>
 
             <div class="form-group">
                 <label for="rocket">Rocket Name</label>
                 <input type="text" name="rocket" placeholder="Your rockets name" class="form-control" required>
+
+                @error('rocket')
+                    <span class="text-red-300" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
             </div>
 
             <div class="form-group">
@@ -26,23 +40,52 @@
                     @foreach($motors as $motor)
                         <option value="{{ $motor->id }}">{{ $motor->name }} ({{ $motor->vendor->name }})</option>
                     @endforeach
-                </select>                
+                </select>   
+                
+                @error('motor_id')
+                    <span class="text-red-300" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
             </div>
 
             <div class="form-group">
-                    <label for="motors">Motor Quantity</label>
-                    <input type="number" name="motor_quantity" class="form-control">
-                </div>
+                <label for="motors">Motor Quantity</label>
+                <input type="number" name="motor_quantity" class="form-control">
+
+                @error('motor_quantity')
+                    <span class="text-red-300" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+            </div>
 
             <div class="form-group">
                 <label for="altitude">Altitude</label>
                 <input type="text" name="altitude" placeholder="Ex. 512 ft" class="form-control">
+
+                @error('altitude')
+                    <span class="text-red-300" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
             </div>
 
             <div class="form-group">
                 <label for="description">Description of Launch</label>
-                <textarea id="description" name="description" class="form-control"></textarea>
+                <textarea id="description" name="description" class="form-control" required></textarea>
                 <small class="text-gray-600">This textarea supports markdown</small>
+
+                @error('description')
+                <br>
+                    <span class="text-red-300" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
             </div>
 
             {{-- <div class="my-8">
