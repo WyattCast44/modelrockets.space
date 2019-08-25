@@ -1,12 +1,16 @@
 @component('mail::message')
-# Welcome to ModelRockets.Space
+# Greetings {{ $user->username }}!<br>
 
-Thanks for joining our community!
+Thanks for joining our community! We're a bunch of rocket loving space enthusiasts and happy to have you join us!
 
 @component('mail::button', ['url' => route('home')])
-Check us out
+Sign In 🚀
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Ad Astra,<br>
+Model Rockets Space
+<br><br>
+***Space is the place, and it's for everyone*** 
+👩‍🚀👩🏿‍🚀👨‍🚀👩🏾‍🚀👨🏽‍🚀🐶👽🐵🐭
+<br>    
 @endcomponent
