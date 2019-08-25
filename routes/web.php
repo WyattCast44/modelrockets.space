@@ -51,9 +51,3 @@ Route::get('/data/vendors', 'Data\VendorsController@index')->name('data.vendors.
 Route::get('/data/motors', 'Data\MotorsController@index')->name('data.motors.index');
 Route::get('/data/motors/{motor}', 'Data\MotorsController@show')->name('data.motors.show');
 Route::get('/data/motors/{motor}/edit', 'Data\MotorsController@edit')->name('data.motors.edit');
-
-// Mail Previes
-Route::get('test/mail', function () {
-    $user = User::first();
-    return new App\Mail\WelcomeEmail($user);
-});
