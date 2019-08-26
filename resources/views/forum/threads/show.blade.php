@@ -108,7 +108,7 @@
                         <div class="mt-5">
                             @foreach ($reply->attachments as $attachment)  
                                 <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded">    
+                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded mb-2">    
                                 </a>  
                             @endforeach
                         </div>
