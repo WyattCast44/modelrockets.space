@@ -46,7 +46,10 @@ Route::post('/forum/b/{board}/threads/{thread}/replies/{reply}/favorite', 'Reply
 Route::delete('/forum/b/{board}/threads/{thread}/replies/{reply}/unfavorite', 'ReplyFavoritesController@destroy')->name('reply.favorites.destroy');
 
 // Data...
-Route::get('/data/vendors', 'Data\VendorsController@index')->name('data.vendors.index');
 Route::get('/data/motors', 'Data\MotorsController@index')->name('data.motors.index');
+Route::get('/data/vendors', 'Data\VendorsController@index')->name('data.vendors.index');
 Route::get('/data/motors/{motor}', 'Data\MotorsController@show')->name('data.motors.show');
 Route::get('/data/motors/{motor}/edit', 'Data\MotorsController@edit')->name('data.motors.edit');
+
+// Learn
+Route::get('/learn', 'Learn\LearnCenterDashboardController')->name('learn.index');

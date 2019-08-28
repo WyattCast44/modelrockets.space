@@ -11,9 +11,10 @@
         <nav class="text-lg hidden md:block">
             <a href="/" class="mx-2 p-1 text-white hover:text-white hover:underline">Home</a>
             <a href="{{ route('forum.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Forum</a>
+            <a href="{{ route('learn.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Learn</a>
             <a href="{{ route('articles.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Articles</a>
             <a href="{{ route('users.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Members</a>
-            <a href="{{ route('features.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Roadmap</a>
+            {{-- <a href="{{ route('features.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Roadmap</a> --}}
         </nav>
 
     </nav>
