@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page-title', 'Learning Center')
+
 @section('content')
 
 <div class="h-screen">
@@ -7,7 +9,7 @@
     <section class="bg-gray-800 flex flex-col md:flex-row justify-center items-top">
 
         <div class="flex-1 flex justify-center items-center vid-container p-4">
-            <iframe src="https://www.youtube.com/embed/bYb3bfA6_sQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {!! $videos->first()->embed_code !!}
         </div>
     
         <div class="w-1/5 bg-gray-900 p-4">
@@ -28,7 +30,7 @@
 
     <div class="bg-gray-200 shadow-inner">
         <div class="container py-6">
-            Cool
+            {{ $videos->first()->name }}
         </div>
     </div>
 

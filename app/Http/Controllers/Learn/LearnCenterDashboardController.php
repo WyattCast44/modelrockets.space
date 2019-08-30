@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Learn;
 
 use App\Http\Controllers\Controller;
+use App\Video;
 
 class LearnCenterDashboardController extends Controller
 {
     public function __invoke()
     {
-        return view('learn.index');
+        $videos = Video::all();
+
+        return view('learn.index', [
+            'videos' => $videos
+        ]);
     }
 }
