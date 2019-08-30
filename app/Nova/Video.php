@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
@@ -63,6 +64,8 @@ class Video extends Resource
 
             Date::make('Published At')
                 ->readonly(),
+
+            BelongsToMany::make('Playlists'),
             
         ];
     }

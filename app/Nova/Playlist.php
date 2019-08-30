@@ -4,8 +4,9 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Playlist extends Resource
@@ -54,6 +55,8 @@ class Playlist extends Resource
             Date::make('Published At')
                 ->readonly()
                 ->sortable(),
+            
+            BelongsToMany::make('Videos')
         ];
     }
 
