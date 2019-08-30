@@ -13,4 +13,33 @@ class Video extends Model
     {
         return $this->belongsToMany(Playlist::class);
     }
+
+    /**
+     * Actions, abilities, behavior
+     */
+    public function publish()
+    {
+        return $this->update([
+            'published_at' => now(),
+        ]);
+    }
+
+    public function unpublish()
+    {
+        return $this->update([
+            'published_at' => null,
+        ]);
+    }
+
+    /**
+     * Accessors, mutators
+     */
+    public function getPublishedAttribute()
+    {
+        return ($this->published_at) ? true : false;
+    }
+
+    /**
+     * Misc
+     */
 }
