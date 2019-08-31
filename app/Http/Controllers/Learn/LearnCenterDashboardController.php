@@ -15,10 +15,15 @@ class LearnCenterDashboardController extends Controller
 
     public function __invoke()
     {
-        $playlists = Playlist::with('videos')->get();
+        $playlist = Playlist::first();
+
+        $videos = $playlist->videos()
+            ->orderBy('playlist_videos.order')
+            ->get();
         
         return view('learn.index', [
-            'playlists' => $playlists
+            'playlist' => $playlist,
+            'videos' => $videos
         ]);
     }
 }
