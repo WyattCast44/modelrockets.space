@@ -9,11 +9,11 @@
     <section class="bg-gray-800 flex flex-col md:flex-row justify-center items-top">
 
         <div class="flex-1 flex justify-center items-center vid-container p-4">
-            {!! $videos->first()->embed_code !!}
+            {!! $playlists->first()->videos->first()->embed_code !!}
         </div>
     
         <div class="w-1/5 bg-gray-900 p-4">
-            <h2 class="uppercase text-white font-semibold">Playlist Name</h2>
+            <h2 class="uppercase text-white font-semibold">{{ $playlists->first()->name }}</h2>
 
             <div class="flex items-center justify-center my-4">
                 <a href="#" class="block w-full text-white hover:bg-gray-700 hover:text-white shadow-inner hover:no-underline px-3 py-2 mr-1 text-center bg-gray-800 rounded-lg uppercase text-sm">Prev</a>
@@ -30,7 +30,7 @@
 
     <div class="bg-gray-200 shadow-inner">
         <div class="container py-6">
-            {{ $videos->first()->name }}
+            name
         </div>
     </div>
 

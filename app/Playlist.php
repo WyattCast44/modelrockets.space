@@ -13,7 +13,8 @@ class Playlist extends Model
      */
     public function videos()
     {
-        return $this->belongsToMany(Video::class, 'playlist_videos');
+        return $this->belongsToMany(Video::class, 'playlist_videos')
+                ->withPivot('order');
     }
 
     /**

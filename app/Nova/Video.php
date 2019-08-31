@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -65,7 +66,13 @@ class Video extends Resource
             Date::make('Published At')
                 ->readonly(),
 
-            BelongsToMany::make('Playlists'),
+            BelongsToMany::make('Playlists')
+            ->fields(function () {
+                return [
+                    Number::make('Order')
+                    ->sortable(),
+                ];
+            }),
             
         ];
     }

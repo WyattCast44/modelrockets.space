@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Learn;
 
 use App\Http\Controllers\Controller;
+use App\Playlist;
 use App\Video;
 
 class LearnCenterDashboardController extends Controller
@@ -14,10 +15,10 @@ class LearnCenterDashboardController extends Controller
 
     public function __invoke()
     {
-        $videos = Video::all();
-
+        $playlists = Playlist::with('videos')->get();
+        
         return view('learn.index', [
-            'videos' => $videos
+            'playlists' => $playlists
         ]);
     }
 }

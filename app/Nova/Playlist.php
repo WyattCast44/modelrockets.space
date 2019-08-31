@@ -60,7 +60,8 @@ class Playlist extends Resource
             BelongsToMany::make('Videos')
                 ->fields(function () {
                     return [
-                        Number::make('Order'),
+                        Number::make('Order')
+                        ->sortable(),
                     ];
                 }),
             ];
