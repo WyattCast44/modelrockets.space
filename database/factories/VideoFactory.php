@@ -9,8 +9,7 @@ $factory->define(App\Video::class, function (Faker $faker) {
         'name' => $faker->name,
         'slug' => $faker->slug,
         'description' => $faker->text,
-        'url' => $faker->url,
-        'published' => $faker->boolean,
-        'published_at' => $faker->dateTimeBetween(),
+        'embed_code' => $faker->url,
+        'published_at' => now(),
     ];
 });

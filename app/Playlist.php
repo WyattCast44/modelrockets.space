@@ -35,11 +35,16 @@ class Playlist extends Model
     }
 
     /**
-     * Accessors, mutators
+     * Scopes
      */
-    public function getPublishedAttribute()
+    public function scopePublished($query)
     {
-        return ($this->published_at) ? true : false;
+        return $query->whereNotNull('published_at');
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', true);
     }
 
     /**

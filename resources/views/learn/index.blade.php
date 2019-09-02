@@ -4,53 +4,51 @@
 
 @section('content')
 
-<div class="h-screen">
+<header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
+    <div class="container">
+        <h1 class="font-semibold text-3xl mb-2">Learning Center</h1>
+        <p class="text-gray-700">
+            Greetings fellow rocketeers! Welcome to the learning center, a place for begineers and 
+            seasoned flyers alike. The lessons are generally created by <a href="#">me</a> and reflect
+            what I am learning at the moment. But if you have any suggestion on what you'd like to see, 
+            please let me know <a href="#">here</a>. In the meantime, enjoy and I hope you learn something
+            useful.
+        </p>    
+    </div>
+</header>
 
-    <section class="bg-gray-800 flex flex-col md:flex-row justify-center items-top z-0 overflow-hidden" style="max-height: 650px;">
+<!-- Featured -->
+<section class="container">
 
-        <div class="flex-1 flex justify-center items-center vid-container p-4">
-            {!! $videos->first()->embed_code !!}
-        </div>
-    
-        <div class="w-1/5 bg-gray-900 p-4 flex-col">
+    <h2 class="text-xl font-semibold mb-4">Featured Playlists</h2>
 
-            <h2 class="uppercase text-white font-semibold">{{ $playlist->name }}</h2>
+    <div class="flex flex-wrap max-w-full items-center justify-between mx-3">
 
-            <!-- Prev/Next -->
-            <div class="flex items-center justify-center my-4">
-                <a href="#" class="block w-full text-white hover:bg-gray-700 hover:text-white shadow-inner hover:no-underline px-3 py-2 mr-1 text-center bg-gray-800 rounded-lg uppercase text-sm">Prev</a>
-                <a href="#" class="block w-full text-white hover:bg-gray-700 hover:text-white shadow-inner hover:no-underline px-3 py-2 ml-1 text-center bg-gray-800 rounded-lg uppercase text-sm">Next</a>
+        @foreach($featuredPlaylists as $playlist)
+
+            <div class="w-1/3 -mx-3 rounded-lg bg-gray-200 hover:shadow-lg p-4 hover:bg-gray-300">
+                
+                <!-- Cover image -->
+                <a href="#" data-turbolinks="false">
+                    <img src="{{ asset('img/playlist.jpg') }}" alt="Playlist cover image" class="max-w-full mb-3 rounded">
+                </a>
+
+                <!-- Name -->
+                <p class="text-lg font-medium">{{ $playlist->name }}</p>
+                
+                <div class="flex items-center justify-between mt-3">
+                    <span class="font-light text-gray-700 text-xs">7 videos &middot; 32 mins</span>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Check it out</a>
+                </div>
             </div>
 
-            <!-- Playlist videos -->
-            <ul class="flex-1 list-unstyled border-solid border border-gray-800 max-w-full shadow-inner rounded-lg overflow-y-auto" style="max-height: 75%">
-                @foreach ($videos as $video)
-                    <li class="block hover:bg-gray-800 rounded-lg">
-                        <a href="{{ $video->id }}" class="p-4 block hover:no-underline hover:text-white text-white">
-                            {{ $loop->iteration }}. {{ $video->name }}
-                        </a>
-                    </li>
-                @endforeach                
-            </ul>
-        </div>
-    
-    </section>
+        @endforeach
 
-
-    <div class="bg-gray-200 shadow-inner z-10">
-        <div class="container py-6">
-            name
-        </div>
     </div>
 
-</div>
+</section>
 
 
-<style>
-    .vid-container > iframe {
-        width: 100%;
-        min-height: 575px;
-    }
-</style>
+<!-- Email Capture -->
 
 @endsection

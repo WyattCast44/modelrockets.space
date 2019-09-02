@@ -8,7 +8,9 @@ $factory->define(App\Playlist::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'slug' => $faker->slug,
-        'published' => $faker->boolean,
-        'published_at' => $faker->dateTimeBetween(),
+        'image' => null,
+        'featured' => (rand(0, 1)) ? true : false,
+        'published_at' => now(),
+        'meta' => null,
     ];
 });
