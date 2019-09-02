@@ -9,7 +9,7 @@
     <section class="bg-gray-800 flex flex-col md:flex-row justify-center items-top z-0 overflow-hidden" style="max-height: 650px;">
 
         <div class="flex-1 flex justify-center items-center vid-container p-4">
-            {!! $videos->first()->embed_code !!}
+            {!! $playlist->videos->first()->embed_code !!}
         </div>
     
         <div class="w-1/5 bg-gray-900 p-4 flex-col">
@@ -24,7 +24,7 @@
 
             <!-- Playlist videos -->
             <ul class="flex-1 list-unstyled border-solid border border-gray-800 max-w-full shadow-inner rounded-lg overflow-y-auto" style="max-height: 75%">
-                @foreach ($videos as $video)
+                @foreach ($playlist->videos as $video)
                     <li class="block hover:bg-gray-800 rounded-lg">
                         <a href="{{ $video->id }}" class="p-4 block hover:no-underline hover:text-white text-white">
                             {{ $loop->iteration }}. {{ $video->name }}

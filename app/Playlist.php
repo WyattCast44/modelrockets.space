@@ -50,4 +50,25 @@ class Playlist extends Model
     /**
      * Misc
      */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    
+    public function path($method = 'show', $absolute = true)
+    {
+        switch ($method) {
+            case 'index':
+                return route('learn.index', [], $absolute);
+                break;
+
+            case 'show':
+                return route('learn.playlists.show', $this, $absolute);
+                break;
+        
+            default:
+                return route('learn.playlists.show', $this, $absolute);
+                break;
+        }
+    }
 }

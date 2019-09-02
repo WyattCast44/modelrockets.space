@@ -29,7 +29,7 @@
             <div class="w-1/3 -mx-3 rounded-lg bg-gray-200 hover:shadow-lg p-4 hover:bg-gray-300">
                 
                 <!-- Cover image -->
-                <a href="#" data-turbolinks="false">
+                <a href="{{ $playlist->path('show') }}" data-turbolinks="false">
                     <img src="{{ asset('img/playlist.jpg') }}" alt="Playlist cover image" class="max-w-full mb-3 rounded">
                 </a>
 
@@ -38,7 +38,7 @@
                 
                 <div class="flex items-center justify-between mt-3">
                     <span class="font-light text-gray-700 text-xs">7 videos &middot; 32 mins</span>
-                    <a href="#" class="btn btn-sm btn-outline-primary">Check it out</a>
+                    <a href="{{ $playlist->path('show') }}" class="btn btn-sm btn-outline-primary">Check it out</a>
                 </div>
             </div>
 
