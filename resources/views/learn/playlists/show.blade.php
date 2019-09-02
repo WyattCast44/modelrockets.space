@@ -36,7 +36,6 @@
     
     </section>
 
-
     <div class="bg-gray-200 shadow-inner z-10">
         <div class="container py-6">
             name
