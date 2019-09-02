@@ -2,6 +2,7 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
+use App\Video;
 use Faker\Generator as Faker;
 
 $factory->define(App\Playlist::class, function (Faker $faker) {
@@ -13,4 +14,8 @@ $factory->define(App\Playlist::class, function (Faker $faker) {
         'published_at' => now(),
         'meta' => null,
     ];
+});
+
+$factory->afterCreating(App\Playlist::class, function ($playlist, $faker) {
+    $playlist->videos()->save(factory(Video::class)->make());
 });

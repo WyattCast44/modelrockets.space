@@ -2,6 +2,7 @@
 
 use App\Video;
 use App\Database\BaseSeeder;
+use App\Playlist;
 
 class VideosTableSeeder extends BaseSeeder
 {

@@ -26,7 +26,7 @@
             <ul class="flex-1 list-unstyled border-solid border border-gray-800 max-w-full shadow-inner rounded-lg overflow-y-auto" style="max-height: 75%">
                 @foreach ($playlist->videos as $video)
                     <li class="block hover:bg-gray-800 rounded-lg">
-                        <a href="{{ $video->id }}" class="p-4 block hover:no-underline hover:text-white text-white">
+                        <a href="#" class="p-4 block hover:no-underline hover:text-white text-white">
                             {{ $loop->iteration }}. {{ $video->name }}
                         </a>
                     </li>
