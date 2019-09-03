@@ -2,12 +2,17 @@
 
 namespace App;
 
+use App\Events\PlaylistPublished;
 use Illuminate\Database\Eloquent\Model;
 
 class Playlist extends Model
 {
     protected $guarded = [];
     
+    protected $casts = [
+        'published_at' => 'date'
+    ];
+
     /**
      * Relationships
      */
@@ -22,6 +27,8 @@ class Playlist extends Model
      */
     public function publish()
     {
+        event(new PlaylistPublished($this));
+            
         return $this->update([
             'published_at' => now(),
         ]);

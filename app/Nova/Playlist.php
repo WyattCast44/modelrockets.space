@@ -6,8 +6,10 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Number;
+use App\Nova\Actions\PublishPlaylist;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Playlist extends Resource
@@ -53,8 +55,11 @@ class Playlist extends Resource
             Text::make('Slug')
                 ->sortable(),
 
-            Date::make('Published At')
+            Date::make('Published At', 'published_at')
                 ->readonly()
+                ->sortable(),
+            
+            Boolean::make('Featured')
                 ->sortable(),
             
             BelongsToMany::make('Videos')
@@ -108,6 +113,8 @@ class Playlist extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new PublishPlaylist
+        ];
     }
 }
