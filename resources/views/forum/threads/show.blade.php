@@ -105,7 +105,7 @@
                 <div class="rounded border border-solid hover:border-gray-500 border-gray-300 bg-gray-100 mb-4 hover:shadow-md">
 
                     <!-- Main -->
-                    <div class="flex p-8">
+                    <div class="flex px-8 pt-8 pb-6">
                         
                         <!-- Reply Author -->
                         <div class="flex items-start justify-around mr-4">
