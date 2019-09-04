@@ -89,6 +89,7 @@
 
             </div>
 
+            <!-- Best Reply -->
             @if($bestReply && !request()->has('page'))
                 <div class="rounded border-2 border-solid bg-green-100 p-8 mb-4 border-green-300 relative">
                     <p class="absolute top-0 right-0 p-2 text-xs uppercase text-green-600 flex items-center">
@@ -98,30 +99,70 @@
                 </div>
             @endif
 
+            <!-- Replies -->
             @forelse ($replies as $reply)
-                <div class="rounded border border-solid hover:border-gray-500 border-gray-300 bg-gray-100 p-8 mb-4 hover:shadow-md">
-                    <div class="markdown-body">
-                        {!! $reply->body !!}
-                    </div>
 
-                    @if($reply->attachments->count() <> 0)
-                        <div class="mt-5">
-                            @foreach ($reply->attachments as $attachment)  
-                                <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded mb-2">    
-                                </a>  
-                            @endforeach
+                <div class="rounded border border-solid hover:border-gray-500 border-gray-300 bg-gray-100 mb-4 hover:shadow-md">
+
+                    <!-- Main -->
+                    <div class="flex p-8">
+                        
+                        <!-- Reply Author -->
+                        <div class="flex items-start justify-around mr-4">
+                            <img src="{{ $reply->user->gravatar }}" alt="" class="rounded-full w-12">
                         </div>
-                    @endif
 
-                    <div class="flex items-center mt-5">
-                        <a href="#" class="btn btn-sm btn-outline-primary mr-2">👍 Favorite</a>
+                        <!-- Reply Content -->
+                        <div>
+                            <p class="font-semibold leading-none text-gray-500 mb-3">
+                                <a href="{{ $reply->user->path('show') }}">{{ $reply->user->username }}</a> said...
+                            </p>
+                            <div class="markdown-body">
+                                {!! $reply->body !!}
+                            </div>
+        
+                            @if($reply->attachments->count() <> 0)
+                                <div class="mt-5">
+                                    @foreach ($reply->attachments as $attachment)  
+                                        <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
+                                            <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded mb-2">    
+                                        </a>  
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
 
-                        @if($thread->open)
-                            <a href="{{ $thread->repliesPath('create', $reply->id) }}" class="btn btn-sm btn-outline-primary">🗣️ Reply</a>
-                        @endif
                     </div>
+                    
+                    <!-- Actions -->
+                    <div class="bg-gray-200 p-2 border-top border-solid border-gray-300 flex justify-end items-center">
+
+                        @if(auth()->check() && $reply->user->id == auth()->id())
+                            
+                            <!-- Manage Reply -->
+                            <div class="mb-0 flex justify-end items-center">
+                                <a href="#delete" class="btn btn-sm btn-outline-primary" data-turbolinks="false">🗑️ <span class="hidden md:inline"> Delete</span></a>        
+                            </div>
+                            
+                        @else
+    
+                            <!-- Favorite Thread -->
+                            <div class="mb-0 flex justify-end items-center mr-2">
+                                <a href="#favorite" class="btn btn-sm btn-outline-primary" data-turbolinks="false">🔥<span class="hidden md:inline"> Favorite</span></a>        
+                            </div>
+
+                            @if($thread->open)
+                                <a href="{{ $thread->repliesPath('create', $reply->id) }}" class="btn btn-sm btn-outline-primary">
+                                    🗣️ Reply
+                                </a>
+                            @endif
+    
+                        @endif
+                        
+                    </div>
+
                 </div>
+
             @empty
                 
             @endforelse
