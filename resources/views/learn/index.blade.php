@@ -37,7 +37,7 @@
                 <p class="text-lg font-medium">{{ $playlist->name }}</p>
                 
                 <div class="flex items-center justify-between mt-3">
-                    <span class="font-light text-gray-700 text-xs">7 videos &middot; 32 mins</span>
+                    <span class="font-light text-gray-700 text-xs">{{ $playlist->videos->count() }} videos &middot; 32 mins</span>
                     <a href="{{ $playlist->path('show') }}" class="btn btn-sm btn-outline-primary">Check it out</a>
                 </div>
             </div>

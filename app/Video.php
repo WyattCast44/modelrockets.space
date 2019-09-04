@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+    public $casts = [
+        'published_at' => 'date',
+    ];
+
     /**
      * Relationships
      */
@@ -42,4 +46,8 @@ class Video extends Model
     /**
      * Misc
      */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

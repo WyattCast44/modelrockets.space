@@ -17,9 +17,12 @@ class PlaylistsController extends Controller
     {
         $playlist->load('videos');
 
+        $mainVideo = $playlist->videos->first();
+
         return view('learn.playlists.show', [
             'playlist' => $playlist,
             'vidoes' => $playlist->videos,
+            'mainVideo' => $mainVideo
         ]);
     }
 }
