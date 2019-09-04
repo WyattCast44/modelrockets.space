@@ -26,17 +26,19 @@
 
         @foreach($featuredPlaylists as $playlist)
 
-            <div class="w-1/3 -mx-3 rounded-lg bg-gray-200 hover:shadow-lg p-4 hover:bg-gray-300">
+            <div class="w-1/3 -mx-3 rounded-lg bg-gray-200 hover:shadow-lg p-4 hover:bg-gray-300 flex-col flex self-stretch justify-between">
                 
-                <!-- Cover image -->
-                <a href="{{ $playlist->path('show') }}" data-turbolinks="false">
-                    <img src="{{ asset('img/playlist.jpg') }}" alt="Playlist cover image" class="max-w-full mb-3 rounded">
-                </a>
+                <div>
+                    <!-- Cover image -->
+                    <a href="{{ $playlist->path('show') }}" data-turbolinks="false">
+                        <img src="{{ $playlist->image_url  }}" alt="Playlist cover image" class="max-w-full mb-3 rounded">
+                    </a>
 
-                <!-- Name -->
-                <p class="text-lg font-medium">{{ $playlist->name }}</p>
-                
-                <div class="flex items-center justify-between mt-3">
+                    <!-- Name -->
+                    <p class="text-lg font-medium">{{ $playlist->name }}</p>    
+                </div>
+
+                <div class="flex items-center justify-between mt-3 align-bottom">
                     <span class="font-light text-gray-700 text-xs">{{ $playlist->videos->count() }} videos &middot; 32 mins</span>
                     <a href="{{ $playlist->path('show') }}" class="btn btn-sm btn-outline-primary">Check it out</a>
                 </div>
@@ -47,7 +49,6 @@
     </div>
 
 </section>
-
 
 <!-- Email Capture -->
 

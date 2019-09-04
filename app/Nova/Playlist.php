@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Number;
 use App\Nova\Actions\PublishPlaylist;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Playlist extends Resource
@@ -55,13 +56,15 @@ class Playlist extends Resource
             Text::make('Slug')
                 ->sortable(),
 
-            Date::make('Published At', 'published_at')
-                ->readonly()
-                ->sortable(),
-            
             Boolean::make('Featured')
                 ->sortable(),
+
+            Date::make('Published At', 'published_at')
+                    ->readonly()
+                    ->sortable(),
             
+            Image::make('Image')->nullable(),
+
             BelongsToMany::make('Videos')
                 ->fields(function () {
                     return [

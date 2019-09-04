@@ -4,6 +4,7 @@ namespace App;
 
 use App\Events\PlaylistPublished;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Playlist extends Model
 {
@@ -52,6 +53,14 @@ class Playlist extends Model
     public function scopeFeatured($query)
     {
         return $query->where('featured', true);
+    }
+
+    /**
+     * Accessors, Mutators
+     */
+    public function getImageUrlAttribute()
+    {
+        return ($this->image <> null) ? Storage::url($this->image) : Storage::url('playlist.png');
     }
 
     /**
