@@ -35,7 +35,7 @@
                     </a>
 
                     <!-- Name -->
-                    <p class="text-lg font-medium">{{ $playlist->name }}</p>    
+                    <a href="{{ $playlist->path('show')  }}" class="text-gray-700 hover:text-gray-800 text-lg font-medium">{{ $playlist->name }}</a>    
                 </div>
 
                 <div class="flex items-center justify-between mt-3 align-bottom">
