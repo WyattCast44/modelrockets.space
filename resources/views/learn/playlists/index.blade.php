@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="flex items-center justify-end">
-            <img src="{{ $playlist->imageUrl }}" alt="playlist cover image" class="rounded-lg h-48 w-48">
+            <img src="{{ $playlist->imageUrl }}" alt="playlist cover image" class="rounded-lg h-48 w-48 shadow-lg">
         </div>
     </div>
 </header>
