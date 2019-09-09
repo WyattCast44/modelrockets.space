@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Playlist::class, function (Faker $faker) {
     return [
         'name' => $faker->words(3, true),
+        'description' => $faker->sentences(rand(2, 5), true),
         'slug' => $faker->slug,
         'image' => null,
         'featured' => (rand(0, 1)) ? true : false,

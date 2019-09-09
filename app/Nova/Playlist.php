@@ -11,6 +11,7 @@ use App\Nova\Actions\PublishPlaylist;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Playlist extends Resource
@@ -55,6 +56,8 @@ class Playlist extends Resource
             
             Text::make('Slug')
                 ->sortable(),
+            
+            Textarea::make('Description'),
 
             Boolean::make('Featured')
                 ->sortable(),
