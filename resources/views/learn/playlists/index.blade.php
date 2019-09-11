@@ -32,7 +32,7 @@
         @foreach ($playlist->videos as $video)
             
         <li class="block mb-2">
-           {{ $video->name }} 
+           <a href="{{ route('learn.playlists.videos.show', ['playlist' => $playlist, 'video' => $video]) }}">{{ $video->name }} </a>
         </li>
 
         @endforeach

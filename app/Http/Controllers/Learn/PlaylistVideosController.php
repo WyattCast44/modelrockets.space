@@ -11,7 +11,7 @@ class PlaylistVideosController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        // $this->middleware('admin');
     }
 
     public function show(Playlist $playlist, Video $video)
