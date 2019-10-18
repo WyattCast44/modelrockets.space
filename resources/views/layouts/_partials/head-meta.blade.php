@@ -23,5 +23,5 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#4735AE">
 <meta name="mobile-web-app-capable" content="yes">
-{{-- @include('feed::links') --}}
+@include('feed::links')
 @yield('meta')
