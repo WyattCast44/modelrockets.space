@@ -11,6 +11,7 @@
             <p class="text-gray-600 text-center">
                 You searched for: "{{ request('q') }}"
             </p>
+
         </div>
     </header>
 
@@ -67,6 +68,12 @@
         @if(isset($articles)) 
             {{ $articles->links() }}
         @endif
+
+        <div class="flex items-center justify-center mt-6 border-t border-solid pt-5">
+            <a href="https://www.algolia.com" target="_blank">
+                @svg('algolia', 'h-auto')
+            </a>
+        </div>
 
     </div>
 
