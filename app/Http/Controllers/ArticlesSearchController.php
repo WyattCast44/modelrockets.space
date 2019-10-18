@@ -13,6 +13,8 @@ class ArticlesSearchController extends Controller
             $articles = Article::search($request->q)->paginate(8);
         }
 
+        //dd($articles);
+
         return view('articles.search-results', ['articles' => $articles]);
     }
 }

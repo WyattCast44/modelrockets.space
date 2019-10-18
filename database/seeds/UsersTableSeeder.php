@@ -15,6 +15,7 @@ class UsersTableSeeder extends BaseSeeder
         factory(User::class, 30);
 
         $this->createDefaultUser();
+        $this->createArticlesBot();
     }
 
     public function createDefaultUser()
@@ -22,6 +23,16 @@ class UsersTableSeeder extends BaseSeeder
         factory(User::class)->create([
             'username' => 'username',
             'email' => 'user.name@email.com',
+            'password' => bcrypt('password'),
+            'superAdmin' => true,
+        ]);
+    }
+
+    public function createArticlesBot()
+    {
+        factory(User::class)->create([
+            'username' => 'ArticlesBot',
+            'email' => 'article.bot@email.com',
             'password' => bcrypt('password'),
             'superAdmin' => true,
         ]);

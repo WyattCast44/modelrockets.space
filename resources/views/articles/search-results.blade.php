@@ -56,15 +56,17 @@
             
             @empty
             
-            <li class="text-center text-gray-600">
-                No Results Found...
-            </li>
+                <li class="text-center text-gray-600">
+                    No Results Found...
+                </li>
             
             @endforelse
             
         </ul>
 
-        {{ $articles->links() }}
+        @if(isset($articles)) 
+            {{ $articles->links() }}
+        @endif
 
     </div>
 

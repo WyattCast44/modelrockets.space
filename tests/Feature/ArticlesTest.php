@@ -143,4 +143,58 @@ class ArticlesTest extends TestCase
 
         $response->assertRedirect('/login');
     }
+
+    public function test_an_article_can_be_printed()
+    {
+        // Given we have an article
+        $article = create(Article::class);
+        
+        // And we publish it
+        $article->publish();
+
+        // And we the visit the article
+        $response = $this->get($article->path('show'));
+
+        // We should get a valid response
+        $response->assertStatus(200);
+
+        // When we visit the page, we should see a print button
+        $response->assertSee('Print');
+    }
+
+    public function test_an_article_can_be_shared()
+    {
+        // Given we have an article
+        $article = create(Article::class);
+        
+        // And we publish it
+        $article->publish();
+
+        // And we the visit the article
+        $response = $this->get($article->path('show'));
+
+        // We should get a valid response
+        $response->assertStatus(200);
+
+        // When we visit the page, we should see a share button
+        $response->assertSee('Share');
+    }
+
+    public function test_an_article_can_be_discussed()
+    {
+        // Given we have an article
+        $article = create(Article::class);
+        
+        // And we publish it
+        $article->publish();
+
+        // And we the visit the article
+        $response = $this->get($article->path('show'));
+
+        // We should get a valid response
+        $response->assertStatus(200);
+
+        // When we visit the page, we should see a discuss button
+        $response->assertSee('Discuss');
+    }
 }
