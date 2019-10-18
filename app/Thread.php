@@ -48,6 +48,20 @@ class Thread extends Model implements ActivityFeedable
         return null;
     }
 
+    public function subscriptions()
+    {
+        return $this->morphMany(Subscription::class, 'subscribable');
+    }
+
+    public function subscribe(User $user)
+    {
+        $subscription = $this->subscriptions()->create([
+            'user_id' => $user->id,
+        ]);
+        
+        return $subscription->refresh();
+    }
+
     /**
      * Relationships
      */
