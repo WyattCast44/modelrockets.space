@@ -12,7 +12,7 @@ class Subscription extends Model
     {
         return $this->morphTo();
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

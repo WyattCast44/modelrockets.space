@@ -9,12 +9,13 @@ use Laravel\Scout\Searchable;
 use Illuminate\Mail\Markdown;
 use App\Traits\HasAttachments;
 use App\Interfaces\ActivityFeedable;
+use App\Traits\Subscribable;
 use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model implements ActivityFeedable
 {
-    use Favoritable, HasAttachments, Searchable;
+    use Favoritable, HasAttachments, Searchable, Subscribable;
     
     protected $guarded = [];
     
@@ -46,20 +47,6 @@ class Thread extends Model implements ActivityFeedable
         }
         
         return null;
-    }
-
-    public function subscriptions()
-    {
-        return $this->morphMany(Subscription::class, 'subscribable');
-    }
-
-    public function subscribe(User $user)
-    {
-        $subscription = $this->subscriptions()->create([
-            'user_id' => $user->id,
-        ]);
-        
-        return $subscription->refresh();
     }
 
     /**

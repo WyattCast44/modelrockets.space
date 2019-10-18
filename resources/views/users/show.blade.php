@@ -56,7 +56,7 @@
     </ul>
 
     <p class="text-gray-900 text-center uppercase py-6 font-bold">
-        🚖 End of the road pal 🌇
+        ☀️ Rage, rage against the dying of the light 🌑
     </p>
 
 </section>
