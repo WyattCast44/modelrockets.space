@@ -23,7 +23,7 @@ class RecordActivityTest extends TestCase
         $this->assertEquals(2, $thread->user->activity->count());
 
         // And the activity method should be "created a new thread"
-        $this->assertEquals('created a new thread:', $thread->user->activity->last()->method);
+        $this->assertEquals('created a new thread:', $thread->user->refresh()->activity->last()->method);
     }
 
     public function test_when_a_user_replies_to_a_thread()
