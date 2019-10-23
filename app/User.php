@@ -85,6 +85,19 @@ class User extends Authenticatable
     }
 
     /**
+     * @return bool
+     */
+    public function isSubscribedTo($subscribable)
+    {
+        $s = ($this->subscriptions()->where([
+            'subscribable_type' => "App\\" . class_basename($subscribable),
+            'subscribable_id' => $subscribable->id
+        ])->get()->count() > 0) ? true : false;
+
+        return $s;
+    }
+
+    /**
      * Relationships
      */
     public function activity()

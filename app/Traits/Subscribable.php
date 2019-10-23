@@ -26,4 +26,17 @@ trait Subscribable
 
         return true;
     }
+
+    public function unsubscribe(User $user = null)
+    {
+        if ($user === null) {
+            $user = auth()->user();
+        }
+
+        $this->subscriptions()->delete([
+            'user_id' => $user->id,
+        ]);
+
+        return true;
+    }
 }

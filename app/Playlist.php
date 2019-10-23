@@ -2,13 +2,14 @@
 
 namespace App;
 
-use App\Events\PlaylistPublished;
+use Illuminate\Support\Str;
 use App\Traits\Subscribable;
+use App\Events\PlaylistPublished;
+use App\Interfaces\ActivityFeedable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
-class Playlist extends Model
+class Playlist extends Model implements ActivityFeedable
 {
     use Subscribable;
 

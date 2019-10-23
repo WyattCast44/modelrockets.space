@@ -14,12 +14,25 @@
                 {{ $playlist->description }}
             </p>    
             <div class="flex mt-5">
-                <form action="{{ route('learn.playlists.subscriptions.store', $playlist) }}" method="post">
-                    @csrf
-                    <button type="submit" class="rounded-full uppercase text-sm px-4 py-3 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500 border border-solid">
-                        Subscribe to Series
-                    </button>
-                </form>
+
+                @if (auth()->check() && !auth()->user()->isSubscribedTo($playlist))
+                    <form action="{{ route('learn.playlists.subscriptions.store', $playlist) }}" method="post">
+                        @csrf
+                        <button type="submit" class="rounded-full uppercase text-sm px-4 py-3 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500 border border-solid">
+                            Subscribe to Series
+                        </button>
+                    </form>    
+                @else
+                    <form action="{{ route('learn.playlists.subscriptions.delete', $playlist) }}" method="post">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="rounded-full uppercase text-sm px-4 py-3 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500 border border-solid">
+                            Unsubscribe from Series
+                        </button>
+                    </form>   
+                @endif
+
+                
             </div>
         </div>
         <div class="flex items-center justify-end">
