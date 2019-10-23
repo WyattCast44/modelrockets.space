@@ -7,6 +7,7 @@ use App\Reply;
 use App\Flight;
 use App\Thread;
 use App\Article;
+use App\Playlist;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -86,5 +87,27 @@ class RecordActivityTest extends TestCase
 
         // And the activity method should be "favorited"
         $this->assertEquals('favorited', $user->activity->last()->method);
+    }
+
+    public function test_when_a_plalists_is_subscribed_to()
+    {
+        // Given we a published playlist
+        $playlist = create(Playlist::class);
+
+        $playlist->publish();
+
+        // And a user
+        $user = create(User::class);
+
+        // When we favorite an article
+        $playlist->subscribe($user);
+
+        $user->refresh();
+
+        // We should have two pieces of activity
+        $this->assertEquals(2, $user->activity->count());
+
+        // And the latest activity method should be "subscribed to"
+        $this->assertEquals('subscribed to', $user->activity->last()->method);
     }
 }

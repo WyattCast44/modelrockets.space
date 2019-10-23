@@ -3,11 +3,15 @@
 namespace App;
 
 use App\Events\PlaylistPublished;
+use App\Traits\Subscribable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Playlist extends Model
 {
+    use Subscribable;
+
     protected $guarded = [];
     
     protected $casts = [
@@ -17,6 +21,11 @@ class Playlist extends Model
     /**
      * Relationships
      */
+    public function activity()
+    {
+        return $this->morphMany(Activity::class, 'subject');
+    }
+
     public function videos()
     {
         return $this->belongsToMany(Video::class, 'playlist_videos')
@@ -58,9 +67,29 @@ class Playlist extends Model
     /**
      * Accessors, Mutators
      */
+    public function getPublishedAttribute()
+    {
+        return ($this->published_at <> null) ? true : false;
+    }
+
     public function getImageUrlAttribute()
     {
         return ($this->image <> null) ? Storage::url($this->image) : Storage::url('playlist.png');
+    }
+
+    public function getExcerptAttribute()
+    {
+        return Str::limit($this->description, 255);
+    }
+
+    public function getActivityTitleAttribute()
+    {
+        return $this->name;
+    }
+
+    public function getActivityExcerptAttribute()
+    {
+        return $this->excerpt;
     }
 
     /**

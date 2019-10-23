@@ -54,4 +54,5 @@ Route::get('/data/motors/{motor}/edit', 'Data\MotorsController@edit')->name('dat
 // Learn
 Route::get('/learn', 'Learn\LearnCenterDashboardController')->name('learn.index');
 Route::get('/learn/p/{playlist}', 'Learn\PlaylistsController@show')->name('learn.playlists.show');
+Route::post('/learn/p/{playlist}/subscribe', 'Learn\PlaylistSubscriptionsController@store')->name('learn.playlists.subscriptions.store');
 Route::get('/learn/p/{playlist}/{video}', 'Learn\PlaylistVideosController@show')->name('learn.playlists.videos.show');

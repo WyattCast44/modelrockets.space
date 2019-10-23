@@ -15,6 +15,8 @@ use App\Flight;
 use App\Observers\FlightObserver;
 use App\Attachment;
 use App\Observers\AttachmentObserver;
+use App\Observers\PlaylistObserver;
+use App\Playlist;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -42,6 +44,7 @@ class EventServiceProvider extends ServiceProvider
         Reply::observe(ReplyObserver::class);
         Thread::observe(ThreadObserver::class);
         Flight::observe(FlightObserver::class);
+        Playlist::observe(PlaylistObserver::class);
         Attachment::observe(AttachmentObserver::class);
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04c5d3009e9c994198f4a40893fdcbca",
+    "content-hash": "10a7ef2ab423e66a9e93bcc91d854254",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -249,6 +249,42 @@
                 "slugify"
             ],
             "time": "2019-01-31T20:38:55+00:00"
+        },
+        {
+            "name": "code-orange/turbolinks-location",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/code-orange/turbolinks-location.git",
+                "reference": "52e8da102dd485d2b2eb3890bc12abf3ba31ccf7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/code-orange/turbolinks-location/zipball/52e8da102dd485d2b2eb3890bc12abf3ba31ccf7",
+                "reference": "52e8da102dd485d2b2eb3890bc12abf3ba31ccf7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeOrange\\TurbolinksLocation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim van Dalen",
+                    "email": "tim@code-orange.nl"
+                }
+            ],
+            "description": "Laravel middleware to insert Turbolinks-Location header into every response",
+            "time": "2019-10-16T13:48:34+00:00"
         },
         {
             "name": "cviebrock/eloquent-sluggable",

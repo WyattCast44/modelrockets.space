@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Learn;
 
 use App\Playlist;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PlaylistsController extends Controller
