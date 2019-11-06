@@ -53,6 +53,12 @@ class ResyncSearchableModels extends Command
      */
     public function handle()
     {
+        // Flush the index
+        foreach ($this->searchable as $model) {
+            $this->callSilent("scout:flush", ['model' => $model]);
+        }
+
+        // Rebuild the index
         foreach ($this->searchable as $model) {
             $this->callSilent("scout:import", ['model' => $model]);
         }
