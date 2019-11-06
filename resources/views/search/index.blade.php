@@ -18,13 +18,28 @@
 
     @else
 
-        <p class="text-center text-gray-600 text-2xl">
-            Nothing to see here... Try searching again...
-        </p>
+        @if (request()->has('q'))
+        
+            <p class="text-center text-gray-600 text-2xl">
+                Nothing to see here... Try searching again...
+            </p>
+    
+            <div class="flex items-center justify-center mt-10">
+                @svg('alien', 'h-64')
+            </div>
 
-        <div class="flex items-center justify-center mt-10">
-            @svg('alien', 'h-64')
-        </div>
+        @else
+
+            <p class="text-center text-gray-600 text-2xl">
+                Try searching for something in the search box above...
+            </p>
+    
+            <div class="flex items-center justify-center mt-10">
+                @svg('rocket', 'h-64')
+            </div>
+            
+
+        @endif
 
     @endif
 
