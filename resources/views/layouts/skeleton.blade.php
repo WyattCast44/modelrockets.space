@@ -22,5 +22,7 @@
     @include('_partials.mobile-menu')
     @include('sweetalert::alert')
 
+    @stack('scripts')
+
 </body>
 </html>

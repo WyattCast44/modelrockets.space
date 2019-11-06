@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\User;
 use App\Board;
 use App\Thread;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
+use App\Article;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
