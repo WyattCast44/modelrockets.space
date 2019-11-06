@@ -3,11 +3,12 @@
     <div class="text-center">
         <a href="/" class="block p-3 text-xl text-white hover:text-white hover:underline">Home</a>
         <a href="{{ route('forum.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Forum</a>
+        <a href="{{ route('learn.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Learn</a>
         <a href="{{ route('articles.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Articles</a>
         <a href="{{ route('users.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Members</a>
-        <a href="{{ route('features.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Roadmap</a>        
-        
-        {{-- <a href="#search" class="block p-3 text-xl text-white hover:text-white hover:underline" data-turbolinks="false">Search</a>         --}}
+
+        <a href="#search" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Search</a>
+
 
         <div class="flex mt-3 text-center justify-center items-center">
             @auth

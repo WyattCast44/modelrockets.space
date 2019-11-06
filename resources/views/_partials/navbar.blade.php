@@ -14,6 +14,7 @@
             <a href="{{ route('learn.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Learn</a>
             <a href="{{ route('articles.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Articles</a>
             <a href="{{ route('users.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Members</a>
+            <a href="#" class="mx-2 p-1 text-white hover:text-white hover:underline">Search</a>
             {{-- <a href="{{ route('features.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Roadmap</a> --}}
         </nav>
 
@@ -26,8 +27,6 @@
     </div>
 
     <nav class="text-lg hidden md:block flex">
-
-        {{-- <a href="#search" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Search</a> --}}
 
         @guest
             <a href="#login" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>

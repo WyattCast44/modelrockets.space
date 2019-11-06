@@ -6,7 +6,7 @@
 
 <header class="mb-10 flex flex-col bg-gray-200 border-b border-solid border-gray-300 pt-12">
     
-    <div class="container flex justify-center md:justify-start">
+    <div class="container flex md:justify-start">
 
         <div class="mr-5">
             <img src="{{  $user->gravatar }}" alt="{{  $user->username }}" class="rounded-full w-24">
