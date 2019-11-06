@@ -24,7 +24,7 @@ class SearchController extends Controller
 
     public function show(Request $request)
     {
-        if ($request->has('q')) {
+        if ($request->has('q') && strlen($request->query('q')) != 0) {
             foreach ($this->searchable as $model) {
                 $results[Str::plural(class_basename($model))] = resolve($model)->search($request->query('q'))->get();
             }
