@@ -57,3 +57,6 @@ Route::get('/learn/p/{playlist}', 'Learn\PlaylistsController@show')->name('learn
 Route::post('/learn/p/{playlist}/subscribe', 'Learn\PlaylistSubscriptionsController@store')->name('learn.playlists.subscriptions.store');
 Route::delete('/learn/p/{playlist}/subscribe', 'Learn\PlaylistSubscriptionsController@destroy')->name('learn.playlists.subscriptions.delete');
 Route::get('/learn/p/{playlist}/{video}', 'Learn\PlaylistVideosController@show')->name('learn.playlists.videos.show');
+
+// Search
+Route::get('/search', 'SearchController@show')->name('search.index');

@@ -15,7 +15,20 @@ class SearchController extends Controller
         Board::class,
     ];
 
-    public function __invoke(Request $request)
+    public function show(Request $request)
+    {
+        if ($request->has('q')) {
+            $results = [];
+        } else {
+            $results = [];
+        }
+        
+        return view('search.index', [
+            'results' => $results,
+        ]);
+    }
+
+    public function test(Request $request)
     {
         return view('search.index');
 
@@ -28,5 +41,10 @@ class SearchController extends Controller
         $results = collect($this->searchable)->each(function ($model) use ($term) {
             return resolve($model)->search($term)->get();
         });
+    }
+
+    public function handle()
+    {
+        return back();
     }
 }
