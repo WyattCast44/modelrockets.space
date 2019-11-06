@@ -6,9 +6,7 @@
         <a href="{{ route('learn.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Learn</a>
         <a href="{{ route('articles.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Articles</a>
         <a href="{{ route('users.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Members</a>
-
-        <a href="#search" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Search</a>
-
+        <a href="{{ route('search.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Search</a>
 
         <div class="flex mt-3 text-center justify-center items-center">
             @auth
