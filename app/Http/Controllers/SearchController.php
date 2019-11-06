@@ -2,27 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\User;
 use App\Board;
 use App\Thread;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
     protected $searchable = [
+        Article::class,
         Thread::class,
-        User::class,
         Board::class,
+        User::class,
     ];
 
     public function show(Request $request)
     {
         if ($request->has('q')) {
-            $results = [];
+            foreach ($this->searchable as $model) {
+                $results[Str::plural(class_basename($model))] = resolve($model)->search($request->query('q'))->get();
+            }
         } else {
             $results = [];
         }
-        
+
+        $results = collect($results)->filter(function ($set) {
+            return ($set->count() > 0) ? true : false;
+        });
+
         return view('search.index', [
             'results' => $results,
         ]);
