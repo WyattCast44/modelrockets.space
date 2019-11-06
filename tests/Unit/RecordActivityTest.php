@@ -66,7 +66,7 @@ class RecordActivityTest extends TestCase
         $this->assertEquals(2, $article->user->activity->count());
 
         // And the activity method should be "recorded a new flight!"
-        $this->assertEquals('recorded a new flight!', $article->user->activity->last()->method);
+        $this->assertEquals('recorded a new flight!', $article->user->refresh()->activity->last()->method);
     }
 
     public function test_when_a_article_is_favorited()
