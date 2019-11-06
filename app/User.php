@@ -5,6 +5,7 @@ namespace App;
 use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Arr;
 
 class User extends Authenticatable
 {
@@ -169,6 +170,19 @@ class User extends Authenticatable
     public function scopePublic($query)
     {
         return $query->where('public', true);
+    }
+
+    /**
+     * Scout
+     */
+    public function shouldBeSearchable()
+    {
+        return $this->public;
+    }
+
+    public function toSearchableArray()
+    {
+        return Arr::only($this->toArray(), ['username']);
     }
 
     /**
