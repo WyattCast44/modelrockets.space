@@ -6,7 +6,7 @@
         
             @foreach ($results as $resultName => $data)
 
-                <h2 class="font-medium pb-2 text-xl">{{ $resultName }}</h2>               
+                <h2 class="font-medium mb-3 mt-10 text-xl">{{ $resultName }}</h2>               
 
                 <ul class="list-none">
                     @foreach ($data as $item)

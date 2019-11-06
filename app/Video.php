@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Video extends Model
 {
+    use Searchable;
+
     public $casts = [
         'published_at' => 'date',
     ];
@@ -41,6 +44,22 @@ class Video extends Model
     public function getPublishedAttribute()
     {
         return ($this->published_at) ? true : false;
+    }
+
+    /**
+     * Scout
+     */
+    public function shouldBeSearchable()
+    {
+        return $this->published;
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+            'description' => $this->description,
+        ];
     }
 
     /**

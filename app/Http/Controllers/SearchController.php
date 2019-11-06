@@ -6,6 +6,8 @@ use App\User;
 use App\Board;
 use App\Thread;
 use App\Article;
+use App\Playlist;
+use App\Video;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -16,6 +18,8 @@ class SearchController extends Controller
         Thread::class,
         Board::class,
         User::class,
+        Playlist::class,
+        Video::class,
     ];
 
     public function show(Request $request)

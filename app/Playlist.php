@@ -8,10 +8,11 @@ use App\Events\PlaylistPublished;
 use App\Interfaces\ActivityFeedable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Scout\Searchable;
 
 class Playlist extends Model implements ActivityFeedable
 {
-    use Subscribable;
+    use Subscribable, Searchable;
 
     protected $guarded = [];
     
@@ -91,6 +92,22 @@ class Playlist extends Model implements ActivityFeedable
     public function getActivityExcerptAttribute()
     {
         return $this->excerpt;
+    }
+
+    /**
+     * Scout
+     */
+    public function shouldBeSearchable()
+    {
+        return $this->published;
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+            'description' => $this->description,
+        ];
     }
 
     /**
