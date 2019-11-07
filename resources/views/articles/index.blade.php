@@ -29,7 +29,7 @@
 
             @foreach ($articles as $article)
                     
-                <li class="flex my-3 p-6 bg-white rounded border border-solid border-gray-300 hover:bg-grey-200 hover:shadow-md">
+                <li class="flex my-3 p-6 bg-white rounded border border-solid border-gray-400 hover:bg-gray-200 hover:shadow-md">
                     
                     <div>
                         <!-- Title -->
