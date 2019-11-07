@@ -1,0 +1,12 @@
+{
+    "name": "jobs",
+    "schema": {
+        "id": "bigint",
+        "queue": "string",
+        "payload": "text",
+        "attempts": "boolean",
+        "reserved_at": "integer",
+        "available_at": "integer",
+        "created_at": "integer"
+    }
+}

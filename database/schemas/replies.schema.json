@@ -1,0 +1,13 @@
+{
+    "name": "replies",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "thread_id": "bigint",
+        "body": "text",
+        "favorites": "bigint",
+        "parent_id": "bigint",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

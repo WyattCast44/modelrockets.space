@@ -1,0 +1,13 @@
+{
+    "name": "videos",
+    "schema": {
+        "id": "bigint",
+        "name": "string",
+        "slug": "string",
+        "description": "text",
+        "embed_code": "text",
+        "published_at": "datetime",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

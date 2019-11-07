@@ -1,0 +1,11 @@
+{
+    "name": "playlist_videos",
+    "schema": {
+        "id": "bigint",
+        "playlist_id": "bigint",
+        "video_id": "bigint",
+        "order": "bigint",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

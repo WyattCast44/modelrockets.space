@@ -1,0 +1,14 @@
+{
+    "name": "features",
+    "schema": {
+        "id": "bigint",
+        "name": "string",
+        "body": "text",
+        "user_id": "bigint",
+        "status": "string",
+        "public": "boolean",
+        "completed_at": "datetime",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

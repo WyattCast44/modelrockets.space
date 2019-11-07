@@ -1,0 +1,15 @@
+{
+    "name": "attachments",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "attachable_type": "string",
+        "attachable_id": "bigint",
+        "filename": "string",
+        "vendor_id": "string",
+        "path": "text",
+        "available": "boolean",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

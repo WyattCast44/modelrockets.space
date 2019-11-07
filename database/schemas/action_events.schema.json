@@ -1,0 +1,22 @@
+{
+    "name": "action_events",
+    "schema": {
+        "id": "bigint",
+        "batch_id": "string",
+        "user_id": "integer",
+        "name": "string",
+        "actionable_type": "string",
+        "actionable_id": "integer",
+        "target_type": "string",
+        "target_id": "integer",
+        "model_type": "string",
+        "model_id": "integer",
+        "fields": "text",
+        "status": "string",
+        "exception": "text",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "original": "text",
+        "changes": "text"
+    }
+}

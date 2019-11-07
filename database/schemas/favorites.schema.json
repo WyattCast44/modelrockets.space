@@ -1,0 +1,11 @@
+{
+    "name": "favorites",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "favoritable_type": "string",
+        "favoritable_id": "bigint",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

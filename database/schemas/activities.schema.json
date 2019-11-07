@@ -1,0 +1,12 @@
+{
+    "name": "activities",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "method": "string",
+        "subject_type": "string",
+        "subject_id": "bigint",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

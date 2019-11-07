@@ -1,0 +1,7 @@
+{
+    "name": "telescope_entries_tags",
+    "schema": {
+        "entry_uuid": "string",
+        "tag": "string"
+    }
+}

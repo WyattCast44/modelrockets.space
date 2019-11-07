@@ -1,0 +1,17 @@
+{
+    "name": "flights",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "rocket": "string",
+        "motor_id": "bigint",
+        "motor_quantity": "bigint",
+        "altitude": "string",
+        "description": "text",
+        "date": "datetime",
+        "meta": "json",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "location": "text"
+    }
+}

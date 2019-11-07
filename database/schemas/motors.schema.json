@@ -1,0 +1,25 @@
+{
+    "name": "motors",
+    "schema": {
+        "id": "bigint",
+        "name": "string",
+        "diameter": "string",
+        "height": "string",
+        "total_impulse": "string",
+        "propellant_mass": "string",
+        "dry_mass": "string",
+        "total_mass": "string",
+        "average_thrust": "string",
+        "max_thrust": "string",
+        "burn_time": "string",
+        "delay_time": "string",
+        "class_id": "bigint",
+        "type_id": "bigint",
+        "vendor_id": "bigint",
+        "user_id": "bigint",
+        "meta": "json",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "url": "string"
+    }
+}

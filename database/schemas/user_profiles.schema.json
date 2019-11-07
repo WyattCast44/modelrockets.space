@@ -1,0 +1,12 @@
+{
+    "name": "user_profiles",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "tagline": "string",
+        "signature": "text",
+        "meta": "text",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

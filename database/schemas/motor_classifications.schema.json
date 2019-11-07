@@ -1,0 +1,12 @@
+{
+    "name": "motor_classifications",
+    "schema": {
+        "id": "bigint",
+        "name": "string",
+        "min_impulse": "string",
+        "max_impulse": "string",
+        "description": "text",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "name": "telescope_monitoring",
+    "schema": {
+        "tag": "string"
+    }
+}

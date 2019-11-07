@@ -1,0 +1,10 @@
+{
+    "name": "feature_votes",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "feature_id": "bigint",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}
