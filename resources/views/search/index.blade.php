@@ -10,7 +10,9 @@
 
                 <ul class="list-none">
                     @foreach ($data as $item)
-                        <li class="border bg-purple-200 p-4 my-2">Content</li>
+                        <li class="border bg-purple-200 p-4 my-2">
+                            {{ $item }}
+                        </li>
                     @endforeach
                 </ul>
 

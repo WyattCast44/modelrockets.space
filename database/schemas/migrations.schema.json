@@ -1,8 +1,0 @@
-{
-    "name": "migrations",
-    "schema": {
-        "id": "integer",
-        "migration": "string",
-        "batch": "integer"
-    }
-}

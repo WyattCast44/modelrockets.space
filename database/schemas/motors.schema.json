@@ -1,7 +1,7 @@
 {
     "name": "motors",
     "schema": {
-        "id": "bigint",
+        "id": "integer",
         "name": "string",
         "diameter": "string",
         "height": "string",
@@ -13,11 +13,11 @@
         "max_thrust": "string",
         "burn_time": "string",
         "delay_time": "string",
-        "class_id": "bigint",
-        "type_id": "bigint",
-        "vendor_id": "bigint",
-        "user_id": "bigint",
-        "meta": "json",
+        "class_id": "integer",
+        "type_id": "integer",
+        "vendor_id": "integer",
+        "user_id": "integer",
+        "meta": "text",
         "created_at": "datetime",
         "updated_at": "datetime",
         "url": "string"

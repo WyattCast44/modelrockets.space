@@ -1,10 +1,10 @@
 {
     "name": "subscriptions",
     "schema": {
-        "id": "bigint",
+        "id": "integer",
         "subscribable_type": "string",
-        "subscribable_id": "bigint",
-        "user_id": "bigint",
+        "subscribable_id": "integer",
+        "user_id": "integer",
         "created_at": "datetime",
         "updated_at": "datetime"
     }
