@@ -30,7 +30,7 @@ class BoardTest extends TestCase
         $this->assertFalse($board->public);
 
         // And the password should be encrypted by default
-        $this->assertNotEquals('password', $board->getOriginal('password'));
+        $this->assertNotEquals('password', $board->getRawOriginal ('password'));
     }
 
     public function test_a_private_board_can_be_public()
