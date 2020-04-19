@@ -8,7 +8,7 @@
     @include('layouts._partials.head-assets')
 </head>
 
-<body class="bg-white-100 antialiased">
+<body class="antialiased bg-white-100">
 
     <header>
         @include('_partials.navbar')
@@ -21,8 +21,9 @@
     @include('_partials.search')
     @include('_partials.mobile-menu')
     @include('sweetalert::alert')
-
+    
+    @livewireScripts
     @stack('scripts')
-
+    
 </body>
 </html>
