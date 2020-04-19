@@ -4,29 +4,31 @@
 
 @section('content')
 
-<header class="border-b border-solid border-gray-300 bg-gray-200 py-6 sticky top-0 shadow-md mb-8" style="z-index:1000">
+<header class="sticky top-0 py-6 mb-8 bg-gray-200 border-b border-gray-300 border-solid shadow-md" style="z-index:1000">
 
-    <div class="container flex justify-between items-center">
+    <div class="container flex items-center justify-between">
         
         <div>
             <p class="text-sm text-gray-700">
                 <a href="{{ route('forum.index') }}">Forum</a> /
                 <a href="{{ route('boards.show', $board) }}">{{ $board->name }}</a> /
             </p>
-            <h1 class="text-lg md:text-xl mb-0">{{ $thread->title }}</h1>
+            <h1 class="mb-0 text-lg md:text-xl">{{ $thread->title }}</h1>
         </div>
 
-        <div class="flex flex-wrap justify-end items-center">
+        <div class="flex flex-wrap items-center justify-end">
             
             @if($thread->open)
-                <a href="{{ $thread->repliesPath() }}" class="btn btn-outline-primary rounded mr-2 btn-sm">
+                <a href="{{ $thread->repliesPath() }}" class="mr-2 rounded btn btn-outline-primary btn-sm">
                     🗣️<span class="hidden md:inline"> Reply</span>
                 </a>
             @endif
 
-            <a href="#share" class="btn btn-outline-primary rounded btn-sm mr-2" data-turbolinks="false">
+            <a href="#share" class="mr-2 rounded btn btn-outline-primary btn-sm" data-turbolinks="false">
                 📤<span class="hidden md:inline"> Share Thread</span>
             </a>
+
+            <x-share title="Thread"></x-share>
 
         </div>
         
@@ -39,12 +41,12 @@
         <div>
 
             <!-- Original Post -->
-            <div class="rounded border-2 border-solid mb-4 border-blue-300 bg-white shadow-md relative">
+            <div class="relative mb-4 bg-white border-2 border-blue-300 border-solid rounded shadow-md">
                 
                 <div class="p-8">
-                    <p class="absolute top-0 right-0 p-2 text-xs uppercase text-blue-600">Original Post</p>
+                    <p class="absolute top-0 right-0 p-2 text-xs text-blue-600 uppercase">Original Post</p>
                 
-                    <h2 class="mb-2 font-semibold text-lg text-blue-900">{{ $thread->title }} </h2>
+                    <h2 class="mb-2 text-lg font-semibold text-blue-900">{{ $thread->title }} </h2>
                     <div class="markdown-body">
                         {!!  $thread->body !!}
                     </div>
@@ -54,7 +56,7 @@
                         <div class="mt-5">
                             @foreach ($thread->attachments as $attachment)  
                                 <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-xl inline mx-1 border border-solid border-gray-700 shadow-md w-12 hover:border-blue-700 h-12 rounded">    
+                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="inline w-12 h-12 mx-1 border border-gray-700 border-solid rounded shadow-md hover:shadow-xl hover:border-blue-700">    
                                 </a>  
                             @endforeach
                         </div>
@@ -62,24 +64,24 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="bg-gray-200 p-2 border-top border-solid border-gray-300 flex justify-end items-center">
+                <div class="flex items-center justify-end p-2 bg-gray-200 border-gray-300 border-solid border-top">
 
                     @if(auth()->check() && $thread->user->id == auth()->id())
                         
                         <!-- Manage Thread -->
-                        <div class="mb-0 flex justify-end items-center">
+                        <div class="flex items-center justify-end mb-0">
                             <a href="#manage" class="btn btn-sm btn-outline-primary" data-turbolinks="false">⚙️<span class="hidden md:inline"> Manage Thread</span></a>        
                         </div>
                         
                     @else
 
                         <!-- Favorite Thread -->
-                        <div class="mb-0 flex justify-end items-center mr-2">
+                        <div class="flex items-center justify-end mb-0 mr-2">
                             <a href="#favorite" class="btn btn-sm btn-outline-primary" data-turbolinks="false">🔥<span class="hidden md:inline"> Favorite Thread</span></a>        
                         </div>
 
                         <!-- Report Thread -->
-                        <div class="mb-0 flex justify-end items-center">
+                        <div class="flex items-center justify-end mb-0">
                             <a href="#report" class="btn btn-sm btn-outline-primary" data-turbolinks="false">👀<span class="hidden md:inline"> Report Thread</span></a>        
                         </div>
 
@@ -91,8 +93,8 @@
 
             <!-- Best Reply -->
             @if($bestReply && !request()->has('page'))
-                <div class="rounded border-2 border-solid bg-green-100 p-8 mb-4 border-green-300 relative">
-                    <p class="absolute top-0 right-0 p-2 text-xs uppercase text-green-600 flex items-center">
+                <div class="relative p-8 mb-4 bg-green-100 border-2 border-green-300 border-solid rounded">
+                    <p class="absolute top-0 right-0 flex items-center p-2 text-xs text-green-600 uppercase">
                         Best Answer @svg('star', 'ml-1 inline-block')
                     </p>
                     {{ $bestReply->body }}
@@ -102,19 +104,19 @@
             <!-- Replies -->
             @forelse ($replies as $reply)
 
-                <div class="rounded border border-solid hover:border-gray-500 border-gray-300 bg-gray-100 mb-4 hover:shadow-md">
+                <div class="mb-4 bg-gray-100 border border-gray-300 border-solid rounded hover:border-gray-500 hover:shadow-md">
 
                     <!-- Main -->
                     <div class="flex px-8 pt-8 pb-6">
                         
                         <!-- Reply Author -->
                         <div class="flex items-start justify-around mr-4">
-                            <img src="{{ $reply->user->gravatar }}" alt="" class="rounded-full w-12">
+                            <img src="{{ $reply->user->gravatar }}" alt="" class="w-12 rounded-full">
                         </div>
 
                         <!-- Reply Content -->
                         <div>
-                            <p class="font-semibold leading-none text-gray-500 mb-3">
+                            <p class="mb-3 font-semibold leading-none text-gray-500">
                                 <a href="{{ $reply->user->path('show') }}">{{ $reply->user->username }}</a> said...
                             </p>
                             <div class="markdown-body">
@@ -125,7 +127,7 @@
                                 <div class="mt-5">
                                     @foreach ($reply->attachments as $attachment)  
                                         <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                            <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="hover:shadow-lg inline mx-1 border border-solid border-gray-700 shadow-md w-12 h-12 rounded mb-2">    
+                                            <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="inline w-12 h-12 mx-1 mb-2 border border-gray-700 border-solid rounded shadow-md hover:shadow-lg">    
                                         </a>  
                                     @endforeach
                                 </div>
@@ -135,19 +137,19 @@
                     </div>
                     
                     <!-- Actions -->
-                    <div class="bg-gray-200 p-2 border-top border-solid border-gray-300 flex justify-end items-center">
+                    <div class="flex items-center justify-end p-2 bg-gray-200 border-gray-300 border-solid border-top">
 
                         @if(auth()->check() && $reply->user->id == auth()->id())
                             
                             <!-- Manage Reply -->
-                            <div class="mb-0 flex justify-end items-center">
+                            <div class="flex items-center justify-end mb-0">
                                 <a href="#delete" class="btn btn-sm btn-outline-primary" data-turbolinks="false">🗑️ <span class="hidden md:inline"> Delete</span></a>        
                             </div>
                             
                         @else
     
                             <!-- Favorite Thread -->
-                            <div class="mb-0 flex justify-end items-center mr-2">
+                            <div class="flex items-center justify-end mb-0 mr-2">
                                 <a href="#favorite" class="btn btn-sm btn-outline-primary" data-turbolinks="false">🔥<span class="hidden md:inline"> Favorite</span></a>        
                             </div>
 
@@ -178,7 +180,5 @@
 @if(auth()->check() && $thread->user->id == auth()->id())
     @include('forum.threads._partials.manage')
 @endif
-
-@include('forum.threads._partials.share')
 
 @endsection

@@ -4,12 +4,12 @@
 
 @section('content')
 
-<header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-8 sm:py-10 md:py-12">
+<header class="flex flex-col py-8 mb-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10 md:py-12">
     <div class="container">
 
-        <a href="{{ route('articles.index') }}" class="mb-2 inline-block text-sm print:hidden">&leftarrow; Back to Articles</a>
+        <a href="{{ route('articles.index') }}" class="inline-block mb-2 text-sm print:hidden">&leftarrow; Back to Articles</a>
 
-        <h1 class="font-semibold text-2xl sm:text-3xl md:text-4xl mb-3">{{ $article->title }}</h1>
+        <h1 class="mb-3 text-2xl font-semibold sm:text-3xl md:text-4xl">{{ $article->title }}</h1>
 
         <h2 class="m-0">{{ $article->subtitle }}</p>
 
@@ -19,19 +19,21 @@
 <main class="container mx-auto mt-5 mb-12">
 
     <!-- Actions -->
-    <div class="flex items-center mb-4 sm:mb-6 md:mb-8 justify-center md:justify-start print:hidden">
+    <div class="flex items-center justify-center mb-4 sm:mb-6 md:mb-8 md:justify-start print:hidden">
 
         <!-- Print -->
         <div data-controller="print">
-            <a href="#" class="btn btn-outline-primary mr-2 btn-sm" data-action="print#handle" data-turbolinks="false">🖨️ Print</a>
+            <a href="#" class="mr-2 btn btn-outline-primary btn-sm" data-action="print#handle" data-turbolinks="false">🖨️ Print</a>
         </div>
         
         <!-- Share -->
-        <a href="#share" class="btn btn-outline-primary btn-sm mr-2" data-turbolinks="false">📤 Share</a>
+        <a href="#share" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">📤 Share</a>
+
+        <x-share title="Article" ></x-share>
 
         <!-- Discuss -->
         @if($article->thread_id <> null) 
-            <a href="{{ $article->path('discuss') }}" class="btn btn-outline-primary btn-sm mr-2" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
+            <a href="{{ $article->path('discuss') }}" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
         @endif
 
         @include('articles._partials.favorite')
@@ -39,7 +41,7 @@
     </div>
 
     <!-- Article Meta -->
-    <p class="text-sm text-gray-500 my-1 md:mb-8 text-center md:text-left">
+    <p class="my-1 text-sm text-center text-gray-500 md:mb-8 md:text-left">
 
         {{ ($article->hasBeenUpdated()) ? 'Posted ' : 'Updated ' }}
 
@@ -60,7 +62,5 @@
     </article>
 
 </main>
-
-@include('articles._partials.share')
 
 @endsection
