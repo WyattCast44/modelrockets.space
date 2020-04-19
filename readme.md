@@ -1,4 +1,58 @@
+![](logo.png)
+
 # ModelRockets.Space
+
+A home for model rockets and space nerds 🚀👨‍🚀👩‍🚀
+
+## Installing Locally
+
+#### Clone the repo
+
+```bash
+git clone https://github.com/WyattCast44/modelrockets.space.git
+```
+
+#### Move into project
+
+```bash
+cd modelrockets
+```
+
+#### Copy the env file
+
+Make sure you set your local credentials in your .env file.
+
+```bash
+cp .env .example .env
+```
+
+#### Install Composer dependencies
+
+```bash
+composer install
+```
+
+#### Install NPM dependencies (Optional)
+
+```bash
+yarn install
+```
+
+#### Run Front End Asset Build (Optional)
+
+```bash
+yarn dev
+```
+
+#### Migrate the Database 
+
+Make sure you make created a database and update the env file
+
+```bash
+php artisan migrate --seed
+```
+
+## Background
 
 ## Core Content Models
 

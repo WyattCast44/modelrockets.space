@@ -24,7 +24,6 @@
         "sweetalert2": "^8.12.1",
         "tailwindcss": "^1.1.2",
         "turbolinks": "^5.2.0",
-        "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
