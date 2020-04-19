@@ -1,27 +1,12 @@
-require("./bootstrap");
-
 /**
- * VueJS
+ * Alpine JS
+ * @link https://github.com/alpinejs/alpine
  */
-// window.Vue = require("vue");
-
-// const files = require.context("./", true, /\.vue$/i);
-// files.keys().map(key =>
-//     Vue.component(
-//         key
-//             .split("/")
-//             .pop()
-//             .split(".")[0],
-//         files(key).default
-//     )
-// );
-
-// const app = new Vue({
-//     el: "#app"
-// });
+import 'alpinejs'
 
 /**
  * Turbolinks
+ * @link https://github.com/turbolinks/turbolinks
  */
 let Turbolinks = require("turbolinks");
 
@@ -36,8 +21,3 @@ import { definitionsFromContext } from "stimulus/webpack-helpers";
 const application = Application.start();
 const context = require.context("./controllers", true, /\.js$/);
 application.load(definitionsFromContext(context));
-
-/**
- * Trix
- */
-//import Trix from "trix";

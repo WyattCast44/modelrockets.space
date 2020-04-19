@@ -2,7 +2,7 @@
 
 # ModelRockets.Space
 
-A home for model rockets and space nerds 🚀👨‍🚀👩‍🚀
+A home for model rocket and space nerds 🚀👨‍🚀👩‍🚀
 
 ## Installing Locally
 
