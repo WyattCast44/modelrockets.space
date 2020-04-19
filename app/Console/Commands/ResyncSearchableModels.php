@@ -9,7 +9,6 @@ use App\Thread;
 use App\Article;
 use App\Playlist;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 class ResyncSearchableModels extends Command
 {
