@@ -32,7 +32,7 @@ Route::post('/roadmap/{feature}/upvote', 'FeatureUpvotesController')->name('feat
 
 // Forum...
 Route::get('/forum', 'ForumController')->name('forum.index');
-Route::get('/forum/b/{board}', 'BoardsController@show')->name('boards.show');
+Route::get('/forum/b/{board}', 'BoardsController@show')->name('boards.index.show');
 Route::get('/forum/b/{board}/threads', 'BoardsController@show')->name('boards.show');
 Route::post('/forum/b/{board}/threads', 'ThreadsController@store')->name('threads.store');
 Route::get('/forum/b/{board}/threads/create', 'ThreadsController@create')->name('threads.create');
