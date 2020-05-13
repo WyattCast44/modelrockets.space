@@ -1,6 +1,6 @@
 <div class="container relative" style="top: -50px">
 
-    <div classwip="overflow-hidden bg-gray-200 border border-gray-400 rounded-lg shadow-xl">
+    <div class="overflow-hidden bg-gray-200 border border-gray-400 rounded-lg shadow-xl">
         
         <div class="px-4 py-5 bg-white border-b border-gray-400 sm:px-6">
             <input type="text" wire:model="search" class="m-0 form-control focus:shadow-lg hover:shadow-lg" placeholder="Search members..." autofocus>
