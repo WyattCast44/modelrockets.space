@@ -1,15 +1,15 @@
 {
     "name": "articles",
     "schema": {
-        "id": "bigint",
-        "user_id": "bigint",
+        "id": "integer",
+        "user_id": "integer",
         "slug": "string",
         "title": "string",
         "subtitle": "string",
         "body": "text",
         "published": "boolean",
         "published_at": "datetime",
-        "thread_id": "bigint",
+        "thread_id": "integer",
         "created_at": "datetime",
         "updated_at": "datetime"
     }

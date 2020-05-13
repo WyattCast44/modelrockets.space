@@ -1,45 +1,45 @@
-<div class="bg-white shadow-lg flex justify-between p-5 items-center print:hidden navbar-bg">
+<div class="flex items-center justify-between p-5 bg-white shadow-lg print:hidden navbar-bg">
 
     <nav class="flex items-center">
 
-        <h2 class="text-base sm:text-lg md:text-xl mr-4">
-            <a href="/" class="hover:no-underline text-white hover:text-white">
+        <h2 class="mr-4 text-base sm:text-lg md:text-xl">
+            <a href="/" class="text-white hover:no-underline hover:text-white">
                 Model Rockets Space 🚀🌌
             </a>
         </h2>
 
-        <nav class="text-lg hidden md:block">
-            {{-- <a href="/" class="mx-2 p-1 text-white hover:text-white hover:underline">Home</a> --}}
-            <a href="{{ route('forum.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Forum</a>
-            <a href="{{ route('learn.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Learn</a>
-            <a href="{{ route('articles.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Articles</a>
-            <a href="{{ route('users.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Members</a>
-            <a href="{{ route('search.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Search</a>
-            {{-- <a href="{{ route('features.index') }}" class="mx-2 p-1 text-white hover:text-white hover:underline">Roadmap</a> --}}
+        <nav class="hidden text-lg md:block">
+            {{-- <a href="/" class="p-1 mx-2 text-white hover:text-white hover:underline">Home</a> --}}
+            <a href="{{ route('forum.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Forum</a>
+            <a href="{{ route('learn.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Learn</a>
+            <a href="{{ route('articles.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Articles</a>
+            <a href="{{ route('users.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Members</a>
+            <a href="{{ route('search.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Search</a>
+            {{-- <a href="{{ route('features.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Roadmap</a> --}}
         </nav>
 
     </nav>
 
-    <div class="block md:hidden text-white">
+    <div class="block text-white md:hidden">
         <a href="#mobile-menu" class="text-white hover:text-white" data-turbolinks="false">
             @svg('menu', 'inline fill-current cursor-pointer')
         </a>
     </div>
 
-    <nav class="text-lg hidden md:block flex">
+    <nav class="flex hidden text-lg md:block">
 
         @guest
-            <a href="#login" class="text-lg mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>
-            <a href="#register" class="mx-2 p-1 text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>
+            <a href="#login" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>
+            <a href="#register" class="p-1 mx-2 text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>
         @endguest
 
         @auth
-            <a href="{{ route('users.show', auth()->user()) }}" class="mx-2 text-lg p-1 text-white hover:text-white hover:underline">
+            <a href="{{ route('users.show', auth()->user()) }}" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline">
                 My Profile
             </a>
             <form action="{{ route('logout') }}" method="post" class="inline-block">
                 @csrf
-                <button type="submit" class="mx-2 p-1 text-white hover:text-white hover:underline text-lg">Logout</button>
+                <button type="submit" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline">Logout</button>
             </form>
         @endauth
 
