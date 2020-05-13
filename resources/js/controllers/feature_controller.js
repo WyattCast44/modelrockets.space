@@ -17,8 +17,8 @@ export default class extends Controller {
 
         axios
             .post(url, data)
-            .then(function(response) {})
-            .catch(function(error) {
+            .then(function (response) { })
+            .catch(function (error) {
                 form.submit();
             });
     }

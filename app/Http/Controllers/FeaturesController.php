@@ -26,8 +26,6 @@ class FeaturesController extends Controller
 
         $userVotes = (auth()->check()) ? auth()->user()->votes->pluck('feature_id') : null;
 
-        //dd($userVotes);
-
         return view('features.index', [
             'openFeatures' => $openFeatures,
             'closedFeatures' => $closedFeatures,
