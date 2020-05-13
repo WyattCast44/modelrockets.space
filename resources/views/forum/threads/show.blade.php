@@ -28,8 +28,6 @@
                 📤<span class="hidden md:inline"> Share Thread</span>
             </a>
 
-            <x-share title="Thread"></x-share>
-
         </div>
         
     </div>
@@ -180,5 +178,7 @@
 @if(auth()->check() && $thread->user->id == auth()->id())
     @include('forum.threads._partials.manage')
 @endif
+
+<x-share title="Thread"></x-share>
 
 @endsection

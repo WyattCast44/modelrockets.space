@@ -23,7 +23,7 @@
                     📤<span class="hidden md:inline"> Share Board</span>
                 </a>
 
-                <x-share title="Forum Board"></x-share>
+                
 
             </div>
             
@@ -33,4 +33,6 @@
 
     @yield('forum-page')
     
+    <x-share title="Forum Board"></x-share>
+        
 @endsection
