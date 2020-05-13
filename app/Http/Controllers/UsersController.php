@@ -16,11 +16,8 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users = User::public()
-            ->orderBy('username')
-            ->paginate(15);
-        
-        return view('users.index', ['users' => $users]);
+        // Data fetched by Livewire        
+        return view('users.index');
     }
 
     public function show(User $user, Request $request)

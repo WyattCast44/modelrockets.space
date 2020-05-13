@@ -3,7 +3,6 @@
     <div class="mb-8">
         <div class="flex items-center">
             <input type="text" wire:model="search" class="m-0 form-control focus:shadow-lg hover:shadow-lg" placeholder="Search articles...">
-            {{-- <button type="submit" class="rounded-l-none btn btn-outline-primary hover:shadow-lg">Search</button> --}}
         </div>
     </div>
 
