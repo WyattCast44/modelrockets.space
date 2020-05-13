@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>@yield('page-title') - Model Rockets Space 🚀🌌</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <livewire:styles>
     @include('layouts._partials.head-meta')
     @include('layouts._partials.head-assets')
 </head>
@@ -22,7 +23,7 @@
     @include('_partials.mobile-menu')
     @include('sweetalert::alert')
     
-    @livewireScripts
+    <livewire:scripts>
     @stack('scripts')
     
 </body>

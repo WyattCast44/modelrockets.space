@@ -35,7 +35,7 @@ export default class extends Controller {
                 this.showFieldError(
                     event.target,
                     error.response.data.errors[
-                        event.target.getAttribute("name")
+                    event.target.getAttribute("name")
                     ]
                 );
             } else {

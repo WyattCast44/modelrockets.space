@@ -2,8 +2,10 @@
 
 -   Add featured image feature to articles
 -   Show featured image on articles index
--   Build out site search
+-   Finish site search 
 -   Add the ability to mark as spam for thread, reply (Reportable)
+- Refactor features page to livewire
+
 
 # Articles
 
