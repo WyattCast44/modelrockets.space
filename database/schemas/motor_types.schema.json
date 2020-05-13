@@ -1,7 +1,7 @@
 {
     "name": "motor_types",
     "schema": {
-        "id": "integer",
+        "id": "bigint",
         "name": "string",
         "abbr": "string",
         "description": "text",

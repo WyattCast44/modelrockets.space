@@ -1,0 +1,11 @@
+{
+    "name": "failed_jobs",
+    "schema": {
+        "id": "bigint",
+        "connection": "text",
+        "queue": "text",
+        "payload": "text",
+        "exception": "text",
+        "failed_at": "datetime"
+    }
+}
