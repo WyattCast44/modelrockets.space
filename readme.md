@@ -52,6 +52,28 @@ Make sure you make created a database and update the env file
 php artisan migrate --seed
 ```
 
+#### Cloudinary
+
+This project uses [Cloudinary](https://cloudinary.com/) for hosting images uploaded by users, you should create a cloudinary app and set the relavant keys in the `.env` file
+
+```bash
+CLOUDINARY_API_KEY=
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_SECRET=
+```
+
+#### Algolia
+
+You can set up Laravel Scout with Algolia for search by adding the relevant keys to the `.env` file
+
+```bash
+SCOUT_QUEUE=true    
+SCOUT_DRIVER=algolia
+ALGOLIA_APP_ID=
+ALGOLIA_SECRET=
+ALGOLIA_SEARCH=
+```
+
 ## Background
 
 ## Core Content Models
