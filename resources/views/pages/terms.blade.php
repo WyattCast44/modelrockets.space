@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page-title', 'Terms & Conditions')
+
 @section('content')
 
 <header class="flex flex-col py-12 bg-gray-200 border-b border-gray-300 border-solid">
