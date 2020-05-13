@@ -4,7 +4,7 @@
 
 @section('content')
 
-<header class="flex flex-col pt-16 pb-20 bg-gray-200 border-b border-gray-300 border-solid">
+<header class="flex flex-col pt-12 pb-24 bg-gray-200 border-b border-gray-300 border-solid">
     <div class="container">
 
         <h1 class="mb-3 text-4xl text-center">All Public Members</h1>
