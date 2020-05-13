@@ -21,9 +21,6 @@ Route::delete('/members/@{user}/flights/{flight}', 'FlightsController@delete')->
 
 // Articles...
 Route::view('/articles', 'articles.index')->name('articles.index');
-
-// Route::get('/articles', 'ArticlesController@index')->name('articles.index');
-Route::get('/articles/search', 'ArticlesSearchController')->name('articles.search');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');

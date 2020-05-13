@@ -39,10 +39,15 @@ class Index extends Component
     public function articles()
     {
         if ($this->search == '') {
-            $articles = Article::published()->paginate($this->perPage);
+            $articles = Article::published()
+                            ->latest()
+                            ->paginate($this->perPage);
         } else {
-            $articles = Article::search($this->search)->paginate($this->perPage);
+            $articles = Article::search($this->search)                            
+                            ->paginate($this->perPage);            
         }
+
+        $articles->load(['user']);
 
         return $articles;
     }

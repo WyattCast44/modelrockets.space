@@ -8,12 +8,8 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Article::published()
-                    ->latest()
-                    ->with(['user'])
-                    ->paginate(8);
-
-        return view('articles.index', ['articles' => $articles]);
+        // Data loaded via Livewire
+        return view('articles.index');
     }
 
     public function show(Article $article)
