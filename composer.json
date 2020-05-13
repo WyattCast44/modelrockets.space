@@ -40,7 +40,8 @@
         "mockery/mockery": "^1.3",
         "mpociot/laravel-test-factory-helper": "^2.1",
         "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^9.1",
+        "wnx/laravel-stats": "^2.2"
     },
     "config": {
         "optimize-autoloader": true,

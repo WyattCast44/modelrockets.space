@@ -16,8 +16,7 @@ return [
      */
     'exclude' => [
         base_path('app/Nova'),
-        // base_path('app/helpers.php'),
-        // base_path('app/Services'),
+        base_path('app/helpers.php'),
     ],
 
     /*
@@ -56,6 +55,7 @@ return [
         'Illuminate',
         'Symfony',
         'App\Nova',
+        'Laravel'
     ],
 
 ];
