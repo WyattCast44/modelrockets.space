@@ -26,8 +26,7 @@ Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')-
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
 
 // Roadmap...
-Route::get('/roadmap', 'FeaturesController@index')->name('features.index');
-Route::post('/roadmap/{feature}/upvote', 'FeatureUpvotesController')->name('features.upvote');
+Route::livewire('/roadmap', 'features.index')->name('features.index');
 
 // Forum...
 Route::get('/forum', 'ForumController')->name('forum.index');

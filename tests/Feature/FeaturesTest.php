@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire;
 use App\Feature;
+use Tests\TestCase;
+use App\Http\Livewire\Features\Index;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FeaturesTest extends TestCase
 {
@@ -16,7 +18,7 @@ class FeaturesTest extends TestCase
         $feature = create(Feature::class);
 
         // And we are signed in
-        $this->signIn();
+        $user = $this->signIn();
 
         // And we visit the features page
         $res = $this->get(route('features.index'));
@@ -24,14 +26,11 @@ class FeaturesTest extends TestCase
         // It should be okay
         $res->assertOk();
 
-        // We should see an "upvote" btn
-        $res->assertSee('Upvote');
-
-        // And when we "upvote" the feature
-        $res = $this->post(route('features.upvote', $feature));
-
-        // We should be redirected back to the features index
-        $res->assertRedirect(route('features.index'));
+        // We should see a upvote button and when we click it, 
+        // it should call the upvote action
+        Livewire::test(Index::class)
+            ->assertSee('Upvote')
+            ->call('upvote', $feature->id);
 
         // And the feature should have one upvote
         $this->assertEquals(1, $feature->refresh()->votes->count());
@@ -49,13 +48,10 @@ class FeaturesTest extends TestCase
         $res->assertOk();
 
         // We should see a login to vote btn
-        $res->assertSee('Login to vote');
-
-        // If we try to "upvote" the feature
-        $res = $this->post(route('features.upvote', $feature));
-
-        // We should be redirected to the login page
-        $res->assertRedirect('login');
+        Livewire::test(Index::class)
+            ->assertSee('Login to vote')
+            ->call('upvote', $feature->id)
+            ->assertRedirect('/login');
 
         // And the feature should have no upvotes
         $this->assertEquals(0, $feature->refresh()->votes->count());

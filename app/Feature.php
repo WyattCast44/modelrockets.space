@@ -25,6 +25,10 @@ class Feature extends Model
             $user = auth()->user();
         }
 
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
         $this->votes()->firstOrCreate([
             'user_id' => $user->id,
         ]);
