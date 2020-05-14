@@ -29,7 +29,9 @@
     <nav class="flex hidden text-lg md:block">
 
         @guest
-            <a href="#login" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>
+            <a href="{{ route('login') }}" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline">
+                Login
+            </a>
             <a href="#register" class="p-1 mx-2 text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>
         @endguest
 

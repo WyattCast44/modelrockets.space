@@ -60,7 +60,7 @@
                             @endauth
                             
                             @guest
-                                <a href="#login" class="text-sm" data-turbolinks="false">Login to vote</a>
+                                <a href="{{ route('login') }}" class="text-sm">Login to vote</a>
                             @endguest
                             
                         </div>

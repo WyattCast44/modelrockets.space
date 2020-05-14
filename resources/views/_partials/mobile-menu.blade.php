@@ -8,18 +8,20 @@
         <a href="{{ route('users.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Members</a>
         <a href="{{ route('search.index') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">Search</a>
 
-        <div class="flex mt-3 text-center justify-center items-center">
+        <div class="flex items-center justify-center mt-3 text-center">
             @auth
                 <a href="{{ route('users.show', auth()->user()) }}" class="block p-3 text-xl text-white hover:text-white hover:underline">My Profile</a>        
                 <form action="{{ route('logout') }}" method="post" class="inline-block">
                     @csrf
-                    <button type="submit" class="mx-2 p-1 text-white hover:text-white hover:underline text-lg">Logout</button>
+                    <button type="submit" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline">Logout</button>
                 </form>
             @endauth
 
             @guest
 
-                <a href="#login" class="block p-3 text-xl text-white hover:text-white hover:underline" data-turbolinks="false">Login</a>        
+                <a href="{{ route('login') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">
+                    Login
+                </a>        
                 <a href="#register" class="block p-3 text-xl text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>        
 
             @endguest

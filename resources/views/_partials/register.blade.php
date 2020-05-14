@@ -1,6 +1,6 @@
 @modal(['name' => 'register'])
 
-    <h2 class="text-2xl font-semibold mb-4 uppercase">Register</h2>
+    <h2 class="mb-4 text-2xl font-semibold uppercase">Register</h2>
 
     <form method="POST" action="{{ route('register') }}" data-controller="register">
 
@@ -67,9 +67,11 @@
         </div>
         
         <!-- Submit -->
-        <div class="form-group mb-0 flex items-center justify-end">
+        <div class="flex items-center justify-end mb-0 form-group">
             
-            <a href="#login" class="btn btn-link mr-2" data-turbolinks="false">Login</a>
+            <a href="{{ route('login') }}" class="mr-2 btn btn-link">
+                Login
+            </a>
             
             <button type="submit" class="btn btn-primary">
                 {{ __('Register') }}
