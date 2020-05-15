@@ -6,7 +6,7 @@
 
 <div class="flex flex-col justify-center py-12 bg-gray-50 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <img class="w-auto h-12 mx-auto"
+        <img class="w-auto h-24 mx-auto"
              src="{{ asset('logo.png') }}"
              alt="Workflow" />
         <h2 class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="px-4 py-8 bg-gray-100 border border-gray-400 shadow sm:rounded-lg sm:px-10">
+        <div class="px-4 py-8 border border-gray-400 shadow-lg bg-gray-50 sm:rounded-lg sm:px-10">
             <form action="{{ route('login') }}"
                   method="POST">
 
@@ -31,7 +31,8 @@
                                name="email"
                                type="email"
                                required
-                               class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
+                               autofocus
+                               class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-400 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
                 </div>
 
@@ -45,17 +46,18 @@
                                type="password"
                                name="password"
                                required
-                               class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
+                               class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-400 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
                 </div>
 
                 <div class="flex items-center justify-between mt-6">
                     <div class="flex items-center">
-                        <input id="remember_me"
+                        <input id="remember"
+                               name="remember"
                                type="checkbox"
                                class="w-4 h-4 text-indigo-600 transition duration-150 ease-in-out form-checkbox" />
-                        <label for="remember_me"
-                               class="block ml-2 text-sm leading-5 text-gray-900">
+                        <label for="remember"
+                               class="block mt-1 ml-2 text-sm leading-none leading-5 text-gray-900">
                             Remember me
                         </label>
                     </div>
@@ -71,7 +73,7 @@
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">
                         <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-indigo-700 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-900 focus:shadow-xl focus:shadow-outline-indigo active:bg-indigo-700 hover:shadow-xl">
                             Sign in
                         </button>
                     </span>
