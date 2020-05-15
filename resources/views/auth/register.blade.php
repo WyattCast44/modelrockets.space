@@ -14,7 +14,7 @@
         </h2>
     </div>
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="mx-5 mt-8 sm:mx-0 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="px-4 py-8 border border-gray-400 shadow-lg bg-gray-50 sm:rounded-lg sm:px-10">
             <form action="{{ route('login') }}"
                   method="POST">

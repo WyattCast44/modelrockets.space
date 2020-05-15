@@ -4,8 +4,4 @@
 
     @yield('content')
 
-    @guest
-        @include('_partials.register')
-    @endguest
-
 @endsection
