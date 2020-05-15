@@ -113,6 +113,18 @@ class Board extends Model implements Feedable
     }
 
     /**
+     * Scout
+     */
+    public function searchableAs()
+    {
+        if (app()->environment('production')) {
+            return 'boards_index';
+        }
+
+        return 'boards_index_dev';
+    }
+
+    /**
      * Misc/Helpers
      */
     public function path($method = 'show', $absolute = true)

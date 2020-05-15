@@ -139,6 +139,15 @@ class Article extends Model implements Feedable, ActivityFeedable
     /**
      * Scout
      */
+    public function searchableAs()
+    {
+        if (app()->environment('production')) {
+            return 'articles_index';
+        }
+
+        return 'articles_index_dev';
+    }
+
     public function shouldBeSearchable()
     {
         return $this->published;

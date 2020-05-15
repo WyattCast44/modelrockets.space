@@ -24,7 +24,7 @@ class ResyncSearchableModels extends Command
      *
      * @var string
      */
-    protected $description = 'Update the Laravel Scout sync';
+    protected $description = 'Sync searchable models with Algolia';
 
     protected $searchable = [
         Article::class,
@@ -34,16 +34,6 @@ class ResyncSearchableModels extends Command
         Playlist::class,
         Video::class,
     ];
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
      * Execute the console command.

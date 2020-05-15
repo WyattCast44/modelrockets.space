@@ -97,6 +97,15 @@ class Playlist extends Model implements ActivityFeedable
     /**
      * Scout
      */
+    public function searchableAs()
+    {
+        if (app()->environment('production')) {
+            return 'playlists_index';
+        }
+
+        return 'playlists_index_dev';
+    }
+
     public function shouldBeSearchable()
     {
         return $this->published;

@@ -96,6 +96,18 @@ class Thread extends Model implements ActivityFeedable
     }
 
     /**
+     * Scout
+     */
+    public function searchableAs()
+    {
+        if (app()->environment('production')) {
+            return 'threads_index';
+        }
+
+        return 'threads_index_dev';
+    }
+
+    /**
      * Misc
      */
     public function repliesPath($method = 'create', $parentId = null)

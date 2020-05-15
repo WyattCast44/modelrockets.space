@@ -49,6 +49,15 @@ class Video extends Model
     /**
      * Scout
      */
+    public function searchableAs()
+    {
+        if (app()->environment('production')) {
+            return 'videos_index';
+        }
+
+        return 'video_index_dev';
+    }
+
     public function shouldBeSearchable()
     {
         return $this->published;

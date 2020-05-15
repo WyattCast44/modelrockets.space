@@ -175,6 +175,15 @@ class User extends Authenticatable
     /**
      * Scout
      */
+    public function searchableAs()
+    {
+        if (app()->environment('production')) {
+            return 'users_index';
+        }
+
+        return 'users_index_dev';
+    }
+
     public function shouldBeSearchable()
     {
         return $this->public;
