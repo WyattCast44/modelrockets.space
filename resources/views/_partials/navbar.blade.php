@@ -32,7 +32,9 @@
             <a href="{{ route('login') }}" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline">
                 Login
             </a>
-            <a href="#register" class="p-1 mx-2 text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>
+            <a href="{{ route('register') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">
+                Register
+            </a>
         @endguest
 
         @auth

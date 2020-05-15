@@ -6,8 +6,8 @@ Route::feeds('rss');
 
 // Pages...
 Route::get('/', 'DashboardController')->name('home');
-Route::view('/pages/terms', 'pages.terms');
-Route::view('/pages/privacy', 'pages.privacy');
+Route::view('/pages/terms', 'pages.terms')->name('pages.terms');
+Route::view('/pages/privacy', 'pages.privacy')->name('pages.privacy');
 
 // Members...
 Route::get('/members', 'UsersController@index')->name('users.index');

@@ -21,8 +21,11 @@
 
                 <a href="{{ route('login') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">
                     Login
+                </a>     
+                   
+                <a href="{{ route('register') }}" class="block p-3 text-xl text-white hover:text-white hover:underline">
+                    Register
                 </a>        
-                <a href="#register" class="block p-3 text-xl text-white hover:text-white hover:underline" data-turbolinks="false">Register</a>        
 
             @endguest
         </div>
