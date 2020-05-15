@@ -10,6 +10,11 @@ function markdown($path)
     return $content;
 }
 
+function parseMarkdown($content) 
+{
+    return Markdown::parse($content);
+}
+
 function applyActive($route_name) // 'data.motors.*
 {
     $currentRouteName = Route::current()->getName();

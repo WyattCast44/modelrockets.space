@@ -158,7 +158,7 @@ class Article extends Model implements Feedable, ActivityFeedable
         return [
             'title' => $this->title,
             'subtitle' => $this->subtitle,
-            'body' => strip_tags($this->body->toHtml()),
+            'body' => strip_tags($this->body),
         ];
     }
 
