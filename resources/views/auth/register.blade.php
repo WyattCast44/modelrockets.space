@@ -16,7 +16,7 @@
 
     <div class="mx-5 mt-8 sm:mx-0 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="px-4 py-8 border border-gray-400 shadow-lg bg-gray-50 sm:rounded-lg sm:px-10">
-            <form action="{{ route('login') }}"
+            <form action="{{ route('register') }}"
                   method="POST">
 
                 @honeypot
@@ -33,8 +33,13 @@
                                type="email"
                                required
                                autofocus
+                               value="{{ old('email') }}"
                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-400 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
+
+                    @error('email')
+                        <span class="mt-1 text-sm text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -47,8 +52,13 @@
                                type="text"
                                name="username"
                                required
+                               value="{{ old('username') }}"
                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-400 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
+
+                    @error('username')
+                        <span class="mt-1 text-sm text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -63,6 +73,10 @@
                                required
                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-400 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
+
+                    @error('password')
+                        <span class="mt-1 text-sm text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -77,12 +91,16 @@
                                required
                                class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-400 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
+
+                    @error('password_confirmation')
+                        <span class="mt-1 text-sm text-red-600">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="flex items-center justify-between mt-6">
                     <div class="flex items-center">
-                        <input id="terms"
-                               name="terms"
+                        <input id="accept_terms"
+                               name="accept_terms"
                                type="checkbox"
                                class="w-4 h-4 text-indigo-600 transition duration-150 ease-in-out form-checkbox" />
                         <label for="remember"
@@ -91,6 +109,12 @@
                         </label>
                     </div>
                 </div>
+
+                @error('accept_terms')
+                    <span class="mt-1 text-sm text-red-600">
+                        You must accept the terms and conditions
+                    </span>
+                @enderror
 
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">

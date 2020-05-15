@@ -14,17 +14,20 @@
                     @foreach($users as $user)
                     
                         <div class="justify-center px-3 py-4 rounded w-100 md:w-1/3 md:justify-start hover:bg-gray-200">
-                            <div class="flex items-center h-12">
+                            <a href="{{ route('users.show', $user) }}" class="block hover:no-underline">
+                                
+                                <div class="flex items-center h-12">
             
-                                <img src="{{  $user->gravatar }}" alt="{{ $user->username }}" class="w-10 mr-3 rounded-full">
+                                    <img src="{{  $user->gravatar }}" alt="{{ $user->username }}" class="w-10 mr-3 rounded-full">
             
-                                <div>
-                                    <a href="{{ route('users.show', $user) }}" class="block">
+                                    <div>
                                         {{ '@' . $user->username }}
-                                    </a>
-                                    <p class="text-sm italic text-gray-600">Joined {{ $user->created_at->diffForHumans() }}</p>
+                                        <p class="text-sm italic text-gray-600">Joined {{ $user->created_at->diffForHumans() }}</p>
+                                    </div>
+                                    
                                 </div>
-                            </div>
+
+                            </a>
                         </div>   
             
                     @endforeach

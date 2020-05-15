@@ -1,15 +1,15 @@
 {
     "name": "threads",
     "schema": {
-        "id": "integer",
+        "id": "bigint",
         "title": "string",
         "body": "text",
-        "user_id": "integer",
-        "board_id": "integer",
+        "user_id": "bigint",
+        "board_id": "bigint",
         "open": "boolean",
-        "best_answer_reply_id": "integer",
-        "favorites": "integer",
-        "views": "integer",
+        "best_answer_reply_id": "bigint",
+        "favorites": "bigint",
+        "views": "bigint",
         "created_at": "datetime",
         "updated_at": "datetime"
     }
