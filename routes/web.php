@@ -60,6 +60,9 @@ Route::get('/learn/p/{playlist}/{video}', 'Learn\PlaylistVideosController@show')
 Route::get('/search', 'SearchController@show')->name('search.index');
 
 // Bamboozled
+Route::redirect('/.env', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 301);
+Route::redirect('/wp-login', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 301);
 Route::redirect('/wp-admin', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 301);
 Route::redirect('/phpmyadmin', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 301);
 Route::redirect('/wp-admin.php', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 301);
+Route::redirect('/wp-login.php', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 301);
