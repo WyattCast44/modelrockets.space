@@ -4,12 +4,12 @@
 
 @section('content')
 
-    <header class="flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-8 sm:py-10">
+    <header class="flex flex-col py-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10">
         <div class="container">
-            <h1 class="font-semibold text-3xl mb-2 text-center">
+            <h1 class="mb-2 text-3xl font-semibold text-center">
                 
                 @if (request()->has('q'))
-                    Search results for: <span class="italic font-medium bg-purple-200 px-2 leading-tight">{{ request()->query('q') }}</span>
+                    Search results for: <span class="px-2 italic font-medium leading-tight bg-purple-200">{{ request()->query('q') }}</span>
                 @else
                     Search the Site    
                 @endif
@@ -18,8 +18,8 @@
 
             <form action="{{ route('search.index') }}" method="get" class="my-4">
                 <div class="flex items-center">
-                    <input type="text" name="q" class="form-control m-0 focus:shadow-lg hover:shadow-lg rounded-r-none" placeholder="Search... Press '/' to focus..." value="{{ old('q') }}" id="search-input">
-                    <button type="submit" class="btn btn-outline-primary hover:shadow-lg rounded-l-none">Search</button>
+                    <input type="text" name="q" class="m-0 rounded-r-none form-control focus:shadow-lg hover:shadow-lg" placeholder="Search... Press '/' to focus..." value="{{ old('q') }}" id="search-input" autofocus>
+                    <button type="submit" class="rounded-l-none btn btn-outline-primary hover:shadow-lg">Search</button>
                 </div>
             </form>
 

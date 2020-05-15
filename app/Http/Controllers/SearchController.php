@@ -40,24 +40,4 @@ class SearchController extends Controller
             'results' => $results,
         ]);
     }
-
-    public function test(Request $request)
-    {
-        return view('search.index');
-
-        $term = $request->query('q');
-
-        $results = Thread::search($term)->get();
-        
-        dd($results);
-
-        $results = collect($this->searchable)->each(function ($model) use ($term) {
-            return resolve($model)->search($term)->get();
-        });
-    }
-
-    public function handle()
-    {
-        return back();
-    }
 }
