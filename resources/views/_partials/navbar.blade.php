@@ -2,7 +2,7 @@
 
     <nav class="flex items-center">
 
-        <h2 class="mr-4 text-base sm:text-lg md:text-xl">
+        <h2 class="mr-4 text-base tracking-tighter sm:text-lg md:text-xl">
             <a href="/" class="text-white hover:no-underline hover:text-white">
                 Model Rockets Space 🚀🌌
             </a>
