@@ -1,66 +1,62 @@
-@extends('layouts.app')
+<x-layout name="layouts.app" :title="$article->title" section="content">
 
-@section('page-title', $article->title)
+    <header class="flex flex-col py-8 mb-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10 md:py-12">
+        <div class="container">
 
-@section('content')
+            <a href="{{ route('articles.index') }}" class="inline-block mb-2 text-sm print:hidden">&leftarrow; Back to Articles</a>
 
-<header class="flex flex-col py-8 mb-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10 md:py-12">
-    <div class="container">
+            <h1 class="mb-3 text-2xl font-semibold sm:text-3xl md:text-4xl">{{ $article->title }}</h1>
 
-        <a href="{{ route('articles.index') }}" class="inline-block mb-2 text-sm print:hidden">&leftarrow; Back to Articles</a>
+            <h2 class="m-0">{{ $article->subtitle }}</p>
 
-        <h1 class="mb-3 text-2xl font-semibold sm:text-3xl md:text-4xl">{{ $article->title }}</h1>
-
-        <h2 class="m-0">{{ $article->subtitle }}</p>
-
-    </div>
-</header>
-
-<main class="container mx-auto mt-5 mb-12">
-
-    <!-- Actions -->
-    <div class="flex items-center justify-center mb-4 sm:mb-6 md:mb-8 md:justify-start print:hidden">
-
-        <!-- Print -->
-        <div x-data="{}">
-            <button class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false" x-on:click="window.print()">🖨️ Print</button>
         </div>
-        
-        <!-- Share -->
-        <a href="#share" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">📤 Share</a>
+    </header>
 
-        <x-share title="Article" ></x-share>
+    <main class="container mx-auto mt-5 mb-12">
 
-        <!-- Discuss -->
-        @if($article->thread_id <> null) 
-            <a href="{{ $article->path('discuss') }}" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
-        @endif
+        <!-- Actions -->
+        <div class="flex items-center justify-center mb-4 sm:mb-6 md:mb-8 md:justify-start print:hidden">
 
-        @include('articles._partials.favorite')
+            <!-- Print -->
+            <div x-data="{}">
+                <button class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false" x-on:click="window.print()">🖨️ Print</button>
+            </div>
+            
+            <!-- Share -->
+            <a href="#share" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">📤 Share</a>
 
-    </div>
+            <x-share title="Article" ></x-share>
 
-    <!-- Article Meta -->
-    <p class="my-1 text-sm text-center text-gray-500 md:mb-8 md:text-left">
+            <!-- Discuss -->
+            @if($article->thread_id <> null) 
+                <a href="{{ $article->path('discuss') }}" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
+            @endif
 
-        {{ ($article->hasBeenUpdated()) ? 'Posted ' : 'Updated ' }}
+            @include('articles._partials.favorite')
 
-        {{ $article->updated_at->diffForHumans() }} 
+        </div>
 
-        by
-        
-        <a href="{{ route('users.show', $article->user) }}">
-            {{ '@' . $article->user->username }}
-        </a>
-    </p>
+        <!-- Article Meta -->
+        <p class="my-1 text-sm text-center text-gray-500 md:mb-8 md:text-left">
 
-    <!-- Article Body -->
-    <article class="markdown-body">
-        
-        {!! $article->body !!}
-        
-    </article>
+            {{ ($article->hasBeenUpdated()) ? 'Posted ' : 'Updated ' }}
 
-</main>
+            {{ $article->updated_at->diffForHumans() }} 
 
-@endsection
+            by
+            
+            <a href="{{ route('users.show', $article->user) }}">
+                {{ '@' . $article->user->username }}
+            </a>
+        </p>
+
+        <!-- Article Body -->
+        <article class="markdown-body">
+            
+            {!! $article->body !!}
+            
+        </article>
+
+    </main>
+
+</x-layout>
