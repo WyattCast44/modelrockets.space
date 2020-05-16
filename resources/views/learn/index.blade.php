@@ -60,7 +60,7 @@
                                     {{ $playlist->name }}
                                 </h3>
                                 <p class="mt-3 text-base leading-6 text-gray-500">
-                                    {{ $playlist->description }}
+                                    {{ Str::limit($playlist->description, 150) }}
                                 </p>
                             </a>
                         </div>
