@@ -7,16 +7,12 @@ use App\Http\Controllers\Controller;
 
 class LearnCenterDashboardController extends Controller
 {
-    public function __construct()
-    {
-        //
-    }
-
     public function __invoke()
     {
         $playlists = Playlist::published()
             ->featured()
-            ->take(3)
+            ->with(['videos'])
+            ->orderBy('updated_at', 'desc')
             ->get();
 
         return view('learn.index', [

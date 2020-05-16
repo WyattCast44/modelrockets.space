@@ -39,6 +39,10 @@ class Playlist extends Model implements ActivityFeedable
      */
     public function publish()
     {
+        if ($this->videos->count() == 0) {
+            return false;
+        }
+        
         event(new PlaylistPublished($this));
             
         return $this->update([

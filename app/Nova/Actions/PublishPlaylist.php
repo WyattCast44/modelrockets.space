@@ -23,9 +23,12 @@ class PublishPlaylist extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        collect($models)->each(function ($playlist) {
-            $playlist->publish();
-        });
+        foreach ($models as $playlist) {
+            if (! $playlist->publish()) {
+                return Action::danger('Could not publish playlist, you must add at least one video!');
+            }
+        }
+
 
         return Action::message('Playlist(s) published!');
     }
