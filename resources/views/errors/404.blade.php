@@ -4,19 +4,23 @@
 
 @section('content')
 
-<div class="relative">
-    <div 
-        class="absolute h-screen top-0 bottom-0 right-0 left-0 bg-purple-700 flex justify-center items-center"
-        style="background-image: url({{ asset('404.jpg') }}); background-size:cover; background-position:center;"
-    >
-
-        <div>
-            <h1 class="text-white text-center text-5xl bg-gray-800 p-4" style="opacity:.85;">
-                404... You have entered unknown space!
-            </h1>
-        </div>
-
+<header class="flex flex-col py-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10">
+    <div class="container">
+        <h1 class="mb-2 text-3xl font-semibold text-center">
+            
+            404... You have entered unknown space!
+            
+        </h1>
     </div>
+</header>
+
+
+<div class="container my-16">
+
+    <div class="flex items-center justify-center mt-10">
+        @svg('404', 'h-64')
+    </div>
+
 </div>
 
 @endsection
