@@ -19,9 +19,9 @@
     <div class="flex items-center justify-center mb-4 sm:mb-6 md:mb-8 md:justify-start print:hidden">
 
         <!-- Print -->
-        <div data-controller="print">
-            <a href="#" class="mr-2 btn btn-outline-primary btn-sm" data-action="print#handle" data-turbolinks="false">🖨️ Print</a>
-        </div>
+        <div x-data>
+            <button class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false" x-on:click="window.print()">🖨️ Print</button>
+        </div>  
         
         <!-- Share -->
         <a href="#share" class="btn btn-outline-primary btn-sm" data-turbolinks="false">📤 Share</a>
