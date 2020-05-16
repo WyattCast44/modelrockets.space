@@ -1,4 +1,9 @@
 module.exports = {
+    purge: [
+        './resources/views/**/*.blade.php',
+        './resources/sass/**/*.scss',
+        './resources/js/**/*.js',
+    ],
     theme: {
         container: {
             center: true
@@ -6,10 +11,11 @@ module.exports = {
         extend: {
             screens: {
                 print: { raw: "print" }
-                // => @media  print { ... }
             }
         }
     },
     variants: {},
-    plugins: []
+    plugins: [
+        require('@tailwindcss/ui'),
+    ]
 };
