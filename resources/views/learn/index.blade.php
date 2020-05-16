@@ -32,7 +32,7 @@
             </h2>
         </div>
 
-        <div class="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
+        <div class="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-2 lg:max-w-none">
 
             @foreach($featuredPlaylists as $playlist)
 
@@ -48,12 +48,12 @@
                     <!-- Card -->
                     <div class="flex flex-col justify-between flex-1 p-6">
                         <div class="flex-1">
-                            <p class="text-sm font-medium leading-5 text-indigo-600">
+                            {{-- <p class="text-sm font-medium leading-5 text-indigo-600">
                                 <a href="#"
                                 class="hover:underline">
                                     Blog
                                 </a>
-                            </p>
+                            </p> --}}
                             <a href="{{ $playlist->path('show') }}"
                             class="block">
                                 <h3 class="mt-2 text-xl font-semibold leading-7 text-gray-900">
@@ -65,14 +65,7 @@
                             </a>
                         </div>
                         <div class="flex items-center mt-6">
-                            <div class="flex-shrink-0">
-                                <a href="#">
-                                    <img class="w-10 h-10 rounded-full"
-                                        src="{{ $playlist }}"
-                                        alt="" />
-                                </a>
-                            </div>
-                            <div class="ml-3">
+                            <div>
                                 <p class="text-sm font-medium leading-5 text-gray-900">
                                     <a href="#"
                                     class="hover:underline">
