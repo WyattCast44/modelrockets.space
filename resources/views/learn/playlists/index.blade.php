@@ -4,13 +4,13 @@
 
 @section('content')
 
-<header class="mb-8 flex flex-col bg-gray-200 border-b border-solid border-gray-300 py-12">
+<header class="flex flex-col py-12 mb-8 bg-gray-200 border-b border-gray-300 border-solid">
     <div class="container flex">
-        <div class="mr-8 w-3/4">
-            <h1 class="font-semibold text-4xl mb-2">
+        <div class="w-3/4 mr-8">
+            <h1 class="mb-2 text-4xl font-semibold">
                 {{ $playlist->name }}
             </h1>
-            <p class="text-gray-700 text-lg">
+            <p class="text-lg text-gray-700">
                 {{ $playlist->description }}
             </p>    
             <div class="flex mt-5">
@@ -18,7 +18,7 @@
                 @if (auth()->check() && !auth()->user()->isSubscribedTo($playlist))
                     <form action="{{ route('learn.playlists.subscriptions.store', $playlist) }}" method="post">
                         @csrf
-                        <button type="submit" class="rounded-full uppercase text-sm px-4 py-3 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500 border border-solid">
+                        <button type="submit" class="px-4 py-3 text-sm uppercase bg-gray-100 border border-solid rounded-full hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500">
                             Subscribe to Series
                         </button>
                     </form>    
@@ -26,7 +26,7 @@
                     <form action="{{ route('learn.playlists.subscriptions.delete', $playlist) }}" method="post">
                         @csrf
                         @method("DELETE")
-                        <button type="submit" class="rounded-full uppercase text-sm px-4 py-3 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500 border border-solid">
+                        <button type="submit" class="px-4 py-3 text-sm uppercase bg-gray-100 border border-solid rounded-full hover:bg-blue-100 hover:text-blue-500 hover:border-blue-500">
                             Unsubscribe from Series
                         </button>
                     </form>   
@@ -35,8 +35,8 @@
                 
             </div>
         </div>
-        <div class="flex items-center justify-end">
-            <img src="{{ $playlist->imageUrl }}" alt="playlist cover image" class="rounded-lg h-48 w-48 shadow-lg">
+        <div class="flex items-center justify-end object-cover">
+            <img src="{{ $playlist->imageUrl }}" alt="playlist cover image" class="h-48 rounded-lg shadow-lg">
         </div>
     </div>
 </header>

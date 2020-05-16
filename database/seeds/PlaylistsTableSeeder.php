@@ -7,6 +7,6 @@ class PlaylistsTableSeeder extends BaseSeeder
 {
     public function dev()
     {
-        factory(Playlist::class, 8)->create();
+        factory(Playlist::class, 8)->states('withVideos')->create();
     }
 }

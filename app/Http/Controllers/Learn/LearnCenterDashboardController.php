@@ -13,6 +13,7 @@ class LearnCenterDashboardController extends Controller
             ->featured()
             ->with(['videos'])
             ->orderBy('updated_at', 'desc')
+            ->take(3)
             ->get();
 
         return view('learn.index', [
