@@ -6,12 +6,12 @@
         
             @foreach ($results as $resultName => $data)
 
-                <h2 class="font-medium mb-3 mt-10 text-xl">{{ $resultName }}</h2>               
+                <h2 class="mt-10 mb-3 text-xl font-medium">{{ $resultName }}</h2>               
 
                 <ul class="list-none">
                     @foreach ($data as $item)
-                        <li class="border bg-purple-200 p-4 my-2">
-                            {{ $item }}
+                        <li class="p-4 my-2 bg-purple-200 border">
+                            {{ $item->id }}
                         </li>
                     @endforeach
                 </ul>
@@ -22,7 +22,7 @@
 
         @if (request()->has('q'))
         
-            <p class="text-center text-gray-600 text-2xl">
+            <p class="text-2xl text-center text-gray-600">
                 Nothing to see here... Try searching again...
             </p>
     
@@ -32,7 +32,7 @@
 
         @else
 
-            <p class="text-center text-gray-600 text-2xl">
+            <p class="text-2xl text-center text-gray-600">
                 Try searching for something in the search box above...
             </p>
     
