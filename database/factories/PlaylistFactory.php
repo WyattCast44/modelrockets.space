@@ -1,11 +1,13 @@
+
 <?php
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use App\Video;
+use App\Playlist;
 use Faker\Generator as Faker;
 
-$factory->define(App\Playlist::class, function (Faker $faker) {
+$factory->define(Playlist::class, function (Faker $faker) {
     return [
         'name' => $faker->words(3, true),
         'description' => $faker->sentences(rand(2, 5), true),
@@ -17,6 +19,10 @@ $factory->define(App\Playlist::class, function (Faker $faker) {
     ];
 });
 
-$factory->afterCreating(App\Playlist::class, function ($playlist, $faker) {
+$factory->state(Playlist::class, 'withVideos', [
+    'meta' => null,
+]);
+
+$factory->afterCreatingState(Playlist::class, 'withVideos', function ($playlist, $faker) {
     $playlist->videos()->save(factory(Video::class)->make());
 });
