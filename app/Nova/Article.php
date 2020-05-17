@@ -75,14 +75,6 @@ class Article extends Resource
                 ->hideWhenUpdating()
                 ->readonly(),
 
-            Button::make('View')
-                ->link($this->path('show'))
-                ->visible($this->published_at != null),
-
-            Button::make('Preview')
-                ->link($this->path('preview'))
-                ->visible($this->published_at == null),
-
             DateTime::make('Published At')->sortable()
                 ->hideWhenCreating()
                 ->hideFromIndex(),
@@ -93,37 +85,55 @@ class Article extends Resource
         ];
     }
 
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function cards(Request $request)
+    public function fieldsForIndex(NovaRequest $request)
     {
-        return [];
-    }
+        return [
+            ID::make()->hideFromIndex(),
 
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function filters(Request $request)
-    {
-        return [];
-    }
+            BelongsTo::make('User')->sortable()
+                ->hideFromIndex(),
 
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    public function lenses(Request $request)
-    {
-        return [];
+            Text::make('Title')->sortable()
+                ->rules('required', 'max:255')
+                ->displayUsing(function ($title) {
+                    return Str::limit($title, 35);
+                })->sortable(),
+
+            Text::make('Subtitle')->sortable()
+                ->rules('required', 'max:255')
+                ->displayUsing(function ($subtitle) {
+                    return Str::limit($subtitle, 35);
+                }),
+
+            Text::make('Slug')->sortable()
+                ->rules('unique:articles,slug', 'max:255')
+                ->hideFromIndex()
+                ->hideWhenCreating()
+                ->rules('required'),
+
+            Boolean::make('Published')->sortable()
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->readonly(),
+
+            DateTime::make('Published At')->sortable()
+                ->hideWhenCreating()
+                ->hideFromIndex(),
+
+            Markdown::make('Body')
+                ->rules('required', 'string')
+                ->hideFromIndex(),
+                
+            Button::make('View')
+                ->link($this->path('show'))
+                ->visible($this->published_at != null)
+                ->hideWhenCreating(),
+    
+            Button::make('Preview')
+                ->link($this->path('preview'))
+                ->visible($this->published_at == null)
+                ->hideWhenCreating(),
+        ];
     }
 
     /**
