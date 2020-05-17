@@ -14,6 +14,14 @@
 
     <main class="container mx-auto mt-5 mb-12">
 
+        @if ($article->published_at == null)
+
+            <div class="p-3 mb-8 font-bold text-center text-red-600 bg-red-100 border-2 border-red-300 border-dashed rounded">
+                This is a preview only! You must publish the article for others to see it.
+            </div>
+            
+        @endif
+
         <!-- Actions -->
         <div class="flex items-center justify-center mb-4 sm:mb-6 md:mb-8 md:justify-start print:hidden">
 
@@ -34,7 +42,7 @@
 
             @include('articles._partials.favorite')
 
-        </div>
+        </div>        
 
         <!-- Article Meta -->
         <p class="my-1 text-sm text-center text-gray-500 md:mb-8 md:text-left">

@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use NovaButton\Button;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
@@ -73,6 +74,10 @@ class Article extends Resource
                 ->hideWhenCreating()
                 ->hideWhenUpdating()
                 ->readonly(),
+
+            Button::make('Preview')
+                ->link($this->path('preview'))
+                ->visible($this->published_at == null),
 
             DateTime::make('Published At')->sortable()
                 ->hideWhenCreating()

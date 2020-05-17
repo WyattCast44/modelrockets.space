@@ -6,6 +6,11 @@ use App\Article;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only('preview');
+    }
+
     public function index()
     {
         // Data loaded via Livewire
@@ -18,6 +23,17 @@ class ArticlesController extends Controller
             return abort(404);
         }
         
+        $article->load(['user']);
+
+        return view('articles.show', ['article' => $article]);
+    }
+
+    public function preview(Article $article)
+    {
+        if (!auth()->user()->superAdmin) {
+            return abort(403);
+        }
+
         $article->load(['user']);
 
         return view('articles.show', ['article' => $article]);

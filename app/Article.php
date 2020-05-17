@@ -193,6 +193,10 @@ class Article extends Model implements Feedable, ActivityFeedable
                 return route('articles.unfavorite', ['article' => $this], $absolute);
                 break;
 
+            case 'preview':
+                return route('articles.preview', ['article' => $this], $absolute);
+                break;
+
             default:
                 return route('articles.index', [], $absolute);
                 break;

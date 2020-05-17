@@ -62,8 +62,7 @@ class User extends Resource
                 ->sortable(),
 
             Boolean::make('Super Admin', 'superAdmin')
-                ->sortable()
-                ->readonly(),
+                ->sortable(),
 
             Password::make('Password')
                 ->onlyOnForms()

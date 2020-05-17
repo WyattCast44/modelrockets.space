@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c76f78ba4a7a708bf31519034c51a522",
+    "content-hash": "2c2394a1ce3036a6ae4eb3c27264acbb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -495,6 +495,46 @@
                 "sluggable"
             ],
             "time": "2020-04-07T03:18:54+00:00"
+        },
+        {
+            "name": "dillingham/nova-button",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dillingham/nova-button.git",
+                "reference": "05a03c9c2104a02e51edf840ac29c0a62363666a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dillingham/nova-button/zipball/05a03c9c2104a02e51edf840ac29c0a62363666a",
+                "reference": "05a03c9c2104a02e51edf840ac29c0a62363666a",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NovaButton\\Providers\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NovaButton\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Dillingham",
+                    "email": "bdillingham88@gmail.com"
+                }
+            ],
+            "description": "Nova button package",
+            "time": "2020-01-12T14:26:22+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
