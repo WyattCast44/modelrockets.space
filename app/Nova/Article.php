@@ -75,6 +75,10 @@ class Article extends Resource
                 ->hideWhenUpdating()
                 ->readonly(),
 
+            Button::make('View')
+                ->link($this->path('show'))
+                ->visible($this->published_at != null),
+
             Button::make('Preview')
                 ->link($this->path('preview'))
                 ->visible($this->published_at == null),
