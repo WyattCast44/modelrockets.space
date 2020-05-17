@@ -40,7 +40,7 @@ class Index extends Component
     {
         if ($this->search == '') {
             $articles = Article::published()
-                            ->orderBy('published_at')
+                            ->orderBy('published_at', 'desc')
                             ->paginate($this->perPage);
         } else {
             $articles = Article::search($this->search)  
