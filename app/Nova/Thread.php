@@ -4,6 +4,10 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Thread extends Resource
@@ -20,7 +24,7 @@ class Thread extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -28,7 +32,7 @@ class Thread extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'title',
     ];
 
     /**
@@ -41,6 +45,16 @@ class Thread extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Text::make('Title')->sortable(),
+
+            Textarea::make('Body'),
+
+            BelongsTo::make('User')->sortable(),
+
+            BelongsTo::make('Board')->sortable(),
+
+            Boolean::make('Open')->sortable(),  
         ];
     }
 

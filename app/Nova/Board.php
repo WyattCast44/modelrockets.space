@@ -25,7 +25,7 @@ class Board extends Resource
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -33,7 +33,7 @@ class Board extends Resource
      * @var array
      */
     public static $search = [
-        'title',
+        'name',
     ];
 
     /**
