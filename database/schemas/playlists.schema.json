@@ -1,7 +1,7 @@
 {
     "name": "playlists",
     "schema": {
-        "id": "bigint",
+        "id": "integer",
         "name": "string",
         "slug": "string",
         "published_at": "datetime",
@@ -9,7 +9,7 @@
         "updated_at": "datetime",
         "featured": "boolean",
         "image": "text",
-        "meta": "json",
+        "meta": "text",
         "description": "text"
     }
 }

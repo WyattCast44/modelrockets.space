@@ -250,10 +250,16 @@ class ArticlesTest extends TestCase
         $this->get($article->path('discuss'))
             ->assertOk();
 
+        $thread = $article->thread;
+
+        $this->assertNotNull($thread);
+
         // When we delete the article
         $article->delete();
 
-        // An article deleted event should be fired
-        Event::shouldReceive('fire')->with(new ArticleDeleted($article))->once();
+        Event::shouldReceive('fire')
+            ->with(new ArticleDeleted($article));
+
+        $this->assertDeleted($thread);
     }
 }
