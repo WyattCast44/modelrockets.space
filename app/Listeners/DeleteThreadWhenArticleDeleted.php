@@ -26,8 +26,6 @@ class DeleteThreadWhenArticleDeleted
      */
     public function handle(ArticleDeleted $event)
     {
-        $event->article->threads->each(function($thread) {
-            $thread->delete();
-        })
+        $event->article->thread->delete();
     }
 }
