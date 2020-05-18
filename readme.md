@@ -89,3 +89,7 @@ php artisan test
 ```
 
 There is a known issue when testing publishing articles, due to technical debt, when an article is published a thead is created in the `Article Discussions` board, but if this board and the `ArticlesBot` user does not yet exist, the thread will not be created, this will lead to unforeseen and difficult problems to debug. The solution right now is just to run `php artisan migrate:fresh --seed` which will create the board and user.
+
+## To Do 
+
+1. Create listener to delete old activity for publishing a deleted article
