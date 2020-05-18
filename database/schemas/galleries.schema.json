@@ -1,7 +1,7 @@
 {
     "name": "galleries",
     "schema": {
-        "id": "integer",
+        "id": "bigint",
         "created_at": "datetime",
         "updated_at": "datetime"
     }
