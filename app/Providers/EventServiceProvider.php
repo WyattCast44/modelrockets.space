@@ -3,20 +3,20 @@
 namespace App\Providers;
 
 use App\User;
+use App\Reply;
 use App\Thread;
+use App\Flight;
+use App\Playlist;
+use App\Attachment;
 use App\Observers\UserObserver;
+use App\Observers\ReplyObserver;
+use App\Observers\FlightObserver;
 use App\Observers\ThreadObserver;
+use App\Observers\PlaylistObserver;
+use App\Observers\AttachmentObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Reply;
-use App\Observers\ReplyObserver;
-use App\Flight;
-use App\Observers\FlightObserver;
-use App\Attachment;
-use App\Observers\AttachmentObserver;
-use App\Observers\PlaylistObserver;
-use App\Playlist;
 
 class EventServiceProvider extends ServiceProvider
 {

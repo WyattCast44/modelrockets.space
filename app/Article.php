@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Thread;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Illuminate\Support\Str;
 use App\Traits\Favoritable;
-use Laravel\Scout\Searchable;
+use Illuminate\Support\Str;
 use Illuminate\Mail\Markdown;
+use Laravel\Scout\Searchable;
 use App\Traits\HasAttachments;
 use App\Events\ArticlePublished;
 use App\Interfaces\ActivityFeedable;
@@ -182,6 +183,11 @@ class Article extends Model implements Feedable, ActivityFeedable
                 break;
             
             case 'discuss':
+                
+                logger('art', [
+                    'thread' => $this->thread,
+                ]);
+
                 return route('threads.show', ['board' => $this->thread->board, 'thread' => $this->thread], $absolute);
                 break;
 
