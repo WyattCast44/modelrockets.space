@@ -6,6 +6,9 @@ use App\User;
 use App\Board;
 use App\Article;
 use Tests\TestCase;
+use App\Events\ThreadDeleted;
+use App\Events\ArticleDeleted;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ArticlesTest extends TestCase
@@ -222,5 +225,35 @@ class ArticlesTest extends TestCase
         // And when we visit the discussion post for that article
         $this->get($article->path('discuss'))
             ->assertOk();
+    }
+
+    public function test_when_are_article_is_deleted_the_thread_is_also_deleted()
+    {
+        // Given we have an article
+        $article = create(Article::class);
+
+        // Given we have a board called 'Article Discussions' and the ArticlesBot Exists
+        $board = create(Board::class, ['name' => 'Article Discussions']);
+        
+        create(User::class, ['username' => 'ArticlesBot']);
+        
+        // And we publish it
+        $article->publish();
+
+        // And we the visit the article
+        $response = $this->get($article->path('show'));
+
+        // We should get a valid response
+        $response->assertStatus(200);
+
+        // And when we visit the discussion post for that article
+        $this->get($article->path('discuss'))
+            ->assertOk();
+
+        // When we delete the article
+        $article->delete();
+
+        // An article deleted event should be fired
+        Event::shouldReceive('fire')->with(new ArticleDeleted($article))->once();
     }
 }

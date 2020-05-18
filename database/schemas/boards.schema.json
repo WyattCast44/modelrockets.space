@@ -1,17 +1,17 @@
 {
     "name": "boards",
     "schema": {
-        "id": "bigint",
+        "id": "integer",
         "name": "string",
         "slug": "string",
         "description": "text",
         "public": "boolean",
         "password": "string",
-        "user_id": "bigint",
+        "user_id": "integer",
         "allow_new_public_threads": "boolean",
         "sticky": "boolean",
         "sticky_until": "datetime",
-        "meta": "json",
+        "meta": "text",
         "created_at": "datetime",
         "updated_at": "datetime"
     }

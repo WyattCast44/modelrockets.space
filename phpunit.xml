@@ -23,7 +23,6 @@
         </whitelist>
     </filter>
     <php>
-        <env name="TELESCOPE_ENABLED" value="false"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
         <server name="APP_ENV" value="testing"/>
         <server name="SCOUT_DRIVER" value="null"/>

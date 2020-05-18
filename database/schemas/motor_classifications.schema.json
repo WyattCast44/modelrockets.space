@@ -1,7 +1,7 @@
 {
     "name": "motor_classifications",
     "schema": {
-        "id": "bigint",
+        "id": "integer",
         "name": "string",
         "min_impulse": "string",
         "max_impulse": "string",
