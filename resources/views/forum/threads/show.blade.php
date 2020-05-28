@@ -53,9 +53,11 @@
                         <!-- Attachments -->
                         <div class="mt-5">
                             @foreach ($thread->attachments as $attachment)  
+
                                 <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                    <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="inline w-12 h-12 mx-1 border border-gray-700 border-solid rounded shadow-md hover:shadow-xl hover:border-blue-700">    
+                                    <img src="{{ $attachment->url_raw }}" class="inline w-12 h-12 mx-1 border border-gray-700 border-solid rounded shadow-md hover:shadow-xl hover:border-blue-700 glightbox">    
                                 </a>  
+                            
                             @endforeach
                         </div>
                     @endif
@@ -125,7 +127,7 @@
                                 <div class="mt-5">
                                     @foreach ($reply->attachments as $attachment)  
                                         <a href="{{ $attachment->url_raw }}" class="cursor-pointer hover:no-underline">
-                                            <img src="{{ $attachment->url_thumbnail }}" alt="Title" class="inline w-12 h-12 mx-1 mb-2 border border-gray-700 border-solid rounded shadow-md hover:shadow-lg">    
+                                            <img src="{{ $attachment->url_raw }}" class="inline w-12 h-12 mx-1 mb-2 border border-gray-700 border-solid rounded shadow-md hover:shadow-lg glightbox">    
                                         </a>  
                                     @endforeach
                                 </div>

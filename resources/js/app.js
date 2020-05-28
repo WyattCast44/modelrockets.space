@@ -21,3 +21,10 @@ import { definitionsFromContext } from "stimulus/webpack-helpers";
 const application = Application.start();
 const context = require.context("./controllers", true, /\.js$/);
 application.load(definitionsFromContext(context));
+
+/**
+ * LightBox
+ */
+import GLightbox from 'glightbox'
+
+const lightbox = GLightbox();
