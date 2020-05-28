@@ -31,9 +31,14 @@ class Attachment extends Model
         return $this->vendor_id;
     }
 
+    // public function getUrlRawAttribute()
+    // {
+    //     return "{$this->baseUrl}/{$this->filename}";
+    // }
+
     public function getUrlRawAttribute()
     {
-        return "{$this->baseUrl}/{$this->filename}";
+        return "{$this->baseUrl}/q_50,w_900,h_500,c_pad/{$this->filename}";
     }
 
     public function getUrlThumbnailAttribute()
