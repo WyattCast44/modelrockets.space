@@ -27,4 +27,6 @@ application.load(definitionsFromContext(context));
  */
 import GLightbox from 'glightbox'
 
-const lightbox = GLightbox();
+document.addEventListener("turbolinks:load", function () {
+    const lightbox = GLightbox();
+});
