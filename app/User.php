@@ -2,10 +2,11 @@
 
 namespace App;
 
+use App\Attachment;
+use Illuminate\Support\Arr;
 use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Arr;
 
 class User extends Authenticatable
 {
@@ -111,6 +112,11 @@ class User extends Authenticatable
         return $this->hasMany(Article::class);
     }
 
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class)->latest();
+    }
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
@@ -206,6 +212,10 @@ class User extends Authenticatable
 
             case 'show':
                 return route('users.show', $this, $absolute);
+                break;
+
+            case 'gallery':
+                return route('users.gallery.index', $this, $absolute);
                 break;
             
             default:

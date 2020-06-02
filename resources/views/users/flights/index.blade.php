@@ -12,22 +12,22 @@
         
         <ul>
 
-            @foreach ($flightGroups as $date => $flights)
+            @forelse ($flightGroups as $date => $flights)
     
                 <!-- Date Groups -->
                 <li class="mb-5">
                     
                     <!-- Date Group Label -->
-                    <span class="rounded border border-solid border-gray-300 bg-gray-100 px-3 py-2 text-gray-700">{{ $date }}</span>
+                    <span class="px-3 py-2 text-gray-700 bg-gray-100 border border-gray-300 border-solid rounded">{{ $date }}</span>
         
                     <!-- Activites on date -->
-                    <ul class="my-6 border-l border-solid border-gray-300 ml-5">
+                    <ul class="my-6 ml-5 border-l border-gray-300 border-solid">
         
                         @foreach($flights as $flight)
     
-                            <li class="p-4 pl-6 md:pl-16 mb-4">
+                            <li class="p-4 pl-6 mb-4 md:pl-16">
     
-                                <h3 class="rounded bg-indigo-100 border border-solid border-indigo-300 p-3 text-lg font-semibold mb-4">
+                                <h3 class="p-3 mb-4 text-lg font-semibold bg-indigo-100 border border-indigo-300 border-solid rounded">
                                     
                                     <a href="{{ $flight->path('show') }}">
                                         {{ $flight->rocket }}
@@ -46,8 +46,17 @@
                     </ul>
                     
                 </li>
+
+            @empty
+
+                <li>
+                    <div class="flex flex-col items-center justify-center px-10 border-4 border-gray-700 border-dashed">
+                        <h2 class="mb-8 text-3xl font-semibold text-gray-500">{{ $user->username }} hasn't logged any flight yet</h2>
+                        @svg('no-flights', 'w-64 h-64')
+                    </div>
+                </li>
     
-            @endforeach
+            @endforelse
             
         </ul>
 

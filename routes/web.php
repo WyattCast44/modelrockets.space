@@ -19,6 +19,11 @@ Route::get('/members/@{user}/flights/create', 'FlightsController@create')->name(
 Route::get('/members/@{user}/flights/{flight}', 'FlightsController@show')->name('flights.show');
 Route::delete('/members/@{user}/flights/{flight}', 'FlightsController@delete')->name('flights.delete');
 
+// Member Gallery
+if (config('features.user-galleries')) {
+    Route::get('/members/@{user}/gallery', 'UserGalleryController@index')->name('users.gallery.index');
+}
+
 // Articles...
 Route::view('/articles', 'articles.index')->name('articles.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');

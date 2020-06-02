@@ -47,6 +47,13 @@
             <li class="nav-item">
                 <a class="nav-link {{ applyActive('flights.*') }}" href="{{ route('flights.index', $user) }}">Flight Log</a>
             </li>
+
+            @if(config('features.user-galleries'))
+                <li class="nav-item">
+                    <a class="nav-link {{ applyActive('users.gallery.*') }}" href="{{ $user->path('gallery') }}">Gallery</a>
+                </li>
+            @endif
+
         </ul>
 
     </nav>
