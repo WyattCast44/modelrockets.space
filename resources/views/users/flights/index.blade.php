@@ -51,7 +51,7 @@
 
                 <li>
                     <div class="flex flex-col items-center justify-center px-10 border-4 border-gray-700 border-dashed">
-                        <h2 class="mb-8 text-3xl font-semibold text-gray-500">{{ $user->username }} hasn't logged any flight yet</h2>
+                        <h2 class="mb-8 text-3xl font-semibold text-center text-gray-500">{{ $user->username }} hasn't logged any flight yet</h2>
                         @svg('no-flights', 'w-64 h-64')
                     </div>
                 </li>
