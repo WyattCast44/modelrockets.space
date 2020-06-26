@@ -43,4 +43,32 @@ class PagesTest extends TestCase
 
         $response->assertOk();
     }
+
+    public function test_terms_is_accessible()
+    {
+        $response = $this->get('/pages/terms');
+
+        $response->assertOk();
+    }
+
+    public function test_privacy_is_accessible()
+    {
+        $response = $this->get('/pages/privacy');
+
+        $response->assertOk();
+    }
+
+    public function test_login_is_accessible()
+    {
+        $response = $this->get('/login');
+
+        $response->assertOk();
+    }
+
+    public function test_register_is_accessible()
+    {
+        $response = $this->get('/register');
+
+        $response->assertOk();
+    }
 }

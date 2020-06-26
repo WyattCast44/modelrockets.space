@@ -28,6 +28,8 @@
         
         <x-share title="Privacy Policy" ></x-share>
 
+        <a href="https://github.com/WyattCast44/modelrockets.space/blob/master/resources/views/pages/_content/privacy.md" target="_blank" class="ml-2 btn btn-outline-primary btn-sm" data-turbolinks="false">📝 Edit on GitHub</a>
+        
     </div>
 
     <!-- Meta -->

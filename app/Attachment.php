@@ -45,4 +45,9 @@ class Attachment extends Model
     {
         return "{$this->baseUrl}/c_fit,c_thumb,h_50,w_50/{$this->filename}";
     }
+
+    public function getUrlMediumAttribute()
+    {
+        return "{$this->baseUrl}/c_fit,c_thumb,h_200,w_200/{$this->filename}";
+    }
 }
