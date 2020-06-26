@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="flex flex-col justify-center py-12 bg-gray-50 sm:px-6 lg:px-8">
+<div class="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <img class="w-auto h-24 mx-auto"
              src="{{ asset('logo.png') }}"
@@ -105,7 +105,7 @@
                                class="w-4 h-4 text-indigo-600 transition duration-150 ease-in-out form-checkbox" />
                         <label for="remember"
                                class="block mt-1 ml-2 text-sm leading-none leading-5 text-gray-900">
-                            Agree to <a href="{{ route('pages.terms') }}">Terms and Conditions</a>
+                            I Agree to <a href="{{ route('pages.terms') }}">Terms and Conditions</a> and <a href="{{ route('pages.privacy') }}">Privacy Policy</a>
                         </label>
                     </div>
                 </div>

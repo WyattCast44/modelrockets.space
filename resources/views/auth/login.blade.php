@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="flex flex-col justify-center py-12 bg-gray-50 sm:px-6 lg:px-8">
+<div class="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <img class="w-auto h-24 mx-auto"
              src="{{ asset('logo.png') }}"

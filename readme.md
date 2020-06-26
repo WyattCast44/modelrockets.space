@@ -23,7 +23,7 @@ cd modelrockets
 Make sure you set your local credentials in your .env file.
 
 ```bash
-cp .env .example .env
+cp .env.example .env
 ```
 
 #### Install Composer dependencies
@@ -42,6 +42,10 @@ yarn install
 
 ```bash
 yarn dev
+
+# or
+
+yarn watch
 ```
 
 #### Migrate the Database 
