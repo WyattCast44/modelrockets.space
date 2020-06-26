@@ -3,13 +3,12 @@
     <nav class="flex items-center">
 
         <h2 class="mr-4 text-base tracking-tighter sm:text-lg md:text-xl">
-            <a href="/" class="text-white hover:no-underline hover:text-white">
-                Model Rockets Space 🚀🌌
+            <a href="{{ route('home') }}" class="text-white hover:no-underline hover:text-white">
+                Model Rockets Space 🚀
             </a>
         </h2>
 
         <nav class="hidden text-lg md:block">
-            {{-- <a href="/" class="p-1 mx-2 text-white hover:text-white hover:underline">Home</a> --}}
             <a href="{{ route('forum.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Forum</a>
             <a href="{{ route('learn.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Learn</a>
             <a href="{{ route('articles.index') }}" class="p-1 mx-2 text-white hover:text-white hover:underline">Articles</a>
@@ -26,7 +25,7 @@
         </a>
     </div>
 
-    <nav class="flex hidden text-lg md:block">
+    <nav class="hidden text-lg md:block">
 
         @guest
             <a href="{{ route('login') }}" class="p-1 mx-2 text-lg text-white hover:text-white hover:underline">
