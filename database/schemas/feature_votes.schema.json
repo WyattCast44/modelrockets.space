@@ -1,9 +1,9 @@
 {
     "name": "feature_votes",
     "schema": {
-        "id": "integer",
-        "user_id": "integer",
-        "feature_id": "integer",
+        "id": "bigint",
+        "user_id": "bigint",
+        "feature_id": "bigint",
         "created_at": "datetime",
         "updated_at": "datetime"
     }

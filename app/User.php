@@ -219,7 +219,7 @@ class User extends Authenticatable
                 break;
             
             default:
-                # code...
+                return route('users.index', [], $absolute);
                 break;
         }
     }
