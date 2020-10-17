@@ -59,7 +59,7 @@
         </p>
 
         <!-- Article Body -->
-        <article class="markdown-body">
+        <article class="prose prose-lg max-w-none">
             
             {!! $article->body !!}
             

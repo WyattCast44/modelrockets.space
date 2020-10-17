@@ -13,7 +13,10 @@
 
             <input type="text" class="m-0 text-sm italic bg-blue-100 rounded-r-none form-control form-control-lg" x-model="url" x-ref="url">
             
-            <button class="hidden px-3 py-2 text-white bg-blue-400 rounded-l-none rounded-r btn btn-primary hover:bg-blue-500 md:inline" data-turbolinks="false" x-on:click="$refs.url.select();document.execCommand('copy');$event.target.innerText = 'Copied!'">
+            <button 
+                data-turbolinks="false" 
+                class="hidden px-3 py-2 text-white bg-blue-400 rounded-l-none rounded-r btn btn-primary hover:bg-blue-500 md:inline" 
+                x-on:click="$refs.url.select();document.execCommand('copy');$event.target.innerText = 'Copied!';">
                 Copy
             </button>
             

@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    
+
     public $search = "";
 
     public $perPage = 15;
@@ -40,13 +40,13 @@ class Index extends Component
     {
         if ($this->search == '') {
             $users = User::public()
-                        ->orderBy('created_at', 'desc')
-                        ->paginate($this->perPage);
+                ->orderBy('created_at', 'desc')
+                ->paginate($this->perPage);
         } else {
             // Searchable users are by default public
-            $users = User::search($this->search)       
-                        ->orderBy('created_at', 'desc')                     
-                        ->paginate($this->perPage);            
+            $users = User::search($this->search)
+                ->orderBy('created_at', 'desc')
+                ->paginate($this->perPage);
         }
 
         return $users;
