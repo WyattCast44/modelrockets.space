@@ -6,7 +6,7 @@
 
 <div class="mx-auto" style="max-width:90%">
 
-    <h1 class="text-2xl font-semibold mb-5">Motors</h1>
+    <h1 class="mb-5 text-2xl font-semibold">Motors</h1>
 
     <div class="table-responsive">
 
@@ -32,7 +32,7 @@
                     <tr>
                         <th class="text-center align-middle" scope="row">{{ $motor->id }}</th>
                         <td class="text-center align-middle">{{ $motor->type->name }}</td>
-                        <td class="text-center align-middle uppercase">{{ $motor->class->name }}</td>
+                        <td class="text-center uppercase align-middle">{{ $motor->class->name }}</td>
                         <td class="text-center align-middle">{{ $motor->name }}</td>
                         <td class="text-center align-middle">{{ $motor->diameter }}</td>
                         <td class="text-center align-middle">{{ $motor->total_impulse }}</td>
@@ -40,7 +40,7 @@
                         <td class="text-center align-middle">{{ $motor->average_thrust }}</td>
                         <td class="text-center align-middle">{{ $motor->max_thrust }}</td>
                         <td class="text-center align-middle">{{ $motor->burn_time }}</td>
-                        <td class="text-left align-middle text-sm">
+                        <td class="text-sm text-left align-middle">
                             <a href="{{ $motor->vendor->website }}" target="_blank">
                                 {{ $motor->vendor->name }}
                             </a>
