@@ -86,10 +86,10 @@ class RecordActivityTest extends TestCase
         $this->assertEquals(2, $user->activity->count());
 
         // And the activity method should be "favorited"
-        $this->assertEquals('favorited', $user->activity->last()->method);
+        $this->assertEquals('favorited', $user->fresh()->activity->last()->method);
     }
 
-    public function test_when_a_plalists_is_subscribed_to()
+    public function test_when_a_playlists_is_subscribed_to()
     {
         // Given we a published playlist
         $playlist = create(Playlist::class);

@@ -1,8 +1,8 @@
 {
     "name": "user_profiles",
     "schema": {
-        "id": "bigint",
-        "user_id": "bigint",
+        "id": "integer",
+        "user_id": "integer",
         "tagline": "string",
         "signature": "text",
         "meta": "text",

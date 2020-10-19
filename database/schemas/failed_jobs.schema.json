@@ -1,7 +1,7 @@
 {
     "name": "failed_jobs",
     "schema": {
-        "id": "bigint",
+        "id": "integer",
         "connection": "text",
         "queue": "text",
         "payload": "text",

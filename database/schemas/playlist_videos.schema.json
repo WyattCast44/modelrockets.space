@@ -1,10 +1,10 @@
 {
     "name": "playlist_videos",
     "schema": {
-        "id": "bigint",
-        "playlist_id": "bigint",
-        "video_id": "bigint",
-        "order": "bigint",
+        "id": "integer",
+        "playlist_id": "integer",
+        "video_id": "integer",
+        "order": "integer",
         "created_at": "datetime",
         "updated_at": "datetime"
     }
