@@ -1,8 +1,8 @@
 <?php
 
+use App\User;
 use App\Feature;
 use App\Database\BaseSeeder;
-use App\User;
 
 class FeaturesTableSeeder extends BaseSeeder
 {
@@ -18,7 +18,7 @@ class FeaturesTableSeeder extends BaseSeeder
             ]);
         });
     }
-    
+
     public function dev()
     {
         factory(Feature::class, 6)->create();

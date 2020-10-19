@@ -8,7 +8,7 @@ class VendorsTableSeeder extends BaseSeeder
     public function prod()
     {
         $vendors = collect(require_once __DIR__ . '/Data/Vendors.php');
-    
+
         $vendors->each(function ($vendor) {
             factory(Vendor::class)->create([
                 'name' => $vendor['name'],
