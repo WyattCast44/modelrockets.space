@@ -14,7 +14,7 @@ class Index extends Component
 
     public $perPage = 15;
 
-    protected $updatesQueryString = [
+    protected $queryString  = [
         'search' => ['except' => ''],
         'page' => ['except' => 1],
     ];

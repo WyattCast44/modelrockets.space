@@ -9,12 +9,12 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    
+
     public $search = "";
 
     public $perPage = 10;
 
-    protected $updatesQueryString = [
+    protected $queryString  = [
         'search' => ['except' => ''],
         'page' => ['except' => 1],
     ];
@@ -40,11 +40,11 @@ class Index extends Component
     {
         if ($this->search == '') {
             $articles = Article::published()
-                            ->orderBy('published_at', 'desc')
-                            ->paginate($this->perPage);
+                ->orderBy('published_at', 'desc')
+                ->paginate($this->perPage);
         } else {
-            $articles = Article::search($this->search)  
-                            ->paginate($this->perPage);            
+            $articles = Article::search($this->search)
+                ->paginate($this->perPage);
         }
 
         $articles->load(['user']);

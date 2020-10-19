@@ -35,7 +35,7 @@ Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')-
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
 
 // Roadmap...
-Route::livewire('/roadmap', 'features.index')->name('features.index');
+// Route::get('/roadmap', Index::class)->name('features.index'); @link https://laravel-livewire.com/docs/2.x/upgrading#route-livewire
 
 // Forum...
 Route::get('/forum', 'ForumController')->name('forum.index');

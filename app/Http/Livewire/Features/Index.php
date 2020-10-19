@@ -26,25 +26,25 @@ class Index extends Component
     public function openFeatures()
     {
         $features = Feature::public()
-                        ->open()
-                        ->latest()
-                        ->with(['user.votes'])
-                        ->withCount('votes')
-                        ->get()
-                        ->sortByDesc('votes_count');
+            ->open()
+            ->latest()
+            ->with(['user.votes'])
+            ->withCount('votes')
+            ->get()
+            ->sortByDesc('votes_count');
 
         return $features;
     }
-    
+
     public function closedFeatures()
     {
         $features = Feature::public()
-                        ->closed()
-                        ->latest()
-                        ->with(['user.votes'])
-                        ->withCount('votes')
-                        ->get()
-                        ->sortByDesc('votes_count');
+            ->closed()
+            ->latest()
+            ->with(['user.votes'])
+            ->withCount('votes')
+            ->get()
+            ->sortByDesc('votes_count');
 
         return $features;
     }
