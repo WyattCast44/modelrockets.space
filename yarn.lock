@@ -4250,6 +4250,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+livewire-turbolinks@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/livewire-turbolinks/-/livewire-turbolinks-0.1.1.tgz#95d80b40cd7c672d3daebea56c16fbbf4c113ccd"
+  integrity sha512-XQaH+HreLse5/6Ad6Rz2jC5PmV7Pa/Q3r46sGcmTkQHlh3w25KK7FF6TsRU8Pu9SMJWXRgoHh2Gb0b8xQPFD0Q==
+
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
