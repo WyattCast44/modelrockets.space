@@ -54,8 +54,10 @@
 
         <!-- Article Body -->
         <article class="prose prose-lg max-w-none">
-            
-            {!! $article->body !!}
+
+            <x-markdown flavor="github" anchors>
+                {!! $article->body !!}
+            </x-markdown>            
             
         </article>
 

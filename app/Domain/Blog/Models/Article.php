@@ -88,15 +88,6 @@ class Article extends Model implements Feedable, ActivityFeedable
     /**
      * Accessors/Mutators
      */
-    public function getBodyAttribute($value)
-    {
-        if (request()->is('nova-api/*')) {
-            return $value;
-        }
-
-        return Markdown::parse($value);
-    }
-
     public function getExcerptAttribute()
     {
         return Str::limit($this->body, 512);
