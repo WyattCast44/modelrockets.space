@@ -34,7 +34,12 @@
                 <a href="{{ $article->path('discuss') }}" class="mr-2 btn btn-outline-primary btn-sm" data-turbolinks="false">️️️️️️🗣️ Discuss</a>
             @endif
 
-            @include('articles._partials.favorite')
+            <!-- Favorite -->
+            @if (auth()->check() && $article->hasUserFavorited()) 
+                <button wire:click="unfavorite" class="btn btn-sm btn-outline-primary">👎 Unfavorite</button>
+            @else
+                <button wire:click="favorite" class="btn btn-sm btn-outline-primary">👍 Favorite</button>
+            @endif    
 
         </div>        
 

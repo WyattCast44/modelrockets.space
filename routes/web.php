@@ -12,7 +12,7 @@ Route::get('/', 'DashboardController')->name('home');
 Route::view('/pages/terms', 'pages.terms')->name('pages.terms');
 Route::view('/pages/privacy', 'pages.privacy')->name('pages.privacy');
 
-// Members...
+// Users...
 Route::get('/members/@{user}', 'UsersController@show')->name('users.show');
 Route::patch('/members/@{user}', 'UsersController@update')->name('users.update');
 Route::get('/members/@{user}/flights', 'FlightsController@index')->name('flights.index');
@@ -25,11 +25,6 @@ Route::delete('/members/@{user}/flights/{flight}', 'FlightsController@delete')->
 if (config('features.user-galleries')) {
     Route::get('/members/@{user}/gallery', 'UserGalleryController@index')->name('users.gallery.index');
 }
-
-// Articles...
-Route::get('/articles/{article}/preview', 'ArticlesController@preview')->name('articles.preview');
-Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
-Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
 
 // Forum...
 Route::get('/forum', 'ForumController')->name('forum.index');

@@ -1,6 +1,6 @@
-@section('page-title', 'Articles') 
-
 <div>
+
+    @section('page-title', 'Articles') 
 
     <header class="flex flex-col pt-12 pb-24 bg-gray-200 border-b border-gray-300 border-solid">
         <div class="container">
@@ -18,14 +18,16 @@
 
         <div class="overflow-hidden bg-gray-200 border border-gray-400 rounded-lg">
             
+            <!-- Search -->
             <div class="px-4 py-5 bg-white border-b border-gray-400 sm:px-6">
                 <input type="text" wire:model="search" class="m-0 form-control" placeholder="Search articles...">
             </div>
             
+            <!-- Article List -->
             <ul class="bg-white divide-y">
     
                 @foreach ($articles as $article)
-            
+        
                     <li class="flex p-5 hover:bg-cool-gray-200">
                         
                         <div class="space-y-2">
@@ -54,7 +56,8 @@
                 @endforeach
         
             </ul>
-    
+            
+            <!-- Pagination Links -->
             {{ $articles->links() }}
     
         </div>

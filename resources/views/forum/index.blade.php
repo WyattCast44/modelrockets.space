@@ -14,9 +14,9 @@
 
         </ul>
 
-        <div class="my-10 flex justify-center md:justify-start">
+        <div class="flex justify-center my-10 md:justify-start">
             {{ $threads->appends(request()->except('page'))->links() }}
-        </div>            
+        </div>
 
     </div>
 

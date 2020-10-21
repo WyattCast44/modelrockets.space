@@ -179,10 +179,6 @@ class Article extends Model implements Feedable, ActivityFeedable
                 return route('threads.show', ['board' => $this->thread->board, 'thread' => $this->thread], $absolute);
                 break;
 
-            case 'preview':
-                return route('articles.preview', ['article' => $this], $absolute);
-                break;
-
             default:
                 return route('articles.index', [], $absolute);
                 break;
