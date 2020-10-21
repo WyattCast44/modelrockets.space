@@ -1,13 +1,5 @@
 @if (auth()->check() && $article->hasUserFavorited()) 
-    <!-- Unfavorite -->
-    <form action="{{ $article->path('unfavorite') }}" method="post">
-        @csrf
-        <button type="submit" class="btn btn-sm btn-outline-primary">👎 Unfavorite</button>
-    </form>
+    <button wire:click="unfavorite" class="btn btn-sm btn-outline-primary">👎 Unfavorite</button>
 @else
-    <!-- Favorite -->
-    <form action="{{ $article->path('favorite') }}" method="post">
-        @csrf
-        <button type="submit" class="btn btn-sm btn-outline-primary">👍 Favorite</button>
-    </form>
+    <button wire:click="favorite" class="btn btn-sm btn-outline-primary">👍 Favorite</button>
 @endif    

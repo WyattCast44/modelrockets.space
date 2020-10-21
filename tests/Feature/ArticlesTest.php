@@ -5,8 +5,10 @@ namespace Tests\Feature;
 use App\User;
 use App\Board;
 use Tests\TestCase;
+use Livewire\Livewire;
 use App\Events\ArticleDeleted;
 use App\Domain\Blog\Models\Article;
+use App\Http\Livewire\Articles\ArticleShow;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -120,9 +122,15 @@ class ArticlesTest extends TestCase
         // We should get a valid response
         $response->assertStatus(200);
 
-        // When we visit the favorite link, we should have a new favorite
-        $response = $this->post($article->path('favorite'), []);
+        // We should see the livewire component
+        $response->assertSeeLivewire('articles.article-show');
 
+        // When we call the favorite method
+        Livewire::actingAs($user)
+            ->test(ArticleShow::class, ['article' => $article])
+            ->call('favorite');
+
+        // We should have one favorite
         $this->assertEquals(1, $user->refresh()->favorites->count());
 
         $this->assertEquals($article->title, $user->favorites->first()->item->title);
@@ -142,10 +150,10 @@ class ArticlesTest extends TestCase
         // We should get a valid response
         $response->assertStatus(200);
 
-        // When we visit the favorite link, we should have a new favorite
-        $response = $this->post($article->path('favorite'));
-
-        $response->assertRedirect('/login');
+        // When we call the favorite method
+        Livewire::test(ArticleShow::class, ['article' => $article])
+            ->call('favorite')
+            ->assertRedirect('/login');
     }
 
     public function test_an_article_can_be_printed()

@@ -32,8 +32,6 @@ Route::get('/articles/{article}/preview', 'ArticlesController@preview')->name('a
 Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
 
-
-
 // Forum...
 Route::get('/forum', 'ForumController')->name('forum.index');
 Route::get('/forum/b/{board}', 'BoardsController@show')->name('boards.index.show');
