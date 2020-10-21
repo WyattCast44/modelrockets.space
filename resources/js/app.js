@@ -26,12 +26,3 @@ application.load(definitionsFromContext(context));
  * Livewire Turbolinks
  */
 import 'livewire-turbolinks'
-
-/**
- * LightBox
- */
-import GLightbox from 'glightbox'
-
-document.addEventListener("turbolinks:load", function () {
-    const lightbox = GLightbox();
-});

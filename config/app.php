@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\NovaServiceProvider::class,
+        App\Providers\MetaTagsServiceProvider::class,
 
         /*
          * Application Service Providers...

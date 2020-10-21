@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Articles;
 
 use Livewire\Component;
+use Butschster\Head\Facades\Meta;
 use App\Domain\Blog\Models\Article;
+use Butschster\Head\Packages\Entities\OpenGraphPackage;
 
 class ArticleShow extends Component
 {
@@ -12,6 +14,15 @@ class ArticleShow extends Component
     public function mount(Article $article)
     {
         abort_if(!$article->published, 404);
+
+        $graph = tap(new OpenGraphPackage('open_graph'), function ($graph) {
+            $graph->setType('website')
+                ->setSiteName(config('app.name'))
+                ->setTitle($this->article->title);
+        });
+
+        Meta::prependTitle($this->article->title)
+            ->registerPackage($graph);
     }
 
     public function favorite()
