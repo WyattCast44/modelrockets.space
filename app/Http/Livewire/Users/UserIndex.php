@@ -6,7 +6,7 @@ use App\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class UserIndex extends Component
 {
     use WithPagination;
 
@@ -31,9 +31,9 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.users.index', [
+        return view('users.index', [
             'users' => $this->users(),
-        ]);
+        ])->extends('layouts.app')->section('content');
     }
 
     public function users()

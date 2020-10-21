@@ -14,18 +14,12 @@ class UsersController extends Controller
         $this->middleware('auth')->only('update');
     }
 
-    public function index()
-    {
-        // Data fetched by Livewire        
-        return view('users.index');
-    }
-
     public function show(User $user, Request $request)
     {
         $this->authorize('view', $user);
 
         $user->load(['activity', 'profile']);
-        
+
         $activityGroups = $user->activity->groupBy(function ($activity) {
             return $activity->updated_at->format('d M y');
         });

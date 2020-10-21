@@ -13,7 +13,6 @@ Route::view('/pages/terms', 'pages.terms')->name('pages.terms');
 Route::view('/pages/privacy', 'pages.privacy')->name('pages.privacy');
 
 // Members...
-Route::get('/members', 'UsersController@index')->name('users.index');
 Route::get('/members/@{user}', 'UsersController@show')->name('users.show');
 Route::patch('/members/@{user}', 'UsersController@update')->name('users.update');
 Route::get('/members/@{user}/flights', 'FlightsController@index')->name('flights.index');
