@@ -88,9 +88,14 @@ class Article extends Model implements Feedable, ActivityFeedable
     /**
      * Accessors/Mutators
      */
+    public function getRenderedBodyAttribute()
+    {
+        return Markdown::parse($this->body);
+    }
+
     public function getExcerptAttribute()
     {
-        return Str::limit($this->body, 512);
+        return Str::limit($this->rendered_body, 512);
     }
 
     public function getActivityTitleAttribute()
