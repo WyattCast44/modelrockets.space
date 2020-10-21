@@ -5,6 +5,7 @@ namespace App;
 use App\Attachment;
 use Illuminate\Support\Arr;
 use Laravel\Scout\Searchable;
+use App\Domain\Blog\Models\Article;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -141,7 +142,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Subscription::class);
     }
-    
+
     public function votes()
     {
         return $this->hasMany(FeatureVote::class);
@@ -169,7 +170,7 @@ class User extends Authenticatable
         return ($this->created_at > now()->subDays(5)) ? true : false;
     }
 
-    
+
     /**
      * Scopes
      */
@@ -217,7 +218,7 @@ class User extends Authenticatable
             case 'gallery':
                 return route('users.gallery.index', $this, $absolute);
                 break;
-            
+
             default:
                 return route('users.index', [], $absolute);
                 break;

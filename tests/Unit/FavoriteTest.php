@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use App\Thread;
 use App\Favorite;
-use App\Article;
+use App\Domain\Blog\Models\Article;
 
 class FavoriteTest extends TestCase
 {

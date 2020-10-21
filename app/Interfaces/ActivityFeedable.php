@@ -8,5 +8,5 @@ interface ActivityFeedable
 
     public function getActivityExcerptAttribute();
 
-    public function path($method, $absolute);
+    public function path($method = 'index', $absolute = true);
 }

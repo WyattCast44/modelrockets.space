@@ -20,7 +20,7 @@ class Article extends Resource
      *
      * @var string
      */
-    public static $model = 'App\Article';
+    public static $model = 'App\Domain\Blog\Models\Article';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -123,12 +123,12 @@ class Article extends Resource
             Markdown::make('Body')
                 ->rules('required', 'string')
                 ->hideFromIndex(),
-                
+
             Button::make('View')
                 ->link($this->path('show'))
                 ->visible($this->published_at != null)
                 ->hideWhenCreating(),
-    
+
             Button::make('Preview')
                 ->link($this->path('preview'))
                 ->visible($this->published_at == null)

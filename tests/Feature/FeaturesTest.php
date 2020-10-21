@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Livewire;
 use App\Feature;
 use Tests\TestCase;
-use App\Http\Livewire\Features\Index;
+use App\Http\Livewire\Features\FeatureIndex;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FeaturesTest extends TestCase
@@ -28,7 +28,7 @@ class FeaturesTest extends TestCase
 
         // We should see a upvote button and when we click it, 
         // it should call the upvote action
-        Livewire::test(Index::class)
+        Livewire::test(FeatureIndex::class)
             ->assertSee('Upvote')
             ->call('upvote', $feature->id);
 
@@ -48,7 +48,7 @@ class FeaturesTest extends TestCase
         $res->assertOk();
 
         // We should see a login to vote btn
-        Livewire::test(Index::class)
+        Livewire::test(FeatureIndex::class)
             ->assertSee('Login to vote')
             ->call('upvote', $feature->id)
             ->assertRedirect('/login');

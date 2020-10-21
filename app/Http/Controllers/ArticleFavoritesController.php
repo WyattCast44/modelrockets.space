@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Domain\Blog\Models\Article;
 
 class ArticleFavoritesController extends Controller
 {

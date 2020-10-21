@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Articles;
 
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class ArticleIndex extends Component
 {
     use WithPagination;
 
@@ -29,13 +29,6 @@ class Index extends Component
         return 'livewire.partials.pagination';
     }
 
-    public function render()
-    {
-        return view('livewire.articles.index', [
-            'articles' => $this->articles(),
-        ]);
-    }
-
     public function articles()
     {
         if ($this->search == '') {
@@ -50,5 +43,12 @@ class Index extends Component
         $articles->load(['user']);
 
         return $articles;
+    }
+
+    public function render()
+    {
+        return view('articles.index', [
+            'articles' => $this->articles(),
+        ])->extends('layouts.app')->section('content');
     }
 }

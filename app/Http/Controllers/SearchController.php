@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Board;
 use App\Thread;
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use App\Playlist;
 use App\Video;
 use Illuminate\Support\Str;

@@ -1,10 +1,10 @@
 {
     "name": "attachments",
     "schema": {
-        "id": "integer",
-        "user_id": "integer",
+        "id": "bigint",
+        "user_id": "bigint",
         "attachable_type": "string",
-        "attachable_id": "integer",
+        "attachable_id": "bigint",
         "filename": "string",
         "vendor_id": "string",
         "path": "text",

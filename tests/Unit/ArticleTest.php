@@ -4,8 +4,8 @@ namespace Tests\Unit;
 
 use App\User;
 use App\Board;
-use App\Article;
 use Tests\TestCase;
+use App\Domain\Blog\Models\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ArticleTest extends TestCase
@@ -97,7 +97,7 @@ class ArticleTest extends TestCase
 
         // It can tell us the path to view it
         $this->assertNotNull($article->path('show'));
-        
+
         // The path it returns should match what the routes file gives us
         $this->assertEquals(route('articles.show', $article), $article->path('show'));
     }
@@ -112,7 +112,7 @@ class ArticleTest extends TestCase
 
         // It can tell us the path to view it
         $this->assertNotNull($article->path('index'));
-        
+
         // The path it returns should match what the routes file gives us
         $this->assertEquals(route('articles.index'), $article->path('index'));
     }

@@ -1,7 +1,7 @@
 <?php
 
 use App\User;
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use App\Database\BaseSeeder;
 
 class ArticlesTableSeeder extends BaseSeeder
@@ -20,7 +20,9 @@ class ArticlesTableSeeder extends BaseSeeder
     public function dev()
     {
         // Five fake unpublished
-        factory(Article::class, 5)->create();
+        $articles = factory(Article::class, 5)->create();
+
+        $articles->each->publish();
 
         // Markdown Test Article
         factory(Article::class)->create([

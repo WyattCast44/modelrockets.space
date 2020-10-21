@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use App\User;
 use App\Board;
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use Tests\TestCase;
 use App\Events\ThreadDeleted;
 use App\Events\ArticleDeleted;
@@ -37,7 +37,7 @@ class ArticlesTest extends TestCase
     {
         // Given we have an article
         $article = create(Article::class);
-        
+
         // And we publish it
         $article->publish();
 
@@ -90,7 +90,7 @@ class ArticlesTest extends TestCase
 
         // And we publish one of them
         $publishedArticle->publish();
-        
+
         // When we visit the rss for for articles
         $response = $this->get('/rss/articles');
 
@@ -108,7 +108,7 @@ class ArticlesTest extends TestCase
     {
         // Given we have an article
         $article = create(Article::class);
-        
+
         // And we publish it
         $article->publish();
 
@@ -125,7 +125,7 @@ class ArticlesTest extends TestCase
         $response = $this->post($article->path('favorite'), []);
 
         $this->assertEquals(1, $user->refresh()->favorites->count());
-        
+
         $this->assertEquals($article->title, $user->favorites->first()->item->title);
     }
 
@@ -133,7 +133,7 @@ class ArticlesTest extends TestCase
     {
         // Given we have an article
         $article = create(Article::class);
-        
+
         // And we publish it
         $article->publish();
 
@@ -153,7 +153,7 @@ class ArticlesTest extends TestCase
     {
         // Given we have an article
         $article = create(Article::class);
-        
+
         // And we publish it
         $article->publish();
 
@@ -171,7 +171,7 @@ class ArticlesTest extends TestCase
     {
         // Given we have an article
         $article = create(Article::class);
-        
+
         // And we publish it
         $article->publish();
 
@@ -189,7 +189,7 @@ class ArticlesTest extends TestCase
     {
         // Given we have an article
         $article = create(Article::class);
-        
+
         // And we publish it
         $article->publish();
 
@@ -210,9 +210,9 @@ class ArticlesTest extends TestCase
 
         // Given we have a board called 'Article Discussions' and the ArticlesBot Exists
         $board = create(Board::class, ['name' => 'Article Discussions']);
-        
+
         create(User::class, ['username' => 'ArticlesBot']);
-        
+
         // And we publish it
         $article->publish();
 
@@ -234,9 +234,9 @@ class ArticlesTest extends TestCase
 
         // Given we have a board called 'Article Discussions' and the ArticlesBot Exists
         $board = create(Board::class, ['name' => 'Article Discussions']);
-        
+
         create(User::class, ['username' => 'ArticlesBot']);
-        
+
         // And we publish it
         $article->publish();
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Domain\Blog\Models\Article;
 
 class ArticlesController extends Controller
 {
@@ -22,7 +22,7 @@ class ArticlesController extends Controller
         if (!$article->published) {
             return abort(404);
         }
-        
+
         $article->load(['user']);
 
         return view('articles.show', ['article' => $article]);

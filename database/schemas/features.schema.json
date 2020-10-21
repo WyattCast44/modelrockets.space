@@ -1,10 +1,10 @@
 {
     "name": "features",
     "schema": {
-        "id": "integer",
+        "id": "bigint",
         "name": "string",
         "body": "text",
-        "user_id": "integer",
+        "user_id": "bigint",
         "status": "string",
         "public": "boolean",
         "completed_at": "datetime",

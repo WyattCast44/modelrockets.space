@@ -6,7 +6,7 @@ use App\User;
 use App\Reply;
 use App\Flight;
 use App\Thread;
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use App\Playlist;
 use App\Attachment;
 use App\Observers\UserObserver;

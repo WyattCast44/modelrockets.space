@@ -28,14 +28,12 @@ if (config('features.user-galleries')) {
 }
 
 // Articles...
-Route::view('/articles', 'articles.index')->name('articles.index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::get('/articles/{article}/preview', 'ArticlesController@preview')->name('articles.preview');
 Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');
 
-// Roadmap...
-// Route::get('/roadmap', Index::class)->name('features.index'); @link https://laravel-livewire.com/docs/2.x/upgrading#route-livewire
+
 
 // Forum...
 Route::get('/forum', 'ForumController')->name('forum.index');

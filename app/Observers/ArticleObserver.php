@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use App\Events\ArticleDeleted;
 
 class ArticleObserver
@@ -10,7 +10,7 @@ class ArticleObserver
     /**
      * Handle the article "created" event.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Domain\Blog\Models\Article  $article
      * @return void
      */
     public function created(Article $article)
@@ -21,7 +21,7 @@ class ArticleObserver
     /**
      * Handle the article "updated" event.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Domain\Blog\Models\Article  $article
      * @return void
      */
     public function updated(Article $article)
@@ -32,7 +32,7 @@ class ArticleObserver
     /**
      * Handle the article "deleted" event.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Domain\Blog\Models\Article  $article
      * @return void
      */
     public function deleted(Article $article)
@@ -43,7 +43,7 @@ class ArticleObserver
     /**
      * Handle the article "restored" event.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Domain\Blog\Models\Article  $article
      * @return void
      */
     public function restored(Article $article)
@@ -54,7 +54,7 @@ class ArticleObserver
     /**
      * Handle the article "force deleted" event.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Domain\Blog\Models\Article  $article
      * @return void
      */
     public function forceDeleted(Article $article)

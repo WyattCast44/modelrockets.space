@@ -2,9 +2,9 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Article;
-use Faker\Generator as Faker;
 use App\User;
+use Faker\Generator as Faker;
+use App\Domain\Blog\Models\Article;
 
 $factory->define(Article::class, function (Faker $faker) {
     return [

@@ -1,7 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Domain\Blog\Models;
 
+use App\User;
+use App\Board;
 use App\Thread;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
@@ -76,7 +78,7 @@ class Article extends Model implements Feedable, ActivityFeedable
                 'body' => "This thread was opened by the Articles Bot (🤖) for discussion about the following article: <a href='{$this->path('show')}'>{$this->title}</a>",
                 'open' => true,
             ]);
-            
+
             $this->update([
                 'thread_id' => $thread->id,
             ]);
@@ -181,9 +183,9 @@ class Article extends Model implements Feedable, ActivityFeedable
             case 'show':
                 return route('articles.show', $this, $absolute);
                 break;
-            
+
             case 'discuss':
-                
+
                 logger('art', [
                     'thread' => $this->thread,
                 ]);
@@ -209,7 +211,7 @@ class Article extends Model implements Feedable, ActivityFeedable
         }
     }
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

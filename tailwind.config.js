@@ -10,7 +10,8 @@ module.exports = {
         },
         extend: {
             screens: {
-                print: { raw: "print" }
+                print: { raw: "print" },
+                'dark': { 'raw': '(prefers-color-scheme: dark)' },
             }
         }
     },

@@ -6,7 +6,7 @@ use App\User;
 use App\Board;
 use App\Video;
 use App\Thread;
-use App\Article;
+use App\Domain\Blog\Models\Article;
 use App\Playlist;
 use Illuminate\Console\Command;
 

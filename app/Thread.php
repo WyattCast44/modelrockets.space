@@ -16,9 +16,9 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model implements ActivityFeedable
 {
     use Favoritable, HasAttachments, Searchable, Subscribable;
-    
+
     protected $guarded = [];
-    
+
     /**
      * Behavior/Actions
      */
@@ -45,7 +45,7 @@ class Thread extends Model implements ActivityFeedable
         if ($this->best_answer_reply_id) {
             return Reply::find($this->best_answer_reply_id);
         }
-        
+
         return null;
     }
 

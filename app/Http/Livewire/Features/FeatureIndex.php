@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Features;
 use App\Feature;
 use Livewire\Component;
 
-class Index extends Component
+class FeatureIndex extends Component
 {
     public function upvote($featureId)
     {
@@ -20,12 +20,13 @@ class Index extends Component
             'openFeatures' => $this->openFeatures(),
             'closedFeatures' => $this->closedFeatures(),
             'userVotes' => $this->userVotes(),
-        ]);
+        ])->extends('layouts.app')->section('content');
     }
 
     public function openFeatures()
     {
-        $features = Feature::public()
+        $features = Feature::query()
+            ->public()
             ->open()
             ->latest()
             ->with(['user.votes'])
@@ -38,7 +39,8 @@ class Index extends Component
 
     public function closedFeatures()
     {
-        $features = Feature::public()
+        $features = Feature::query()
+            ->public()
             ->closed()
             ->latest()
             ->with(['user.votes'])
