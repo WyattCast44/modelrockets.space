@@ -1,14 +1,16 @@
 @section('page-title', 'Articles') 
 
 <div>
-    
-    <header class="flex flex-col py-8 mb-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10 md:py-12">
-        <div class="container">
-            <h1 class="mb-2 text-4xl text-center">Articles</h1>
 
+    <header class="flex flex-col pt-12 pb-24 bg-gray-200 border-b border-gray-300 border-solid">
+        <div class="container">
+    
+            <h1 class="mb-3 text-4xl text-center">Articles</h1>
+    
             <p class="text-center text-gray-600">
                 Keep up with the latest model rocketry news, learn new skills and more!
             </p>
+    
         </div>
     </header>
 
