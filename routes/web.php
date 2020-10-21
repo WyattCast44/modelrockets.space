@@ -28,7 +28,6 @@ if (config('features.user-galleries')) {
 }
 
 // Articles...
-Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::get('/articles/{article}/preview', 'ArticlesController@preview')->name('articles.preview');
 Route::post('/articles/{article}/favorite', 'ArticleFavoritesController@store')->name('articles.favorite');
 Route::post('/articles/{article}/unfavorite', 'ArticleFavoritesController@destroy')->name('articles.unfavorite');

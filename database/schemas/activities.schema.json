@@ -1,11 +1,11 @@
 {
     "name": "activities",
     "schema": {
-        "id": "bigint",
-        "user_id": "bigint",
+        "id": "integer",
+        "user_id": "integer",
         "method": "string",
         "subject_type": "string",
-        "subject_id": "bigint",
+        "subject_id": "integer",
         "created_at": "datetime",
         "updated_at": "datetime"
     }

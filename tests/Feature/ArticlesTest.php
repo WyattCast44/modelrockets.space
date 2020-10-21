@@ -4,10 +4,9 @@ namespace Tests\Feature;
 
 use App\User;
 use App\Board;
-use App\Domain\Blog\Models\Article;
 use Tests\TestCase;
-use App\Events\ThreadDeleted;
 use App\Events\ArticleDeleted;
+use App\Domain\Blog\Models\Article;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

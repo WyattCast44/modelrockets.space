@@ -1,4 +1,6 @@
-<x-layout name="layouts.app" :title="$article->title" section="content">
+<div>
+
+    @section('page-title', $article->title) 
 
     <header class="flex flex-col py-8 mb-8 bg-gray-200 border-b border-gray-300 border-solid sm:py-10 md:py-12">
         <div class="container">
@@ -13,14 +15,6 @@
     </header>
 
     <main class="container mx-auto mt-5 mb-12">
-
-        @if ($article->published_at == null)
-
-            <div class="p-3 mb-8 font-bold text-center text-red-600 bg-red-100 border-2 border-red-300 border-dashed rounded">
-                This is a preview only! You must publish the article for others to see it.
-            </div>
-            
-        @endif
 
         <!-- Actions -->
         <div class="flex items-center justify-center mb-4 sm:mb-6 md:mb-8 md:justify-start print:hidden">
@@ -67,4 +61,4 @@
 
     </main>
 
-</x-layout>
+</div>
