@@ -34,5 +34,10 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="msapplication-TileColor" content="#4735AE">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+@env('production')
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://reptile.wyattblogs.com/script.js" data-site="TAZCADLC" defer></script>    
+@endenv
 @include('feed::links')
 @yield('meta')
+
