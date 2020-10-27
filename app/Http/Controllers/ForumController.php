@@ -29,9 +29,9 @@ class ForumController extends Controller
         }
 
         $boards = Board::public()
-                    ->latest()
-                    ->withCount('threads')
-                    ->get();
+            ->latest()
+            ->withCount('threads')
+            ->get();
 
         return view('forum.index', [
             'boards' => $boards,
@@ -42,9 +42,9 @@ class ForumController extends Controller
     protected function getStandardThreads()
     {
         return Thread::latest()
-                ->with(['user', 'board'])
-                ->withCount('replies')
-                ->simplePaginate(20);
+            ->with(['user', 'board'])
+            ->withCount('replies')
+            ->simplePaginate(5);
     }
 
     public function getCustomThreads()
@@ -54,9 +54,9 @@ class ForumController extends Controller
         switch ($filter) {
             case 'all':
                 $threads = Thread::latest()
-                            ->with(['user', 'board'])
-                            ->withCount('replies')
-                            ->simplePaginate(20);
+                    ->with(['user', 'board'])
+                    ->withCount('replies')
+                    ->simplePaginate(20);
                 break;
 
             case 'mine':
@@ -68,30 +68,30 @@ class ForumController extends Controller
                         ->simplePaginate(20);
                 } else {
                     $threads = Thread::latest()
-                                ->take(0)
-                                ->simplePaginate(1);
+                        ->take(0)
+                        ->simplePaginate(1);
                 }
                 break;
 
             case 'popular':
                 $threads = Thread::with(['user', 'board'])
-                            ->withCount('replies')
-                            ->orderByDesc('replies_count')
-                            ->simplePaginate(20);
+                    ->withCount('replies')
+                    ->orderByDesc('replies_count')
+                    ->simplePaginate(20);
                 break;
 
             case 'latest':
                 $threads = Thread::latest()
-                            ->with(['user', 'board'])
-                            ->withCount('replies')
-                            ->simplePaginate(20);
+                    ->with(['user', 'board'])
+                    ->withCount('replies')
+                    ->simplePaginate(20);
                 break;
-                
+
             default:
                 $threads = Thread::latest()
-                            ->with(['user', 'board'])
-                            ->withCount('replies')
-                            ->simplePaginate(20);
+                    ->with(['user', 'board'])
+                    ->withCount('replies')
+                    ->simplePaginate(20);
                 break;
         }
 

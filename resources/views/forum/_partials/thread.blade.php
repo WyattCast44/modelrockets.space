@@ -1,9 +1,9 @@
-<li class="block mb-5 border border-solid border-gray-300 bg-white hover:bg-gray-100 py-6 px-6 rounded-lg shadow-md hover:border-2 hover:border-solid hover:border-blue-600 hover:shadow-lg">
+<li class="block px-6 py-6 bg-white hover:bg-gray-100">
     
     <div class="flex flex-wrap md:justify-between">
 
         <!-- Thread -->
-        <div class="w-100 md:w-3/4 flex flex-col justify-between">
+        <div class="flex flex-col justify-between w-100 md:w-3/4">
             <a href="{{ $thread->path() }}" class="text-lg">
                 {{ $thread->title }}
             </a>
@@ -18,8 +18,8 @@
         </div>
 
         <!-- Board -->
-        <div class="flex justify-end items-start md:pl-4 md:w-1/4">
-            <a href="{{ $thread->board->path($thread->board) }}" class="btn btn-sm px-3 btn-outline-primary rounded md:rounded-full">
+        <div class="flex items-start justify-end md:pl-4 md:w-1/4">
+            <a href="{{ $thread->board->path($thread->board) }}" class="px-3 rounded btn btn-sm btn-outline-primary md:rounded-full">
                 {{ $thread->board->name }}
             </a>
         </div>

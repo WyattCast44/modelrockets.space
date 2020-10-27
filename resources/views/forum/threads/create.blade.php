@@ -4,7 +4,7 @@
 
 @section('content')
 
-<header class="border-b border-solid border-gray-300 bg-gray-200 py-6 sticky top-0 shadow-md mb-8" style="z-index:1000">
+<header class="sticky top-0 py-6 mb-8 bg-gray-200 border-b border-gray-300 border-solid shadow-md" style="z-index:1000">
 
     <div class="container">
         <p class="text-sm text-gray-700">
@@ -12,7 +12,7 @@
             <a href="{{ route('boards.show', $board) }}">{{ $board->name }}</a> /
         </p>
     
-        <h1 class="text-xl mb-0">Create New Thread</h1>
+        <h1 class="mb-0 text-xl">Create New Thread</h1>
     </div>
 
 </header>
@@ -24,8 +24,8 @@
     </div>
 
     <!-- Board Desc -->
-    <div class="rounded border-2 border-solid p-8 mb-6 border-blue-300 bg-blue-100">
-        <h2 class="font-semibold text-lg text-blue-900">Your Posting In: <span class="font-normal underline">{{ $board->name }}</span></h2>
+    <div class="p-8 mb-6 bg-blue-100 border-2 border-blue-300 border-solid rounded">
+        <h2 class="text-lg font-semibold text-blue-900">Your Posting In: <span class="font-normal underline">{{ $board->name }}</span></h2>
 
         <p class="my-2">{{ $board->description }}</p>
 
