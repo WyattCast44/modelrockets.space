@@ -25,7 +25,7 @@ class Board extends Model implements Feedable
 
         return $this;
     }
-    
+
     public function makePrivate($password)
     {
         $this->update([
@@ -40,7 +40,7 @@ class Board extends Model implements Feedable
     {
         if ($password <> $this->password) {
             throw new \Exception("The given password did not match the stored password, please try again.", 1);
-            
+
             return;
         }
 

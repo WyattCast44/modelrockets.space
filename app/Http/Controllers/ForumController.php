@@ -44,7 +44,7 @@ class ForumController extends Controller
         return Thread::latest()
             ->with(['user', 'board'])
             ->withCount('replies')
-            ->simplePaginate(5);
+            ->simplePaginate(20);
     }
 
     public function getCustomThreads()
@@ -69,7 +69,7 @@ class ForumController extends Controller
                 } else {
                     $threads = Thread::latest()
                         ->take(0)
-                        ->simplePaginate(1);
+                        ->simplePaginate(20);
                 }
                 break;
 
