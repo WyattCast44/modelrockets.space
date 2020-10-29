@@ -33,5 +33,6 @@
         "glightbox": "^2.0.6",
         "trix": "^1.1.1",
         "vue-bootstrap4-table": "^1.1.9"
-    }
+    },
+    "version": "0.0.0"
 }
