@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Users\UserIndex;
+use App\Http\Livewire\Threads\ThreadCreate;
 use App\Http\Livewire\Articles\ArticleShow;
 use App\Http\Livewire\Articles\ArticleIndex;
 use App\Http\Livewire\Features\FeatureIndex;
-use App\Http\Livewire\Threads\ThreadCreate;
 
 // Users
 Route::get('/members', UserIndex::class)->name('users.index');
